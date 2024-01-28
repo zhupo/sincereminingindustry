@@ -1,0 +1,62 @@
+<footer class="web_footer"> 
+    <ul class="foot_nav wow fadeInUpA" data-wow-delay="1s" data-wow-duration=".8s"> 
+     {cms:channellist id="nav" type="top" cache="0" condition="1=isnav" row="20" orderby="weigh" orderway="desc"}
+        <li><a href="{$nav.url}">{$nav.name}</a> </li>
+     {/cms:channellist}
+    </ul> 
+    <div class="foot_bottom layout"> 
+     <ul class="foot_contact wow fadeInUpA" data-wow-delay="1.3s" data-wow-duration=".8s"> 
+      <li class="foot_email"><a style="text-transform: lowercase;" href="mailto:{$site.email}">{$site.emaill}</a></li> 
+      <li class="foot_address">Address:West of Yaodu Avenue, Tuojiang Town, Jianghua Yao Autonomous County, Yongzhou City, Hunan Province, P.R,China</li> 
+      <li class="foot_phone"><a href="tel:{site.tell}">Tel:{$site.tell}</a></li> 
+     </ul> 
+     <ul class="foot_sns wow fadeInUpA" data-wow-delay="1.5s" data-wow-duration=".8s"> 
+        {cms:blocklist id="block" name="media" orderby="weigh" orderway="asc" }
+            <li><a href="{$block.url}"><img src="{$block.image}" alt="{$block.title}"></a></li> 
+        {/cms:blocklist}
+     </ul> 
+     <div class="copyright wow fadeInUpA" data-wow-delay="1.7s" data-wow-duration=".8s">
+      <!-- Copyright © 2019 
+      <span class="txt_impt">Goodao.cn</span> All Rights Reserved -->
+      {$site.beian}
+     </div> 
+    </div> 
+   </footer> 
+   <!--// web_footer end --> 
+  </div> 
+  <!--// container end --> 
+  <aside class="scrollsidebar" id="scrollsidebar"> 
+   <section class="side_content"> 
+    <div class="side_list"> 
+     <header class="hd">
+      <img src="__CDN__/template/default/images/title_pic.png" alt="">
+     </header> 
+     <div class="cont"> 
+      <li><a class="email" href="mailto:{$site.email}">Send Email</a></li> 
+      <!-- <li><a class="skype" href="">Skype Chat</a></li>
+      <li><a class="inquiry" href="">Send Inquiry</a>  -->
+     </div> 
+     <div class="t-code">
+    {cms:blocklist id="block" name="online-service" orderby="weigh" orderway="asc" }
+      <img src="{$block.image}">
+    {/cms:blocklist}
+      
+     </div> 
+     <div class="side_title">
+      LiveChat
+      <a class="close_btn"><span>关闭</span></a>
+     </div> 
+    </div> 
+   </section> 
+   <div class="show_btn"></div> 
+  </aside> 
+  <div class="inquiry-pop-bd"> 
+   <div class="inquiry-pop">
+    <i class="ico-close-pop" onclick="hideMsgPop();"></i> 
+    <!-- <script type="text/javascript" src="https://www.globalso.site/php/app.php?widget-init-inline.js"></script>--> 
+   </div> 
+  </div>
+  <script src="__CDN__/template/default/js/jquery.min.js"></script> 
+  <script src="__CDN__/template/default/js/common.js"></script> 
+ </body>
+</html>

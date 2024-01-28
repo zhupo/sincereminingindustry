@@ -1,0 +1,22 @@
+<aside class="aside"> 
+  <div class="aside-wrap"> 
+   <div class="side-widget"> 
+    <div class="side-tit-bar"> 
+     <h2 class="side-tit">New Categories</h2> 
+    </div> 
+    <ul class="side-cate"> 
+      {cms:channellist id="channel" type="son"  typeid="66" row="100"}
+          <li class="{if $channel.is_active}nav-current{/if}"><a href="{$channel.url}">{$channel.name}</a> 
+              {if $channel.has_child}
+              <ul class="sub-menu"> 
+                  {cms:channellist id="sonChannel" type="son"  typeid="channel['id']" row="100"}
+                      <li class="{if $sonChannel.is_active}nav-current{/if}"><a href="{$sonChannel.url}">{$sonChannel.name}</a></li> 
+                  {/cms:channellist}
+              </ul> 
+              {/if}
+          </li> 
+     {/cms:channellist}
+    </ul> 
+   </div> 
+  </div> 
+ </aside> 

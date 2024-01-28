@@ -1,0 +1,181 @@
+---------------------------------------------------------------
+[ 2024-01-26T21:34:20+08:00 ] 127.0.0.1 GET sincer1234.com/
+[运行时间：0.359518s] [吞吐率：2.78req/s] [内存消耗：1,077.96kb] [文件加载：153]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002736s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.004092s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004146s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000640s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+    'addon' => 'cms',
+    'controller' => 'index',
+    'action' => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /Users/panliu/Documents/privateProject/sincer240116/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.002242s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/addons/cms/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/panliu/Documents/privateProject/sincer240116/addons/cms/view/default1/index.html [ array (
+  0 => 'config',
+  1 => 'user',
+  2 => 'site',
+  3 => '__CHANNEL__',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @view_filter [ RunTime:0.000213s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-26T21:34:20+08:00 ] 127.0.0.1 GET sincer1234.com/template/default/images/Roboto-Regular.ttf
+[运行时间：0.048788s] [吞吐率：20.50req/s] [内存消耗：150.53kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000217s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000681s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000728s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000068s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default/css/style.css?v=1706276060',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-26T21:34:20+08:00 ] 127.0.0.1 GET sincer1234.com/template/default/images/Roboto-Black.ttf
+[运行时间：0.053120s] [吞吐率：18.83req/s] [内存消耗：121.88kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000094s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000315s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000364s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000061s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default/css/style.css?v=1706276060',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-26T21:34:20+08:00 ] 127.0.0.1 GET sincer1234.com/template/default/images/Roboto-Bold.ttf
+[运行时间：0.026629s] [吞吐率：37.55req/s] [内存消耗：120.49kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000026s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000461s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000583s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000098s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default/css/style.css?v=1706276060',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-26T21:34:20+08:00 ] 127.0.0.1 GET sincer1234.com/template/default/images/Roboto-Thin.ttf
+[运行时间：0.026799s] [吞吐率：37.31req/s] [内存消耗：120.49kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000026s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000461s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000505s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000086s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default/css/style.css?v=1706276060',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File

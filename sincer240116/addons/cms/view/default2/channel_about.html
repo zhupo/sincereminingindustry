@@ -1,0 +1,1181 @@
+{include file="common/top" /}
+<style>
+	.iconfenxiang_boxs_m ul {
+			flex-wrap: wrap;
+	}
+
+	.iconfenxiang_boxs_m li {
+			margin-bottom: 8px;
+	}
+
+	.iconfenxiang_boxs_m .iconfenxiang_wauto {
+			margin: 0 -6px
+	}
+
+	.iconfenxiang_boxs_m .iconfenxiang_wauto li:first-child {
+			padding-left: 6px;
+	}
+	.cookie-tip {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1001;
+			background: rgba(0,0,0,.8);
+			color:#fff;
+			transition:.3s;
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			padding:24px 9px;
+			min-height: 80px;
+	}
+
+	.cookie-tip--hidden {
+			opacity: 0;
+			transform: translateY(300px)
+	}
+
+	.cookie-tip__container {flex-grow: 1;display: flex;align-items: center;width: 100%;margin: 0;}
+
+	.cookie-tip__text {flex-grow: 1;margin-right: 24px;}
+
+	.cookie-tip__btn {
+			margin: -4px 0;
+	}
+
+	@media (max-width:768px) {
+			.cookie-tip__container {
+					flex-direction:column;
+			}
+
+			.cookie-tip__text{
+					align-self:stretch;
+					margin:0 0 20px
+			}
+	}
+
+	.bottom-inquiry-box {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 99998;
+			transition: .3s;
+	}
+
+	.bottom-inquiry-box--hidden {
+			visibility: hidden;
+			opacity: 0;
+	}
+
+	.bottom-inquiry-box__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4);
+	}
+
+	.bottom-inquiry-box__form {
+			position: absolute;
+			background: #fff;
+			border-radius: 16px 16px 0 0;
+			box-shadow: 0 0 8px rgba(0,0,0,.1);
+			top:48px;
+			left: 0;
+			width: 100%;
+			bottom: 0;
+			color: rgba(0,0,0,.8);
+			display: flex;
+			flex-direction: column;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box--hidden .bottom-inquiry-box__form {
+			transform: translateY(100%);
+	}
+
+	.bottom-inquiry-box__close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			padding: 10px;
+			background: transparent;
+			outline: 0;
+			border: 0;
+			border-radius: 0;
+			color: rgba(0,0,0,.8);
+			transition: .3s;
+			cursor: pointer;
+	}
+
+	.bottom-inquiry-box__title {
+			font-weight: 700;
+			font-size: 16px;
+			margin: 16px 20px 8px;
+	}
+
+	.bottom-inquiry-box__scroll {
+			overflow: auto;
+			padding: 0 20px;
+	}
+
+	.bottom-inquiry-box__label {
+			display: block;
+			margin: 12px 0 20px;
+			position: relative;
+	}
+
+	.bottom-inquiry-box__label--error {
+			color: #ff4000;
+	}
+
+	.bottom-inquiry-box__input {
+			width: 100%;
+			display: block;
+			padding: 9px 0;
+			font-size: 14px;
+			line-height: 1.5;
+			border: 0;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+			border-radius: 0;
+			outline: 0;
+			color: inherit;
+			transition: .3s;
+			resize: none;
+	}
+
+	.bottom-inquiry-box__input:hover,.bottom-inquiry-box__input:focus {
+			border-color: var(--c-color);
+	}
+
+	.bottom-inquiry-box__label--error .bottom-inquiry-box__input {
+			border-color: currentColor;
+	}
+
+	.bottom-inquiry-box__input::-webkit-input-placeholder {
+			color: transparent;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box__input:focus::-webkit-input-placeholder, .js-select-open .bottom-inquiry-box__input::-webkit-input-placeholder {
+			color: rgba(0,0,0,.4);
+	}
+
+	.bottom-inquiry-box__tip {
+			position: absolute;
+			top: 9px;
+			left: 0;
+			opacity: .55;
+			transition: .2s;
+			transform-origin: left;
+	}
+
+	:required+.bottom-inquiry-box__tip:before {
+			content: '*';
+			color: #ff4000;
+	}
+
+	.bottom-inquiry-box__input:focus+.bottom-inquiry-box__tip,.bottom-inquiry-box__input--active+.bottom-inquiry-box__tip, .js-select-open .bottom-inquiry-box__tip {
+			transform: translateY(-1.5em) scale(.85);
+	}
+
+	.bottom-inquiry-box__error {
+			position: absolute;
+			top: -1.5em;
+			margin-top: 9px;
+			right: 0;
+			opacity: 0;
+			visibility: hidden;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box__label--error .bottom-inquiry-box__error {
+			visibility: visible;
+			opacity: 1;
+	}
+
+	.bottom-inquiry-box__attachment {
+			color: rgba(0,0,0,.4);
+			margin: 20px 0;
+	}
+
+	.bottom-inquiry-box__attachment-box {
+			display: flex;
+	}
+
+	.bottom-inquiry-box__file {
+			width: 100px;
+			height: 100px;
+			border: 1px dashed;
+			position: relative;
+			overflow: hidden;
+			margin-top: 4px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 20px;
+			cursor: pointer;
+	}
+
+	.bottom-inquiry-box__file:before {
+			content: '+';
+			font-size: 40px;
+	}
+
+	.bottom-inquiry-box__file:hover {
+			color: rgba(0,0,0,.8);
+	}
+
+	.bottom-inquiry-box__file input {
+			opacity: 0;
+			position: absolute;
+	}
+
+	.bottom-inquiry-box__attachment-box .attachment_ul {
+			flex-grow: 1;
+	}
+
+	.bottom-inquiry-box__attachment-box .attachment_ul .file_txt{padding-right:140px;position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:20px;max-width:100%;height:20px;display: block;}
+	.bottom-inquiry-box__attachment-box .attachment_ul .operations{position:absolute;top:0;right:0;width:140px;padding-left:20px;}
+
+
+	.bottom-inquiry-box__subscribe {
+			margin-bottom: 16px;
+	}
+
+	.bottom-inquiry-box__check {
+			vertical-align: middle;
+			margin-right: 4px;
+			margin-bottom: 2px;
+	}
+
+	.bottom-inquiry-box__btn {
+			display: block;
+			height: 36px;
+			line-height: 36px;
+			color: #fff;
+			border: 0;
+			padding: 0;
+			border-radius: 6px;
+			outline: 0;
+			transition: .3s;
+			cursor: pointer;
+			margin: 8px 20px 16px;
+			flex-shrink: 0;
+	}
+
+	.bottom-inquiry-box__btn:hover,.bottom-inquiry-box__btn:focus,.bottom-inquiry-box__close:hover,.bottom-inquiry-box__close:focus {
+			opacity: .8;
+	}
+
+	.bottom-inquiry-box__btn:active,.bottom-inquiry-box__close:active {
+			opacity: 1;
+	}
+
+	.external-chat-box {
+			position: fixed;
+			top: 50%;
+			left:0;
+			transform: translateY(-50%);
+			width: 48px;
+			padding: 4px 8px;
+			background: rgba(0,0,0,.35);
+			border-radius: 0 4px 4px 0;
+			transition: .2s;
+			z-index: 9999;
+	}
+
+	.external-chat-box--collapse {
+			transform: translateY(-50%) translateX(-100%);
+	}
+
+	.external-chat-box__toggle {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			border-radius: 0 4px 4px 0;
+			color: #fff;
+			background: inherit;
+			margin-top: -20px;
+			padding: 0 4px;
+			line-height: 40px;
+			font-size: 14px;
+			cursor: pointer;
+			/*transition: .3s;*/
+			border: 0;
+			outline: 0;
+	}
+
+	.external-chat-box__toggle:hover,.external-chat-box__toggle:focus {
+			/* background-color: rgba(0,0,0,.45); */
+	}
+
+	.external-chat-box__item {
+			display: block;
+			text-decoration: none;
+			width: 32px;
+			height: 32px;
+			margin: 12px 0;
+			background: center no-repeat;
+			border-radius: 99px;
+			transition: .3s;
+	}
+
+	.external-chat-box__item--qq {
+			background-color: #1890ff;
+			background-image: url(images/qq.svg);
+			background-size: 14px;
+	}
+
+	.external-chat-box__item--qq:hover,.external-chat-box__item--qq:focus {
+			background-color: #40a9ff;
+	}
+
+	.external-chat-box__item--wechat {
+			background-color: #46bb36;
+			background-image: url(images/wechat.svg);
+			background-size: 17px;
+	}
+
+	.external-chat-box__item--wechat:hover,.external-chat-box__item--wechat:focus {
+			background-color: #70ca63;
+	}
+
+	.external-chat-box__item--skype {
+			background-color: #00aff0;
+			background-image: url(images/skype.svg);
+			background-size: 16px;
+	}
+
+	.external-chat-box__item--skype:hover,.external-chat-box__item--skype:focus {
+			background-color: #30c8f3;
+	}
+
+	.external-chat-box__item--whatsapp {
+			background-color: #1dd367;
+			background-image: url(images/whatsapp.svg);
+			background-size: 18px;
+	}
+
+	.external-chat-box__item--whatsapp:hover,.external-chat-box__item--whatsapp:focus {
+			background-color: #44e388;
+	}
+
+	.external-chat-popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			transition: .3s;
+	}
+
+	.external-chat-popup--hidden {
+			visibility: hidden;
+			opacity: 0;
+	}
+
+	.external-chat-popup__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4);
+	}
+
+	.external-chat-popup__dialog {
+			width: 300px;
+			max-width: 100%;
+			margin: 15vh auto;
+			padding: 30px;
+			background: #fff;
+			text-align: center;
+			position: relative;
+			border-radius: 2px;
+			box-shadow: 0 4px 14px rgba(0,0,0,.06), 0 0 6px rgba(0,0,0,.1);
+			transition: .2s;
+	}
+
+	.external-chat-popup--hidden .external-chat-popup__dialog {
+			transform: translateY(-100%);
+	}
+
+	.external-chat-popup__text {
+			font-size: 18px;
+			margin-bottom: 20px;
+	}
+</style> 
+<style link-color-css>:root {--c-color:#ff5100;--c-line-height:1.4;--c-font-size:14px;}a:hover,.font-color-a a,.font-color-a a:hover,.font-color,.font-color-hover:hover,.font-color-before:before,.font-color-hover-before:hover:before,.font-color-after:after,.font-color-hover-after:hover:after{color:var(--c-color)!important}.border_color,.border-color,.btn-primary:focus,.btn-primary,.btn-primary:hover,.border-color-a a,.border-color-a a:hover,.border-color-hover:hover,.border-color-before:before,.border-color-hover-before:hover:before,.border-color-after:after,.border-color-hover-after:hover:after{border-color:var(--c-color)!important;}.bg-color,.btn-primary,.btn-primary:hover,.bg-color-a a,.bg-color-a a:hover,.bg-color-hover:hover,.bg-color-before:before,.bg-color-hover-before:hover:before,.bg-color-after:after,.bg-color-hover-after:hover:after{background-color:var(--c-color)!important}.bg-color-h a{color:var(--c-color)!important}.bg-color-h a:hover{background-color:var(--c-color)!important;color:#fff !important;}.swiper-pagination-bullet:hover,.swiper-pagination-bullet-active{background-color:var(--c-color)!important}.btn-bg:hover,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9{color:var(--c-color)!important}.btn-bg,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{border-color:var(--c-color)}.btn-bg,.btn-bg:hover,.tem-btn-3:before,.tem-btn-4:before,.tem-btn-5:before,.tem-btn-6:before,.tem-btn-7:before,.tem-btn-7:after,.tem-btn-8:before,.tem-btn-8:after,.tem-btn-9:before,.tem-btn-9:after,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{background-color:var(--c-color)}.tem-btn-1,.tem-btn-2{background:-webkit-linear-gradient(left,var(--c-color),var(--c-color)) no-repeat;background:linear-gradient(to right,var(--c-color),var(--c-color)) no-repeat}.tem-btn-1:hover,.tem-btn-2:hover,.tem-btn-3:hover,.tem-btn-4:hover,.tem-btn-5:hover,.tem-btn-6:hover,.tem-btn-7:hover,.tem-btn-8:hover,.tem-btn-9:hover,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{color:#FFF}.btn-bg:hover{border-color:#FFF}.swiper-container .swiper-pagination-bullet{background:#bbb;opacity:.5;}.swiper-pagination-bullet-active{opacity:1!important;}[playback_mode="current"]+.video_js_play_btn{z-index: 24!important}[playback_mode="global"]+.video_js_play_btn{z-index: 24!important}[playback_mode="popup"]+.video_js_play_btn{z-index: 24!important}[playback_mode="current"]~.prism-player{z-index: 24!important}[playback_mode="global"]~.prism-player{z-index: 24!important}[playback_mode="popup"]~.prism-player{z-index: 24!important}</style>
+<style>:root{--c-color:#1AAEC2}.container{max-width:1440px}.top_title,.title{font-family:DIN-Regular,Arial,myanmar_font}body,html,.body_color_bgs{font-family:DIN-Regular,Arial,myanmar_font}:root {                --btn-style-deep:solid;--btn-color-deep:#fff;--btn-bg-color-deep:var(--c-color);--btn-border-color-deep:var(--c-color);--btn-radius-deep:6px;--btn-width-deep:1px;                --btn-style-shallow:solid;--btn-color-shallow:var(--c-color);--btn-bg-color-shallow:#fff;--btn-border-color-shallow:#fff;--btn-radius-shallow:6px;--btn-width-shallow:1px;                }.btn[btn-types="shallow"]{color:rgba(0,0,0,0);font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:rgba(26, 174, 194, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.btn[btn-types="deep"]{color:#FFFFFF;font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:#1AAEC2;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}:root {                --inp-style-deep:solid;--inp-color-deep:#fff;--inp-bg-color-deep:var(--c-color);--inp-border-color-deep:var(--c-color);--inp-radius-deep:6px;--inp-width-deep:1px;                --inp-style-shallow:solid;--inp-color-shallow:var(--c-color);--inp-bg-color-shallow:#fff;--inp-border-color-shallow:#fff;--inp-radius-shallow:6px;--inp-width-shallow:1px;                }.form_inp[inp-types="shallow"]{color:rgba(102, 102, 102, 1);font-size:14px;border-color:rgba(245, 245, 245, 1);border-style:solid;border-width:1px;background-color:rgba(255, 255, 255, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.form_inp[inp-types="deep"]{color:rgba(102, 102, 102, 1);font-size:14px;border-top:none!important;border-left:none!important;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;border-bottom:none!important;background-color:rgba(245, 249, 255, 1);border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}.share_fun_box{display:none;}.share_fun_box2 ul li[data-network="share"]{display:none;}.share_fun_box2 ul li.backtop_clicks{border-top-left-radius: 25px;border-bottom-left-radius: 25px;}[direction]{align-items:stretch;}.there_video_icons{background-image:url(images/video_play_1.png);}.there_video_icons{opacity:1;}</style>
+<style mos-id="v61aed7e4d2ed1">.tem01_copyright{text-align:center;padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(144,144,144,.2);}#v61aed7e4d2ed1{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);text-align:center;}#v61aed7e4d2ed1 .container{}</style> 
+<style mos-id="v61aed7e4d2ecf">    .tem01_footer_section {padding: 20px 0;}    .tem01_footer{position:relative;}    .tem01_footer .footer_ul{display:flex;align-items: start; flex-wrap: wrap;}    .tem01_footer .footer_li{flex: 1;padding-right: 90px;}    .tem01_footer .footer_li:last-child{padding-right: 0;}    .tem01_footer .footer_li_box{position:relative;}    .tem01_footer .li_head{font-size:16px;font-weight: bold;margin-bottom:10px;}    .tem01_footer .con_ul{font-size:14px;line-height:26px;}    .tem01_footer .con_ul a{display:initial}    .tem01_footer .lan_a{padding-top:10px;}    .tem01_footer .lan_a a{display:initial;cursor:pointer;}    .tem01_footer .iconfenxiang_boxs{display: none;padding-right:10px;}    .tem01_footer .iconfenxiang_boxs ul{justify-content: left;}    .tem01_footer .iconfenxiang_boxs_m{padding-bottom: 20px;}    .tem01_footer .iconfenxiang_boxs_m .go_fast{color:inherit;}    .tem01_footer .sitemap {        font-size: 14px;        letter-spacing: 0;        font-weight: 400;    }    .tem01_footer .sitemap-line {        display: inline-block;        width: 1px;        height: 16px;        background-color: rgba(216,216,216,.5);        margin: 0 8px;    }    @media (min-width: 768px){        /* .tem01_footer .iconfenxiang_boxs_m{display:none!important;} */        .tem01_footer .footer_ul{display:flex;}        .tem01_footer .sitemap-box {display: none;}    }    @media (max-width: 770px){        .tem01_footer .footer_ul{display:none;}        /* .tem01_footer_section{padding-top:20px!important;padding-bottom:20px!important;display:none!important;} */        /* .tem01_footer_section.boxs_m_show{display:block!important;} */    }    #v61aed7e4d2ecf{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);padding-top:5vw;padding-bottom:4vw;}#v61aed7e4d2ecf .container{}    </style> 
+<style mos-id="v61b19d8e662a2">    .public_inquiry_tem_1{position:relative;color:#fff;}    .public_inquiry_tem_1 .top_text{position:relative;}    .public_inquiry_tem_1 .top_title{margin-bottom:16px;}    .public_inquiry_tem_1 .top_details{margin-bottom:40px;}    .public_inquiry_tem_1 .con{position:relative;overflow:hidden;}    @media (max-width:768px){    .public_inquiry_tem_1 .top_title{margin-bottom:10px;}    .public_inquiry_tem_1 .top_details{margin-bottom:20px;}    }    .public_inquiry_tem_1 input.enquiry_inp_placeholder::-webkit-input-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:transparent;font-size:12px;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder:-moz-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:-moz-placeholder {color:transparent;font-size:12px;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder::-moz-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder::-moz-placeholder {color:transparent;font-size:12px;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder:-ms-input-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:-ms-input-placeholder {color:transparent;font-size:12px;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .public_inquiry_tem_1 .js-select-open input.enquiry_inp_placeholder::-webkit-input-placeholder,    .public_inquiry_tem_1 .js-select-open textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:inherit;opacity:.6;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder:focus:-moz-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:focus:-moz-placeholder,    .public_inquiry_tem_1 .js-select-open input.enquiry_inp_placeholder:-moz-placeholderr,    .public_inquiry_tem_1 .js-select-open textarea.enquiry_inp_placeholder:-moz-placeholder {color:inherit;opacity:.6;}    .public_inquiry_tem_1 input.enquiry_inp_placeholder:focus::-moz-placeholder,    .public_inquiry_tem_1 textarea.enquiry_inp_placeholder:focus::-moz-placeholder,    .public_inquiry_tem_1 .js-select-open input.enquiry_inp_placeholder::-moz-placeholderr,    .public_inquiry_tem_1 .js-select-open textarea.enquiry_inp_placeholder::-moz-placeholder {color:inherit;opacity:.6;}    .public_inquiry_tem_1 .js-select-open .enquiry_inp_placeholder:-ms-input-placeholder {color:inherit;opacity:.6;}    .public_inquiry_tem_1 .enquiry_box{position:relative;}    .public_inquiry_tem_1 .enquiry_box .row_small{margin-left:-10px;margin-right:-10px;overflow:hidden;}    .public_inquiry_tem_1 .enquiry_box .row_small li{padding-left:10px;padding-right:10px;width:50%;float: left;margin-bottom:15px;}    .public_inquiry_tem_1 .enquiry_box .row_small .li-fill{width: 100%;}    .public_inquiry_tem_1 .enquiry_box .enquiry_label{padding:24px 8px 8px;display:block;position:relative;user-select:none}    .public_inquiry_tem_1 .enquiry_box .enquiry_inp{background:0 0;border:none;outline:0;color:inherit;height:20px;display:block;width:100%;font-size:inherit;box-shadow:none}    .public_inquiry_tem_1 .enquiry_box textarea.enquiry_inp{height:auto;resize:none}    .public_inquiry_tem_1 .enquiry_box .required_span{position:absolute;height:20px;line-height:20px;left:8px;top:15px;display:block;pointer-events:none;transition:.1s;opacity:.8;font-size:14px;}    .public_inquiry_tem_1 .enquiry_box .enquiry_inp:focus+.required_span,.public_inquiry_tem_1 .enquiry_box .enquiry_label.js-select-open .required_span{top:4px;font-size:12px;}    .public_inquiry_tem_1 .enquiry_box .enquiry_inp[required]+.required_span::before{content:"*";color:red}    .public_inquiry_tem_1 .enquiry_box .enquiry_label.active .required_span{top:4px;opacity:.6;font-size:12px;}    .public_inquiry_tem_1 .enquiry_box .enquiry_btn_box{text-align:center;padding:20px 0;}    .public_inquiry_tem_1 .enquiry_box .enquiry_btn_box .read_more_a{background:0 0}    .public_inquiry_tem_1 .enquiry_box .required_tips{margin:0;position:absolute;right:20px;top:0;font-size:12px;display:none;pointer-events:none;padding:0 8px;}    .public_inquiry_tem_1 .enquiry_box .enquiry_label.errors .required_tips{display:block}    .public_inquiry_tem_1 .enquiry_box .enquiry_label.errors{border-color:#d90000;color:#d90000;}    @media (max-width:1024px){    .public_inquiry_tem_1 .enquiry_box .enquiry_btn_box{padding:20px 0}    .public_inquiry_tem_1 .enquiry_box .enquiry_btn_box .read_more_a{width:100%}    }    @media (max-width:768px){    .public_inquiry_tem_1 .enquiry_box .row_small li{width:100%;}    }    #v61b19d8e662a2{background-size:cover;color:rgba(19, 35, 74, 1);text-align:center;padding-top:4vw;padding-bottom:4vw;}#v61b19d8e662a2 .container{}#v61b19d8e662a2 .btn_box{text-align:center}    </style> 
+<style mos-id="v61d4084a77565">    .public_lists_tem_1{position:relative;}    .public_lists_tem_1 .top_text{position:relative;}    .public_lists_tem_1 .top_title{margin-bottom:16px;}    .public_lists_tem_1 .top_details{margin-bottom:40px;}    .public_lists_tem_1 .con{position:relative;overflow:hidden;padding-bottom: 17px}    .public_lists_tem_1 .con li .text{padding:10px 0px;width:100%;display: block;}    .public_lists_tem_1 .con li .text .title{display:block;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .public_lists_tem_1 .con li .text .describe{overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;margin-top: 10px;}    .public_lists_tem_1 .href_id_a{position: absolute;left:0;top:0;width:100%;height:100%;z-index:22;}    .public_lists_tem_1 .left_icon,    .public_lists_tem_1 .right_icon{position: absolute;top:50%;width:30px;height:66px;margin-top:-33px;z-index:9;color:#fff;line-height:66px;text-align:center;font-size:22px;cursor:pointer;display:none;}    .public_lists_tem_1 .left_icon{left:0;}    .public_lists_tem_1 .right_icon{right:0;}    .public_lists_tem_1 .left_icon.swiper-button-disabled,    .public_lists_tem_1 .right_icon.swiper-button-disabled{opacity:.4;cursor:no-drop;}    .public_lists_tem_1 .swiper-pagination{display:none;}    .public_lists_tem_1 .swiper-pagination-bullet{width:14px;height:14px;opacity:.3;}    .public_lists_tem_1 .swiper-pagination-bullet-active{background:#fff!important;border:1px solid;border-color: var(--c-color)!important;}    .public_lists_tem_1 .img_par{width:100%;margin-bottom: 10px;}    .public_lists_tem_1 img{border:0}    .public_lists_tem_1 .img_par[img_text_align="1"] img{margin:auto 0 0 0;}    .public_lists_tem_1 .img_par[img_text_align="2"] img{margin:auto;}    .public_lists_tem_1 .img_par[img_text_align="3"] img{margin:0 0 0 auto;}    .public_lists_tem_1 .img_par[img_type="1"] img{width:auto;display:block;}    .public_lists_tem_1 .img_par[img_type="2"]{padding-bottom:56.25%;position:relative;}    .public_lists_tem_1 .img_par[img_type="3"]{padding-bottom:100%;position:relative;}    .public_lists_tem_1 .img_par[img_type="2"] img,    .public_lists_tem_1 .img_par[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{bottom:0;}    .prism-player .x5-top-left{object-position: initial !important;}    .public_lists_tem_1 a:hover .title,.public_lists_tem_1 a:hover .describe {color: inherit!important;}    @media (min-width:768px){    .public_lists_tem_1 [direction]{display:flex;flex-direction:column;}    .public_lists_tem_1 [direction="3"]{flex-direction:column-reverse;}    .public_lists_tem_1 [direction="4"]{flex-direction:column;}    }    @media (max-width:768px){    .public_lists_tem_1 .top_title{margin-bottom:10px;}    .public_lists_tem_1 .top_details{margin-bottom:20px;}    .public_lists_tem_1 .con li{margin-bottom:20px;}    .public_lists_tem_1 .con li:last-child{margin-bottom:0;}    .public_lists_tem_1 .con li .text{padding:15px 10px 10px;}    .public_lists_tem_1 .con.swiper-container-horizontal{padding-bottom:10px;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{display:block;bottom:0;}    }    #v61d4084a77565{text-align:center;}#v61d4084a77565 .container{}#v61d4084a77565.tem_data_list_5 .downloadhtml_li .title, #v61d4084a77565.tem_banner_2 .con li .text .title, #v61d4084a77565.public_lists_tem_6 .title, #v61d4084a77565 .service_li .title, #v61d4084a77565 [list_cols] .title{color:rgba(19, 35, 74, 1)!important}    </style> 
+<style mos-id="v61b19a59b326e">    .public_lists_tem_1{position:relative;}    .public_lists_tem_1 .top_text{position:relative;}    .public_lists_tem_1 .top_title{margin-bottom:16px;}    .public_lists_tem_1 .top_details{margin-bottom:40px;}    .public_lists_tem_1 .con{position:relative;overflow:hidden;padding-bottom: 17px}    .public_lists_tem_1 .con li .text{padding:10px 0px;width:100%;display: block;}    .public_lists_tem_1 .con li .text .title{display:block;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .public_lists_tem_1 .con li .text .describe{overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;margin-top: 10px;}    .public_lists_tem_1 .href_id_a{position: absolute;left:0;top:0;width:100%;height:100%;z-index:22;}    .public_lists_tem_1 .left_icon,    .public_lists_tem_1 .right_icon{position: absolute;top:50%;width:30px;height:66px;margin-top:-33px;z-index:9;color:#fff;line-height:66px;text-align:center;font-size:22px;cursor:pointer;display:none;}    .public_lists_tem_1 .left_icon{left:0;}    .public_lists_tem_1 .right_icon{right:0;}    .public_lists_tem_1 .left_icon.swiper-button-disabled,    .public_lists_tem_1 .right_icon.swiper-button-disabled{opacity:.4;cursor:no-drop;}    .public_lists_tem_1 .swiper-pagination{display:none;}    .public_lists_tem_1 .swiper-pagination-bullet{width:14px;height:14px;opacity:.3;}    .public_lists_tem_1 .swiper-pagination-bullet-active{background:#fff!important;border:1px solid;border-color: var(--c-color)!important;}    .public_lists_tem_1 .img_par{width:100%;margin-bottom: 10px;}    .public_lists_tem_1 img{border:0}    .public_lists_tem_1 .img_par[img_text_align="1"] img{margin:auto 0 0 0;}    .public_lists_tem_1 .img_par[img_text_align="2"] img{margin:auto;}    .public_lists_tem_1 .img_par[img_text_align="3"] img{margin:0 0 0 auto;}    .public_lists_tem_1 .img_par[img_type="1"] img{width:auto;display:block;}    .public_lists_tem_1 .img_par[img_type="2"]{padding-bottom:56.25%;position:relative;}    .public_lists_tem_1 .img_par[img_type="3"]{padding-bottom:100%;position:relative;}    .public_lists_tem_1 .img_par[img_type="2"] img,    .public_lists_tem_1 .img_par[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{bottom:0;}    .prism-player .x5-top-left{object-position: initial !important;}    .public_lists_tem_1 a:hover .title,.public_lists_tem_1 a:hover .describe {color: inherit!important;}    @media (min-width:768px){    .public_lists_tem_1 [direction]{display:flex;flex-direction:column;}    .public_lists_tem_1 [direction="3"]{flex-direction:column-reverse;}    .public_lists_tem_1 [direction="4"]{flex-direction:column;}    }    @media (max-width:768px){    .public_lists_tem_1 .top_title{margin-bottom:10px;}    .public_lists_tem_1 .top_details{margin-bottom:20px;}    .public_lists_tem_1 .con li{margin-bottom:20px;}    .public_lists_tem_1 .con li:last-child{margin-bottom:0;}    .public_lists_tem_1 .con li .text{padding:15px 10px 10px;}    .public_lists_tem_1 .con.swiper-container-horizontal{padding-bottom:10px;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{display:block;bottom:0;}    }    #v61b19a59b326e{background-color:rgba(245, 249, 255, 1);text-align:center;padding-top:4vw;padding-bottom:4vw;}#v61b19a59b326e .container{}#v61b19a59b326e .title{font-size:20px}#v61b19a59b326e.tem_banner_2 .con li .text .title, #v61b19a59b326e.public_lists_tem_6 .title, #v61b19a59b326e .service_li .title, #v61b19a59b326e [list_cols] .title{color:rgba(19, 35, 74, 1)!important}#v61b19a59b326e .describe{font-size:14px}#v61b19a59b326e.tem_banner_2 .con li .text .describe, #v61b19a59b326e.public_lists_tem_6 .describe, #v61b19a59b326e .service_li .describe, #v61b19a59b326e [list_cols] .describe{color:rgba(102, 102, 102, 1)}    </style> 
+<style mos-id="v61b19832307ee">    .public_lists_tem_1{position:relative;}    .public_lists_tem_1 .top_text{position:relative;}    .public_lists_tem_1 .top_title{margin-bottom:16px;}    .public_lists_tem_1 .top_details{margin-bottom:40px;}    .public_lists_tem_1 .con{position:relative;overflow:hidden;padding-bottom: 17px}    .public_lists_tem_1 .con li .text{padding:10px 0px;width:100%;display: block;}    .public_lists_tem_1 .con li .text .title{display:block;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .public_lists_tem_1 .con li .text .describe{overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;margin-top: 10px;}    .public_lists_tem_1 .href_id_a{position: absolute;left:0;top:0;width:100%;height:100%;z-index:22;}    .public_lists_tem_1 .left_icon,    .public_lists_tem_1 .right_icon{position: absolute;top:50%;width:30px;height:66px;margin-top:-33px;z-index:9;color:#fff;line-height:66px;text-align:center;font-size:22px;cursor:pointer;display:none;}    .public_lists_tem_1 .left_icon{left:0;}    .public_lists_tem_1 .right_icon{right:0;}    .public_lists_tem_1 .left_icon.swiper-button-disabled,    .public_lists_tem_1 .right_icon.swiper-button-disabled{opacity:.4;cursor:no-drop;}    .public_lists_tem_1 .swiper-pagination{display:none;}    .public_lists_tem_1 .swiper-pagination-bullet{width:14px;height:14px;opacity:.3;}    .public_lists_tem_1 .swiper-pagination-bullet-active{background:#fff!important;border:1px solid;border-color: var(--c-color)!important;}    .public_lists_tem_1 .img_par{width:100%;margin-bottom: 10px;}    .public_lists_tem_1 img{border:0}    .public_lists_tem_1 .img_par[img_text_align="1"] img{margin:auto 0 0 0;}    .public_lists_tem_1 .img_par[img_text_align="2"] img{margin:auto;}    .public_lists_tem_1 .img_par[img_text_align="3"] img{margin:0 0 0 auto;}    .public_lists_tem_1 .img_par[img_type="1"] img{width:auto;display:block;}    .public_lists_tem_1 .img_par[img_type="2"]{padding-bottom:56.25%;position:relative;}    .public_lists_tem_1 .img_par[img_type="3"]{padding-bottom:100%;position:relative;}    .public_lists_tem_1 .img_par[img_type="2"] img,    .public_lists_tem_1 .img_par[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{bottom:0;}    .prism-player .x5-top-left{object-position: initial !important;}    .public_lists_tem_1 a:hover .title,.public_lists_tem_1 a:hover .describe {color: inherit!important;}    @media (min-width:768px){    .public_lists_tem_1 [direction]{display:flex;flex-direction:column;}    .public_lists_tem_1 [direction="3"]{flex-direction:column-reverse;}    .public_lists_tem_1 [direction="4"]{flex-direction:column;}    }    @media (max-width:768px){    .public_lists_tem_1 .top_title{margin-bottom:10px;}    .public_lists_tem_1 .top_details{margin-bottom:20px;}    .public_lists_tem_1 .con li{margin-bottom:20px;}    .public_lists_tem_1 .con li:last-child{margin-bottom:0;}    .public_lists_tem_1 .con li .text{padding:15px 10px 10px;}    .public_lists_tem_1 .con.swiper-container-horizontal{padding-bottom:10px;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{display:block;bottom:0;}    }    #v61b19832307ee{text-align:center;padding-top:0vw;padding-bottom:4vw;}#v61b19832307ee .container{}#v61b19832307ee .title{font-size:20px}#v61b19832307ee.tem_data_list_5 .downloadhtml_li .title, #v61b19832307ee.tem_banner_2 .con li .text .title, #v61b19832307ee.public_lists_tem_6 .title, #v61b19832307ee .service_li .title, #v61b19832307ee [list_cols] .title{color:rgba(19, 35, 74, 1)!important}    </style> 
+<style mos-id="v61b17dd309530">    .public_lists_tem_1{position:relative;}    .public_lists_tem_1 .top_text{position:relative;}    .public_lists_tem_1 .top_title{margin-bottom:16px;}    .public_lists_tem_1 .top_details{margin-bottom:40px;}    .public_lists_tem_1 .con{position:relative;overflow:hidden;padding-bottom: 17px}    .public_lists_tem_1 .con li .text{padding:10px 0px;width:100%;display: block;}    .public_lists_tem_1 .con li .text .title{display:block;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .public_lists_tem_1 .con li .text .describe{overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;margin-top: 10px;}    .public_lists_tem_1 .href_id_a{position: absolute;left:0;top:0;width:100%;height:100%;z-index:22;}    .public_lists_tem_1 .left_icon,    .public_lists_tem_1 .right_icon{position: absolute;top:50%;width:30px;height:66px;margin-top:-33px;z-index:9;color:#fff;line-height:66px;text-align:center;font-size:22px;cursor:pointer;display:none;}    .public_lists_tem_1 .left_icon{left:0;}    .public_lists_tem_1 .right_icon{right:0;}    .public_lists_tem_1 .left_icon.swiper-button-disabled,    .public_lists_tem_1 .right_icon.swiper-button-disabled{opacity:.4;cursor:no-drop;}    .public_lists_tem_1 .swiper-pagination{display:none;}    .public_lists_tem_1 .swiper-pagination-bullet{width:14px;height:14px;opacity:.3;}    .public_lists_tem_1 .swiper-pagination-bullet-active{background:#fff!important;border:1px solid;border-color: var(--c-color)!important;}    .public_lists_tem_1 .img_par{width:100%;margin-bottom: 10px;}    .public_lists_tem_1 img{border:0}    .public_lists_tem_1 .img_par[img_text_align="1"] img{margin:auto 0 0 0;}    .public_lists_tem_1 .img_par[img_text_align="2"] img{margin:auto;}    .public_lists_tem_1 .img_par[img_text_align="3"] img{margin:0 0 0 auto;}    .public_lists_tem_1 .img_par[img_type="1"] img{width:auto;display:block;}    .public_lists_tem_1 .img_par[img_type="2"]{padding-bottom:56.25%;position:relative;}    .public_lists_tem_1 .img_par[img_type="3"]{padding-bottom:100%;position:relative;}    .public_lists_tem_1 .img_par[img_type="2"] img,    .public_lists_tem_1 .img_par[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{bottom:0;}    .prism-player .x5-top-left{object-position: initial !important;}    .public_lists_tem_1 a:hover .title,.public_lists_tem_1 a:hover .describe {color: inherit!important;}    @media (min-width:768px){    .public_lists_tem_1 [direction]{display:flex;flex-direction:column;}    .public_lists_tem_1 [direction="3"]{flex-direction:column-reverse;}    .public_lists_tem_1 [direction="4"]{flex-direction:column;}    }    @media (max-width:768px){    .public_lists_tem_1 .top_title{margin-bottom:10px;}    .public_lists_tem_1 .top_details{margin-bottom:20px;}    .public_lists_tem_1 .con li{margin-bottom:20px;}    .public_lists_tem_1 .con li:last-child{margin-bottom:0;}    .public_lists_tem_1 .con li .text{padding:15px 10px 10px;}    .public_lists_tem_1 .con.swiper-container-horizontal{padding-bottom:10px;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{display:block;bottom:0;}    }    #v61b17dd309530{text-align:center;padding-top:4vw;padding-bottom:2vw;}#v61b17dd309530 .container{}#v61b17dd309530 .title{font-size:20px}#v61b17dd309530.tem_data_list_5 .downloadhtml_li .title, #v61b17dd309530.tem_banner_2 .con li .text .title, #v61b17dd309530.public_lists_tem_6 .title, #v61b17dd309530 .service_li .title, #v61b17dd309530 [list_cols] .title{color:rgba(19, 35, 74, 1)!important}    </style> 
+<style mos-id="v61b17b3d8ba08">    .public_lists_tem_1{position:relative;}    .public_lists_tem_1 .top_text{position:relative;}    .public_lists_tem_1 .top_title{margin-bottom:16px;}    .public_lists_tem_1 .top_details{margin-bottom:40px;}    .public_lists_tem_1 .con{position:relative;overflow:hidden;padding-bottom: 17px}    .public_lists_tem_1 .con li .text{padding:10px 0px;width:100%;display: block;}    .public_lists_tem_1 .con li .text .title{display:block;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .public_lists_tem_1 .con li .text .describe{overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;margin-top: 10px;}    .public_lists_tem_1 .href_id_a{position: absolute;left:0;top:0;width:100%;height:100%;z-index:22;}    .public_lists_tem_1 .left_icon,    .public_lists_tem_1 .right_icon{position: absolute;top:50%;width:30px;height:66px;margin-top:-33px;z-index:9;color:#fff;line-height:66px;text-align:center;font-size:22px;cursor:pointer;display:none;}    .public_lists_tem_1 .left_icon{left:0;}    .public_lists_tem_1 .right_icon{right:0;}    .public_lists_tem_1 .left_icon.swiper-button-disabled,    .public_lists_tem_1 .right_icon.swiper-button-disabled{opacity:.4;cursor:no-drop;}    .public_lists_tem_1 .swiper-pagination{display:none;}    .public_lists_tem_1 .swiper-pagination-bullet{width:14px;height:14px;opacity:.3;}    .public_lists_tem_1 .swiper-pagination-bullet-active{background:#fff!important;border:1px solid;border-color: var(--c-color)!important;}    .public_lists_tem_1 .img_par{width:100%;margin-bottom: 10px;}    .public_lists_tem_1 img{border:0}    .public_lists_tem_1 .img_par[img_text_align="1"] img{margin:auto 0 0 0;}    .public_lists_tem_1 .img_par[img_text_align="2"] img{margin:auto;}    .public_lists_tem_1 .img_par[img_text_align="3"] img{margin:0 0 0 auto;}    .public_lists_tem_1 .img_par[img_type="1"] img{width:auto;display:block;}    .public_lists_tem_1 .img_par[img_type="2"]{padding-bottom:56.25%;position:relative;}    .public_lists_tem_1 .img_par[img_type="3"]{padding-bottom:100%;position:relative;}    .public_lists_tem_1 .img_par[img_type="2"] img,    .public_lists_tem_1 .img_par[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{bottom:0;}    .prism-player .x5-top-left{object-position: initial !important;}    .public_lists_tem_1 a:hover .title,.public_lists_tem_1 a:hover .describe {color: inherit!important;}    @media (min-width:768px){    .public_lists_tem_1 [direction]{display:flex;flex-direction:column;}    .public_lists_tem_1 [direction="3"]{flex-direction:column-reverse;}    .public_lists_tem_1 [direction="4"]{flex-direction:column;}    }    @media (max-width:768px){    .public_lists_tem_1 .top_title{margin-bottom:10px;}    .public_lists_tem_1 .top_details{margin-bottom:20px;}    .public_lists_tem_1 .con li{margin-bottom:20px;}    .public_lists_tem_1 .con li:last-child{margin-bottom:0;}    .public_lists_tem_1 .con li .text{padding:15px 10px 10px;}    .public_lists_tem_1 .con.swiper-container-horizontal{padding-bottom:10px;}    .public_lists_tem_1 .con.swiper-container-horizontal .swiper-pagination{display:block;bottom:0;}    }    #v61b17b3d8ba08{background-color:rgba(245, 249, 255, 1);text-align:center;padding-top:4vw;padding-bottom:4vw;}#v61b17b3d8ba08 .container{}#v61b17b3d8ba08 .title{font-size:20px}#v61b17b3d8ba08.tem_data_list_5 .downloadhtml_li .title, #v61b17b3d8ba08.tem_banner_2 .con li .text .title, #v61b17b3d8ba08.public_lists_tem_6 .title, #v61b17b3d8ba08 .service_li .title, #v61b17b3d8ba08 [list_cols] .title{color:rgba(19, 35, 74, 1)!important}#v61b17b3d8ba08 .describe{font-size:14px}#v61b17b3d8ba08.tem_data_list_5 .downloadhtml_li .describe, #v61b17b3d8ba08.tem_banner_2 .con li .text .describe, #v61b17b3d8ba08.public_lists_tem_6 .describe, #v61b17b3d8ba08 .service_li .describe, #v61b17b3d8ba08 [list_cols] .describe{color:rgba(102, 102, 102, 1)}    </style> 
+<style mos-id="v61b1799cf1c89">    .tem_picture_2{position:relative;}    .tem_picture_2 iframe{display:block;width:100%;max-width:100%;}    .tem_picture_2 .picture_con{position:relative;}    .tem_picture_2 .picture_ul{display: flex;flex-wrap:wrap;margin-left:-15px;margin-right:-15px;}    .tem_picture_2 .picture_li{width:50%;min-width:50%;max-width:50%;padding-left:15px;padding-right:15px;position:relative;}    .tem_picture_2 .picture_ul[direction="1"]{flex-direction:row-reverse;}    .tem_picture_2 .picture_ul[direction="2"]{flex-direction:row;}    .tem_picture_2 .picture_ul[direction="3"]{flex-direction:column-reverse;}    .tem_picture_2 .picture_ul[direction="4"]{flex-direction:column;}    .tem_picture_2 .picture_ul[direction="3"] .picture_li,    .tem_picture_2 .picture_ul[direction="4"] .picture_li{width:100%;min-width:100%;max-width:100%;}    .tem_picture_2 .sticky_box{position:sticky;top:0;}    .tem_picture_2 .top_title{margin-bottom:20px;}    .tem_picture_2 .top_describe{margin-bottom:20px;}    .tem_picture_2 .img_list{overflow:hidden;}    .tem_picture_2 .img_ul{display:flex;width:auto;margin-left:-10px;margin-right:-10px;flex-wrap:wrap;}    .tem_picture_2 .img_li{width:50%;min-width:50%;max-width:50%;display:flex;align-items:center;padding:10px;}    .tem_picture_2 .img_li[list_cols="1"]{width:100%;max-width:100%;min-width:100%;}    .tem_picture_2 .img_li[list_cols="2"]{width:50%;max-width:50%;min-width:50%;}    .tem_picture_2 .img_li[list_cols="3"]{width:33.33333%;max-width:33.33333%;min-width:33.33333%;}    .tem_picture_2 .img_li[list_cols="4"]{width:25%;max-width:25%;min-width:25%;}    .tem_picture_2 .img_li[list_cols="5"]{width:20%;max-width:20%;min-width:20%;}    .tem_picture_2 .img_li[list_cols="6"]{width:16.66666666666667%;max-width:16.66666666666667%;min-width:16.66666666666667%;}    .tem_picture_2 .img_li .img_par,    .tem_picture_2 .img_li .icon_img{width:auto;max-width:60px;}    .tem_picture_2 .img_li .title{padding-left:10px;max-width:calc(100% - 60px);overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .tem_picture_2 .loading_imgs_box,    .tem_picture_2 .img_par.no_img_src{padding-bottom:60px;width:60px;}    .tem_picture_2 .btn_box{line-height:1.4;margin-top:30px;}    .tem_picture_2__cover[img_type="1"] img{width:100%;}    .tem_picture_2__cover[img_type="2"]{padding-bottom:56.25%;position:relative;}    .tem_picture_2__cover[img_type="3"]{padding-bottom:100%;position:relative;}    .tem_picture_2__cover[img_type="2"] img,    .tem_picture_2__cover[img_type="3"] img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;}    @media (max-width:768px){    .tem_picture_2 .img_li .title{font-size:12px !important;}    .tem_picture_2 .picture_ul{display:block;margin:0;}    .tem_picture_2 .picture_li{width:100%;min-width:100%;max-width:100%;padding-left:0;padding-right:0;margin-bottom:20px;}    .tem_picture_2 .picture_li:last-child{margin-bottom:0;}    .tem_picture_2 .top_describe{margin-bottom:15px;}    .tem_picture_2 .img_li[list_cols]{width:50%;max-width:50%;min-width:50%;}    .tem_picture_2 .img_li[list_cols="1"],.tem_picture_2 .img_li[mobile_list_cols="1"]{width:100%;max-width:100%;min-width:100%;}    .tem_picture_2 .img_li[mobile_list_cols="2"]{width:50%;max-width:50%;min-width:50%;}    .tem_picture_2 .img_li[mobile_list_cols="3"]{width:33.33333%;max-width:33.33333%;min-width:33.33333%;}    .tem_picture_2 .img_li[mobile_list_cols="4"]{width:25%;max-width:25%;min-width:25%;}    .tem_picture_2 .img_li[mobile_list_cols="5"]{width:20%;max-width:20%;min-width:20%;}    .tem_picture_2 .img_li[mobile_list_cols="6"]{width:16.66666666666667%;max-width:16.66666666666667%;min-width:16.66666666666667%;}    }    #v61b1799cf1c89{background-attachment:fixed;background-position:50% 50%;background-size:cover;padding-top:4vw;padding-bottom:4vw;}#v61b1799cf1c89 .container{}    </style> 
+<style mos-id="v61b1792ed0448">    .tem_breadcrumb_1{position:relative;color:#fff;padding-top:11vw;padding-bottom:11vw;background-repeat:no-repeat;background-position:center;background-size:cover;text-align:center;background-color:#000000;}    .tem_breadcrumb_1 .text{position:relative;}    .tem_breadcrumb_1 .text .top_title{margin-bottom:20px;font-weight: 400;}    .tem_breadcrumb_1 .top_describe{font-size:14px;opacity:.9;}    .tem_breadcrumb_1 .absolute_box{position: absolute;left:0;top:0;width:100%;height:100%;}    @media (max-width:769px){        .tem_breadcrumb_1{padding:20px 0!important;background-image:none!important;}        .tem_breadcrumb_1 .top_describe,        .tem_breadcrumb_1 .top_describe *{font-size:14px!important;}    }    #v61b1792ed0448{background-color:rgba(19, 35, 74, 1);color:#FFFFFF;text-align:center;padding-top:8vw;padding-bottom:8vw;}#v61b1792ed0448 .container{}        </style> 
+<style mos-id="v61aed7e4d2eb1">    .head_sousuos_active{overflow:hidden;}    ._header{width:100%;position:relative;height:0;z-index:999;color:#fff;font-size:16px;background-color:#000;padding-top:116px;--header-offset: -40px;}    ._header ul,    ._header li{margin:0;}    ._header_box{position:absolute;left:0;top:0;width:100%;}    ._header_con--bottom {padding-top:6px;padding-bottom:6px;}    .iconfenxiang_boxs{padding-right:10px;}    ._head_top{display:flex;line-height:40px;}    ._head_top .head_h1{flex:1;overflow:hidden;font-size:14px;margin:0;padding:0;padding-right:20px;font-weight:500;white-space:nowrap;text-overflow:ellipsis;line-height:inherit;}    ._head_top .icon_bx{display:flex;align-items: center;}    ._head_top .icon_bx.iconfenxiang_boxs{align-self: center;}    ._head_top .head_i{cursor:pointer;display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;font-size:20px;font-weight:bold;}    ._head_bottom{display:flex;}    ._header .logo{height:60px;padding-right:40px;min-width:200px;line-height:60px;font-size:0;}    ._header .logo a{display:block;height:100%;width:100%;}    ._header .logo img{max-height:100%;display:inline-block;vertical-align:middle;}    ._header nav{flex:1;overflow:hidden;line-height:60px;display:flex;flex-direction:row-reverse;position:relative;height:60px;font-weight:bold;}    ._header .nav_box{overflow:hidden;line-height:60px;position:relative;transition:.3s;}    ._header .nav{display:flex;white-space:nowrap;}    ._header .nav li{padding:0 20px;border-color:inherit;}    ._header .nav li a{padding:4px 0;display:inline;background:none;}    ._header .nav li.active>a{border-bottom:2px solid;border-color:inherit;}    ._header .nav_ul{display:none;}    ._header nav.add{padding-right:20px;padding-left:20px;}    ._header .nav_btns{position:absolute;top:50%;height:30px;width:20px;margin-top:-15px;line-height:30px;text-align:center;font-size:14px;cursor:pointer;border-radius:2px;user-select:none;display:none;color:#fff;}    ._header nav.add .nav_btns{display:block;}    ._header .btn_l{left:0;}    ._header .btn_r{right:0;}    ._header .disabled{opacity:.5;cursor:no-drop;}    ._header .nav_button{outline:none;border:0;width:40px;height:50px;padding:10px;transition:all .45s;z-index:99;display:block;background:0;float:left;position:relative;z-index:4;margin-top:5px;cursor:pointer;display:none;color:inherit;}    ._header .nav_button_icon{position:absolute;width:20px;height:16px;left:0;top:0;right:0;bottom:0;margin:auto;}    ._header .nav_button_icon span{display:block;position:absolute;right:0;left:0;height:0px;transition:all .15s;border-bottom:2px solid;}    ._header .nav_button_icon span:nth-child(1){top: 50%;transform: translate3d(0,-50%,0);}    ._header .nav_button_icon span:nth-child(2){top: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .nav_button_icon span:nth-child(3){bottom: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .head_lan_txt{font-size:14px;padding-right:20px;}    .header_nav_li_box{position:absolute;left:0;top:0;background:#faf7f2;z-index:999;box-shadow:0 0 4px rgba(122,122,122,.8);display:none;border-radius:2px;color:#666;white-space:nowrap;}    .header_nav_li_box .nav_ul{padding:4px 0;display:block!important;}    .header_nav_li_box .nav_ul .nav_ul{display:none!important;}    .header_nav_li_box li{position:relative;}    .header_nav_li_box li.xia a{padding-right:30px;}    .header_nav_li_box li.xia .i_con{position: absolute;right: 8px;top: 50%;transform: translateY(-50%) rotate(-90deg);}    .header_nav_li_box a{display:block;padding:10px 14px;}    .header_nav_li_box a.font-color,    .header_nav_li_box a:hover{background:#fff;}    .header_nav_li_box ul,    .header_nav_li_box li{margin:0;}    @media (min-width:1026px){        ._header .nav_ul{display:none!important;}        ._header.head_fixed ._header_box{position:fixed;top:0;left:0;width:100%;background:inherit;transition:.3s;z-index:99;}        [switch_fixed=nav]._header.head_fixed ._header_box{top:var(--header-offset)}    }    .m_iconfenxiang_boxs.iconfenxiang_boxs{display:none!important;padding:0;}    .m_iconfenxiang_boxs.iconfenxiang_boxs ul{overflow:auto;}    @media (max-width:1025px){        .head_nav_active{overflow:hidden;}        .m_iconfenxiang_boxs.iconfenxiang_boxs{display:block!important;}        .m_iconfenxiang_boxs.iconfenxiang_boxs[btn_show="0"]{display:none!important;}        ._header .head_lan_txt{display:none;}        .header_nav_li_box{display:none!important;}        body ._header{height:60px;z-index:999;padding-top:0!important;padding-bottom:0!important;}        ._header_box{z-index:999;position:fixed;background:inherit;}        ._head_top .head_h1{display:none;}        ._head_top .head_i{height:60px;line-height:60px;}        ._head_bottom{position:absolute;display:block;left:0;top:0;height:60px;width:100%;background:inherit;}        ._header_con{padding:0!important;height:100%;position:relative;background:inherit;}        ._header .logo{width:200px;padding:4px 0;margin:auto;text-align:center;line-height:50px;}        ._header .logo img{margin:auto;}        ._header .nav_button{display:block;}        body.head_nav_active ._header .nav_button_icon span:nth-child(1){opacity:0;}        body.head_nav_active ._header .nav_button_icon span:nth-child(2){transform: rotate(45deg) translate3d(5px,5px,0);top:0}        body.head_nav_active ._header .nav_button_icon span:nth-child(3){transform: rotate(-45deg) translate3d(5px,-5px,0);bottom:0;}        ._header .nav_btns{display:none!important;}        ._header nav.add,        ._header nav{display:block;position:fixed;padding:0;top:61px;left:0;right:0;bottom:0;z-index:998;background-color:inherit;transform-origin:20px 0;transform:scale(0);overflow:hidden;transition:.3s;pointer-events:none;visibility:hidden;height:auto;font-weight:500;}        ._header .nav{display:block;line-height:1.4;font-size:16px;white-space:initial;}        ._header .nav li{padding:10px 20px;position:relative;padding:0;}        ._header .nav li a{padding:0;border:none;padding:10px 20px;display:inline-block;margin-right:40px;}        ._header .nav_ul{background:rgba(122,122,122,.06);margin-bottom:10px;}        ._header .nav_box .nav_ul li{padding-left:10px;padding-right:10px;}        ._header .nav li .i_con{position:absolute;right: 12px;top:10px;transition:.2s;}        body.head_nav_active ._header nav{transform:scale(1);visibility:visible;pointer-events:initial;padding-bottom:50px;}        ._header .nav_box{overflow:auto;width: 100%;height:100%;}        ._header .nav li.draw_act>.i_con{transform:rotate(-180deg);}        .header-slogan-box {            position: absolute;            right: 0;            top: 0;            height: 100%;            background-color: transparent!important;            z-index: 4;        }    }    #v61aed7e4d2eb1{background-color:rgba(255, 255, 255, 1);color:rgba(19, 35, 74, 1);padding-top:116px;}#v61aed7e4d2eb1 .container{max-width:100%;}    </style> 
+<style></style> 
+<!-- css end --> 
+<!-- header style start --> 
+<style>
+
+@font-face{font-family:file_01635832483977_ttf;src:url(images/file_01638926132889.otf);font-display:swap;}
+.top_title,
+.body_color_bgs .conn-big-title-font,
+.body_color_bgs .title:not(.no_title_family),
+.body_color_bgs [important_title]:not(.no_title_family),
+.select_title_font_box{font-family:file_01635832483977_ttf,Arial,myanmar_font!important;}
+
+#v61aed7e4d2e86 .top_title{text-transform: uppercase; width:50%; font-weight: normal; line-height: 1.2; }
+#v61aed7e4d2e86 .top_describe{ width:50%; line-height: 1.8;opacity: 0.85;}
+.top_title{text-transform: uppercase; line-height:1.2; }
+.tem_title_1 .top_details{opacity: 0.8; }
+.public_lists_tem_2 .con li .text .describe{overflow: inherit; -webkit-line-clamp: inherit; }
+.top_details, .top_details *, .top_subtitle, .top_subtitle *{font-size:14px !important; }
+.new_u_body .top_details, .new_u_body .top_details *, .new_u_body .top_subtitle, .new_u_body .top_subtitle *{font-size:14px !important; }
+.tem_breadcrumb_1 .text .top_title{font-weight:normal; }
+.public_inquiry_tem_2 .top_title, .public_inquiry_tem_2 .top_describe{display:none; }
+.public_inquiry_tem_2 .sticky_box .icon_text_box h1{font-size:3.2vw; font-family:file_01635832483977_ttf,Arial,myanmar_font!important; font-weight:normal; text-transform: uppercase;}
+
+
+
+@media (min-width: 1200px) {
+.public_inquiry_tem_2 .enquiry_box{padding-left:2vw; }
+._head_bottom{max-width: 1440px; margin: 0 auto; padding-top:10px; }
+._header_con{padding: 0px; }
+._head_top{background-color:#13234a; padding-left:13vw; padding-right:13vw; color:#fff; height:36px; line-height:36px;}
+._header nav{font-size:15px; }
+.public_lists_tem_1 .top_details{padding-left:10vw; padding-right:10vw; }
+#v61af3d0145059 .top_details{opacity:0.85; }
+.public_lists_tem_1 .con li .text{padding:20px; }
+.public_lists_tem_2 .con li .text{padding:25px; }
+.top_details, .top_describe, .describe{line-height:1.8; }
+#v61af3c91ea53c .top_title, #v61af3c91ea53c .top_describe, #v61af3c91ea53c .top_subtitle, #v61af3c91ea53c .btn_box{padding-left:2vw; }
+#v61b0744b8f4d3 .top_describe{padding-right: 2vw; }
+#v61af3c91ea53c .img_par img,#v61b16cd8b1e1a .img_par img{width: auto; }
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+#v61aed7e4d2e86 .top_describe img{display:none; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+
+@media (max-width: 768px) {
+#v61aed7e4d2e86 .top_title *{font-size:30px !important; }
+#v61aed7e4d2e86 .top_describe{display:none; }
+.top_title, .top_title *{font-size:24px !important;}
+.top_details, .top_describe, .describe{line-height:1.6; }
+#v61af3cc6032fc{padding-top:5vw; }
+.public_lists_tem_2 .con li{width:50%; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+#v61af3d0145059 .container{margin-bottom:-24vw; }
+#v61aed7e4d2e8e {padding-top:22vw !important; }
+}
+@media (max-width: 640px) {
+#v61aed7e4d2e86 .top_title *{font-size:20px !important;  }
+#v61aed7e4d2e86 .top_title{width: 60%;}
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:0; padding-right:0; }
+.public_lists_tem_2 .con li{width: 100%;}
+#v61af3d0145059 .container{margin-bottom:-36vw; }
+#v61aed7e4d2e8e {padding-top:36vw !important; }
+.public_lists_tem_1 .con li{width:100%; }
+}
+</style> 
+  <div class="content_box"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1792ed0448" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020792958.jpg" module_type="module"> 
+    <div modular-edit="custom"> 
+     <div class="absolute_box"> 
+      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+     </div> 
+     <div class="text"> 
+      <div class="container"> 
+       <div class="text"> 
+        <h1 class="top_title">ABOUT US</h1> 
+       </div> 
+       <div class="top_describe"> 
+        <span><a href="/" style="display: inline;">HOME</a></span> 
+        <i>&gt;</i> 
+        <span><a href="/pages-27440" style="display: inline;">ABOUT US</a></span> 
+       </div> 
+      </div> 
+     </div> 
+     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+      <div>
+       <span class="iconfont iconVR"></span>
+      </div> 
+      <div class="vr_txt"> 
+       <section template-edit="btn_languages" module_name="module">
+        VR
+       </section> 
+      </div> </a> 
+    </div> 
+   </div> 
+   <div class="tem_picture_2 no_bg_src content-section" id="v61b1799cf1c89" module_id="5018" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
+    <div class="container"> 
+     <div class="picture_con"> 
+      <ul class="picture_ul" direction="3"> 
+       <li class="picture_li"> 
+        <div class="sticky_box" modular-edit="custom"> 
+         <div class="img_par no_img_src tem_picture_2__cover" img_type=""> 
+          <img video-img="https://img001.video2b.com/1186/file_01639021192494.jpg" alt=""> 
+          <span video-type="" video-src="https://img001.video2b.com/m3u8/file_01639981134144.m3u8" video-m3u8src="" playback_mode=""></span> 
+          <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+         </div> 
+        </div> </li> 
+       <li class="picture_li"> 
+        <div class="sticky_box"> 
+         <div class="top_title"> 
+          <section template-edit="title_languages" module_name="module">
+           <p><span style="color:#13234a;"></span><span style="font-size:16px;"><span style="color:#1aaec2;">since 2005</span></span></p>
+           <p><span style="color:#13234a;">Hunan Sincere Chemicals Co., LTD</span></p>
+          </section> 
+         </div> 
+         <div class="top_describe"> 
+          <section template-edit="describe_languages" module_name="module">
+           <p><span style="color:#666;">The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 9001:2015 international quality management system certification.</span></p>
+           <p><br><span style="color:#666;">The company is a member of Sincere Chemicals (HK) Co., LTD., Our Corporation has built 4 manufacturing plants including Sulfate Product, Lead Nitrate, Sodium Metabisulfite and Sodium Persulphate , which are located in Hunan Province. Our business office is located in Changsha, the capital of Hunan Province.</span></p>
+           <p><br><span style="color:#666;">We have &nbsp;Export License. We have a professional team with exporting experience and considerable service. The company also can accept OEM order.<br>Hunan Sincere Cheimcals Co.,LTD provides us dollar, euro, RMB and other settlement services to minimize the risk of US dollar exchange rate. Secondly, according to customer demand and payment ability, we will try our best to provide satisfactory payment and settlement methods.</span></p>
+           <p><br><span style="color:#666;">We provide special inspection according to the requirements of customers in some countries. For example, SGS inspection certificate will be required for products exported to Indonesia, Australia and South Africa; CIQ certificate will be required for goods transported to Bangladesh; bv certificate will be required for goods exported to Iraq.<br>We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers.</span></p>
+          </section> 
+         </div> 
+         <div class="img_list"> 
+          <ul class="img_ul"> 
+          </ul> 
+         </div> 
+         <div class="btn_box" btn_show="0"> 
+          <div> 
+           <div class="btn" btn-types="deep"> 
+            <section template-edit="btn_languages" module_name="module"></section> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17b3d8ba08" module_id="5015" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p><span style="color:#13234a;">our office</span></p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p><span style="color:#666;">They are all manufactured according to the strictest international standards. Our products have received favor from both domestic and foreign markets.<br>They are now widely exporting to 200 countries.</span></p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con swiper-container"> 
+      <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
+      <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
+      <div class="swiper-pagination" btn_show="1"></div> 
+      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639021724211.jpg" img_preview_gif="" alt=""> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text" display_none> 
+           <div display_none class="title" title_lengths=""> 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639021750627.jpg" img_preview_gif="" alt=""> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text" display_none> 
+           <div display_none class="title" title_lengths=""> 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639021756437.jpg" img_preview_gif="" alt=""> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text" display_none> 
+           <div display_none class="title" title_lengths=""> 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17dd309530" module_id="5015" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p><span style="color:#13234a;">production process </span></p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p><span style="color:#666;">They are all manufactured according to the strictest international standards. Our products have received favor from both domestic and foreign markets.<br>They are now widely exporting to 200 countries.</span></p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con swiper-container"> 
+      <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
+      <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
+      <div class="swiper-pagination" btn_show="1"></div> 
+      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639019252939.jpg" img_preview_gif="" alt="production line"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             production line 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639019259735.jpg" img_preview_gif="" alt="Production and transportation"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Production and transportation 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639019266299.jpg" img_preview_gif="" alt="Production process"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Production process 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639019273559.jpg" img_preview_gif="" alt="Making utensils"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Making utensils 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b19832307ee" module_id="5015" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p><span style="color:#13234a;">Packaging and logistics</span></p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p><span style="color:#666;">The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. </span></p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con swiper-container"> 
+      <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
+      <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
+      <div class="swiper-pagination" btn_show="1"></div> 
+      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01641284624844.jpg" img_preview_gif="" alt="Product Loading"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Product Loading 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01641284627430.jpg" img_preview_gif="" alt="Product Packaging"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Product Packaging 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01641284633167.jpg" img_preview_gif="" alt="Packaging Process"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Packaging Process 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01641284636110.jpg" img_preview_gif="" alt="Loading And Shipping"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Loading And Shipping 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b19a59b326e" module_id="5015" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p><span style="color:#13234a;">Exhibition information</span></p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p><span style="color:#666;">They are all manufactured according to the strictest international standards. Our products have received favor from both domestic and foreign markets.<br>They are now widely exporting to 200 countries.</span></p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con swiper-container"> 
+      <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
+      <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
+      <div class="swiper-pagination" btn_show="1"></div> 
+      <ul class="list_row_ul swiper-wrapper" swiper_switch="1"> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639029813969.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639029822089.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639029830107.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639029837439.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01639029848891.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_11639029848891.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_21639029848891.jpg" img_preview_gif="" alt="124th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             124th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_31639029848891.jpg" img_preview_gif="" alt="125th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             125th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_41639029848891.jpg" img_preview_gif="" alt="125th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             125th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_51639029848891.jpg" img_preview_gif="" alt="125th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             125th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_61639029848891.jpg" img_preview_gif="" alt="125th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             125th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_71639029848891.jpg" img_preview_gif="" alt="126th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             126th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+        <div class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_81639029848891.jpg" img_preview_gif="" alt="126th Canton Fair"> 
+           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             126th Canton Fair 
+           </div> 
+           <div display_none class="describe" title_lengths=""> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61d4084a77565" module_id="5015" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p><span style="color:rgba(19, 35, 74, 1);">CASES</span></p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p>Customer trust is our driving force</p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con swiper-container"> 
+      <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
+      <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
+      <div class="swiper-pagination" btn_show="1"></div> 
+      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Customer product customization case | XSC" href="/products-detail-263617" target="_blank" class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/61LZ-5446-97fa-e081-4b7c-2100.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
+           <span class="href_id_a"></span> 
+           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/7O3B-7096-f9ad-7fa2-bc26-5a2e.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/FCI131DD-DCX5-H8WV/3f30b9-b982-2085-2b1c30-45db-e40292.m3u8" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Customer product customization case | XSC 
+           </div> 
+           <div class="describe" title_lengths="">
+             The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification. 
+           </div> 
+          </div> 
+         </div> </a> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Copper sulfate detection" href="/products-detail-2947314" target="_blank" class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01684379162150.png" img_preview_gif="" alt="Copper sulfate detection"> 
+           <span class="href_id_a"></span> 
+           <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01684379170331.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01684379170331.m3u8" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Copper sulfate detection 
+           </div> 
+           <div class="describe" title_lengths="">
+             Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture. 
+           </div> 
+          </div> 
+         </div> </a> </li> 
+       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Zinc Sulphate Monohydrate，in 1-11-2022" href="/products-detail-277255" target="_blank" class="list_box"> 
+         <div class="list_con" direction="4"> 
+          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+           <img class="" video-img="https://img001.video2b.com/1186/file_01641882876495.jpg" img_preview_gif="" alt="Zinc Sulphate Monohydrate，in 1-11-2022"> 
+           <span class="href_id_a"></span> 
+           <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01641882570358.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01641882570358.m3u8" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+          <div class="text"> 
+           <div class="title" title_lengths="">
+             Zinc Sulphate Monohydrate，in 1-11-2022 
+           </div> 
+           <div class="describe" title_lengths="">
+             Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC 
+           </div> 
+          </div> 
+         </div> </a> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="public_inquiry_tem_1 no_bg_src content-section" module_center="center" id="v61b19d8e662a2" module_id="5014" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
+    <div class="container"> 
+     <div class="text top_text" modular-edit="custom"> 
+      <div class="top_title "> 
+       <section template-edit="title_languages" module_name="module">
+        <p>Feel Free to contact us</p>
+       </section> 
+      </div> 
+      <div class="top_details "> 
+       <section template-edit="describe_languages" module_name="module">
+        <p><span style="color:#666;">The first thing we do is meeting with our clients and talk through their goals on a future project.<br>During this meeting, feel free to communicate your ideas and ask lots of questions.</span></p>
+       </section> 
+      </div> 
+     </div> 
+     <div class="con enquiry_box"> 
+      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
+       <input type="hidden" name="enquiry_type" id="enquiry_type_v61b19d8e662a2" value="0"> 
+       <input type="hidden" name="visitlength" id="visitlength_v61b19d8e662a2" value="====1705505241===="> 
+       <input type="hidden" name="source" id="source_v61b19d8e662a2" value="0"> 
+       <input type="hidden" name="id" id="id_v61b19d8e662a2" value="0"> 
+       <ul class="row_small"> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61b19d8e662a2" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61b19d8e662a2" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b19d8e662a2" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61b19d8e662a2" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="deep"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b19d8e662a2" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+       </ul> 
+       <div class="enquiry_btn_box btn_box "> 
+        <button id="submit_v61b19d8e662a2" type="submit" class="btn" btn-types="deep"> 
+         <div template-edit="btn_languages" module_name="module">
+          SEND INQUIRY NOW
+         </div> </button> 
+       </div> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="common/foot" /}

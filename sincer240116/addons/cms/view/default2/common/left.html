@@ -1,0 +1,35 @@
+<div class="productLeft">
+     <div class="H2ol">
+        <select onchange="window.location=this.value;">
+            {cms:channellist id="nav" type="top" cache="0" condition="1=isnav" row="20"}
+           
+            {if $nav->is_active}
+                
+                {cms:channellist id="channel" type="son"  typeid="$nav.id" row="100"}
+                 <option {$channel.is_active?'selected':''} value="{$channel.url}">{$channel.name}</option>
+                {/cms:channellist}
+             {/if}
+            {/cms:channellist}
+        </select>
+        
+        
+       
+               
+                   <ol id="{$nav.id}">
+                    {cms:channellist id="channel" type="son"  typeid="44" row="100"}
+                    <li>
+                        <a class="{if $channel->is_active}this{/if}" href="{$channel.url}"><span><i class="ico icon-choice2"></i></span>{$channel.name}</a>
+                        {if $channel.has_child}
+                        <ul>
+                            {cms:channellist id="channel" type="son"  typeid="channel['id']" row="100"}
+                            <li><a class="{if $channel->is_active}this{/if}" href="{$channel.url}">{$channel.name}</a></li>
+                            {/cms:channellist}
+                        </ul>
+                        {/if}
+                    </li>
+                    {/cms:channellist}
+                  </ol>
+               
+       
+   </div>
+</div>

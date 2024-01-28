@@ -1,0 +1,48 @@
+{include file="common/top" /} 
+   {include file="common/mbx" /} 
+   <!-- page-layout start --> 
+   <section class="web_main page_main"> 
+    <div class="layout"> 
+     <!-- aside start --> 
+     {include file="common/new_left" /} 
+     <!--// aside end --> 
+     <section class="main"> 
+      <div class="product-list"> 
+       <ul class="product_list_items"> 
+        {cms:pagelist id="item" addon="content"}
+            <li class="product_list_item"> 
+                <figure> 
+                 <span class="item_img"><img src="{$item.image}" alt=""><a href="{$item.url}" title="{$item.title}"></a></span> 
+                 <figcaption> 
+                  <div class="item_information"> 
+                   <h3 class="item_title"><a href="{$item.url}" title="{$item.title}">{$item.title}</a></h3> 
+                   <div class="item_info">
+                        {$item.content}
+                   </div> 
+                  </div> 
+                  <div class="product_btns"> 
+                   <!-- <a href="javascript:" class="priduct_btn_inquiry add_email12">inquiry</a> -->
+                   <a href="{$item.url}" class="priduct_btn_detail">detail</a> 
+                  </div> 
+                 </figcaption> 
+                </figure> 
+            </li> 
+		{/cms:pagelist}
+       </ul> 
+       <div class="page_bar"> 
+        <!-- <div class="pages"> -->
+         {cms:pageinfo type="full" /}
+         <!-- <a href="" class="current">1</a>
+         <a href="">2</a>
+         <a href=""> Next &gt; </a>
+         <a href="" class="extend">&gt;&gt;</a> 
+         <span class="current2">Page 1 / 2</span> -->
+        <!-- </div>  -->
+       </div> 
+      </div> 
+     </section> 
+     <!--// main end --> 
+    </div> 
+   </section> 
+   <!--// page-layout end --> 
+   {include file="common/foot" /} 

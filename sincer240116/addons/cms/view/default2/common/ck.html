@@ -1,0 +1,47 @@
+<div class="Window">
+    <div class="WindowShowCenter">
+    <div class="WindowShow">
+      <div class="pr"><span><i class="ico icon-guanbi"></i></span></div>
+      <div class="WindowShowNr">
+          <img class="WindowShowImg" src="">
+          <h3></h3>
+          <p></p>
+            <form id="form" onsubmit="return false">
+                <input type="hidden" name="__diyname__" value="customer">
+                {:token()}
+                <div>
+               <input name="row[name]" type="text" placeholder="*Name" required=""></input>
+               <input name="row[email]" type="Email" placeholder="*Email" required=""></input>
+               <input name="row[telephone]" type="text" placeholder="*Phone" required=""></input>
+               <textarea name="row[content]" type="text" placeholder="*Message" required=""></textarea>
+               <!--<div class="Captcha">-->
+               <!--              <img src="{:captcha_src()}"  onclick="this.src = '{:captcha_src()}?r=' + Math.random();"/>-->
+               <!--              <input required="" placeholder="Captcha" type="text"    name="verify"></input>-->
+               <!--         </div>        -->
+                <button>SEND</button>
+                </div>
+           </form>
+      </div>
+    </div>
+    </div>
+</div>
+<script>
+function WindowShow(title,img,obg){
+  $('.WindowShow p').html('');
+  //var nr=$(obg).find("p").html();
+   
+  $('html').css('overflow-y','hidden')  
+  $('.Window').fadeIn();
+  $('.WindowShowImg').attr('src',img);
+  $('.WindowShow h3').html(title);
+  $('.WindowShow p').html(nr);
+};
+
+
+ 
+$('.WindowShow span').click(function(){
+  $('html').css('overflow-y','auto')
+    $('.Window').fadeOut();
+})
+</script>
+<!--咨询窗口-->

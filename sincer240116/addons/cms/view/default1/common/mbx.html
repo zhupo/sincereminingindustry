@@ -1,0 +1,14 @@
+<section class="sys_sub_head"> 
+    <div class="head_bn_item">
+     <img src="{cms:channel name="image" /}" alt="">
+    </div> 
+    <h2 class="pagnation_title">{cms:channel name="name" /}</h2> 
+   </section> 
+   <section class="path_bar"> 
+    <ul> 
+     <!-- <li>Products</li>  -->
+     {cms:breadcrumb id="item" key="k"}
+     <li class="nav_current"><a title="{$item.name}" href="{$item.url}">{$item.name}</a></li> 
+     {/cms:breadcrumb}
+    </ul> 
+   </section> 

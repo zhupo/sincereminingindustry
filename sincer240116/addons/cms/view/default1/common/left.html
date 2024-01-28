@@ -1,0 +1,49 @@
+<aside class="aside"> 
+    <div class="aside-wrap"> 
+     <div class="side-widget"> 
+      <div class="side-tit-bar"> 
+       <h2 class="side-tit">Product Categories</h2> 
+      </div> 
+      <ul class="side-cate"> 
+        {cms:channellist id="channel" type="son"  typeid="44" row="100"}
+            <li class="{if $channel.is_active}nav-current{/if}"><a href="{$channel.url}">{$channel.name}</a> 
+                {if $channel.has_child}
+                <ul class="sub-menu"> 
+                    {cms:channellist id="sonChannel" type="son"  typeid="channel['id']" row="100"}
+                        <li class="{if $sonChannel.is_active}nav-current{/if}"><a href="{$sonChannel.url}">{$sonChannel.name}</a></li> 
+                    {/cms:channellist}
+                </ul> 
+                {/if}
+            </li> 
+       {/cms:channellist}
+      </ul> 
+     </div> 
+     <div class="side-widget"> 
+      <div class="side-tit-bar"> 
+       <h2 class="side-tit">Featured Products</h2> 
+      </div> 
+      <div class="side-product-items"> 
+       <div class="items_content"> 
+        <div class="side_slider"> 
+         <ul class="swiper-wrapper"> 
+            {cms:channellist id="channel" type="son" typeid="44" orderby="weigh" orderway="asc"}
+            {cms:arclist id="prod" channel="channel['id']"  orderby="weigh" orderway="desc" row="20"}
+                <li class="swiper-slide gm-sep side_product_item"> 
+                    <figure> 
+                     <a href="{$prod.url}" class="item-img"><img src="{$prod.image}" alt=""></a> 
+                     <figcaption> 
+                      <h3 class="item_title"><a href="{$prod.url}">{$prod.title}</a></h3> 
+                     </figcaption> 
+                    </figure> 
+                </li>
+            {/cms:arclist}
+            {/cms:channellist}
+         </ul> 
+        </div> 
+        <div class="btn-prev"></div> 
+        <div class="btn-next"></div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </aside> 

@@ -1,0 +1,1515 @@
+{include file="common/top" /}
+<style>
+	.iconfenxiang_boxs_m ul {
+			flex-wrap: wrap;
+	}
+
+	.iconfenxiang_boxs_m li {
+			margin-bottom: 8px;
+	}
+
+	.iconfenxiang_boxs_m .iconfenxiang_wauto {
+			margin: 0 -6px
+	}
+
+	.iconfenxiang_boxs_m .iconfenxiang_wauto li:first-child {
+			padding-left: 6px;
+	}
+	.cookie-tip {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1001;
+			background: rgba(0,0,0,.8);
+			color:#fff;
+			transition:.3s;
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			padding:24px 9px;
+			min-height: 80px;
+	}
+
+	.cookie-tip--hidden {
+			opacity: 0;
+			transform: translateY(300px)
+	}
+
+	.cookie-tip__container {flex-grow: 1;display: flex;align-items: center;width: 100%;margin: 0;}
+
+	.cookie-tip__text {flex-grow: 1;margin-right: 24px;}
+
+	.cookie-tip__btn {
+			margin: -4px 0;
+	}
+
+	@media (max-width:768px) {
+			.cookie-tip__container {
+					flex-direction:column;
+			}
+
+			.cookie-tip__text{
+					align-self:stretch;
+					margin:0 0 20px
+			}
+	}
+
+	.bottom-inquiry-box {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 99998;
+			transition: .3s;
+	}
+
+	.bottom-inquiry-box--hidden {
+			visibility: hidden;
+			opacity: 0;
+	}
+
+	.bottom-inquiry-box__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4);
+	}
+
+	.bottom-inquiry-box__form {
+			position: absolute;
+			background: #fff;
+			border-radius: 16px 16px 0 0;
+			box-shadow: 0 0 8px rgba(0,0,0,.1);
+			top:48px;
+			left: 0;
+			width: 100%;
+			bottom: 0;
+			color: rgba(0,0,0,.8);
+			display: flex;
+			flex-direction: column;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box--hidden .bottom-inquiry-box__form {
+			transform: translateY(100%);
+	}
+
+	.bottom-inquiry-box__close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			padding: 10px;
+			background: transparent;
+			outline: 0;
+			border: 0;
+			border-radius: 0;
+			color: rgba(0,0,0,.8);
+			transition: .3s;
+			cursor: pointer;
+	}
+
+	.bottom-inquiry-box__title {
+			font-weight: 700;
+			font-size: 16px;
+			margin: 16px 20px 8px;
+	}
+
+	.bottom-inquiry-box__scroll {
+			overflow: auto;
+			padding: 0 20px;
+	}
+
+	.bottom-inquiry-box__label {
+			display: block;
+			margin: 12px 0 20px;
+			position: relative;
+	}
+
+	.bottom-inquiry-box__label--error {
+			color: #ff4000;
+	}
+
+	.bottom-inquiry-box__input {
+			width: 100%;
+			display: block;
+			padding: 9px 0;
+			font-size: 14px;
+			line-height: 1.5;
+			border: 0;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+			border-radius: 0;
+			outline: 0;
+			color: inherit;
+			transition: .3s;
+			resize: none;
+	}
+
+	.bottom-inquiry-box__input:hover,.bottom-inquiry-box__input:focus {
+			border-color: var(--c-color);
+	}
+
+	.bottom-inquiry-box__label--error .bottom-inquiry-box__input {
+			border-color: currentColor;
+	}
+
+	.bottom-inquiry-box__input::-webkit-input-placeholder {
+			color: transparent;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box__input:focus::-webkit-input-placeholder, .js-select-open .bottom-inquiry-box__input::-webkit-input-placeholder {
+			color: rgba(0,0,0,.4);
+	}
+
+	.bottom-inquiry-box__tip {
+			position: absolute;
+			top: 9px;
+			left: 0;
+			opacity: .55;
+			transition: .2s;
+			transform-origin: left;
+	}
+
+	:required+.bottom-inquiry-box__tip:before {
+			content: '*';
+			color: #ff4000;
+	}
+
+	.bottom-inquiry-box__input:focus+.bottom-inquiry-box__tip,.bottom-inquiry-box__input--active+.bottom-inquiry-box__tip, .js-select-open .bottom-inquiry-box__tip {
+			transform: translateY(-1.5em) scale(.85);
+	}
+
+	.bottom-inquiry-box__error {
+			position: absolute;
+			top: -1.5em;
+			margin-top: 9px;
+			right: 0;
+			opacity: 0;
+			visibility: hidden;
+			transition: .2s;
+	}
+
+	.bottom-inquiry-box__label--error .bottom-inquiry-box__error {
+			visibility: visible;
+			opacity: 1;
+	}
+
+	.bottom-inquiry-box__attachment {
+			color: rgba(0,0,0,.4);
+			margin: 20px 0;
+	}
+
+	.bottom-inquiry-box__attachment-box {
+			display: flex;
+	}
+
+	.bottom-inquiry-box__file {
+			width: 100px;
+			height: 100px;
+			border: 1px dashed;
+			position: relative;
+			overflow: hidden;
+			margin-top: 4px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 20px;
+			cursor: pointer;
+	}
+
+	.bottom-inquiry-box__file:before {
+			content: '+';
+			font-size: 40px;
+	}
+
+	.bottom-inquiry-box__file:hover {
+			color: rgba(0,0,0,.8);
+	}
+
+	.bottom-inquiry-box__file input {
+			opacity: 0;
+			position: absolute;
+	}
+
+	.bottom-inquiry-box__attachment-box .attachment_ul {
+			flex-grow: 1;
+	}
+
+	.bottom-inquiry-box__attachment-box .attachment_ul .file_txt{padding-right:140px;position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:20px;max-width:100%;height:20px;display: block;}
+	.bottom-inquiry-box__attachment-box .attachment_ul .operations{position:absolute;top:0;right:0;width:140px;padding-left:20px;}
+
+
+	.bottom-inquiry-box__subscribe {
+			margin-bottom: 16px;
+	}
+
+	.bottom-inquiry-box__check {
+			vertical-align: middle;
+			margin-right: 4px;
+			margin-bottom: 2px;
+	}
+
+	.bottom-inquiry-box__btn {
+			display: block;
+			height: 36px;
+			line-height: 36px;
+			color: #fff;
+			border: 0;
+			padding: 0;
+			border-radius: 6px;
+			outline: 0;
+			transition: .3s;
+			cursor: pointer;
+			margin: 8px 20px 16px;
+			flex-shrink: 0;
+	}
+
+	.bottom-inquiry-box__btn:hover,.bottom-inquiry-box__btn:focus,.bottom-inquiry-box__close:hover,.bottom-inquiry-box__close:focus {
+			opacity: .8;
+	}
+
+	.bottom-inquiry-box__btn:active,.bottom-inquiry-box__close:active {
+			opacity: 1;
+	}
+
+	.external-chat-box {
+			position: fixed;
+			top: 50%;
+			left:0;
+			transform: translateY(-50%);
+			width: 48px;
+			padding: 4px 8px;
+			background: rgba(0,0,0,.35);
+			border-radius: 0 4px 4px 0;
+			transition: .2s;
+			z-index: 9999;
+	}
+
+	.external-chat-box--collapse {
+			transform: translateY(-50%) translateX(-100%);
+	}
+
+	.external-chat-box__toggle {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			border-radius: 0 4px 4px 0;
+			color: #fff;
+			background: inherit;
+			margin-top: -20px;
+			padding: 0 4px;
+			line-height: 40px;
+			font-size: 14px;
+			cursor: pointer;
+			/*transition: .3s;*/
+			border: 0;
+			outline: 0;
+	}
+
+	.external-chat-box__toggle:hover,.external-chat-box__toggle:focus {
+			/* background-color: rgba(0,0,0,.45); */
+	}
+
+	.external-chat-box__item {
+			display: block;
+			text-decoration: none;
+			width: 32px;
+			height: 32px;
+			margin: 12px 0;
+			background: center no-repeat;
+			border-radius: 99px;
+			transition: .3s;
+	}
+
+	.external-chat-box__item--qq {
+			background-color: #1890ff;
+			background-image: url(images/qq.svg);
+			background-size: 14px;
+	}
+
+	.external-chat-box__item--qq:hover,.external-chat-box__item--qq:focus {
+			background-color: #40a9ff;
+	}
+
+	.external-chat-box__item--wechat {
+			background-color: #46bb36;
+			background-image: url(images/wechat.svg);
+			background-size: 17px;
+	}
+
+	.external-chat-box__item--wechat:hover,.external-chat-box__item--wechat:focus {
+			background-color: #70ca63;
+	}
+
+	.external-chat-box__item--skype {
+			background-color: #00aff0;
+			background-image: url(images/skype.svg);
+			background-size: 16px;
+	}
+
+	.external-chat-box__item--skype:hover,.external-chat-box__item--skype:focus {
+			background-color: #30c8f3;
+	}
+
+	.external-chat-box__item--whatsapp {
+			background-color: #1dd367;
+			background-image: url(images/whatsapp.svg);
+			background-size: 18px;
+	}
+
+	.external-chat-box__item--whatsapp:hover,.external-chat-box__item--whatsapp:focus {
+			background-color: #44e388;
+	}
+
+	.external-chat-popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			transition: .3s;
+	}
+
+	.external-chat-popup--hidden {
+			visibility: hidden;
+			opacity: 0;
+	}
+
+	.external-chat-popup__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4);
+	}
+
+	.external-chat-popup__dialog {
+			width: 300px;
+			max-width: 100%;
+			margin: 15vh auto;
+			padding: 30px;
+			background: #fff;
+			text-align: center;
+			position: relative;
+			border-radius: 2px;
+			box-shadow: 0 4px 14px rgba(0,0,0,.06), 0 0 6px rgba(0,0,0,.1);
+			transition: .2s;
+	}
+
+	.external-chat-popup--hidden .external-chat-popup__dialog {
+			transform: translateY(-100%);
+	}
+
+	.external-chat-popup__text {
+			font-size: 18px;
+			margin-bottom: 20px;
+	}
+</style> 
+<style link-color-css>:root {--c-color:#ff5100;--c-line-height:1.4;--c-font-size:14px;}a:hover,.font-color-a a,.font-color-a a:hover,.font-color,.font-color-hover:hover,.font-color-before:before,.font-color-hover-before:hover:before,.font-color-after:after,.font-color-hover-after:hover:after{color:var(--c-color)!important}.border_color,.border-color,.btn-primary:focus,.btn-primary,.btn-primary:hover,.border-color-a a,.border-color-a a:hover,.border-color-hover:hover,.border-color-before:before,.border-color-hover-before:hover:before,.border-color-after:after,.border-color-hover-after:hover:after{border-color:var(--c-color)!important;}.bg-color,.btn-primary,.btn-primary:hover,.bg-color-a a,.bg-color-a a:hover,.bg-color-hover:hover,.bg-color-before:before,.bg-color-hover-before:hover:before,.bg-color-after:after,.bg-color-hover-after:hover:after{background-color:var(--c-color)!important}.bg-color-h a{color:var(--c-color)!important}.bg-color-h a:hover{background-color:var(--c-color)!important;color:#fff !important;}.swiper-pagination-bullet:hover,.swiper-pagination-bullet-active{background-color:var(--c-color)!important}.btn-bg:hover,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9{color:var(--c-color)!important}.btn-bg,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{border-color:var(--c-color)}.btn-bg,.btn-bg:hover,.tem-btn-3:before,.tem-btn-4:before,.tem-btn-5:before,.tem-btn-6:before,.tem-btn-7:before,.tem-btn-7:after,.tem-btn-8:before,.tem-btn-8:after,.tem-btn-9:before,.tem-btn-9:after,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{background-color:var(--c-color)}.tem-btn-1,.tem-btn-2{background:-webkit-linear-gradient(left,var(--c-color),var(--c-color)) no-repeat;background:linear-gradient(to right,var(--c-color),var(--c-color)) no-repeat}.tem-btn-1:hover,.tem-btn-2:hover,.tem-btn-3:hover,.tem-btn-4:hover,.tem-btn-5:hover,.tem-btn-6:hover,.tem-btn-7:hover,.tem-btn-8:hover,.tem-btn-9:hover,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{color:#FFF}.btn-bg:hover{border-color:#FFF}.swiper-container .swiper-pagination-bullet{background:#bbb;opacity:.5;}.swiper-pagination-bullet-active{opacity:1!important;}[playback_mode="current"]+.video_js_play_btn{z-index: 24!important}[playback_mode="global"]+.video_js_play_btn{z-index: 24!important}[playback_mode="popup"]+.video_js_play_btn{z-index: 24!important}[playback_mode="current"]~.prism-player{z-index: 24!important}[playback_mode="global"]~.prism-player{z-index: 24!important}[playback_mode="popup"]~.prism-player{z-index: 24!important}</style>
+<style>:root{--c-color:#1AAEC2}.container{max-width:1440px}.top_title,.title{font-family:DIN-Regular,Arial,myanmar_font}body,html,.body_color_bgs{font-family:DIN-Regular,Arial,myanmar_font}:root {                --btn-style-deep:solid;--btn-color-deep:#fff;--btn-bg-color-deep:var(--c-color);--btn-border-color-deep:var(--c-color);--btn-radius-deep:6px;--btn-width-deep:1px;                --btn-style-shallow:solid;--btn-color-shallow:var(--c-color);--btn-bg-color-shallow:#fff;--btn-border-color-shallow:#fff;--btn-radius-shallow:6px;--btn-width-shallow:1px;                }.btn[btn-types="shallow"]{color:rgba(0,0,0,0);font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:rgba(26, 174, 194, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.btn[btn-types="deep"]{color:#FFFFFF;font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:#1AAEC2;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}:root {                --inp-style-deep:solid;--inp-color-deep:#fff;--inp-bg-color-deep:var(--c-color);--inp-border-color-deep:var(--c-color);--inp-radius-deep:6px;--inp-width-deep:1px;                --inp-style-shallow:solid;--inp-color-shallow:var(--c-color);--inp-bg-color-shallow:#fff;--inp-border-color-shallow:#fff;--inp-radius-shallow:6px;--inp-width-shallow:1px;                }.form_inp[inp-types="shallow"]{color:rgba(102, 102, 102, 1);font-size:14px;border-color:rgba(245, 245, 245, 1);border-style:solid;border-width:1px;background-color:rgba(255, 255, 255, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.form_inp[inp-types="deep"]{color:rgba(102, 102, 102, 1);font-size:14px;border-top:none!important;border-left:none!important;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;border-bottom:none!important;background-color:rgba(245, 249, 255, 1);border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}.share_fun_box{display:none;}.share_fun_box2 ul li[data-network="share"]{display:none;}.share_fun_box2 ul li.backtop_clicks{border-top-left-radius: 25px;border-bottom-left-radius: 25px;}[direction]{align-items:stretch;}.there_video_icons{background-image:url(images/video_play_1.png);}.there_video_icons{opacity:1;}</style>
+<style mos-id="v61aed7e4d2ed1">.tem01_copyright{text-align:center;padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(144,144,144,.2);}#v61aed7e4d2ed1{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);text-align:center;}#v61aed7e4d2ed1 .container{}</style> 
+<style mos-id="v61aed7e4d2ecf">    .tem01_footer_section {padding: 20px 0;}    .tem01_footer{position:relative;}    .tem01_footer .footer_ul{display:flex;align-items: start; flex-wrap: wrap;}    .tem01_footer .footer_li{flex: 1;padding-right: 90px;}    .tem01_footer .footer_li:last-child{padding-right: 0;}    .tem01_footer .footer_li_box{position:relative;}    .tem01_footer .li_head{font-size:16px;font-weight: bold;margin-bottom:10px;}    .tem01_footer .con_ul{font-size:14px;line-height:26px;}    .tem01_footer .con_ul a{display:initial}    .tem01_footer .lan_a{padding-top:10px;}    .tem01_footer .lan_a a{display:initial;cursor:pointer;}    .tem01_footer .iconfenxiang_boxs{display: none;padding-right:10px;}    .tem01_footer .iconfenxiang_boxs ul{justify-content: left;}    .tem01_footer .iconfenxiang_boxs_m{padding-bottom: 20px;}    .tem01_footer .iconfenxiang_boxs_m .go_fast{color:inherit;}    .tem01_footer .sitemap {        font-size: 14px;        letter-spacing: 0;        font-weight: 400;    }    .tem01_footer .sitemap-line {        display: inline-block;        width: 1px;        height: 16px;        background-color: rgba(216,216,216,.5);        margin: 0 8px;    }    @media (min-width: 768px){        /* .tem01_footer .iconfenxiang_boxs_m{display:none!important;} */        .tem01_footer .footer_ul{display:flex;}        .tem01_footer .sitemap-box {display: none;}    }    @media (max-width: 770px){        .tem01_footer .footer_ul{display:none;}        /* .tem01_footer_section{padding-top:20px!important;padding-bottom:20px!important;display:none!important;} */        /* .tem01_footer_section.boxs_m_show{display:block!important;} */    }    #v61aed7e4d2ecf{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);padding-top:5vw;padding-bottom:4vw;}#v61aed7e4d2ecf .container{}    </style> 
+<style mos-id="v61b16a6068af1">    .tem_data_list_1 .ai_products_list_box{line-height:1.4;position:relative;}    .tem_data_list_1 .ai_products_list_box .bread{padding:20px 0;}    .tem_data_list_1 .ai_products_list_box .bread li{display: inline-block;}    .tem_data_list_1 .ai_products_list_box .text_box h1{font-size:48px;padding:20px 0 40px;text-align:center;margin:0;}    .tem_data_list_1 .ai_products_list_box a{color: inherit;}    .tem_data_list_1 .ai_products_list_ul{position: relative;padding-bottom:30px;overflow:hidden;}    .tem_data_list_1 .ai_products_list_ul a{display: block;}    .tem_data_list_1 .ai_products_list_ul ul{margin:0;display: flex;flex-wrap: wrap;width:auto;margin-left:-8px;margin-right:-8px;}    .tem_data_list_1 .ai_products_list_ul li{padding:8px;margin:0;}    .tem_data_list_1 .ai_products_list_ul .li_border {display: flex;flex-direction: column;height: 100%;}    .tem_data_list_1 .ai_products_list_ul .li_border a {flex: 1;}    .tem_data_list_1 .ai_products_list_ul .li_border .img_par {display: flex;justify-content: center;align-items: center;height: 100%;position: relative;}    .tem_data_list_1 .ai_products_list_ul .li_border .img_mask {backdrop-filter: blur(10px);display: block;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 0;}    .tem_data_list_1 .ai_products_list_ul .text{padding:0px;padding-top:10px;}    .tem_data_list_1 .ai_products_list_ul .text .title{font-size: 16px;margin-bottom:6px;width: 100%;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .tem_data_list_1 .ai_products_list_ul .text .describe{font-size: 14px;font-weight: 400;width: 100%;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .tem_data_list_1 .ai_products_list_ul .text .date{font-size:12px;opacity:.6;padding-top:6px;}    @media (max-width: 1024px){    .tem_data_list_1 .ai_products_list_box .bread{padding:10px 0;}    .tem_data_list_1 .products_ul_box{padding-left:0 !important;}    }    @media (max-width: 768px){    .tem_data_list_1 .ai_products_list_ul ul li{display: block;max-width:none;}    .tem_data_list_1 .ai_products_list_box .text_box h1{font-size:18px;padding:0 0 20px;}    }            .tem_data_list_1 .news_details_left_block{box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.1);border-radius: 6px;margin-bottom:20px;background-color:#fff;}    .tem_data_list_1 .search_box .input_group{display: flex;margin-bottom: 12px;}    .tem_data_list_1 .search_box .input_group input{width: 100%;max-width: 370px;height: 36px;line-height: 36px;font-size: 14px;border: 1px solid rgba(0, 0, 0, 0.15);border-right: 0;padding: 0 10px;}    .tem_data_list_1 .search_box .input_group input:focus{outline:unset}    .tem_data_list_1 .search_box .input_group_btn{cursor: pointer;width: 36px;height: 36px;line-height: 36px;font-size: 14px;border: 1px solid rgba(0, 0, 0, 0.15);color: rgba(0, 0, 0, 0.45);text-align: center;}    .tem_data_list_1 .search_box .input_group_btn:hover{background: #EA0007;color: #fff;}    .tem_data_list_1 .search_box .search_result{font-size: 16px;color: #4D4C4D;margin-bottom: 12px;display: none;}    .tem_data_list_1 .search_box .search_result .search_keyword{color: #EA0007;}    .tem_data_list_1 .li_container{position:relative;display:flex;}    .tem_data_list_1 .li_nav_left{width:300px;min-width:300px;max-width:300px;position:relative;}    .tem_data_list_1 .li_container.left_none .li_nav_left{display:none;}    .tem_data_list_1 .li_container.left_none .products_ul_box{padding-left:0;}    .tem_data_list_1 .right_navigation_menus{padding:0px 0px 10px;}    .tem_data_list_1 .news_details_left_block.right_navigation_menus h2{padding:14px 20px;border-bottom:1px solid rgba(144,144,144,.1);}    .tem_data_list_1 .right_nav{position:relative;padding-top:8px;}    .tem_data_list_1 .right_nav li{position:relative;}    .tem_data_list_1 .right_nav .text{position:relative;overflow:hidden;padding-right:20px;transition:.3s;}    .tem_data_list_1 .right_nav li>.text:hover{background-color:rgba(144,144,144,.1);}    .tem_data_list_1 .right_nav a{position:relative;max-width:100%;overflow:hidden;display:block;padding-left:20px;padding-right:40px;padding-top:10px;padding-bottom:10px;}    .tem_data_list_1 .right_nav .i_con{position:absolute;width:20px;height:20px;line-height:20px;text-align:center;top:50%;margin-top:-10px;right:20px;transition:.3s;opacity:.6;}    .tem_data_list_1 .right_nav .nav_ul{display:none;}    .tem_data_list_1 .right_nav .nav_ul .text{padding-left:20px;}    .tem_data_list_1 .right_nav .nav_ul li.xia> .text a,    .tem_data_list_1 .right_nav .nav_ul .text a{padding-left:10px;}    .tem_data_list_1 .right_nav .nav_ul .nav_ul li .text a{padding-left:20px;}    .tem_data_list_1 .right_nav>li.active> .text{font-weight:bold;}    .tem_data_list_1 .right_nav li.active> .text{font-weight:bold;}    .tem_data_list_1 .right_nav li.active> .text.font-color{background-color:rgba(144,144,144,.06);}    .tem_data_list_1 .right_nav li.active> .text .i_con{transform:rotate(-90deg);}    .tem_data_list_1 .right_nav li.xia> .text{padding:0px 40px 0px 20px;}    .tem_data_list_1 .right_nav li.xia> .text a{padding:10px 0;display:inline-block;}    .tem_data_list_1 .product_enquiry_box{padding-top:10px;padding-bottom:10px;line-height:1.4;}    .tem_data_list_1 .product_enquiry_box .boxs_top{color:#09090A;margin-bottom:15px;}    .tem_data_list_1 .product_enquiry_box .boxs_top .title{font-size:30px;margin-bottom:15px;}    .tem_data_list_1 .product_enquiry_box .boxs_top .describes{opacity:.8;font-size:14px;}    .tem_data_list_1 .product_enquiry_box .fl_row_s{display:flex;flex-wrap:wrap;margin-left:-10px;margin-right:-10px;margin-bottom:0;}    .tem_data_list_1 .product_enquiry_box .fl6_s{width:50%;padding-right:10px;padding-left:10px;}    .tem_data_list_1 .product_enquiry_box .fl12_s{width:100%;padding-right:10px;padding-left:10px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label{display:block;border:none;position:relative;user-select:none;height:38px;padding:0 14px;background:#fff;margin-bottom:15px;border-radius:4px;border: 1px solid #DAD9D9;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp{background:0 0;border:none;outline:0;color:inherit;height:100%;display:block;width:100%;font-size:inherit;box-shadow:none;font-weight:500;resize: none;color:#333;}    .tem_data_list_1 .product_enquiry_box textarea.enquiry_inp{line-height:20px;}    .tem_data_list_1 .product_enquiry_box .required_span{position:absolute;height:18px;line-height:18px;left:10px;top:10px;display:block;pointer-events:none;transition:.1s;font-weight:400;color:#131415;opacity:.5;}    .tem_data_list_1 .product_enquiry_box .required_span .font-color{display:none;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp[required]+.required_span .font-color{display:inline;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp:focus+.required_span,.tem_data_list_1 .product_enquiry_box .enquiry_label.js-select-open .required_span{margin-left:20px;opacity:0;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.active .required_span{margin-top:-26px;left:0;}    .tem_data_list_1 .product_enquiry_box .required_tips{margin:0;position:absolute;left:2px;bottom:0;font-size:12px;color:#d90000;display:none;pointer-events:none;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.errors{border-color:#d90000;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.errors .required_tips{display:block;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box{text-align:center;padding-top:10px;padding-bottom:20px;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a{border-radius:4px;height:40px;border:none;font-size:14px;color:#FFFFFF;max-width:100%;outline:0;transition:.2s;padding:0;padding:0 30px;line-height:40px;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a:hover{opacity:.7;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a:active{opacity:1;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs{height:auto;padding:6px 14px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs .enquiry_inp{height:auto;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs textarea.enquiry_label{height:auto;resize:none;}    @media (max-width:1024px){    .tem_data_list_1 .product_enquiry_box .fl6_s{width:100%;}    .tem_data_list_1 .li_nav_left{display:none;}    .tem_data_list_1 .mobile-reverse{display:flex;flex-direction:column-reverse}    .tem_data_list_1 .tem_pagination_1{margin-bottom: 20px;}    }    .tem_data_list_1 input.enquiry_inp_placeholder::-webkit-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:-moz-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder::-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder::-moz-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:-ms-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:-ms-input-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder::-webkit-input-placeholder,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus:-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus:-moz-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder:-moz-placeholderr,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder:-moz-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus::-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus::-moz-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder::-moz-placeholderr,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder::-moz-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 .js-select-open .enquiry_inp_placeholder:-ms-input-placeholder {color:inherit;opacity:.6;}    </style> 
+<style mos-id="v61b16a6068af1">    .tem_data_list_1 .inquiry_right_sticky_box{position:sticky;top:10px;}    .tem_data_list_1 .sticky_inquiry{position:sticky;top:10px;padding:6px 20px;border-radius: 4px;font-size:12px;}    .tem_data_list_1 .sticky_inquiry_head{padding:12px 0 12px;font-size:16px;font-weight:bold;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box{padding-bottom:20px;padding-top:0px;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a{display: block;width: 100%;cursor:pointer;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box[btn_text_align="center"] .read_more_a{margin:auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box[btn_text_align="right"] .read_more_a{margin:0 0 0 auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a[btn_screen]{width:auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a[btn_screen="1"]{width:100%;}    .tem_data_list_1 .btn_box{padding-bottom:20px;}    .tem_data_list_1 .btn_box[btn_text_align="center"]{text-align:center;}    .tem_data_list_1 .btn_box[btn_text_align="right"]{text-align:right;}    .tem_data_list_1 .btn_box .btn[btn_screen]{width:auto;}    .tem_data_list_1 .btn_box .btn[btn_screen="1"]{width:100%;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_label{border:none;background: #F2F2F2;margin-bottom:12px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.active .required_span{display:none;}    .tem_data_list_1 .products_ul_box{padding-left:20px;flex:1;overflow: hidden;}    .tem_data_list_1 .products_ul_box .products_text .title{font-size: 18px;margin-bottom:10px;}    .tem_data_list_1 .products_ul_box .products_text .describe{font-size: 14px;margin-bottom:15px;opacity:.8;}    .tem_data_list_1 .products_ul_box .products_text .describe p{margin:0;}    .tem_data_list_1 .list_link_artboard{position:relative;margin-bottom:20px;display:none;}    .tem_data_list_1 .list_link_artboard.list_top_show{display:block;}    .tem_data_list_1 .list_link_artboard a{color:inherit;}    .tem_data_list_1 .list_link_artboard .bg_artboard{box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);border-radius:2px;position:relative;height:55px;background-color:#fff;color:#333;}    .tem_data_list_1 .list_link_artboard .bg_artboard .r_l_box{position:absolute;top:0;right:0;line-height:55px;background-image:linear-gradient(270deg, #FFFFFF 70%, rgba(255,255,255,0.00) 100%);border-radius:8px;z-index:6;overflow:hidden;width:84px;text-align:right;user-select:none;padding-right:6px;height:55px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l{width:24px;height:24px;text-align:center;cursor:pointer;line-height:24px;display:inline-block;opacity:0;pointer-events:none;transition:.2s;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l img{vertical-align:initial;}    .tem_data_list_1 .list_link_artboard .bg_artboard.right_sroll .btn_l{opacity:1;pointer-events:auto;}    .tem_data_list_1 .list_link_artboard .hidden_box{overflow:hidden;position:absolute;width:100%;height:55px;}    .tem_data_list_1 .list_link_artboard .list_box{position:absolute;top:0;left:0;transition:.2s;}    .tem_data_list_1 .list_link_artboard ul.list_one{display:flex;white-space:nowrap;padding:0 10px;line-height:55px;}    .tem_data_list_1 .list_link_artboard ul.list_one a{color:inherit;display:block;padding:0 20px;}    .tem_data_list_1 .list_link_artboard ul.list_one .text,    .tem_data_list_1 .list_link_artboard ul.list_one li,    .tem_data_list_1 .list_link_artboard ul.list_one .txt{position:relative;}    .tem_data_list_1 .list_link_artboard ul.list_one .txt.border-color::after{content:'';display:block;position:absolute;bottom:0;left:0;border-bottom:3px solid;border-color:inherit;width:100%;}    .tem_data_list_1 .list_link_artboard ul.list_one .icon_img{margin-left:4px;vertical-align:initial;}    .tem_data_list_1 .list_link_artboard .bg_artboard.right_sroll ul.list_one{padding-right:84px;}    .tem_data_list_1 .list_link_artboard .list_arrow{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid;border-width:8px;top:2px;left:0;border-top-color:#fff;border-bottom-width:0;transform:rotate(180deg) translate(50%);z-index:9;}    .tem_data_list_1 .list_link_artboard .list_arrow2{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid;border-width:10px;bottom:100%;right:32px;border-top-color:#fff;border-bottom-width:0;transform:rotate(180deg);z-index:9;}    .tem_data_list_1 .list_link_artboard .btn_m{display:none;}    .tem_data_list_1 .list_link_artboard .artboard_box{position:relative;}    .tem_data_list_1 .list_link_artboard ul.list_one .list_level_box{display:none;}    @media (min-width:1026px){    .tem_data_list_1 .list_link_artboard ul.list_one .list_level2 a{padding:8px 30px;display:block;}    .tem_data_list_1 .list_link_artboard ul.list_one .list_level2{background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 6px;border-radius:5px;padding:10px 0;position:relative;max-height:200px;overflow:auto;}    .tem_data_list_1 .list_link_artboard .list_level_box{position:absolute;top:100%;left:0;line-height:20px;z-index:60;padding-top:10px;}    .tem_data_list_1 .list_link_artboard .list_level_box a{padding:8px 30px;display:block;}    .tem_data_list_1 .list_link_artboard .list_level_box .list_level2{background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 6px;border-radius:5px;padding:10px 0;position:relative;max-height:200px;overflow:auto;}    .tem_data_list_1 .list_link_artboard .list_m_link{display:none!important;}    .tem_data_list_1 .list_link_artboard .list_level_box.leve_ul_box{display:none;}    .tem_data_list_1 .list_link_artboard .list_level_box .icon_img{position: relative;transform: rotate(-90deg);}    }    @media (max-width:1026px){    .tem_data_list_1 .list_link_artboard{display:block!important}    .tem_data_list_1 .list_link_artboard.m_list_top_hide.list_top_hide,    .tem_data_list_1 .list_link_artboard .list_level_box{display:none!important;}    .tem_data_list_1 .list_link_artboard ul.list_one .icon_img{display:none;}    .tem_data_list_1 .list_link_artboard ul.list_one a{padding:0 10px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .r_l_box{display:block!important;width:60px;padding:0;padding-left:10px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l{display:none;}    .tem_data_list_1 .list_link_artboard .btn_m{display:block;text-align:center;}    .tem_data_list_1 .list_link_artboard ul.list_one{padding:0 5px!important;padding-right: 55px!important;}    .tem_data_list_1 .list_link_artboard .bg_artboard{overflow:hidden;}    .tem_data_list_1 .list_link_artboard .list_m_link{position:absolute;left:0;top:100%;width:100%;background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 16px;z-index:40;padding:10px 20px 20px;margin-bottom:60px;display:none;margin-top:15px;}    .tem_data_list_1 .list_link_artboard .list_m_link a{display:block;color:inherit;}    .tem_data_list_1 .list_link_artboard .list_m_link .text{padding:14px 0;line-height:20px;position:relative;padding-right:40px;}    .tem_data_list_1 .list_link_artboard .list_m_link .text .icon_img_box{position:absolute;right:0;top:50%;width:50px;height:40px;margin-top:-20px;line-height:40px;text-align:right;}    .tem_data_list_1 .list_link_artboard .list_m_link .text .icon_img_box .iconfont{position:relative;display:inline-block;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li>.text{border-bottom:1px solid #F0F0F0;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li>.text.font-color{border-color:initial;}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul{padding:2px 0;display:none;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li.active>ul{display:block;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li.active>.text .iconfont{transform:rotate(180deg);}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul .text{padding:9px 0;opacity:.8;}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul a{padding-left:20px}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul ul a{padding-left:40px}    }    #v61b16a6068af1{}#v61b16a6068af1 .container{}#v61b16a6068af1 .btn_box{text-align:center}#v61b16a6068af1 .btn{display:block;width:100%;}#v61b16a6068af1 li .describe{color:rgba(82, 81, 81, 1)}    </style> 
+<style mos-id="v61b16a6068aea">    .tem_breadcrumb_1{position:relative;color:#fff;padding-top:11vw;padding-bottom:11vw;background-repeat:no-repeat;background-position:center;background-size:cover;text-align:center;background-color:#000000;}    .tem_breadcrumb_1 .text{position:relative;}    .tem_breadcrumb_1 .text .top_title{margin-bottom:20px;font-weight: 400;}    .tem_breadcrumb_1 .top_describe{font-size:14px;opacity:.9;}    .tem_breadcrumb_1 .absolute_box{position: absolute;left:0;top:0;width:100%;height:100%;}    @media (max-width:769px){        .tem_breadcrumb_1{padding:20px 0!important;background-image:none!important;}        .tem_breadcrumb_1 .top_describe,        .tem_breadcrumb_1 .top_describe *{font-size:14px!important;}    }    #v61b16a6068aea{background-color:rgba(19, 35, 74, 1);color:#FFFFFF;text-align:center;padding-top:8vw;padding-bottom:8vw;}#v61b16a6068aea .container{}        </style> 
+<style mos-id="v61aed7e4d2eb1">    .head_sousuos_active{overflow:hidden;}    ._header{width:100%;position:relative;height:0;z-index:999;color:#fff;font-size:16px;background-color:#000;padding-top:116px;--header-offset: -40px;}    ._header ul,    ._header li{margin:0;}    ._header_box{position:absolute;left:0;top:0;width:100%;}    ._header_con--bottom {padding-top:6px;padding-bottom:6px;}    .iconfenxiang_boxs{padding-right:10px;}    ._head_top{display:flex;line-height:40px;}    ._head_top .head_h1{flex:1;overflow:hidden;font-size:14px;margin:0;padding:0;padding-right:20px;font-weight:500;white-space:nowrap;text-overflow:ellipsis;line-height:inherit;}    ._head_top .icon_bx{display:flex;align-items: center;}    ._head_top .icon_bx.iconfenxiang_boxs{align-self: center;}    ._head_top .head_i{cursor:pointer;display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;font-size:20px;font-weight:bold;}    ._head_bottom{display:flex;}    ._header .logo{height:60px;padding-right:40px;min-width:200px;line-height:60px;font-size:0;}    ._header .logo a{display:block;height:100%;width:100%;}    ._header .logo img{max-height:100%;display:inline-block;vertical-align:middle;}    ._header nav{flex:1;overflow:hidden;line-height:60px;display:flex;flex-direction:row-reverse;position:relative;height:60px;font-weight:bold;}    ._header .nav_box{overflow:hidden;line-height:60px;position:relative;transition:.3s;}    ._header .nav{display:flex;white-space:nowrap;}    ._header .nav li{padding:0 20px;border-color:inherit;}    ._header .nav li a{padding:4px 0;display:inline;background:none;}    ._header .nav li.active>a{border-bottom:2px solid;border-color:inherit;}    ._header .nav_ul{display:none;}    ._header nav.add{padding-right:20px;padding-left:20px;}    ._header .nav_btns{position:absolute;top:50%;height:30px;width:20px;margin-top:-15px;line-height:30px;text-align:center;font-size:14px;cursor:pointer;border-radius:2px;user-select:none;display:none;color:#fff;}    ._header nav.add .nav_btns{display:block;}    ._header .btn_l{left:0;}    ._header .btn_r{right:0;}    ._header .disabled{opacity:.5;cursor:no-drop;}    ._header .nav_button{outline:none;border:0;width:40px;height:50px;padding:10px;transition:all .45s;z-index:99;display:block;background:0;float:left;position:relative;z-index:4;margin-top:5px;cursor:pointer;display:none;color:inherit;}    ._header .nav_button_icon{position:absolute;width:20px;height:16px;left:0;top:0;right:0;bottom:0;margin:auto;}    ._header .nav_button_icon span{display:block;position:absolute;right:0;left:0;height:0px;transition:all .15s;border-bottom:2px solid;}    ._header .nav_button_icon span:nth-child(1){top: 50%;transform: translate3d(0,-50%,0);}    ._header .nav_button_icon span:nth-child(2){top: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .nav_button_icon span:nth-child(3){bottom: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .head_lan_txt{font-size:14px;padding-right:20px;}    .header_nav_li_box{position:absolute;left:0;top:0;background:#faf7f2;z-index:999;box-shadow:0 0 4px rgba(122,122,122,.8);display:none;border-radius:2px;color:#666;white-space:nowrap;}    .header_nav_li_box .nav_ul{padding:4px 0;display:block!important;}    .header_nav_li_box .nav_ul .nav_ul{display:none!important;}    .header_nav_li_box li{position:relative;}    .header_nav_li_box li.xia a{padding-right:30px;}    .header_nav_li_box li.xia .i_con{position: absolute;right: 8px;top: 50%;transform: translateY(-50%) rotate(-90deg);}    .header_nav_li_box a{display:block;padding:10px 14px;}    .header_nav_li_box a.font-color,    .header_nav_li_box a:hover{background:#fff;}    .header_nav_li_box ul,    .header_nav_li_box li{margin:0;}    @media (min-width:1026px){        ._header .nav_ul{display:none!important;}        ._header.head_fixed ._header_box{position:fixed;top:0;left:0;width:100%;background:inherit;transition:.3s;z-index:99;}        [switch_fixed=nav]._header.head_fixed ._header_box{top:var(--header-offset)}    }    .m_iconfenxiang_boxs.iconfenxiang_boxs{display:none!important;padding:0;}    .m_iconfenxiang_boxs.iconfenxiang_boxs ul{overflow:auto;}    @media (max-width:1025px){        .head_nav_active{overflow:hidden;}        .m_iconfenxiang_boxs.iconfenxiang_boxs{display:block!important;}        .m_iconfenxiang_boxs.iconfenxiang_boxs[btn_show="0"]{display:none!important;}        ._header .head_lan_txt{display:none;}        .header_nav_li_box{display:none!important;}        body ._header{height:60px;z-index:999;padding-top:0!important;padding-bottom:0!important;}        ._header_box{z-index:999;position:fixed;background:inherit;}        ._head_top .head_h1{display:none;}        ._head_top .head_i{height:60px;line-height:60px;}        ._head_bottom{position:absolute;display:block;left:0;top:0;height:60px;width:100%;background:inherit;}        ._header_con{padding:0!important;height:100%;position:relative;background:inherit;}        ._header .logo{width:200px;padding:4px 0;margin:auto;text-align:center;line-height:50px;}        ._header .logo img{margin:auto;}        ._header .nav_button{display:block;}        body.head_nav_active ._header .nav_button_icon span:nth-child(1){opacity:0;}        body.head_nav_active ._header .nav_button_icon span:nth-child(2){transform: rotate(45deg) translate3d(5px,5px,0);top:0}        body.head_nav_active ._header .nav_button_icon span:nth-child(3){transform: rotate(-45deg) translate3d(5px,-5px,0);bottom:0;}        ._header .nav_btns{display:none!important;}        ._header nav.add,        ._header nav{display:block;position:fixed;padding:0;top:61px;left:0;right:0;bottom:0;z-index:998;background-color:inherit;transform-origin:20px 0;transform:scale(0);overflow:hidden;transition:.3s;pointer-events:none;visibility:hidden;height:auto;font-weight:500;}        ._header .nav{display:block;line-height:1.4;font-size:16px;white-space:initial;}        ._header .nav li{padding:10px 20px;position:relative;padding:0;}        ._header .nav li a{padding:0;border:none;padding:10px 20px;display:inline-block;margin-right:40px;}        ._header .nav_ul{background:rgba(122,122,122,.06);margin-bottom:10px;}        ._header .nav_box .nav_ul li{padding-left:10px;padding-right:10px;}        ._header .nav li .i_con{position:absolute;right: 12px;top:10px;transition:.2s;}        body.head_nav_active ._header nav{transform:scale(1);visibility:visible;pointer-events:initial;padding-bottom:50px;}        ._header .nav_box{overflow:auto;width: 100%;height:100%;}        ._header .nav li.draw_act>.i_con{transform:rotate(-180deg);}        .header-slogan-box {            position: absolute;            right: 0;            top: 0;            height: 100%;            background-color: transparent!important;            z-index: 4;        }    }    #v61aed7e4d2eb1{background-color:rgba(255, 255, 255, 1);color:rgba(19, 35, 74, 1);padding-top:116px;}#v61aed7e4d2eb1 .container{max-width:100%;}    </style> 
+<!-- css end --> 
+<!-- header style start --> 
+<style>
+
+@font-face{font-family:file_01635832483977_ttf;src:url(images/file_01638926132889.otf);font-display:swap;}
+.top_title,
+.body_color_bgs .conn-big-title-font,
+.body_color_bgs .title:not(.no_title_family),
+.body_color_bgs [important_title]:not(.no_title_family),
+.select_title_font_box{font-family:file_01635832483977_ttf,Arial,myanmar_font!important;}
+
+#v61aed7e4d2e86 .top_title{text-transform: uppercase; width:50%; font-weight: normal; line-height: 1.2; }
+#v61aed7e4d2e86 .top_describe{ width:50%; line-height: 1.8;opacity: 0.85;}
+.top_title{text-transform: uppercase; line-height:1.2; }
+.tem_title_1 .top_details{opacity: 0.8; }
+.public_lists_tem_2 .con li .text .describe{overflow: inherit; -webkit-line-clamp: inherit; }
+.top_details, .top_details *, .top_subtitle, .top_subtitle *{font-size:14px !important; }
+.new_u_body .top_details, .new_u_body .top_details *, .new_u_body .top_subtitle, .new_u_body .top_subtitle *{font-size:14px !important; }
+.tem_breadcrumb_1 .text .top_title{font-weight:normal; }
+.public_inquiry_tem_2 .top_title, .public_inquiry_tem_2 .top_describe{display:none; }
+.public_inquiry_tem_2 .sticky_box .icon_text_box h1{font-size:3.2vw; font-family:file_01635832483977_ttf,Arial,myanmar_font!important; font-weight:normal; text-transform: uppercase;}
+
+
+
+@media (min-width: 1200px) {
+.public_inquiry_tem_2 .enquiry_box{padding-left:2vw; }
+._head_bottom{max-width: 1440px; margin: 0 auto; padding-top:10px; }
+._header_con{padding: 0px; }
+._head_top{background-color:#13234a; padding-left:13vw; padding-right:13vw; color:#fff; height:36px; line-height:36px;}
+._header nav{font-size:15px; }
+.public_lists_tem_1 .top_details{padding-left:10vw; padding-right:10vw; }
+#v61af3d0145059 .top_details{opacity:0.85; }
+.public_lists_tem_1 .con li .text{padding:20px; }
+.public_lists_tem_2 .con li .text{padding:25px; }
+.top_details, .top_describe, .describe{line-height:1.8; }
+#v61af3c91ea53c .top_title, #v61af3c91ea53c .top_describe, #v61af3c91ea53c .top_subtitle, #v61af3c91ea53c .btn_box{padding-left:2vw; }
+#v61b0744b8f4d3 .top_describe{padding-right: 2vw; }
+#v61af3c91ea53c .img_par img,#v61b16cd8b1e1a .img_par img{width: auto; }
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+#v61aed7e4d2e86 .top_describe img{display:none; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+
+@media (max-width: 768px) {
+#v61aed7e4d2e86 .top_title *{font-size:30px !important; }
+#v61aed7e4d2e86 .top_describe{display:none; }
+.top_title, .top_title *{font-size:24px !important;}
+.top_details, .top_describe, .describe{line-height:1.6; }
+#v61af3cc6032fc{padding-top:5vw; }
+.public_lists_tem_2 .con li{width:50%; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+#v61af3d0145059 .container{margin-bottom:-24vw; }
+#v61aed7e4d2e8e {padding-top:22vw !important; }
+}
+@media (max-width: 640px) {
+#v61aed7e4d2e86 .top_title *{font-size:20px !important;  }
+#v61aed7e4d2e86 .top_title{width: 60%;}
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:0; padding-right:0; }
+.public_lists_tem_2 .con li{width: 100%;}
+#v61af3d0145059 .container{margin-bottom:-36vw; }
+#v61aed7e4d2e8e {padding-top:36vw !important; }
+.public_lists_tem_1 .con li{width:100%; }
+}
+</style> 
+  <div class="content_box"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b16a6068aea" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020662484.jpg" module_type="module"> 
+    <div modular-edit="custom"> 
+     <div class="absolute_box"> 
+      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+     </div> 
+     <div class="text"> 
+      <div class="container"> 
+       <div class="text"> 
+        <h1 class="top_title">PRODUCTS</h1> 
+       </div> 
+       <div class="top_describe"> 
+        <span><a href="/" style="display: inline;">HOME</a></span> 
+        <i>&gt;</i> 
+        <span><a href="/products" style="display: inline;">PRODUCTS</a></span> 
+       </div> 
+      </div> 
+     </div> 
+     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+      <div>
+       <span class="iconfont iconVR"></span>
+      </div> 
+      <div class="vr_txt"> 
+       <section template-edit="btn_languages" module_name="module">
+        VR
+       </section> 
+      </div> </a> 
+    </div> 
+   </div> 
+   <div class="tem_data_list_1 no_bg_src content-section" id="v61b16a6068af1" module_id="5000" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="list_link_artboard list_top_hide "> 
+      <div class="artboard_box"> 
+       <div class="bg_artboard"> 
+        <div class="r_l_box"> 
+         <div class="btn_l"> 
+          <img src="images/icon_1.png" alt=""> 
+         </div> 
+         <div class="btn_l"> 
+          <img src="images/icon_2.png" alt=""> 
+         </div> 
+         <div class="btn_m"> 
+          <img src="images/list.png" alt=""> 
+         </div> 
+        </div> 
+        <div class="hidden_box"> 
+         <div class="list_box"> 
+          <ul class="list_one"> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27874"> 
+              <div class="txt "> 
+               <span>Zinc Sulphate Heptahydrate ZnSO4.7H2O Fertilizer/Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27875"> 
+              <div class="txt "> 
+               <span>Zinc Sulphate Monohydrate ZnSO4.H2O Feed /Fertilizer Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27876"> 
+              <div class="txt "> 
+               <span>Lead Nitrate Pb(NO3)2 Industrial/Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27877"> 
+              <div class="txt "> 
+               <span>Ferrous Sulphate Heptahydrate FeSO4.7H2O Fertilizer /Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27878"> 
+              <div class="txt "> 
+               <span>Ferrous Sulphate Monohydrate FeSO4.H2O Feed Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27879"> 
+              <div class="txt "> 
+               <span>Barium Carbonate 513-77-9</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27880"> 
+              <div class="txt "> 
+               <span>Manganese Sulphate Monohydrate MnSO4.H2O Industrial /Feed Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27881"> 
+              <div class="txt "> 
+               <span>Copper Carbonate</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27882"> 
+              <div class="txt "> 
+               <span>Soda Ash</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27883"> 
+              <div class="txt "> 
+               <span>Sodium Metabisulphite Na2S2O5 Mining/Food Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27884"> 
+              <div class="txt "> 
+               <span>Sodium Hydroxide(Caustic Soda) NaOH Industrial/Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-27885"> 
+              <div class="txt "> 
+               <span>Sodium Isobutyl Xanthate C4H9OC-SNaS2 Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-28376"> 
+              <div class="txt "> 
+               <span>Ammonium Persulfate (NH4)2S2O8 Industrial/Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-28381"> 
+              <div class="txt "> 
+               <span>Copper Sulphate Pentahydrate</span> 
+              </div> </a> 
+            </div> </li> 
+           <li> 
+            <div class="text"> 
+             <a href="/products-28382"> 
+              <div class="txt "> 
+               <span>Sodium Persulfate Na2S2O8 Industrial/Mining Grade</span> 
+              </div> </a> 
+            </div> </li> 
+          </ul> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="list_m_link"> 
+        <div class="list_arrow2"></div> 
+        <ul class="_ul"> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27874"> 
+            <div class="txt"> 
+             <span>Zinc Sulphate Heptahydrate ZnSO4.7H2O Fertilizer/Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27875"> 
+            <div class="txt"> 
+             <span>Zinc Sulphate Monohydrate ZnSO4.H2O Feed /Fertilizer Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27876"> 
+            <div class="txt"> 
+             <span>Lead Nitrate Pb(NO3)2 Industrial/Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27877"> 
+            <div class="txt"> 
+             <span>Ferrous Sulphate Heptahydrate FeSO4.7H2O Fertilizer /Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27878"> 
+            <div class="txt"> 
+             <span>Ferrous Sulphate Monohydrate FeSO4.H2O Feed Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27879"> 
+            <div class="txt"> 
+             <span>Barium Carbonate 513-77-9</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27880"> 
+            <div class="txt"> 
+             <span>Manganese Sulphate Monohydrate MnSO4.H2O Industrial /Feed Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27881"> 
+            <div class="txt"> 
+             <span>Copper Carbonate</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27882"> 
+            <div class="txt"> 
+             <span>Soda Ash</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27883"> 
+            <div class="txt"> 
+             <span>Sodium Metabisulphite Na2S2O5 Mining/Food Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27884"> 
+            <div class="txt"> 
+             <span>Sodium Hydroxide(Caustic Soda) NaOH Industrial/Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-27885"> 
+            <div class="txt"> 
+             <span>Sodium Isobutyl Xanthate C4H9OC-SNaS2 Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-28376"> 
+            <div class="txt"> 
+             <span>Ammonium Persulfate (NH4)2S2O8 Industrial/Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-28381"> 
+            <div class="txt"> 
+             <span>Copper Sulphate Pentahydrate</span> 
+            </div> </a> 
+          </div> </li> 
+         <li class="_li"> 
+          <div class="text "> 
+           <a href="/products-28382"> 
+            <div class="txt"> 
+             <span>Sodium Persulfate Na2S2O8 Industrial/Mining Grade</span> 
+            </div> </a> 
+          </div> </li> 
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+     <script mos-id="v61b16a6068af1">
+            function filterHTMLTag (msg) {
+                var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+                msg = msg.replace(/[|]*\n/, '') //去除行尾空格
+                msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+                return msg;
+            }
+
+            const data_v61b16a6068af1 = {
+                data_page_type: `1`,
+                data_page_limit: `12`,
+                total: `122`,
+                currentPage: 1,
+                loading: false
+
+            }
+            const loadMorev61b16a6068af1 = () => {
+                
+                imgLazyLoad()
+                const winHeight = window.innerHeight;
+                const dom = $('#v61b16a6068af1.tem_data_list_1 .ai_products_list_ul ul');
+                const scrollTop = document.documentElement.scrollTop;
+                if(!dom.offset()) return
+                const domOffsetTop = dom.offset().top; // 距顶部的高度
+                const domHeight = dom.outerHeight()
+                if (domOffsetTop + domHeight - scrollTop <= winHeight) {
+                    getListv61b16a6068af1()
+                }
+            }
+            const getListv61b16a6068af1 = async() => {
+                if(data_v61b16a6068af1.loading) return
+                if( data_v61b16a6068af1.currentPage * data_v61b16a6068af1.data_page_limit >= data_v61b16a6068af1.total) return
+                const small_load2 = $('<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-image:url(images/small_load4.gif);background-position:center;background-repeat:no-repeat;background-color:rgba(255,255,255,.6)"></div>')
+                $('body').append(small_load2);
+                data_v61b16a6068af1.currentPage += 1
+                const boxs = $('#v61b16a6068af1.tem_data_list_1 .ai_products_list_ul ul');;
+                data_v61b16a6068af1.loading = true
+                let data_html = ''
+                var url = "/products-detail"
+                const res = await $.ajax({
+                    type:'get',
+                    url:"/videolist",
+                    datatype:'json',
+                    data:{
+                        id:'26867',
+                        page: data_v61b16a6068af1.currentPage,
+                        limit: data_v61b16a6068af1.data_page_limit
+                    },
+                })
+                if(res.data && res.data.length){
+                    for(let i=0;i<res.data.length;i++){
+                        let datatime = res.data[i].created_at.split(' ')[0]
+                        datatime = datatime.replace(/-/g,"/")
+                        let html_p = res.data[i].introduce
+                        html_p = filterHTMLTag(html_p)
+                        data_html +=
+                            `<li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols="">
+                                <div class="li_border">
+                                    <a target="_blank" href="${res.data[i]['href']}">
+                                        <div class="img_par no_img_src list_module_1" img_par_proportion="1" style="">
+                                                                                        <img video-img="${res.data[i]['preview_img']}" img_preview_gif="${res.data[i]['preview_gif']||''}" alt="${res.data[i]['title']}"  video_w="600" onerror="onerror=null;src='/images/errorImg.png'"/>
+                                            ${res.data[i]['url'] ||res.data[i]['m3u8'] ? '<span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span>':''}
+                                        </div>
+                                    </a>
+                                    <div class="text">
+                                        <a target="_blank" href="${res.data[i]['href']}">
+                                            <div class="title" title="${res.data[i]['title']}}" title_lengths="">${res.data[i]['title']}</div>
+                                                                                           <div class="describe" title="${html_p}" title_lengths="">${html_p}</div>
+                                                                                    </a>
+                                        <div class="date" btn_show="0">${datatime}</div>
+
+                                    </div>
+
+                                </div>
+                            </li>`
+                    }
+                    boxs.html(boxs.html() + data_html);
+                    imgLazyLoad()
+                    // preview_img();
+                }
+                small_load2.remove();
+                setTimeout(() => {
+                    data_v61b16a6068af1.loading = false
+                    if ($(window).innerHeight() <= $(document).height()) {
+                        loadMorev61b16a6068af1()
+                    }
+                }, 2000)
+            }
+            if(data_v61b16a6068af1.data_page_type == 2) {
+                // 滑动加载
+                window.addEventListener("scroll", loadMorev61b16a6068af1)
+                setTimeout(() => {
+                    loadMorev61b16a6068af1()
+                }, 300);
+            }
+
+            (function(){
+                var generate_id = "v61b16a6068af1",
+                    generate_box = $('#'+generate_id);
+                generate_box.find('.list_link_artboard .bg_artboard').mouseenter(function () {
+                    var that = $(this),
+                        box = that.find('.hidden_box'),
+                        w = box.outerWidth(),
+                        over_w = box.find('.list_box').outerWidth(),
+                        r_l_box = that.find('.r_l_box');
+                    if (over_w > w) {
+                        that.addClass("right_sroll");
+                        r_l_box.show();
+                    } else {
+                        that.removeClass("right_sroll");
+                        r_l_box.hide();
+                    }
+                })
+                generate_box.find('.list_link_artboard .bg_artboard').mouseenter();
+
+                generate_box.find('.list_link_artboard ul.list_one').mouseenter(function () {
+                    var box = $(this).closest(".hidden_box");
+                    box.addClass('hovers');
+                }).mouseleave(function () {
+                    var box = $(this).closest(".hidden_box");
+                    box.removeClass('hovers');
+                })
+
+                generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                    "opacity":'0.5',
+                    "pointer-events": "none"
+                });
+                generate_box.find('.list_link_artboard .bg_artboard .btn_l').click(function () {
+                    var that = $(this),
+                        index = that.index(),
+                        over_box = generate_box.find('.list_link_artboard .bg_artboard .hidden_box'),
+                        box = generate_box.find('.list_link_artboard .bg_artboard .list_box'),
+                        w = over_box.outerWidth(),
+                        max_l = box.outerWidth(),
+                        l = box.position().left;
+
+                    var i = 0;
+                    generate_box.find('.list_link_artboard ul.list_one>li').each(function () {
+                        var li = $(this),
+                            li_l = -(li.position().left - 10);
+                        if (li_l < l) {
+                            i = li.index();
+                            if (index == 0) {
+                                i -= 2;
+                            } else {
+
+                            }
+                            return false;
+                        }
+                    })
+
+                    if (i < 0) {
+                        i = 0;
+                    }
+
+                    l = -(generate_box.find('.list_link_artboard ul.list_one>li').eq(i).position().left - 10);
+
+                    generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                        "opacity":'1',
+                        "pointer-events": "auto"
+                    });
+                    generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(1).css({
+                        "opacity":'1',
+                        "pointer-events": "auto"
+                    });
+
+                    if (l >= 0) {
+                        l = 0;
+                        generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                            "opacity":'0.5',
+                            "pointer-events": "none"
+                        });
+                    }
+                    if (l <= -(max_l - w)) {
+                        l = -(max_l - w);
+                        generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(1).css({
+                            "opacity":'0.5',
+                            "pointer-events": "none"
+                        });
+                    }
+                    box.css('left', l);
+                })
+
+                generate_box.find('.list_link_artboard .btn_m').click(function () {
+                    generate_box.find('.list_link_artboard .list_m_link').slideToggle(300);
+                })
+
+                generate_box.find('.list_link_artboard .list_m_link .text .icon_img_box').click(function () {
+                    var that = $(this),
+                        li = that.closest("._li");
+                    li.toggleClass("active");
+                })
+
+
+
+                function times_fun(that,fun){
+                    var list_level_box = that.closest('.list_level_box[data-boxs]');
+                    fun(that);
+                    if (list_level_box.length) {
+                        var id = list_level_box.attr('data-boxs');
+                        if (generate_box.find('[data-btns="'+id+'"]').length) {
+                            times_fun(generate_box.find('[data-btns="'+id+'"]'),fun);
+                        }
+                    }
+                }
+
+                generate_box.find('.list_link_artboard').on('mouseenter','li',function(){
+                    var that = $(this),
+                        // box =  that.find('.list_level_box').clone(),
+                        artboard_box = that.closest('.artboard_box'),
+                        hidden_box = that.closest('.hidden_box'),
+                        hide_l = hidden_box.length ? hidden_box.offset().left - generate_box.find('.list_link_artboard').offset().left : 0,
+                        btn_l = that.offset().left - generate_box.find('.list_link_artboard').offset().left,
+                        ids = that.attr("data-btns") || "ids_" + new Date().getTime();
+
+                    if (!that.find('>.list_level_box').length) {
+                        return
+                    }
+                    that.attr("data-btns", ids);
+                    if (!generate_box.find('[data-boxs="' + ids + '"]').length) {
+                        var boxxx = that.find('>.list_level_box').clone();
+                        boxxx.attr("data-boxs", ids);
+                        artboard_box.append(boxxx);
+                        that[0].times = null;
+                    }
+                    var box = generate_box.find('[data-boxs="' + ids + '"]');
+
+                    if (that[0].times) {
+                        clearInterval(that[0].times);
+                    }
+
+                    box.show();
+                    var box_w = box.outerWidth(),
+                        btn_w = that.outerWidth(),
+                        left = btn_l - (box_w / 2) + (btn_w / 2),
+                        left2 = box_w / 2,
+                        left_0 = 2;
+
+                    if (left < 0) {
+                        left2 = left2 - (left_0 - left);
+                        left = left_0;
+                    }
+                    var top = artboard_box.height();
+                    var leve_ul_box = that.closest('.list_level_box');
+                    if (leve_ul_box.length) {
+                        // left = left + leve_ul_box.width();
+                        left = btn_l + leve_ul_box.width();
+                        top = top + that.position().top - 10;
+                    }
+
+                    if (left>artboard_box.width()-box_w) {
+                        left = leve_ul_box.length? left - leve_ul_box.width() - box_w : left - leve_ul_box.width();
+                    }
+
+                    box.css({
+                        left: left,
+                        top: top
+                    })
+                    box.find('.list_arrow').css({
+                        left: left2
+                    })
+                })
+                .on('mouseleave','li',function(){
+                // .mouseleave(function () {
+                    var that = $(this),
+                        ids = that.attr("data-btns"),
+                        box = generate_box.find('[data-boxs="' + ids + '"]');
+
+                    that[0].times = setTimeout(function () {
+                        box.hide();
+                    }, 200);
+                })
+
+                generate_box.find('.list_link_artboard').on('mouseenter', '.list_level_box[data-boxs]', function () {
+                    var that = $(this),
+                        ids = that.attr("data-boxs"),
+                        btn = generate_box.find('[data-btns="' + ids + '"]');
+                    times_fun(btn,function(times){
+                        if (times[0]&&times[0].times) {
+                            clearInterval(times[0].times);
+                        }
+                    });
+                }).on('mouseleave', '.list_level_box[data-boxs]', function () {
+                    var that = $(this),
+                        ids = that.attr("data-boxs"),
+                        btn = generate_box.find('[data-btns="' + ids + '"]');
+                    times_fun(btn,function(times){
+                        var id = times.attr('data-btns'),
+                            box = generate_box.find('[data-boxs="' + id + '"]');
+                        if (box.length) {
+                            times[0].times = setTimeout(function () {
+                                box.hide();
+                            }, 200);
+                        }
+                    });
+                })
+            })()
+        </script> 
+     <div class="li_container"> 
+      <div class="li_nav_left"> 
+       <div class="news_details_left_block right_navigation_menus left_con_colors"> 
+        <h2 class="title">PRODUCTS</h2> 
+        <ul class="right_nav"> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27874">Zinc Sulphate Heptahydrate ZnSO4.7H2O Fertilizer/Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27875">Zinc Sulphate Monohydrate ZnSO4.H2O Feed /Fertilizer Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27876">Lead Nitrate Pb(NO3)2 Industrial/Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27877">Ferrous Sulphate Heptahydrate FeSO4.7H2O Fertilizer /Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27878">Ferrous Sulphate Monohydrate FeSO4.H2O Feed Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27879">Barium Carbonate 513-77-9</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27880">Manganese Sulphate Monohydrate MnSO4.H2O Industrial /Feed Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27881">Copper Carbonate</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27882">Soda Ash</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27883">Sodium Metabisulphite Na2S2O5 Mining/Food Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27884">Sodium Hydroxide(Caustic Soda) NaOH Industrial/Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-27885">Sodium Isobutyl Xanthate C4H9OC-SNaS2 Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-28376">Ammonium Persulfate (NH4)2S2O8 Industrial/Mining Grade</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-28381">Copper Sulphate Pentahydrate</a> 
+          </div> </li> 
+         <li class=" "> 
+          <div class="text                                 "> 
+           <a href="/products-28382">Sodium Persulfate Na2S2O8 Industrial/Mining Grade</a> 
+          </div> </li> 
+        </ul> 
+       </div> 
+       <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
+        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
+         <div class="sticky_inquiry_head title"> 
+          <section template-edit="title_languages" module_name="module">
+           Send your inquiry
+          </section> 
+         </div> 
+         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
+          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b16a6068af1" value="0"> 
+          <input type="hidden" name="visitlength" id="visitlength_v61b16a6068af1" value="====1705504930===="> 
+          <input type="hidden" name="source" id="source_v61b16a6068af1" value="0"> 
+          <input type="hidden" name="id" id="id_v61b16a6068af1" value="0"> 
+          <ul class="fl_row_s"> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b16a6068af1" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+          </ul> 
+          <div class="btn_box"> 
+           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
+          </div> 
+         </form> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="products_ul_box"> 
+       <div class="mobile-reverse"> 
+        <div class="products_text"> 
+         <div class="describe">
+          <p>Hunan Sincere Chemicals Co., LTD is a member of Sincere Chemicals (HK) Co., LTD., Our Corporation has built 4 manufacturing plants including sulfate, lead nitrate， and sodium metabisulfite, which is located in Hengyang, Huaihua, and Changde cities in Hunan Province. Our business office is located in Changsha, the capital of Hunan Province.</p>
+          <p><br></p>
+          <p>Hunan Sincere Chemicals Co., LTD has its own Export License with experienced marketing and service and producing quality chemicals products. We are available for the OEM business model as well.</p>
+          <p><br></p>
+          <p>We have a strict quality control system. Test every batch of product before we hand it over to customers and keep shipment samples of each batch for customers to recheck. A third-party inspection such as SGS is available.</p>
+          <p><br></p>
+         </div> 
+        </div> 
+        <div> 
+         <div class="ai_products_list_ul"> 
+          <ul> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-227153"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01640764707261.jpg" img_preview_gif="" alt="Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-227153"> 
+               <div class="title" title="Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC" title_lengths="">
+                Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC
+               </div> 
+               <div class="describe" title="Product Name:Copper Sulphate PentahydrateFormula : CuSO4·5H2OMolecular Weight :249.68CAS:7758-99-8Einecs No: 616-477-9HS Code:2833.2500.00Appearance:Blue Crystals" title_lengths="">
+                Product Name:Copper Sulphate PentahydrateFormula : CuSO4·5H2OMolecular Weight :249.68CAS:7758-99-8Einecs No: 616-477-9HS Code:2833.2500.00Appearance:Blue Crystals
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2021/12/21
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-786141"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/051c94367ed7fae2355d094fbcde76fd.jpg" img_preview_gif="" alt="XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-786141"> 
+               <div class="title" title="XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate" title_lengths="">
+                XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate
+               </div> 
+               <div class="describe" title="Our technicians have strong abilities to develop and optimize technologies. We have to admit that technologies play an important in the Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder manufacturing process.It is used mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate now.  " title_lengths="">
+                Our technicians have strong abilities to develop and optimize technologies. We have to admit that technologies play an important in the Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder manufacturing process.It is used mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate now. 
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/07/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-786133"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/07b8168b0ea59288bb68aab539ae88df.jpg" img_preview_gif="" alt="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-786133"> 
+               <div class="title" title="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" title_lengths="">
+                XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate
+               </div> 
+               <div class="describe" title="To achieve the stable performance of the XSC Chemicals,high-quality reliable raw materials are used. High purity 25kg bag manganese sulfate monohydrate MnSO4 has all the superior performance of those raw materials such as durability and stability. In summary, zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate has the excellent characteristics. Once it is applied in the industries, its great role will be fully played out.  " title_lengths="">
+                To achieve the stable performance of the XSC Chemicals,high-quality reliable raw materials are used. High purity 25kg bag manganese sulfate monohydrate MnSO4 has all the superior performance of those raw materials such as durability and stability. In summary, zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate has the excellent characteristics. Once it is applied in the industries, its great role will be fully played out. 
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/07/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-786139"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/34d8dae978abd359d438fa8aefe3cee0.jpg" img_preview_gif="" alt="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-786139"> 
+               <div class="title" title="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate" title_lengths="">
+                XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate
+               </div> 
+               <div class="describe" title="Manganese sulphate monohydrate 98% industrial grade powder has functions in a range of daily functions.Whatever the requirement is,you can find it at XSC Chemicals. To purchase the product for sale in different types and with different features.  " title_lengths="">
+                Manganese sulphate monohydrate 98% industrial grade powder has functions in a range of daily functions.Whatever the requirement is,you can find it at XSC Chemicals. To purchase the product for sale in different types and with different features. 
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/07/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-786140"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/8efaa799056b8b760b4888b79a1417ca.jpg" img_preview_gif="" alt="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-786140"> 
+               <div class="title" title="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate" title_lengths="">
+                XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate
+               </div> 
+               <div class="describe" title="To keep our company competitive in the industry, we have been continuously improving our capabilities in technology innovation. We mainly apply the upgraded technology to the manufacturing process of Hot sale high quality china precipitated barium carbonate powder.It has a broader application ranges now and can be seen mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate.  " title_lengths="">
+                To keep our company competitive in the industry, we have been continuously improving our capabilities in technology innovation. We mainly apply the upgraded technology to the manufacturing process of Hot sale high quality china precipitated barium carbonate powder.It has a broader application ranges now and can be seen mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate. 
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/07/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-227184"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01640762614373.jpg" img_preview_gif="" alt="Sodium Persulfate | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-227184"> 
+               <div class="title" title="Sodium Persulfate | XSC" title_lengths="">
+                Sodium Persulfate | XSC
+               </div> 
+               <div class="describe" title="Product Name:&nbsp;Sodium Persulfate&nbsp;Formula:&nbsp;Na2S2O8&nbsp;&nbsp;Molecular Weight :238.13CAS:7775-27-1Einecs No:&nbsp;231-892-1HS Code:28334000Appearance:White crystal/powder" title_lengths="">
+                Product Name:&nbsp;Sodium Persulfate&nbsp;Formula:&nbsp;Na2S2O8&nbsp;&nbsp;Molecular Weight :238.13CAS:7775-27-1Einecs No:&nbsp;231-892-1HS Code:28334000Appearance:White crystal/powder
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2021/12/21
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-227189"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01640762536001.jpg" img_preview_gif="" alt="Sodium Metabisulphite | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-227189"> 
+               <div class="title" title="Sodium Metabisulphite | XSC" title_lengths="">
+                Sodium Metabisulphite | XSC
+               </div> 
+               <div class="describe" title="Product Name:Sodium MetabisulphiteFormula :&nbsp;Na2S2O5Molecular Weight :190.1065CAS:7681-57-4Einecs No: 231-673-0HS Code:2832.2000.00Appearance:White&nbsp;or Light Brown Powder" title_lengths="">
+                Product Name:Sodium MetabisulphiteFormula :&nbsp;Na2S2O5Molecular Weight :190.1065CAS:7681-57-4Einecs No: 231-673-0HS Code:2832.2000.00Appearance:White&nbsp;or Light Brown Powder
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2021/12/21
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-227175"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01640762676789.jpg" img_preview_gif="" alt="Lead Nitrate | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-227175"> 
+               <div class="title" title="Lead Nitrate | XSC" title_lengths="">
+                Lead Nitrate | XSC
+               </div> 
+               <div class="describe" title="Product Name:Lead NitrateFormula :&nbsp;Pb(NO3)2Molecular Weight :331.21CAS:10099-74-8Einecs No: 233-245-9HS Code:2834.2990.00&nbsp;Appearance:White&nbsp;Crystals" title_lengths="">
+                Product Name:Lead NitrateFormula :&nbsp;Pb(NO3)2Molecular Weight :331.21CAS:10099-74-8Einecs No: 233-245-9HS Code:2834.2990.00&nbsp;Appearance:White&nbsp;Crystals
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2021/12/21
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-786071"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/976cbf4edf56192d30ecc2877c2d5384.jpg" img_preview_gif="" alt="XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-786071"> 
+               <div class="title" title="XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate" title_lengths="">
+                XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate
+               </div> 
+               <div class="describe" title="The successful research and development of the Factory manufacture various copper sulphate pentahydrate feed additives granular not only deeply analyzes the actual needs of the target customers, but also combines its own superior resources.It can be extensively used for Sulphate.  " title_lengths="">
+                The successful research and development of the Factory manufacture various copper sulphate pentahydrate feed additives granular not only deeply analyzes the actual needs of the target customers, but also combines its own superior resources.It can be extensively used for Sulphate. 
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/07/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-386556"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/9NYT-5210-3605-2082-e3bd-d88a.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ production line" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-386556"> 
+               <div class="title" title="Zinc Sulphate Heptahydrate’ production line" title_lengths="">
+                Zinc Sulphate Heptahydrate’ production line
+               </div> 
+               <div class="describe" title="Zinc Sulphate Heptahydrate’ production line. has the characters of , and can be utilized in ." title_lengths="">
+                Zinc Sulphate Heptahydrate’ production line. has the characters of , and can be utilized in .
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/03/03
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-406284"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/PM75-5465-f75a-ef8c-ff51-fb49.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-406284"> 
+               <div class="title" title="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" title_lengths="">
+                Zinc Sulphate Heptahydrate’ Product Sampling Inspection
+               </div> 
+               <div class="describe" title="On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging." title_lengths="">
+                On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/03/11
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/products-detail-406285"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/Q77P-1338-7ccd-09bf-470b-f0d9.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/products-detail-406285"> 
+               <div class="title" title="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" title_lengths="">
+                Zinc Sulphate Heptahydrate’ Product Sampling Inspection
+               </div> 
+               <div class="describe" title="On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging." title_lengths="">
+                On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2022/03/11
+              </div> 
+             </div> 
+            </div> </li> 
+          </ul> 
+          <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
+           No more~~
+          </div> 
+         </div> 
+         <div class="tem_pagination_1"> 
+          <style mos-id="v61b16a6068af1">
+    .tem_pagination_1{display: block;position:relative;line-height:1.4;}
+    .tem_pagination_1 .pagination{display:flex;margin:0;overflow:hidden;}
+    .tem_pagination_1 .page-item{padding:1px;}
+    .tem_pagination_1 .page-item.disabled{display:none;}
+    .tem_pagination_1 .page-link{display:block;;padding:0px 13px;font-size:16px;line-height:36px;border:2px solid transparent;border-radius:10px;transition:.2s;}
+    .tem_pagination_1 .page-link.active{border:2px solid;}
+    .tem_pagination_1 .rel_ck.page-link span{color:#fff!important;position: relative;z-index:2;}
+    .tem_pagination_1 .rel_ck.page-link{position:relative;overflow:hidden;}
+    /* .tem_pagination_1 .rel_ck.page-link::after{content:"";display: block;position: absolute;top:0;left:0;width:100%;border-top:100px solid;} */
+    .tem_pagination_1 .page-link:not(.active):hover{opacity:.7;}
+    .tem_pagination_1 .li_form{position:relative;padding-left:30px;}
+    .tem_pagination_1 .pagination_form{height:100%;display:flex;align-items:center;}
+    .tem_pagination_1 .pagination_search{height:38px;display:flex;align-items:center;}
+    .tem_pagination_1 .pagination_inp{height:100%;width:50px;border-radius:10px 0 0 10px;padding:0 8px;font-size:14px;color:inherit;border:2px solid;outline:none;border-right:none;}
+    .tem_pagination_1 button.bg_btn{border-radius:0 10px 10px 0;border:none;color:inherit;height:100%;padding:0 13px;outline:none;cursor:pointer;background:none;position:relative;overflow:hidden;}
+    .tem_pagination_1 button.bg_btn:hover{opacity:.7;}
+    /* .tem_pagination_1 button.bg_btn::after{content:"";display: block;position: absolute;top:0;left:0;width:100%;border-top:100px solid;} */
+    .tem_pagination_1 .btn_txt{color:#fff;position:relative;z-index:4;}
+    @media (max-width: 768px){
+    .tem_pagination_1 .rel_ck.page-link{display:none;}
+    /* .tem_pagination_1 .page-link:not(.rel_ck){display:none;} */
+    }
+    </style> 
+          <nav> 
+           <ul class="pagination"> 
+            <li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true"><span class="iconfont iconchaopimiaotuangou-"></span></span> </li> 
+            <li class="page-item active" aria-current="page"><span class="page-link active font-color">1</span></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-2">2</a></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-3">3</a></li> 
+            <li class="page-item" aria-disabled="true"><span class="page-link">...</span></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-11">11</a></li> 
+            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/products-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li> 
+            <!-- <li class="li_form">
+                <form action="" class="pagination_form" onsubmit="return pagination_v61b16a6068af1(this);">
+                    <input type="hidden" class="list_limit" value="12">
+                    <input type="hidden" class="list_page" value="1">
+                    <input type="hidden" class="list_total" value="122">
+                    <div class="pagination_search">
+                        <input type="text" oninput="value=value.replace(/[^\d]|^0/g,'')" value="1" class="pagination_inp border-color" placeholder="" required="" autocomplete="off" autocorrect="off">
+                        <button type="submit" class="bg_btn bg-color">
+                            <span class="btn_txt">GO</span>
+                        </button>
+                    </div>
+                </form>
+            </li> --> 
+           </ul> 
+          </nav> 
+          <script mos-id="v61b16a6068af1">
+        function pagination_v61b16a6068af1(form){
+            var inp = form.querySelector('.pagination_inp'),
+                val = parseInt(inp.value)||1,
+                limit = parseInt(form.querySelector('.list_limit').value),
+                page = parseInt(form.querySelector('.list_page').value)||1,
+                total = parseInt(form.querySelector('.list_total').value),
+                page_list = Math.ceil(total/limit),
+                url = window.location.pathname;
+            if (val>page_list) {val = page_list;inp.value = val;}
+            if (val == page) {return false}
+            if (val == 1) {
+                url = url.replace(/\-list\-(\d)+/,'');
+            }else{
+                if (/\-list\-(\d)+/.test(url)) {
+                    url = url.replace(/\-list\-(\d)+/,'-list-'+val);
+                }else{
+                    if (url.indexOf('.')>-1) {
+                        var index1 = url.lastIndexOf("."),
+                            index2 = url.length,
+                            index3 = url.substring(index1,index2),
+                            index4 = url.substring(0,index1);
+                        url = index4+'-list-'+val+index3;
+                    }else{
+                        url = url+'-list-'+val;
+                    }
+                }
+            }
+            window.location.href = url;
+            return false
+        }
+    </script> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="common/foot" /}

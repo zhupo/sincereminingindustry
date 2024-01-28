@@ -1,0 +1,172 @@
+{include file="common/top" /} 
+   <!--// web_head end --> 
+   <!-- banner --> 
+   <section class="slider_banner swiper-container"> 
+    <div class="swiper-wrapper"> 
+    {cms:blocklist id="block" name="banner" orderby="weigh" orderway="desc" }   
+      <div class="swiper-slide">
+        <a href="{$block.url}"><img src="{$block.image}" alt=""></a>
+      </div> 
+    {/cms:blocklist}
+    </div> 
+    <div class="slider_swiper_control"> 
+     <div class="banner_button_prev"></div> 
+     <div class="banner_button_next"></div> 
+    </div> 
+    <div class="swiper-pagination swiper-pagination-white"></div> 
+   </section> 
+   <!-- web_main start --> 
+   <section class="web_main index_main"> 
+    <!--index_product--> 
+    <section class="index_feature_product" style="background-image: url(__CDN__/template/default/images/productbg.jpg)"> 
+     <section class="layout"> 
+      <div class="index_hd wow fadeInUpA" data-wow-delay=".8s" data-wow-duration="1s"> 
+       <h2 class="hd_title">product</h2> 
+       <p class="sub_tit">Dietary fiber drink. . . </p> 
+      </div> 
+      <section class="feature_item_wrap wow fadeInUpA" data-wow-delay="1.3s" data-wow-duration=".8s"> 
+       <div class="feature_items"> 
+        <ul class="swiper-wrapper"> 
+        {cms:channellist id="channel" type="son" typeid="44" orderby="weigh" orderway="asc"}
+        {cms:arclist id="prod" channel="channel['id']"  orderby="weigh" orderway="desc" row="20"}
+        <li class="feature_item swiper-slide"> 
+          <figure> 
+           <span class="item_img"><img src="{$prod.image}"></span> 
+           <h4 class="pd_tit"> <a href="{$prod.url}">{$prod.title}</a></h4> 
+          </figure> </li>
+          {/cms:arclist}
+        {/cms:channellist}
+        </ul> 
+        <div class="feature-pagination"></div> 
+        <div class="feature_button_control"> 
+         <div class="feature_button_prev"></div> 
+         <div class="feature_button_next"></div> 
+        </div> 
+       </div> 
+       <a href="/Products" class="more_btn">more&gt;&gt;</a> 
+      </section> 
+     </section> 
+    </section> 
+    <!--index_product end--> 
+    <section class="company_information_wrap"> 
+     <section class="layout"> 
+      <div class="index_hd wow fadeInUpA" data-wow-delay=".8s" data-wow-duration="1s"> 
+       <h2 class="hd_title">about us</h2> 
+       <p class="sub_tit">About factory description</p> 
+      </div> 
+      <div class="company_info_wrap"> 
+       <div class="company_img wow fadeInLeftA" data-wow-delay="1s" data-wow-duration="1s">
+        {cms:blocklist id="block" name="about" orderby="weigh" orderway="desc" }
+          <img src="{$block.image}" alt="About Us">
+        {/cms:blocklist}
+       </div> 
+       <div class="company_information wow fadeInRightA" data-wow-delay="1s" data-wow-duration="1s" style="height: 500px; overflow: hidden;"> 
+        <h4 class="about_tit">what we do</h4> 
+        {cms:blocklist id="block" name="about" orderby="weigh" orderway="desc" }
+        <div class="about_text">
+            {$block.content} 
+        </div> 
+        <a href="{$block.url}" class="about_btn">more&gt;&gt;</a> 
+        {/cms:blocklist}
+       </div> 
+      </div> 
+     </section> 
+    </section> 
+    <!-- <section class="index_inquiry_wrap" style="background-image:url(__CDN__/template/default/images/inquriybg.jpg)">  -->
+    <section class="index_inquiry_wrap" style="background-image:url(__CDN__/template/default/images/20230703113032.jpg)"> 
+     <div class="inquiry_desc wow fadeInUpA" data-wow-delay=".8s" data-wow-duration="1s">
+      learn more
+     </div> 
+     <p class=" wow fadeInUpA" data-wow-delay="1.2s" data-wow-duration="1s">Our newsletters, the latest information about our products, news and special offers.</p> 
+     <a href="/about" class="inquiry_btn wow fadeInUpA" data-wow-delay="1.4s" data-wow-duration="1">Click for manual</a> 
+    </section> 
+    <section class="index_advantage_container"> 
+     <section class="layout"> 
+      <ul class="advantage_items"> 
+        {cms:blocklist id="block" name="about-info" orderby="weigh" orderway="desc" } 
+          {notempty name="$block.images"}
+          {volist name="$block.images|explode=',',###" id="image"}
+              <li class="advantage_item wow fadeInUpA" data-wow-delay="1.8s" data-wow-duration="1s"> <span class="icon_img"><img src="{$image}"></span> 
+                <div class="advantage_info"> 
+                 <h4 class="ad_tit"><a href="">{$block.intro[$key]['info']}</a></h4> 
+                 <p class="ad_desc">{$block.intro[$key]['txt']}</p> 
+                </div> </li> 
+          {/volist}
+          {/notempty}
+{/cms:blocklist}
+      </ul> 
+     </section> 
+     <span class="position_icon wow zoomInA" data-wow-delay="2.2s" data-wow-duration="1s"><img src="__CDN__/template/default/images/logo.png"></span> 
+    </section> 
+    <!--index_application_container--> 
+    <section class="index_application_container"> 
+     <section class="layout"> 
+      <div class="index_hd wow fadeInUpA" data-wow-delay=".8s" data-wow-duration=".8s"> 
+       <h2 class="hd_title">Product Highlights</h2> 
+       <!-- <p class="sub_tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>  -->
+      </div> 
+      <ul class="application_items"> 
+        {cms:blocklist id="block" name="hlight" orderby="weigh" orderway="desc" } 
+        {notempty name="$block.images"}
+        {volist name="$block.images|explode=',',###" id="image"}
+              <li class="application_item wow fadeInUpA" data-wow-delay="1.2s" data-wow-duration="1s"> <span class="application_img"><img src="{$image}"></span> <h4 class="application_info"><a href="">{$block.intro[$key]['txt']}</a></h4> </li> 
+        {/volist}
+        {/notempty}
+        {/cms:blocklist}
+      </ul> 
+     </section> 
+    </section> 
+    <!--index_application_container end--> 
+    <section class="icon_list_contianer layout" style="background-image: url(__CDN__/template/default/images/icons_bg.jpg)"> 
+     <ul class="icon_items"> 
+      {cms:blocklist id="block" name="abount-params" orderby="weigh" orderway="desc" } 
+        {notempty name="$block.images"}
+        {volist name="$block.images|explode=',',###" id="image"}
+              <li class="icon_item wow fadeInUpA" data-wow-delay=".8s" data-wow-duration="1s"> <span class="icon_img"><img src="{$image}" alt=""></span> <span class="icon_num">{$block.intro[$key]['txt']}</span> <h3 class="icon_info">{$block.intro[$key]['info']}</h3> </li> 
+        {/volist}
+        {/notempty}
+        {/cms:blocklist}
+     </ul> 
+    </section> 
+    <!--index_news_container--> 
+    <section class="index_news_container"> 
+     <section class="layout"> 
+      <div class="index_hd wow fadeInUpA" data-wow-delay=".8s" data-wow-duration=".8s"> 
+       <h2 class="hd_title">news</h2> 
+       <p class="sub_tit">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p> 
+      </div> 
+      <div class="news_container"> 
+        {cms:arclist id="new" channel="67"  orderby="weigh" orderway="desc" row="1" addon="content"}
+       <div class="news_right wow fadeInRightA" data-wow-delay=".8s" data-wow-duration="1s"> 
+        <span class="news_img"><img src="{$new.image}"></span> 
+        <div class="news_conut"> 
+         <time class="news_time"><span>{$new.publishtime|date="d",###}</span><span>{$new.publishtime|date="Y-m",###}</span></time> 
+         <h4 class="news_title"><a href={$new.url}>{$new.title}</a></h4> 
+         <div class="news_info">
+           {$new.description}
+         </div> 
+        </div> 
+       </div> 
+       {/cms:arclist}
+       <div class="news_left wow fadeInLeftA" data-wow-delay=".8s" data-wow-duration="1s"> 
+        {cms:arclist id="new" channel="68"  orderby="weigh" orderway="desc" row="2" addon="content"}
+        <div class="news_item"> 
+          <figure> 
+           <time class="news_time"><span>{$new.publishtime|date="d",###}</span><span>{$new.publishtime|date="Y-m",###}</span></time> 
+           <h4 class="news_title"><a href={$new.url}>{$new.title}</a></h4> 
+           <div class="news_info">
+            {$new.description}
+           </div> 
+           <a href="{$new.url}" class="news_more">more&gt;&gt;</a>
+          </figure> 
+         </div> 
+         {/cms:arclist}
+       </div> 
+      </div> 
+     </section> 
+    </section> 
+    <!--index_news_container end--> 
+   </section> 
+   <!--// web_main end --> 
+   <!-- web_footer start --> 
+   {include file="common/foot" /} 

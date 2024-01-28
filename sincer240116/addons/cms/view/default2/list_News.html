@@ -1,0 +1,903 @@
+{include file="common/top" /}
+	<style>
+		.iconfenxiang_boxs_m ul {
+				flex-wrap: wrap;
+		}
+
+		.iconfenxiang_boxs_m li {
+				margin-bottom: 8px;
+		}
+
+		.iconfenxiang_boxs_m .iconfenxiang_wauto {
+				margin: 0 -6px
+		}
+
+		.iconfenxiang_boxs_m .iconfenxiang_wauto li:first-child {
+				padding-left: 6px;
+		}
+		.cookie-tip {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 1001;
+				background: rgba(0,0,0,.8);
+				color:#fff;
+				transition:.3s;
+				display:flex;
+				align-items: center;
+				justify-content: center;
+				padding:24px 9px;
+				min-height: 80px;
+		}
+
+		.cookie-tip--hidden {
+				opacity: 0;
+				transform: translateY(300px)
+		}
+
+		.cookie-tip__container {flex-grow: 1;display: flex;align-items: center;width: 100%;margin: 0;}
+
+		.cookie-tip__text {flex-grow: 1;margin-right: 24px;}
+
+		.cookie-tip__btn {
+				margin: -4px 0;
+		}
+
+		@media (max-width:768px) {
+				.cookie-tip__container {
+						flex-direction:column;
+				}
+
+				.cookie-tip__text{
+						align-self:stretch;
+						margin:0 0 20px
+				}
+		}
+
+		.bottom-inquiry-box {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99998;
+				transition: .3s;
+		}
+
+		.bottom-inquiry-box--hidden {
+				visibility: hidden;
+				opacity: 0;
+		}
+
+		.bottom-inquiry-box__bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,.4);
+		}
+
+		.bottom-inquiry-box__form {
+				position: absolute;
+				background: #fff;
+				border-radius: 16px 16px 0 0;
+				box-shadow: 0 0 8px rgba(0,0,0,.1);
+				top:48px;
+				left: 0;
+				width: 100%;
+				bottom: 0;
+				color: rgba(0,0,0,.8);
+				display: flex;
+				flex-direction: column;
+				transition: .2s;
+		}
+
+		.bottom-inquiry-box--hidden .bottom-inquiry-box__form {
+				transform: translateY(100%);
+		}
+
+		.bottom-inquiry-box__close {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				padding: 10px;
+				background: transparent;
+				outline: 0;
+				border: 0;
+				border-radius: 0;
+				color: rgba(0,0,0,.8);
+				transition: .3s;
+				cursor: pointer;
+		}
+
+		.bottom-inquiry-box__title {
+				font-weight: 700;
+				font-size: 16px;
+				margin: 16px 20px 8px;
+		}
+
+		.bottom-inquiry-box__scroll {
+				overflow: auto;
+				padding: 0 20px;
+		}
+
+		.bottom-inquiry-box__label {
+				display: block;
+				margin: 12px 0 20px;
+				position: relative;
+		}
+
+		.bottom-inquiry-box__label--error {
+				color: #ff4000;
+		}
+
+		.bottom-inquiry-box__input {
+				width: 100%;
+				display: block;
+				padding: 9px 0;
+				font-size: 14px;
+				line-height: 1.5;
+				border: 0;
+				border-bottom: 1px solid rgba(0,0,0,.1);
+				border-radius: 0;
+				outline: 0;
+				color: inherit;
+				transition: .3s;
+				resize: none;
+		}
+
+		.bottom-inquiry-box__input:hover,.bottom-inquiry-box__input:focus {
+				border-color: var(--c-color);
+		}
+
+		.bottom-inquiry-box__label--error .bottom-inquiry-box__input {
+				border-color: currentColor;
+		}
+
+		.bottom-inquiry-box__input::-webkit-input-placeholder {
+				color: transparent;
+				transition: .2s;
+		}
+
+		.bottom-inquiry-box__input:focus::-webkit-input-placeholder, .js-select-open .bottom-inquiry-box__input::-webkit-input-placeholder {
+				color: rgba(0,0,0,.4);
+		}
+
+		.bottom-inquiry-box__tip {
+				position: absolute;
+				top: 9px;
+				left: 0;
+				opacity: .55;
+				transition: .2s;
+				transform-origin: left;
+		}
+
+		:required+.bottom-inquiry-box__tip:before {
+				content: '*';
+				color: #ff4000;
+		}
+
+		.bottom-inquiry-box__input:focus+.bottom-inquiry-box__tip,.bottom-inquiry-box__input--active+.bottom-inquiry-box__tip, .js-select-open .bottom-inquiry-box__tip {
+				transform: translateY(-1.5em) scale(.85);
+		}
+
+		.bottom-inquiry-box__error {
+				position: absolute;
+				top: -1.5em;
+				margin-top: 9px;
+				right: 0;
+				opacity: 0;
+				visibility: hidden;
+				transition: .2s;
+		}
+
+		.bottom-inquiry-box__label--error .bottom-inquiry-box__error {
+				visibility: visible;
+				opacity: 1;
+		}
+
+		.bottom-inquiry-box__attachment {
+				color: rgba(0,0,0,.4);
+				margin: 20px 0;
+		}
+
+		.bottom-inquiry-box__attachment-box {
+				display: flex;
+		}
+
+		.bottom-inquiry-box__file {
+				width: 100px;
+				height: 100px;
+				border: 1px dashed;
+				position: relative;
+				overflow: hidden;
+				margin-top: 4px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 20px;
+				cursor: pointer;
+		}
+
+		.bottom-inquiry-box__file:before {
+				content: '+';
+				font-size: 40px;
+		}
+
+		.bottom-inquiry-box__file:hover {
+				color: rgba(0,0,0,.8);
+		}
+
+		.bottom-inquiry-box__file input {
+				opacity: 0;
+				position: absolute;
+		}
+
+		.bottom-inquiry-box__attachment-box .attachment_ul {
+				flex-grow: 1;
+		}
+
+		.bottom-inquiry-box__attachment-box .attachment_ul .file_txt{padding-right:140px;position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:20px;max-width:100%;height:20px;display: block;}
+		.bottom-inquiry-box__attachment-box .attachment_ul .operations{position:absolute;top:0;right:0;width:140px;padding-left:20px;}
+
+
+		.bottom-inquiry-box__subscribe {
+				margin-bottom: 16px;
+		}
+
+		.bottom-inquiry-box__check {
+				vertical-align: middle;
+				margin-right: 4px;
+				margin-bottom: 2px;
+		}
+
+		.bottom-inquiry-box__btn {
+				display: block;
+				height: 36px;
+				line-height: 36px;
+				color: #fff;
+				border: 0;
+				padding: 0;
+				border-radius: 6px;
+				outline: 0;
+				transition: .3s;
+				cursor: pointer;
+				margin: 8px 20px 16px;
+				flex-shrink: 0;
+		}
+
+		.bottom-inquiry-box__btn:hover,.bottom-inquiry-box__btn:focus,.bottom-inquiry-box__close:hover,.bottom-inquiry-box__close:focus {
+				opacity: .8;
+		}
+
+		.bottom-inquiry-box__btn:active,.bottom-inquiry-box__close:active {
+				opacity: 1;
+		}
+
+		.external-chat-box {
+				position: fixed;
+				top: 50%;
+				left:0;
+				transform: translateY(-50%);
+				width: 48px;
+				padding: 4px 8px;
+				background: rgba(0,0,0,.35);
+				border-radius: 0 4px 4px 0;
+				transition: .2s;
+				z-index: 9999;
+		}
+
+		.external-chat-box--collapse {
+				transform: translateY(-50%) translateX(-100%);
+		}
+
+		.external-chat-box__toggle {
+				position: absolute;
+				top: 50%;
+				left: 100%;
+				border-radius: 0 4px 4px 0;
+				color: #fff;
+				background: inherit;
+				margin-top: -20px;
+				padding: 0 4px;
+				line-height: 40px;
+				font-size: 14px;
+				cursor: pointer;
+				/*transition: .3s;*/
+				border: 0;
+				outline: 0;
+		}
+
+		.external-chat-box__toggle:hover,.external-chat-box__toggle:focus {
+				/* background-color: rgba(0,0,0,.45); */
+		}
+
+		.external-chat-box__item {
+				display: block;
+				text-decoration: none;
+				width: 32px;
+				height: 32px;
+				margin: 12px 0;
+				background: center no-repeat;
+				border-radius: 99px;
+				transition: .3s;
+		}
+
+		.external-chat-box__item--qq {
+				background-color: #1890ff;
+				background-image: url(images/qq.svg);
+				background-size: 14px;
+		}
+
+		.external-chat-box__item--qq:hover,.external-chat-box__item--qq:focus {
+				background-color: #40a9ff;
+		}
+
+		.external-chat-box__item--wechat {
+				background-color: #46bb36;
+				background-image: url(images/wechat.svg);
+				background-size: 17px;
+		}
+
+		.external-chat-box__item--wechat:hover,.external-chat-box__item--wechat:focus {
+				background-color: #70ca63;
+		}
+
+		.external-chat-box__item--skype {
+				background-color: #00aff0;
+				background-image: url(images/skype.svg);
+				background-size: 16px;
+		}
+
+		.external-chat-box__item--skype:hover,.external-chat-box__item--skype:focus {
+				background-color: #30c8f3;
+		}
+
+		.external-chat-box__item--whatsapp {
+				background-color: #1dd367;
+				background-image: url(images/whatsapp.svg);
+				background-size: 18px;
+		}
+
+		.external-chat-box__item--whatsapp:hover,.external-chat-box__item--whatsapp:focus {
+				background-color: #44e388;
+		}
+
+		.external-chat-popup {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 9999;
+				transition: .3s;
+		}
+
+		.external-chat-popup--hidden {
+				visibility: hidden;
+				opacity: 0;
+		}
+
+		.external-chat-popup__bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,.4);
+		}
+
+		.external-chat-popup__dialog {
+				width: 300px;
+				max-width: 100%;
+				margin: 15vh auto;
+				padding: 30px;
+				background: #fff;
+				text-align: center;
+				position: relative;
+				border-radius: 2px;
+				box-shadow: 0 4px 14px rgba(0,0,0,.06), 0 0 6px rgba(0,0,0,.1);
+				transition: .2s;
+		}
+
+		.external-chat-popup--hidden .external-chat-popup__dialog {
+				transform: translateY(-100%);
+		}
+
+		.external-chat-popup__text {
+				font-size: 18px;
+				margin-bottom: 20px;
+		}
+</style> 
+<style link-color-css>:root {--c-color:#ff5100;--c-line-height:1.4;--c-font-size:14px;}a:hover,.font-color-a a,.font-color-a a:hover,.font-color,.font-color-hover:hover,.font-color-before:before,.font-color-hover-before:hover:before,.font-color-after:after,.font-color-hover-after:hover:after{color:var(--c-color)!important}.border_color,.border-color,.btn-primary:focus,.btn-primary,.btn-primary:hover,.border-color-a a,.border-color-a a:hover,.border-color-hover:hover,.border-color-before:before,.border-color-hover-before:hover:before,.border-color-after:after,.border-color-hover-after:hover:after{border-color:var(--c-color)!important;}.bg-color,.btn-primary,.btn-primary:hover,.bg-color-a a,.bg-color-a a:hover,.bg-color-hover:hover,.bg-color-before:before,.bg-color-hover-before:hover:before,.bg-color-after:after,.bg-color-hover-after:hover:after{background-color:var(--c-color)!important}.bg-color-h a{color:var(--c-color)!important}.bg-color-h a:hover{background-color:var(--c-color)!important;color:#fff !important;}.swiper-pagination-bullet:hover,.swiper-pagination-bullet-active{background-color:var(--c-color)!important}.btn-bg:hover,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9{color:var(--c-color)!important}.btn-bg,.tem-btn-1,.tem-btn-2,.tem-btn-3,.tem-btn-4,.tem-btn-5,.tem-btn-6,.tem-btn-7,.tem-btn-8,.tem-btn-9,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{border-color:var(--c-color)}.btn-bg,.btn-bg:hover,.tem-btn-3:before,.tem-btn-4:before,.tem-btn-5:before,.tem-btn-6:before,.tem-btn-7:before,.tem-btn-7:after,.tem-btn-8:before,.tem-btn-8:after,.tem-btn-9:before,.tem-btn-9:after,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{background-color:var(--c-color)}.tem-btn-1,.tem-btn-2{background:-webkit-linear-gradient(left,var(--c-color),var(--c-color)) no-repeat;background:linear-gradient(to right,var(--c-color),var(--c-color)) no-repeat}.tem-btn-1:hover,.tem-btn-2:hover,.tem-btn-3:hover,.tem-btn-4:hover,.tem-btn-5:hover,.tem-btn-6:hover,.tem-btn-7:hover,.tem-btn-8:hover,.tem-btn-9:hover,.tem01-page .pagination>.active>a,.tem01-page .pagination>.active>span,.tem01-page .pagination>.active>a:hover,.tem01-page .pagination>.active>span:hover,.tem01-page .pagination>.active>a:focus,.tem01-page .pagination>.active>span:focus{color:#FFF}.btn-bg:hover{border-color:#FFF}.swiper-container .swiper-pagination-bullet{background:#bbb;opacity:.5;}.swiper-pagination-bullet-active{opacity:1!important;}[playback_mode="current"]+.video_js_play_btn{z-index: 24!important}[playback_mode="global"]+.video_js_play_btn{z-index: 24!important}[playback_mode="popup"]+.video_js_play_btn{z-index: 24!important}[playback_mode="current"]~.prism-player{z-index: 24!important}[playback_mode="global"]~.prism-player{z-index: 24!important}[playback_mode="popup"]~.prism-player{z-index: 24!important}</style>
+<style>:root{--c-color:#1AAEC2}.container{max-width:1440px}.top_title,.title{font-family:DIN-Regular,Arial,myanmar_font}body,html,.body_color_bgs{font-family:DIN-Regular,Arial,myanmar_font}:root {                --btn-style-deep:solid;--btn-color-deep:#fff;--btn-bg-color-deep:var(--c-color);--btn-border-color-deep:var(--c-color);--btn-radius-deep:6px;--btn-width-deep:1px;                --btn-style-shallow:solid;--btn-color-shallow:var(--c-color);--btn-bg-color-shallow:#fff;--btn-border-color-shallow:#fff;--btn-radius-shallow:6px;--btn-width-shallow:1px;                }.btn[btn-types="shallow"]{color:rgba(0,0,0,0);font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:rgba(26, 174, 194, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.btn[btn-types="deep"]{color:#FFFFFF;font-size:14px;border-top:none!important;border-left:none!important;padding-top:14px;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;padding-left:36px;border-bottom:none!important;padding-right:36px;padding-bottom:14px;background-color:#1AAEC2;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}:root {                --inp-style-deep:solid;--inp-color-deep:#fff;--inp-bg-color-deep:var(--c-color);--inp-border-color-deep:var(--c-color);--inp-radius-deep:6px;--inp-width-deep:1px;                --inp-style-shallow:solid;--inp-color-shallow:var(--c-color);--inp-bg-color-shallow:#fff;--inp-border-color-shallow:#fff;--inp-radius-shallow:6px;--inp-width-shallow:1px;                }.form_inp[inp-types="shallow"]{color:rgba(102, 102, 102, 1);font-size:14px;border-color:rgba(245, 245, 245, 1);border-style:solid;border-width:1px;background-color:rgba(255, 255, 255, 1);border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}.form_inp[inp-types="deep"]{color:rgba(102, 102, 102, 1);font-size:14px;border-top:none!important;border-left:none!important;border-color:rgba(0,0,0,0);border-right:none!important;border-style:solid;border-bottom:none!important;background-color:rgba(245, 249, 255, 1);border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-left-radius:0px;border-bottom-right-radius:0px;}.share_fun_box{display:none;}.share_fun_box2 ul li[data-network="share"]{display:none;}.share_fun_box2 ul li.backtop_clicks{border-top-left-radius: 25px;border-bottom-left-radius: 25px;}[direction]{align-items:stretch;}.there_video_icons{background-image:url(images/video_play_1.png);}.there_video_icons{opacity:1;}</style>
+<style mos-id="v61aed7e4d2ed1">.tem01_copyright{text-align:center;padding-top:10px;padding-bottom:10px;border-top:1px solid rgba(144,144,144,.2);}#v61aed7e4d2ed1{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);text-align:center;}#v61aed7e4d2ed1 .container{}</style> 
+<style mos-id="v61aed7e4d2ecf">    .tem01_footer_section {padding: 20px 0;}    .tem01_footer{position:relative;}    .tem01_footer .footer_ul{display:flex;align-items: start; flex-wrap: wrap;}    .tem01_footer .footer_li{flex: 1;padding-right: 90px;}    .tem01_footer .footer_li:last-child{padding-right: 0;}    .tem01_footer .footer_li_box{position:relative;}    .tem01_footer .li_head{font-size:16px;font-weight: bold;margin-bottom:10px;}    .tem01_footer .con_ul{font-size:14px;line-height:26px;}    .tem01_footer .con_ul a{display:initial}    .tem01_footer .lan_a{padding-top:10px;}    .tem01_footer .lan_a a{display:initial;cursor:pointer;}    .tem01_footer .iconfenxiang_boxs{display: none;padding-right:10px;}    .tem01_footer .iconfenxiang_boxs ul{justify-content: left;}    .tem01_footer .iconfenxiang_boxs_m{padding-bottom: 20px;}    .tem01_footer .iconfenxiang_boxs_m .go_fast{color:inherit;}    .tem01_footer .sitemap {        font-size: 14px;        letter-spacing: 0;        font-weight: 400;    }    .tem01_footer .sitemap-line {        display: inline-block;        width: 1px;        height: 16px;        background-color: rgba(216,216,216,.5);        margin: 0 8px;    }    @media (min-width: 768px){        /* .tem01_footer .iconfenxiang_boxs_m{display:none!important;} */        .tem01_footer .footer_ul{display:flex;}        .tem01_footer .sitemap-box {display: none;}    }    @media (max-width: 770px){        .tem01_footer .footer_ul{display:none;}        /* .tem01_footer_section{padding-top:20px!important;padding-bottom:20px!important;display:none!important;} */        /* .tem01_footer_section.boxs_m_show{display:block!important;} */    }    #v61aed7e4d2ecf{background-color:rgba(19, 35, 74, 1);color:rgba(255, 255, 255, 1);padding-top:5vw;padding-bottom:4vw;}#v61aed7e4d2ecf .container{}    </style> 
+<style mos-id="v61b175994d18c">    .tem_data_list_1 .ai_products_list_box{line-height:1.4;position:relative;}    .tem_data_list_1 .ai_products_list_box .bread{padding:20px 0;}    .tem_data_list_1 .ai_products_list_box .bread li{display: inline-block;}    .tem_data_list_1 .ai_products_list_box .text_box h1{font-size:48px;padding:20px 0 40px;text-align:center;margin:0;}    .tem_data_list_1 .ai_products_list_box a{color: inherit;}    .tem_data_list_1 .ai_products_list_ul{position: relative;padding-bottom:30px;overflow:hidden;}    .tem_data_list_1 .ai_products_list_ul a{display: block;}    .tem_data_list_1 .ai_products_list_ul ul{margin:0;display: flex;flex-wrap: wrap;width:auto;margin-left:-8px;margin-right:-8px;}    .tem_data_list_1 .ai_products_list_ul li{padding:8px;margin:0;}    .tem_data_list_1 .ai_products_list_ul .li_border {display: flex;flex-direction: column;height: 100%;}    .tem_data_list_1 .ai_products_list_ul .li_border a {flex: 1;}    .tem_data_list_1 .ai_products_list_ul .li_border .img_par {display: flex;justify-content: center;align-items: center;height: 100%;position: relative;}    .tem_data_list_1 .ai_products_list_ul .li_border .img_mask {backdrop-filter: blur(10px);display: block;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 0;}    .tem_data_list_1 .ai_products_list_ul .text{padding:0px;padding-top:10px;}    .tem_data_list_1 .ai_products_list_ul .text .title{font-size: 16px;margin-bottom:6px;width: 100%;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .tem_data_list_1 .ai_products_list_ul .text .describe{font-size: 14px;font-weight: 400;width: 100%;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical;}    .tem_data_list_1 .ai_products_list_ul .text .date{font-size:12px;opacity:.6;padding-top:6px;}    @media (max-width: 1024px){    .tem_data_list_1 .ai_products_list_box .bread{padding:10px 0;}    .tem_data_list_1 .products_ul_box{padding-left:0 !important;}    }    @media (max-width: 768px){    .tem_data_list_1 .ai_products_list_ul ul li{display: block;max-width:none;}    .tem_data_list_1 .ai_products_list_box .text_box h1{font-size:18px;padding:0 0 20px;}    }            .tem_data_list_1 .news_details_left_block{box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.1);border-radius: 6px;margin-bottom:20px;background-color:#fff;}    .tem_data_list_1 .search_box .input_group{display: flex;margin-bottom: 12px;}    .tem_data_list_1 .search_box .input_group input{width: 100%;max-width: 370px;height: 36px;line-height: 36px;font-size: 14px;border: 1px solid rgba(0, 0, 0, 0.15);border-right: 0;padding: 0 10px;}    .tem_data_list_1 .search_box .input_group input:focus{outline:unset}    .tem_data_list_1 .search_box .input_group_btn{cursor: pointer;width: 36px;height: 36px;line-height: 36px;font-size: 14px;border: 1px solid rgba(0, 0, 0, 0.15);color: rgba(0, 0, 0, 0.45);text-align: center;}    .tem_data_list_1 .search_box .input_group_btn:hover{background: #EA0007;color: #fff;}    .tem_data_list_1 .search_box .search_result{font-size: 16px;color: #4D4C4D;margin-bottom: 12px;display: none;}    .tem_data_list_1 .search_box .search_result .search_keyword{color: #EA0007;}    .tem_data_list_1 .li_container{position:relative;display:flex;}    .tem_data_list_1 .li_nav_left{width:300px;min-width:300px;max-width:300px;position:relative;}    .tem_data_list_1 .li_container.left_none .li_nav_left{display:none;}    .tem_data_list_1 .li_container.left_none .products_ul_box{padding-left:0;}    .tem_data_list_1 .right_navigation_menus{padding:0px 0px 10px;}    .tem_data_list_1 .news_details_left_block.right_navigation_menus h2{padding:14px 20px;border-bottom:1px solid rgba(144,144,144,.1);}    .tem_data_list_1 .right_nav{position:relative;padding-top:8px;}    .tem_data_list_1 .right_nav li{position:relative;}    .tem_data_list_1 .right_nav .text{position:relative;overflow:hidden;padding-right:20px;transition:.3s;}    .tem_data_list_1 .right_nav li>.text:hover{background-color:rgba(144,144,144,.1);}    .tem_data_list_1 .right_nav a{position:relative;max-width:100%;overflow:hidden;display:block;padding-left:20px;padding-right:40px;padding-top:10px;padding-bottom:10px;}    .tem_data_list_1 .right_nav .i_con{position:absolute;width:20px;height:20px;line-height:20px;text-align:center;top:50%;margin-top:-10px;right:20px;transition:.3s;opacity:.6;}    .tem_data_list_1 .right_nav .nav_ul{display:none;}    .tem_data_list_1 .right_nav .nav_ul .text{padding-left:20px;}    .tem_data_list_1 .right_nav .nav_ul li.xia> .text a,    .tem_data_list_1 .right_nav .nav_ul .text a{padding-left:10px;}    .tem_data_list_1 .right_nav .nav_ul .nav_ul li .text a{padding-left:20px;}    .tem_data_list_1 .right_nav>li.active> .text{font-weight:bold;}    .tem_data_list_1 .right_nav li.active> .text{font-weight:bold;}    .tem_data_list_1 .right_nav li.active> .text.font-color{background-color:rgba(144,144,144,.06);}    .tem_data_list_1 .right_nav li.active> .text .i_con{transform:rotate(-90deg);}    .tem_data_list_1 .right_nav li.xia> .text{padding:0px 40px 0px 20px;}    .tem_data_list_1 .right_nav li.xia> .text a{padding:10px 0;display:inline-block;}    .tem_data_list_1 .product_enquiry_box{padding-top:10px;padding-bottom:10px;line-height:1.4;}    .tem_data_list_1 .product_enquiry_box .boxs_top{color:#09090A;margin-bottom:15px;}    .tem_data_list_1 .product_enquiry_box .boxs_top .title{font-size:30px;margin-bottom:15px;}    .tem_data_list_1 .product_enquiry_box .boxs_top .describes{opacity:.8;font-size:14px;}    .tem_data_list_1 .product_enquiry_box .fl_row_s{display:flex;flex-wrap:wrap;margin-left:-10px;margin-right:-10px;margin-bottom:0;}    .tem_data_list_1 .product_enquiry_box .fl6_s{width:50%;padding-right:10px;padding-left:10px;}    .tem_data_list_1 .product_enquiry_box .fl12_s{width:100%;padding-right:10px;padding-left:10px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label{display:block;border:none;position:relative;user-select:none;height:38px;padding:0 14px;background:#fff;margin-bottom:15px;border-radius:4px;border: 1px solid #DAD9D9;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp{background:0 0;border:none;outline:0;color:inherit;height:100%;display:block;width:100%;font-size:inherit;box-shadow:none;font-weight:500;resize: none;color:#333;}    .tem_data_list_1 .product_enquiry_box textarea.enquiry_inp{line-height:20px;}    .tem_data_list_1 .product_enquiry_box .required_span{position:absolute;height:18px;line-height:18px;left:10px;top:10px;display:block;pointer-events:none;transition:.1s;font-weight:400;color:#131415;opacity:.5;}    .tem_data_list_1 .product_enquiry_box .required_span .font-color{display:none;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp[required]+.required_span .font-color{display:inline;}    .tem_data_list_1 .product_enquiry_box .enquiry_inp:focus+.required_span,.tem_data_list_1 .product_enquiry_box .enquiry_label.js-select-open .required_span{margin-left:20px;opacity:0;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.active .required_span{margin-top:-26px;left:0;}    .tem_data_list_1 .product_enquiry_box .required_tips{margin:0;position:absolute;left:2px;bottom:0;font-size:12px;color:#d90000;display:none;pointer-events:none;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.errors{border-color:#d90000;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.errors .required_tips{display:block;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box{text-align:center;padding-top:10px;padding-bottom:20px;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a{border-radius:4px;height:40px;border:none;font-size:14px;color:#FFFFFF;max-width:100%;outline:0;transition:.2s;padding:0;padding:0 30px;line-height:40px;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a:hover{opacity:.7;}    .tem_data_list_1 .product_enquiry_box .enquiry_btn_box .read_more_a:active{opacity:1;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs{height:auto;padding:6px 14px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs .enquiry_inp{height:auto;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.textarea_boxs textarea.enquiry_label{height:auto;resize:none;}    @media (max-width:1024px){    .tem_data_list_1 .product_enquiry_box .fl6_s{width:100%;}    .tem_data_list_1 .li_nav_left{display:none;}    .tem_data_list_1 .mobile-reverse{display:flex;flex-direction:column-reverse}    .tem_data_list_1 .tem_pagination_1{margin-bottom: 20px;}    }    .tem_data_list_1 input.enquiry_inp_placeholder::-webkit-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:-moz-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder::-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder::-moz-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:-ms-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:-ms-input-placeholder {color:transparent;font-size:12px;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus::-webkit-input-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder::-webkit-input-placeholder,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder::-webkit-input-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus:-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus:-moz-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder:-moz-placeholderr,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder:-moz-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 input.enquiry_inp_placeholder:focus::-moz-placeholder,    .tem_data_list_1 textarea.enquiry_inp_placeholder:focus::-moz-placeholder,    .tem_data_list_1 .js-select-open input.enquiry_inp_placeholder::-moz-placeholderr,    .tem_data_list_1 .js-select-open textarea.enquiry_inp_placeholder::-moz-placeholder {color:inherit;opacity:.6;}    .tem_data_list_1 .js-select-open .enquiry_inp_placeholder:-ms-input-placeholder {color:inherit;opacity:.6;}    </style> 
+<style mos-id="v61b175994d18c">    .tem_data_list_1 .inquiry_right_sticky_box{position:sticky;top:10px;}    .tem_data_list_1 .sticky_inquiry{position:sticky;top:10px;padding:6px 20px;border-radius: 4px;font-size:12px;}    .tem_data_list_1 .sticky_inquiry_head{padding:12px 0 12px;font-size:16px;font-weight:bold;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box{padding-bottom:20px;padding-top:0px;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a{display: block;width: 100%;cursor:pointer;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box[btn_text_align="center"] .read_more_a{margin:auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box[btn_text_align="right"] .read_more_a{margin:0 0 0 auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a[btn_screen]{width:auto;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_btn_box .read_more_a[btn_screen="1"]{width:100%;}    .tem_data_list_1 .btn_box{padding-bottom:20px;}    .tem_data_list_1 .btn_box[btn_text_align="center"]{text-align:center;}    .tem_data_list_1 .btn_box[btn_text_align="right"]{text-align:right;}    .tem_data_list_1 .btn_box .btn[btn_screen]{width:auto;}    .tem_data_list_1 .btn_box .btn[btn_screen="1"]{width:100%;}    .tem_data_list_1 .inquiry_right_sticky_box .product_enquiry_box .enquiry_label{border:none;background: #F2F2F2;margin-bottom:12px;}    .tem_data_list_1 .product_enquiry_box .enquiry_label.active .required_span{display:none;}    .tem_data_list_1 .products_ul_box{padding-left:20px;flex:1;overflow: hidden;}    .tem_data_list_1 .products_ul_box .products_text .title{font-size: 18px;margin-bottom:10px;}    .tem_data_list_1 .products_ul_box .products_text .describe{font-size: 14px;margin-bottom:15px;opacity:.8;}    .tem_data_list_1 .products_ul_box .products_text .describe p{margin:0;}    .tem_data_list_1 .list_link_artboard{position:relative;margin-bottom:20px;display:none;}    .tem_data_list_1 .list_link_artboard.list_top_show{display:block;}    .tem_data_list_1 .list_link_artboard a{color:inherit;}    .tem_data_list_1 .list_link_artboard .bg_artboard{box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1);border-radius:2px;position:relative;height:55px;background-color:#fff;color:#333;}    .tem_data_list_1 .list_link_artboard .bg_artboard .r_l_box{position:absolute;top:0;right:0;line-height:55px;background-image:linear-gradient(270deg, #FFFFFF 70%, rgba(255,255,255,0.00) 100%);border-radius:8px;z-index:6;overflow:hidden;width:84px;text-align:right;user-select:none;padding-right:6px;height:55px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l{width:24px;height:24px;text-align:center;cursor:pointer;line-height:24px;display:inline-block;opacity:0;pointer-events:none;transition:.2s;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l img{vertical-align:initial;}    .tem_data_list_1 .list_link_artboard .bg_artboard.right_sroll .btn_l{opacity:1;pointer-events:auto;}    .tem_data_list_1 .list_link_artboard .hidden_box{overflow:hidden;position:absolute;width:100%;height:55px;}    .tem_data_list_1 .list_link_artboard .list_box{position:absolute;top:0;left:0;transition:.2s;}    .tem_data_list_1 .list_link_artboard ul.list_one{display:flex;white-space:nowrap;padding:0 10px;line-height:55px;}    .tem_data_list_1 .list_link_artboard ul.list_one a{color:inherit;display:block;padding:0 20px;}    .tem_data_list_1 .list_link_artboard ul.list_one .text,    .tem_data_list_1 .list_link_artboard ul.list_one li,    .tem_data_list_1 .list_link_artboard ul.list_one .txt{position:relative;}    .tem_data_list_1 .list_link_artboard ul.list_one .txt.border-color::after{content:'';display:block;position:absolute;bottom:0;left:0;border-bottom:3px solid;border-color:inherit;width:100%;}    .tem_data_list_1 .list_link_artboard ul.list_one .icon_img{margin-left:4px;vertical-align:initial;}    .tem_data_list_1 .list_link_artboard .bg_artboard.right_sroll ul.list_one{padding-right:84px;}    .tem_data_list_1 .list_link_artboard .list_arrow{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid;border-width:8px;top:2px;left:0;border-top-color:#fff;border-bottom-width:0;transform:rotate(180deg) translate(50%);z-index:9;}    .tem_data_list_1 .list_link_artboard .list_arrow2{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid;border-width:10px;bottom:100%;right:32px;border-top-color:#fff;border-bottom-width:0;transform:rotate(180deg);z-index:9;}    .tem_data_list_1 .list_link_artboard .btn_m{display:none;}    .tem_data_list_1 .list_link_artboard .artboard_box{position:relative;}    .tem_data_list_1 .list_link_artboard ul.list_one .list_level_box{display:none;}    @media (min-width:1026px){    .tem_data_list_1 .list_link_artboard ul.list_one .list_level2 a{padding:8px 30px;display:block;}    .tem_data_list_1 .list_link_artboard ul.list_one .list_level2{background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 6px;border-radius:5px;padding:10px 0;position:relative;max-height:200px;overflow:auto;}    .tem_data_list_1 .list_link_artboard .list_level_box{position:absolute;top:100%;left:0;line-height:20px;z-index:60;padding-top:10px;}    .tem_data_list_1 .list_link_artboard .list_level_box a{padding:8px 30px;display:block;}    .tem_data_list_1 .list_link_artboard .list_level_box .list_level2{background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 6px;border-radius:5px;padding:10px 0;position:relative;max-height:200px;overflow:auto;}    .tem_data_list_1 .list_link_artboard .list_m_link{display:none!important;}    .tem_data_list_1 .list_link_artboard .list_level_box.leve_ul_box{display:none;}    .tem_data_list_1 .list_link_artboard .list_level_box .icon_img{position: relative;transform: rotate(-90deg);}    }    @media (max-width:1026px){    .tem_data_list_1 .list_link_artboard{display:block!important}    .tem_data_list_1 .list_link_artboard.m_list_top_hide.list_top_hide,    .tem_data_list_1 .list_link_artboard .list_level_box{display:none!important;}    .tem_data_list_1 .list_link_artboard ul.list_one .icon_img{display:none;}    .tem_data_list_1 .list_link_artboard ul.list_one a{padding:0 10px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .r_l_box{display:block!important;width:60px;padding:0;padding-left:10px;}    .tem_data_list_1 .list_link_artboard .bg_artboard .btn_l{display:none;}    .tem_data_list_1 .list_link_artboard .btn_m{display:block;text-align:center;}    .tem_data_list_1 .list_link_artboard ul.list_one{padding:0 5px!important;padding-right: 55px!important;}    .tem_data_list_1 .list_link_artboard .bg_artboard{overflow:hidden;}    .tem_data_list_1 .list_link_artboard .list_m_link{position:absolute;left:0;top:100%;width:100%;background:#fff;box-shadow:rgba(0, 0, 0,0.2) 0 2px 16px;z-index:40;padding:10px 20px 20px;margin-bottom:60px;display:none;margin-top:15px;}    .tem_data_list_1 .list_link_artboard .list_m_link a{display:block;color:inherit;}    .tem_data_list_1 .list_link_artboard .list_m_link .text{padding:14px 0;line-height:20px;position:relative;padding-right:40px;}    .tem_data_list_1 .list_link_artboard .list_m_link .text .icon_img_box{position:absolute;right:0;top:50%;width:50px;height:40px;margin-top:-20px;line-height:40px;text-align:right;}    .tem_data_list_1 .list_link_artboard .list_m_link .text .icon_img_box .iconfont{position:relative;display:inline-block;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li>.text{border-bottom:1px solid #F0F0F0;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li>.text.font-color{border-color:initial;}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul{padding:2px 0;display:none;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li.active>ul{display:block;}    .tem_data_list_1 .list_link_artboard .list_m_link ._li.active>.text .iconfont{transform:rotate(180deg);}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul .text{padding:9px 0;opacity:.8;}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul a{padding-left:20px}    .tem_data_list_1 .list_link_artboard .list_m_link ._ul ul ul a{padding-left:40px}    }    #v61b175994d18c{}#v61b175994d18c .container{}#v61b175994d18c .btn_box{text-align:center}#v61b175994d18c .btn{display:block;width:100%;}#v61b175994d18c li .describe{color:rgba(82, 81, 81, 1)}    </style> 
+<style mos-id="v61b175994d182">    .tem_breadcrumb_1{position:relative;color:#fff;padding-top:11vw;padding-bottom:11vw;background-repeat:no-repeat;background-position:center;background-size:cover;text-align:center;background-color:#000000;}    .tem_breadcrumb_1 .text{position:relative;}    .tem_breadcrumb_1 .text .top_title{margin-bottom:20px;font-weight: 400;}    .tem_breadcrumb_1 .top_describe{font-size:14px;opacity:.9;}    .tem_breadcrumb_1 .absolute_box{position: absolute;left:0;top:0;width:100%;height:100%;}    @media (max-width:769px){        .tem_breadcrumb_1{padding:20px 0!important;background-image:none!important;}        .tem_breadcrumb_1 .top_describe,        .tem_breadcrumb_1 .top_describe *{font-size:14px!important;}    }    #v61b175994d182{background-color:rgba(19, 35, 74, 1);color:#FFFFFF;text-align:center;padding-top:8vw;padding-bottom:8vw;}#v61b175994d182 .container{}        </style> 
+<style mos-id="v61aed7e4d2eb1">    .head_sousuos_active{overflow:hidden;}    ._header{width:100%;position:relative;height:0;z-index:999;color:#fff;font-size:16px;background-color:#000;padding-top:116px;--header-offset: -40px;}    ._header ul,    ._header li{margin:0;}    ._header_box{position:absolute;left:0;top:0;width:100%;}    ._header_con--bottom {padding-top:6px;padding-bottom:6px;}    .iconfenxiang_boxs{padding-right:10px;}    ._head_top{display:flex;line-height:40px;}    ._head_top .head_h1{flex:1;overflow:hidden;font-size:14px;margin:0;padding:0;padding-right:20px;font-weight:500;white-space:nowrap;text-overflow:ellipsis;line-height:inherit;}    ._head_top .icon_bx{display:flex;align-items: center;}    ._head_top .icon_bx.iconfenxiang_boxs{align-self: center;}    ._head_top .head_i{cursor:pointer;display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;font-size:20px;font-weight:bold;}    ._head_bottom{display:flex;}    ._header .logo{height:60px;padding-right:40px;min-width:200px;line-height:60px;font-size:0;}    ._header .logo a{display:block;height:100%;width:100%;}    ._header .logo img{max-height:100%;display:inline-block;vertical-align:middle;}    ._header nav{flex:1;overflow:hidden;line-height:60px;display:flex;flex-direction:row-reverse;position:relative;height:60px;font-weight:bold;}    ._header .nav_box{overflow:hidden;line-height:60px;position:relative;transition:.3s;}    ._header .nav{display:flex;white-space:nowrap;}    ._header .nav li{padding:0 20px;border-color:inherit;}    ._header .nav li a{padding:4px 0;display:inline;background:none;}    ._header .nav li.active>a{border-bottom:2px solid;border-color:inherit;}    ._header .nav_ul{display:none;}    ._header nav.add{padding-right:20px;padding-left:20px;}    ._header .nav_btns{position:absolute;top:50%;height:30px;width:20px;margin-top:-15px;line-height:30px;text-align:center;font-size:14px;cursor:pointer;border-radius:2px;user-select:none;display:none;color:#fff;}    ._header nav.add .nav_btns{display:block;}    ._header .btn_l{left:0;}    ._header .btn_r{right:0;}    ._header .disabled{opacity:.5;cursor:no-drop;}    ._header .nav_button{outline:none;border:0;width:40px;height:50px;padding:10px;transition:all .45s;z-index:99;display:block;background:0;float:left;position:relative;z-index:4;margin-top:5px;cursor:pointer;display:none;color:inherit;}    ._header .nav_button_icon{position:absolute;width:20px;height:16px;left:0;top:0;right:0;bottom:0;margin:auto;}    ._header .nav_button_icon span{display:block;position:absolute;right:0;left:0;height:0px;transition:all .15s;border-bottom:2px solid;}    ._header .nav_button_icon span:nth-child(1){top: 50%;transform: translate3d(0,-50%,0);}    ._header .nav_button_icon span:nth-child(2){top: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .nav_button_icon span:nth-child(3){bottom: 0px;transform: translateZ(0) rotate(0) scaleX(1);}    ._header .head_lan_txt{font-size:14px;padding-right:20px;}    .header_nav_li_box{position:absolute;left:0;top:0;background:#faf7f2;z-index:999;box-shadow:0 0 4px rgba(122,122,122,.8);display:none;border-radius:2px;color:#666;white-space:nowrap;}    .header_nav_li_box .nav_ul{padding:4px 0;display:block!important;}    .header_nav_li_box .nav_ul .nav_ul{display:none!important;}    .header_nav_li_box li{position:relative;}    .header_nav_li_box li.xia a{padding-right:30px;}    .header_nav_li_box li.xia .i_con{position: absolute;right: 8px;top: 50%;transform: translateY(-50%) rotate(-90deg);}    .header_nav_li_box a{display:block;padding:10px 14px;}    .header_nav_li_box a.font-color,    .header_nav_li_box a:hover{background:#fff;}    .header_nav_li_box ul,    .header_nav_li_box li{margin:0;}    @media (min-width:1026px){        ._header .nav_ul{display:none!important;}        ._header.head_fixed ._header_box{position:fixed;top:0;left:0;width:100%;background:inherit;transition:.3s;z-index:99;}        [switch_fixed=nav]._header.head_fixed ._header_box{top:var(--header-offset)}    }    .m_iconfenxiang_boxs.iconfenxiang_boxs{display:none!important;padding:0;}    .m_iconfenxiang_boxs.iconfenxiang_boxs ul{overflow:auto;}    @media (max-width:1025px){        .head_nav_active{overflow:hidden;}        .m_iconfenxiang_boxs.iconfenxiang_boxs{display:block!important;}        .m_iconfenxiang_boxs.iconfenxiang_boxs[btn_show="0"]{display:none!important;}        ._header .head_lan_txt{display:none;}        .header_nav_li_box{display:none!important;}        body ._header{height:60px;z-index:999;padding-top:0!important;padding-bottom:0!important;}        ._header_box{z-index:999;position:fixed;background:inherit;}        ._head_top .head_h1{display:none;}        ._head_top .head_i{height:60px;line-height:60px;}        ._head_bottom{position:absolute;display:block;left:0;top:0;height:60px;width:100%;background:inherit;}        ._header_con{padding:0!important;height:100%;position:relative;background:inherit;}        ._header .logo{width:200px;padding:4px 0;margin:auto;text-align:center;line-height:50px;}        ._header .logo img{margin:auto;}        ._header .nav_button{display:block;}        body.head_nav_active ._header .nav_button_icon span:nth-child(1){opacity:0;}        body.head_nav_active ._header .nav_button_icon span:nth-child(2){transform: rotate(45deg) translate3d(5px,5px,0);top:0}        body.head_nav_active ._header .nav_button_icon span:nth-child(3){transform: rotate(-45deg) translate3d(5px,-5px,0);bottom:0;}        ._header .nav_btns{display:none!important;}        ._header nav.add,        ._header nav{display:block;position:fixed;padding:0;top:61px;left:0;right:0;bottom:0;z-index:998;background-color:inherit;transform-origin:20px 0;transform:scale(0);overflow:hidden;transition:.3s;pointer-events:none;visibility:hidden;height:auto;font-weight:500;}        ._header .nav{display:block;line-height:1.4;font-size:16px;white-space:initial;}        ._header .nav li{padding:10px 20px;position:relative;padding:0;}        ._header .nav li a{padding:0;border:none;padding:10px 20px;display:inline-block;margin-right:40px;}        ._header .nav_ul{background:rgba(122,122,122,.06);margin-bottom:10px;}        ._header .nav_box .nav_ul li{padding-left:10px;padding-right:10px;}        ._header .nav li .i_con{position:absolute;right: 12px;top:10px;transition:.2s;}        body.head_nav_active ._header nav{transform:scale(1);visibility:visible;pointer-events:initial;padding-bottom:50px;}        ._header .nav_box{overflow:auto;width: 100%;height:100%;}        ._header .nav li.draw_act>.i_con{transform:rotate(-180deg);}        .header-slogan-box {            position: absolute;            right: 0;            top: 0;            height: 100%;            background-color: transparent!important;            z-index: 4;        }    }    #v61aed7e4d2eb1{background-color:rgba(255, 255, 255, 1);color:rgba(19, 35, 74, 1);padding-top:116px;}#v61aed7e4d2eb1 .container{max-width:100%;}    </style> 
+<!-- css end --> 
+<!-- header style start --> 
+<style>
+
+@font-face{font-family:file_01635832483977_ttf;src:url(images/file_01638926132889.otf);font-display:swap;}
+.top_title,
+.body_color_bgs .conn-big-title-font,
+.body_color_bgs .title:not(.no_title_family),
+.body_color_bgs [important_title]:not(.no_title_family),
+.select_title_font_box{font-family:file_01635832483977_ttf,Arial,myanmar_font!important;}
+
+#v61aed7e4d2e86 .top_title{text-transform: uppercase; width:50%; font-weight: normal; line-height: 1.2; }
+#v61aed7e4d2e86 .top_describe{ width:50%; line-height: 1.8;opacity: 0.85;}
+.top_title{text-transform: uppercase; line-height:1.2; }
+.tem_title_1 .top_details{opacity: 0.8; }
+.public_lists_tem_2 .con li .text .describe{overflow: inherit; -webkit-line-clamp: inherit; }
+.top_details, .top_details *, .top_subtitle, .top_subtitle *{font-size:14px !important; }
+.new_u_body .top_details, .new_u_body .top_details *, .new_u_body .top_subtitle, .new_u_body .top_subtitle *{font-size:14px !important; }
+.tem_breadcrumb_1 .text .top_title{font-weight:normal; }
+.public_inquiry_tem_2 .top_title, .public_inquiry_tem_2 .top_describe{display:none; }
+.public_inquiry_tem_2 .sticky_box .icon_text_box h1{font-size:3.2vw; font-family:file_01635832483977_ttf,Arial,myanmar_font!important; font-weight:normal; text-transform: uppercase;}
+
+
+
+@media (min-width: 1200px) {
+.public_inquiry_tem_2 .enquiry_box{padding-left:2vw; }
+._head_bottom{max-width: 1440px; margin: 0 auto; padding-top:10px; }
+._header_con{padding: 0px; }
+._head_top{background-color:#13234a; padding-left:13vw; padding-right:13vw; color:#fff; height:36px; line-height:36px;}
+._header nav{font-size:15px; }
+.public_lists_tem_1 .top_details{padding-left:10vw; padding-right:10vw; }
+#v61af3d0145059 .top_details{opacity:0.85; }
+.public_lists_tem_1 .con li .text{padding:20px; }
+.public_lists_tem_2 .con li .text{padding:25px; }
+.top_details, .top_describe, .describe{line-height:1.8; }
+#v61af3c91ea53c .top_title, #v61af3c91ea53c .top_describe, #v61af3c91ea53c .top_subtitle, #v61af3c91ea53c .btn_box{padding-left:2vw; }
+#v61b0744b8f4d3 .top_describe{padding-right: 2vw; }
+#v61af3c91ea53c .img_par img,#v61b16cd8b1e1a .img_par img{width: auto; }
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+#v61aed7e4d2e86 .top_describe img{display:none; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+
+#v61af3d0145059 .container{margin-bottom:-18vw; }
+#v61aed7e4d2e8e {padding-top:16vw; }
+}
+
+@media (max-width: 768px) {
+#v61aed7e4d2e86 .top_title *{font-size:30px !important; }
+#v61aed7e4d2e86 .top_describe{display:none; }
+.top_title, .top_title *{font-size:24px !important;}
+.top_details, .top_describe, .describe{line-height:1.6; }
+#v61af3cc6032fc{padding-top:5vw; }
+.public_lists_tem_2 .con li{width:50%; }
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:4vw; padding-right:4vw; }
+#v61af3d0145059 .container{margin-bottom:-24vw; }
+#v61aed7e4d2e8e {padding-top:22vw !important; }
+}
+@media (max-width: 640px) {
+#v61aed7e4d2e86 .top_title *{font-size:20px !important;  }
+#v61aed7e4d2e86 .top_title{width: 60%;}
+.public_lists_tem_1 .top_details, .tem_title_1 .top_details{padding-left:0; padding-right:0; }
+.public_lists_tem_2 .con li{width: 100%;}
+#v61af3d0145059 .container{margin-bottom:-36vw; }
+#v61aed7e4d2e8e {padding-top:36vw !important; }
+.public_lists_tem_1 .con li{width:100%; }
+}
+</style> 
+  <div class="content_box"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b175994d182" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020699344.jpg" module_type="module"> 
+    <div modular-edit="custom"> 
+     <div class="absolute_box"> 
+      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+     </div> 
+     <div class="text"> 
+      <div class="container"> 
+       <div class="text"> 
+        <h1 class="top_title">NEWS</h1> 
+       </div> 
+       <div class="top_describe"> 
+        <span><a href="/" style="display: inline;">HOME</a></span> 
+        <i>&gt;</i> 
+        <span><a href="/news" style="display: inline;">NEWS</a></span> 
+       </div> 
+      </div> 
+     </div> 
+     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+      <div>
+       <span class="iconfont iconVR"></span>
+      </div> 
+      <div class="vr_txt"> 
+       <section template-edit="btn_languages" module_name="module">
+        VR
+       </section> 
+      </div> </a> 
+    </div> 
+   </div> 
+   <div class="tem_data_list_1 no_bg_src content-section" id="v61b175994d18c" module_id="5000" bg_img_url="" module_type="module"> 
+    <div class="container"> 
+     <div class="li_container"> 
+      <div class="li_nav_left"> 
+       <div class="news_details_left_block right_navigation_menus left_con_colors"> 
+        <h2 class="title">NEWS</h2> 
+       </div> 
+       <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
+        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
+         <div class="sticky_inquiry_head title"> 
+          <section template-edit="title_languages" module_name="module">
+           Send your inquiry
+          </section> 
+         </div> 
+         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
+          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b175994d18c" value="0"> 
+          <input type="hidden" name="visitlength" id="visitlength_v61b175994d18c" value="====1705505164===="> 
+          <input type="hidden" name="source" id="source_v61b175994d18c" value="0"> 
+          <input type="hidden" name="id" id="id_v61b175994d18c" value="0"> 
+          <ul class="fl_row_s"> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b175994d18c" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
+             <div class="required_tips">
+              Format error
+             </div> </label> </li> 
+          </ul> 
+          <div class="btn_box"> 
+           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
+          </div> 
+         </form> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="products_ul_box"> 
+       <div class="mobile-reverse"> 
+        <div class="products_text"> 
+         <div class="describe">
+          <p><span style="font-size: 14px;"><span style="font-family: DIN-Regular, Arial, myanmar_font;">Hunan Sincere Chemicals Co., LTD</span> news section is used to frequently update the content of corporate news activities, such as news, security announcements, etc. Customers can view and read through the web page to get the latest content in time.</span></p>
+         </div> 
+        </div> 
+        <div> 
+         <div class="ai_products_list_ul"> 
+          <ul> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4591160"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01705287118727.png" img_preview_gif="" alt="Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4591160"> 
+               <div class="title" title="Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang" title_lengths="1">
+                Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang
+               </div> 
+               <div class="describe" title="On January 15, 2024, our company successfully completed the loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang. The shipment is bound for a country in Africa, marking another milestone in our commitment to meeting the global demand for high-quality chemical products." title_lengths="">
+                On January 15, 2024, our company successfully completed the loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang. The shipment is bound for a country in Africa, marking another milestone in our commitment to meeting the global demand for high-quality chemical products.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2024/01/15
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4549232"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01704681967518.jpg" img_preview_gif="" alt="Lead-zinc mine, how to choose?" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4549232"> 
+               <div class="title" title="Lead-zinc mine, how to choose?" title_lengths="1">
+                Lead-zinc mine, how to choose?
+               </div> 
+               <div class="describe" title="&nbsp;Among many mineral types, lead-zinc ore is a relatively difficult ore to select. Generally speaking, lead-zinc ore has more poor ores than rich ores and the associated components are more complex. Therefore, how to efficiently separate lead and zinc ores is also an important issue in the mineral processing industry. At present, the lead and zinc minerals available for industrial utilization are mainly galena and sphalerite, and also include smithsonite, cerussite, etc. According to the degree of oxidation, lead-zinc minerals can be divided into lead-zinc sulfide ore, lead-zinc oxide ore, Below we will specifically analyze the separation process of lead-zinc ore based on the oxidation degree of lead-zinc ore." title_lengths="">
+                &nbsp;Among many mineral types, lead-zinc ore is a relatively difficult ore to select. Generally speaking, lead-zinc ore has more poor ores than rich ores and the associated components are more complex. Therefore, how to efficiently separate lead and zinc ores is also an important issue in the mineral processing industry. At present, the lead and zinc minerals available for industrial utilization are mainly galena and sphalerite, and also include smithsonite, cerussite, etc. According to the degree of oxidation, lead-zinc minerals can be divided into lead-zinc sulfide ore, lead-zinc oxide ore, Below we will specifically analyze the separation process of lead-zinc ore based on the oxidation degree of lead-zinc ore.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2024/01/08
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4512351"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01704161016652.jpg" img_preview_gif="" alt="A brief analysis of the role of copper sulfate in ore beneficiation and flotation" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4512351"> 
+               <div class="title" title="A brief analysis of the role of copper sulfate in ore beneficiation and flotation" title_lengths="1">
+                A brief analysis of the role of copper sulfate in ore beneficiation and flotation
+               </div> 
+               <div class="describe" title="Copper sulfate, which appears as blue or blue-green crystals, is a widely used activator in sulfide ore flotation. It is mainly used as an activator, regulator and inhibitor to adjust the pH value of the slurry, control foam generation and improve The surface potential of minerals has an activation effect on sphalerite, stibnite, pyrite and pyrrhotite, especially sphalerite that is inhibited by lime or cyanide." title_lengths="">
+                Copper sulfate, which appears as blue or blue-green crystals, is a widely used activator in sulfide ore flotation. It is mainly used as an activator, regulator and inhibitor to adjust the pH value of the slurry, control foam generation and improve The surface potential of minerals has an activation effect on sphalerite, stibnite, pyrite and pyrrhotite, especially sphalerite that is inhibited by lime or cyanide.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2024/01/02
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4463912"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01703471762631.jpg" img_preview_gif="" alt="After the use of mineral processing activator" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4463912"> 
+               <div class="title" title="After the use of mineral processing activator" title_lengths="1">
+                After the use of mineral processing activator
+               </div> 
+               <div class="describe" title="&nbsp;After the use of mineral processing activator: In the flotation process, the effect of increasing the flotability of minerals is called activation. The agent used to change the composition of the mineral surface and promote the interaction between the collector and the mineral surface is called activator." title_lengths="">
+                &nbsp;After the use of mineral processing activator: In the flotation process, the effect of increasing the flotability of minerals is called activation. The agent used to change the composition of the mineral surface and promote the interaction between the collector and the mineral surface is called activator.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/25
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4421824"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01702866367165.png" img_preview_gif="" alt="Flotation reagents in lead-zinc ore flotation process" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4421824"> 
+               <div class="title" title="Flotation reagents in lead-zinc ore flotation process" title_lengths="1">
+                Flotation reagents in lead-zinc ore flotation process
+               </div> 
+               <div class="describe" title="The application of lead-zinc ore must be beneficiated before it can be better utilized. The commonly used beneficiation method is flotation. Since it is flotation, flotation chemicals are naturally inseparable.&nbsp;" title_lengths="">
+                The application of lead-zinc ore must be beneficiated before it can be better utilized. The commonly used beneficiation method is flotation. Since it is flotation, flotation chemicals are naturally inseparable.&nbsp;
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/18
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4398778"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01702533124603.png" img_preview_gif="" alt="What are the general specifications of zinc sulfate for mineral processing and its working principle?" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4398778"> 
+               <div class="title" title="What are the general specifications of zinc sulfate for mineral processing and its working principle?" title_lengths="1">
+                What are the general specifications of zinc sulfate for mineral processing and its working principle?
+               </div> 
+               <div class="describe" title="The main role of zinc sulfate in mineral processing is to select zinc ores and resist zinc-containing minerals. Usually, it has better resistance in alkaline slurry.&nbsp;" title_lengths="">
+                The main role of zinc sulfate in mineral processing is to select zinc ores and resist zinc-containing minerals. Usually, it has better resistance in alkaline slurry.&nbsp;
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/14
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4380019"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01702279003521.jpg" img_preview_gif="" alt="The role of zinc sulfate heptahydrate in mineral processing technology" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4380019"> 
+               <div class="title" title="The role of zinc sulfate heptahydrate in mineral processing technology" title_lengths="1">
+                The role of zinc sulfate heptahydrate in mineral processing technology
+               </div> 
+               <div class="describe" title="In the mineral processing process, mineral processing equipment and mineral processing methods are generally combined. Mineral processing methods include gravity separation, air separation, magnetic separation, flotation, mixing separation, chemical separation, etc. Each has its own advantages.&nbsp;" title_lengths="">
+                In the mineral processing process, mineral processing equipment and mineral processing methods are generally combined. Mineral processing methods include gravity separation, air separation, magnetic separation, flotation, mixing separation, chemical separation, etc. Each has its own advantages.&nbsp;
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/11
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4346830"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01701830629811.png" img_preview_gif="" alt="The role of lead nitrate in gold mine leaching" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4346830"> 
+               <div class="title" title="The role of lead nitrate in gold mine leaching" title_lengths="1">
+                The role of lead nitrate in gold mine leaching
+               </div> 
+               <div class="describe" title="Whole mud cyanide leaching is an ancient and reliable gold extraction process, which is widely used in production today. In recent years, in order to increase gold production, realize gold production on site, and increase the production efficiency of enterprises, various gold mines have expanded the application scope of their all-mud cyanide leaching process." title_lengths="">
+                Whole mud cyanide leaching is an ancient and reliable gold extraction process, which is widely used in production today. In recent years, in order to increase gold production, realize gold production on site, and increase the production efficiency of enterprises, various gold mines have expanded the application scope of their all-mud cyanide leaching process.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/06
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4333706"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01701654223402.jpg" img_preview_gif="" alt="About the Lead Nitrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4333706"> 
+               <div class="title" title="About the Lead Nitrate" title_lengths="1">
+                About the Lead Nitrate
+               </div> 
+               <div class="describe" title="&nbsp;Introducing our high quality Lead Nitrate, a versatile compound with a wide range of uses. Lead nitrate has a molecular formula of Pb(NO3)2, a molecular weight of 331.21, and is a white crystal with a CAS number of 10099-74-8. It is also known as Einecs number 233-245-9 and falls under HS code 2834.2990.00." title_lengths="">
+                &nbsp;Introducing our high quality Lead Nitrate, a versatile compound with a wide range of uses. Lead nitrate has a molecular formula of Pb(NO3)2, a molecular weight of 331.21, and is a white crystal with a CAS number of 10099-74-8. It is also known as Einecs number 233-245-9 and falls under HS code 2834.2990.00.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/12/04
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4299945"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01701221559453.jpg" img_preview_gif="" alt="Lead nitrate's efficacy" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4299945"> 
+               <div class="title" title="Lead nitrate's efficacy" title_lengths="1">
+                Lead nitrate's efficacy
+               </div> 
+               <div class="describe" title="Lead nitrate's efficacy has been long debated in various industries, including the medical field, industrial applications, and even in the field of pyrotechnics. As a powerful oxidizing agent, lead nitrate has gained prominence due to its ability to undergo various chemical reactions. In this article, we will explore the efficacy of lead nitrate in different sectors and discuss its potential benefits and risks." title_lengths="">
+                Lead nitrate's efficacy has been long debated in various industries, including the medical field, industrial applications, and even in the field of pyrotechnics. As a powerful oxidizing agent, lead nitrate has gained prominence due to its ability to undergo various chemical reactions. In this article, we will explore the efficacy of lead nitrate in different sectors and discuss its potential benefits and risks.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/11/29
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4286796"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01701052005648.jpg" img_preview_gif="" alt="Why Choose Lead Nitrate for Mining Applications" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4286796"> 
+               <div class="title" title="Why Choose Lead Nitrate for Mining Applications" title_lengths="1">
+                Why Choose Lead Nitrate for Mining Applications
+               </div> 
+               <div class="describe" title="Lead nitrate is a widely used chemical compound in various industries, including mining. Its versatile properties make it an ideal choice for multiple applications in the mining sector. In this article, we will explore the reasons why lead nitrate is preferred in mining operations and its significant benefits." title_lengths="">
+                Lead nitrate is a widely used chemical compound in various industries, including mining. Its versatile properties make it an ideal choice for multiple applications in the mining sector. In this article, we will explore the reasons why lead nitrate is preferred in mining operations and its significant benefits.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/11/27
+              </div> 
+             </div> 
+            </div> </li> 
+           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="li_border"> 
+             <a target="_blank" href="/news-detail-4241515"> 
+              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+               <img video-img="https://img001.video2b.com/1186/file_01700444460408.png" img_preview_gif="" alt="Introducing Our Zinc Dust Products for Chemical Industry: Enhancing Performance and Efficiency in Numerous Applications" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+              </div> </a> 
+             <div class="text"> 
+              <a target="_blank" href="/news-detail-4241515"> 
+               <div class="title" title="Introducing Our Zinc Dust Products for Chemical Industry: Enhancing Performance and Efficiency in Numerous Applications" title_lengths="1">
+                Introducing Our Zinc Dust Products for Chemical Industry: Enhancing Performance and Efficiency in Numerous Applications
+               </div> 
+               <div class="describe" title="Here at Hunan Sincere Chemicals, we are proud to introduce our exceptional range of zinc dust products specially designed for the chemical industry. With a wide array of applications, our zinc powder guarantees stable standard performance, moderate chemical reaction rates, high efficiency, and minimal residue – catering to the diverse needs of our valued clients." title_lengths="">
+                Here at Hunan Sincere Chemicals, we are proud to introduce our exceptional range of zinc dust products specially designed for the chemical industry. With a wide array of applications, our zinc powder guarantees stable standard performance, moderate chemical reaction rates, high efficiency, and minimal residue – catering to the diverse needs of our valued clients.
+               </div> </a> 
+              <div class="date" btn_show="0">
+               2023/11/20
+              </div> 
+             </div> 
+            </div> </li> 
+          </ul> 
+          <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
+           No more~~
+          </div> 
+         </div> 
+         <div class="tem_pagination_1"> 
+          <style mos-id="v61b175994d18c">
+    .tem_pagination_1{display: block;position:relative;line-height:1.4;}
+    .tem_pagination_1 .pagination{display:flex;margin:0;overflow:hidden;}
+    .tem_pagination_1 .page-item{padding:1px;}
+    .tem_pagination_1 .page-item.disabled{display:none;}
+    .tem_pagination_1 .page-link{display:block;;padding:0px 13px;font-size:16px;line-height:36px;border:2px solid transparent;border-radius:10px;transition:.2s;}
+    .tem_pagination_1 .page-link.active{border:2px solid;}
+    .tem_pagination_1 .rel_ck.page-link span{color:#fff!important;position: relative;z-index:2;}
+    .tem_pagination_1 .rel_ck.page-link{position:relative;overflow:hidden;}
+    /* .tem_pagination_1 .rel_ck.page-link::after{content:"";display: block;position: absolute;top:0;left:0;width:100%;border-top:100px solid;} */
+    .tem_pagination_1 .page-link:not(.active):hover{opacity:.7;}
+    .tem_pagination_1 .li_form{position:relative;padding-left:30px;}
+    .tem_pagination_1 .pagination_form{height:100%;display:flex;align-items:center;}
+    .tem_pagination_1 .pagination_search{height:38px;display:flex;align-items:center;}
+    .tem_pagination_1 .pagination_inp{height:100%;width:50px;border-radius:10px 0 0 10px;padding:0 8px;font-size:14px;color:inherit;border:2px solid;outline:none;border-right:none;}
+    .tem_pagination_1 button.bg_btn{border-radius:0 10px 10px 0;border:none;color:inherit;height:100%;padding:0 13px;outline:none;cursor:pointer;background:none;position:relative;overflow:hidden;}
+    .tem_pagination_1 button.bg_btn:hover{opacity:.7;}
+    /* .tem_pagination_1 button.bg_btn::after{content:"";display: block;position: absolute;top:0;left:0;width:100%;border-top:100px solid;} */
+    .tem_pagination_1 .btn_txt{color:#fff;position:relative;z-index:4;}
+    @media (max-width: 768px){
+    .tem_pagination_1 .rel_ck.page-link{display:none;}
+    /* .tem_pagination_1 .page-link:not(.rel_ck){display:none;} */
+    }
+    </style> 
+          <nav> 
+           <ul class="pagination"> 
+            <li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true"><span class="iconfont iconchaopimiaotuangou-"></span></span> </li> 
+            <li class="page-item active" aria-current="page"><span class="page-link active font-color">1</span></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-2">2</a></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-3">3</a></li> 
+            <li class="page-item" aria-disabled="true"><span class="page-link">...</span></li> 
+            <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-9">9</a></li> 
+            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/news-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li> 
+            <!-- <li class="li_form">
+                <form action="" class="pagination_form" onsubmit="return pagination_v61b175994d18c(this);">
+                    <input type="hidden" class="list_limit" value="12">
+                    <input type="hidden" class="list_page" value="1">
+                    <input type="hidden" class="list_total" value="106">
+                    <div class="pagination_search">
+                        <input type="text" oninput="value=value.replace(/[^\d]|^0/g,'')" value="1" class="pagination_inp border-color" placeholder="" required="" autocomplete="off" autocorrect="off">
+                        <button type="submit" class="bg_btn bg-color">
+                            <span class="btn_txt">GO</span>
+                        </button>
+                    </div>
+                </form>
+            </li> --> 
+           </ul> 
+          </nav> 
+          <script mos-id="v61b175994d18c">
+        function pagination_v61b175994d18c(form){
+            var inp = form.querySelector('.pagination_inp'),
+                val = parseInt(inp.value)||1,
+                limit = parseInt(form.querySelector('.list_limit').value),
+                page = parseInt(form.querySelector('.list_page').value)||1,
+                total = parseInt(form.querySelector('.list_total').value),
+                page_list = Math.ceil(total/limit),
+                url = window.location.pathname;
+            if (val>page_list) {val = page_list;inp.value = val;}
+            if (val == page) {return false}
+            if (val == 1) {
+                url = url.replace(/\-list\-(\d)+/,'');
+            }else{
+                if (/\-list\-(\d)+/.test(url)) {
+                    url = url.replace(/\-list\-(\d)+/,'-list-'+val);
+                }else{
+                    if (url.indexOf('.')>-1) {
+                        var index1 = url.lastIndexOf("."),
+                            index2 = url.length,
+                            index3 = url.substring(index1,index2),
+                            index4 = url.substring(0,index1);
+                        url = index4+'-list-'+val+index3;
+                    }else{
+                        url = url+'-list-'+val;
+                    }
+                }
+            }
+            window.location.href = url;
+            return false
+        }
+    </script> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  {include file="common/foot" /}

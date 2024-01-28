@@ -1,0 +1,58 @@
+{include file="common/top" /} 
+<div class="about">
+    <div class="wp cl">
+      <div class="pic">
+        {cms:blocklist id="block" name="ourHistory" orderby="weigh" orderway="desc" } 
+         <img src="{$block.image}" title="{$block.title}" _src="{$block.image}" alt=""></div>
+        <div class="txt"><h3>{$block.title}</h3><p><em></em></p>
+          {$block.content}
+          <p><br></p>
+        </div>
+               {/cms:blocklist}
+        
+    </div>
+  </div>
+  <div class="about2">
+    <div class="wp cl">
+      {cms:blocklist id="block" name="factory" orderby="weigh" orderway="desc" } 
+      <div class="tit">
+        <h3>{$block.title}</h3>
+      </div>
+       
+       {notempty name="$block.images"}
+       <ul>
+         {volist name="$block.images|explode=',',###" id="image"}
+          <li> <img src="{$image|cdnurl}" alt=""/> <em>{$block.intro[$key]['info']}</em>
+            <p>{$block.intro[$key]['txt']}</p>
+          </li>
+        {/volist}
+      </ul>
+      {/notempty} 
+       {/cms:blocklist} 
+    </div>
+  </div>
+  <div class="about3">
+      {cms:blocklist id="block" name="production" orderby="weigh" orderway="desc" } 
+      <h3>{$block.title}</h3>
+      <hr/>
+         {notempty name="$block.images"}
+         <ul>
+         {volist name="$block.images|explode=',',###" id="image"}
+          <li> <img src="{$image|cdnurl}" alt=""/> <em>{$block.intro[$key]['info']}</em>
+            <p>{$block.intro[$key]['txt']}</p>
+          </li>
+        {/volist}
+      </ul>
+      {/notempty} 
+       {/cms:blocklist} 
+  </div>
+  <div class="about4"> 
+    {cms:blocklist id="block" name="ourCurrent" orderby="weigh" orderway="desc" } 
+    <h3>{$block.title}</h3>
+    {$block.content}
+    <div class="pic"> <img src="{$block.image}" alt="{$block.title}"/> </div>
+    {/tmp:ad} 
+    {/cms:blocklist}
+  </div>
+
+{include file="common/foot" /} 
