@@ -46,74 +46,42 @@
     <div class="con swiper-container"> 
      <div class="swiper-pagination" btn_show="1" w_page_type=""></div> 
      <ul class="list_row_ul swiper-wrapper"> 
+      {cms:blocklist id="block" name="banner" orderby="weigh" orderway="desc" }   
       <li class="swiper-slide" modular-edit="custom"> 
-       <div class="list_box"> 
-        <div class="list_con"> 
-         <div data-banner="1" class="img_par no_img_src" img_type=""> 
-          <img class="" video-img="https://img001.video2b.com/1186/file_01703236684742.jpg" img_preview_gif="" alt=""> 
-          <span editable="video" video-type="1" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-3/QKJWB5OI-JXXG-FLB4/dc172c-651c-a79c-decf14-3a13-1e4454.m3u8" video-m3u8src="" playback_mode=""></span> 
-         </div> 
-         <div class="text videos_js_icons" display_none> 
-          <div class="container"> 
-           <div display_none class="subtitle align_con"> 
-            <div class=" width_50  width_mobile_60"> 
+        <div class="list_box"> 
+         <div class="list_con"> 
+          <div data-banner="1" class="img_par no_img_src" img_type=""> 
+           <img class="" video-img="{$block.image}" img_preview_gif="" alt=""> 
+           <span editable="video" video-type="1" video-src="{if $block.title != 02}{$block.title}{/if}" video-m3u8src="" playback_mode=""></span> 
+          </div> 
+          <div class="text videos_js_icons" display_none> 
+           <div class="container"> 
+            <div display_none class="subtitle align_con"> 
+             <div class=" width_50  width_mobile_60"> 
+             </div> 
             </div> 
-           </div> 
-           <div display_none class="title  align_con" title_lengths=""> 
-            <div class=" width_50  width_mobile_60"> 
+            <div display_none class="title  align_con" title_lengths=""> 
+             <div class=" width_50  width_mobile_60"> 
+             </div> 
             </div> 
-           </div> 
-           <div display_none class="describe  align_con "> 
-            <div class=" width_50  width_mobile_60"> 
+            <div display_none class="describe  align_con "> 
+             <div class=" width_50  width_mobile_60"> 
+             </div> 
             </div> 
-           </div> 
-           <div class="btn_box" btn_show="1"> 
-            <div class=" width_50"> 
-             <div> 
-              <div class="btn" btn-types="deep">
-                LEARN MORE 
+            <div class="btn_box" btn_show="1"> 
+             <div class=" width_50"> 
+              <div> 
+               <div class="btn" btn-types="deep">
+                 LEARN MORE 
+               </div> 
               </div> 
              </div> 
             </div> 
            </div> 
           </div> 
          </div> 
-        </div> 
-       </div> </li> 
-      <li class="swiper-slide" modular-edit="custom"> 
-       <div class="list_box"> 
-        <div class="list_con"> 
-         <div data-banner="1" class="img_par no_img_src" img_type=""> 
-          <img class="" video-img="https://img001.video2b.com/1186/file_01638925845374.jpg" img_preview_gif="" alt=""> 
-          <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-         </div> 
-         <div class="text videos_js_icons" display_none> 
-          <div class="container"> 
-           <div display_none class="subtitle align_con"> 
-            <div class=" width_50  width_mobile_60"> 
-            </div> 
-           </div> 
-           <div display_none class="title  align_con" title_lengths=""> 
-            <div class=" width_50  width_mobile_60"> 
-            </div> 
-           </div> 
-           <div display_none class="describe  align_con "> 
-            <div class=" width_50  width_mobile_60"> 
-            </div> 
-           </div> 
-           <div class="btn_box" btn_show="0"> 
-            <div class=" width_50"> 
-             <div> 
-              <div class="btn" btn-types="deep">
-                LEARN MORE 
-              </div> 
-             </div> 
-            </div> 
-           </div> 
-          </div> 
-         </div> 
-        </div> 
-       </div> </li> 
+        </div> </li> 
+    {/cms:blocklist}
      </ul> 
     </div> 
    </div> 
@@ -137,7 +105,26 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" href="/products-detail-786133" target="_blank" class="list_box"> 
+        {cms:channellist id="channel" type="son" typeid="44" orderby="weigh" orderway="asc"}
+        {cms:arclist id="prod" channel="channel['id']"  orderby="weigh" orderway="desc" row="20" addon="video"}
+          <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="{$prod.title}" href="{$prod.url}" target="_blank" class="list_box"> 
+            <div class="list_con" direction="4"> 
+             <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
+              <img class="" video-img="{$prod.image}" img_preview_gif="" alt="{$prod.title}"> 
+              <span class="href_id_a"></span> 
+              <span editable="video" video-type="" video-src="{$prod.video}" video-m3u8src="" playback_mode=""></span> 
+              <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+             </div> 
+             <div class="text"> 
+              <div class="title" title_lengths="">
+                {$prod.title} 
+              </div> 
+             </div> 
+            </div> </a> </li> 
+          {/cms:arclist}
+        {/cms:channellist}
+
+       <!-- <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" href="/products-detail-786133" target="_blank" class="list_box"> 
          <div class="list_con" direction="4"> 
           <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
            <img class="" video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/07b8168b0ea59288bb68aab539ae88df.jpg" img_preview_gif="" alt="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate"> 
@@ -220,7 +207,7 @@
              Lead Nitrate | XSC 
            </div> 
           </div> 
-         </div> </a> </li> 
+         </div> </a> </li>  -->
       </ul> 
      </div> 
     </div> 
