@@ -23996,3 +23996,802 @@ value2|title2',
 [ info ] [ PARAM ] array (
 )
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/
+[运行时间：0.182321s] [吞吐率：5.48req/s] [内存消耗：624.40kb] [文件加载：149]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000116s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000501s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000554s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000073s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+    'addon' => 'cms',
+    'controller' => 'index',
+    'action' => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636832.0.0.0; _ga=GA1.2.1976643721.1706286546',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/about',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.000277s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html [ array (
+  0 => 'config',
+  1 => 'user',
+  2 => 'site',
+  3 => '__CHANNEL__',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @view_filter [ RunTime:0.000262s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/file_01639010851207.png
+[运行时间：0.010514s] [吞吐率：95.11req/s] [内存消耗：121.60kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000048s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000338s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000385s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000058s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'file_01639010851207.png',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/null_35b6d73fd3124456902967b04c7e890c.
+[运行时间：0.010596s] [吞吐率：94.38req/s] [内存消耗：121.53kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000068s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000269s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000313s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000051s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'null_35b6d73fd3124456902967b04c7e890c.',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/refresh3.png
+[运行时间：0.014462s] [吞吐率：69.15req/s] [内存消耗：121.55kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000089s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000699s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000845s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000105s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'refresh3.png',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/js/jquery.min.map
+[运行时间：0.005331s] [吞吐率：187.58req/s] [内存消耗：119.34kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000034s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000579s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000979s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000075s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/font-family/font/DIN-Regular.woff2
+[运行时间：0.014478s] [吞吐率：69.07req/s] [内存消耗：121.71kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001825s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.001955s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002223s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000113s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'font-family',
+    1 => 'font',
+    2 => 'DIN-Regular.woff2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/common_3.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/fonts/iconfont/iconfont.woff2
+[运行时间：0.014201s] [吞吐率：70.42req/s] [内存消耗：121.70kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001774s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.001182s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001711s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000140s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'fonts',
+    1 => 'iconfont',
+    2 => 'iconfont.woff2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/common_3.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/file_01638926132889.otf
+[运行时间：0.015107s] [吞吐率：66.19req/s] [内存消耗：121.62kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000184s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.001646s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001756s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000691s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'file_01638926132889.otf',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/maps/swiper.min.js.map
+[运行时间：0.008925s] [吞吐率：112.05req/s] [内存消耗：119.30kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000053s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000991s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001042s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000060s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'maps',
+    1 => 'swiper.min.js.map',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/contact/get-config
+[运行时间：0.015805s] [吞吐率：63.27req/s] [内存消耗：463.97kb] [文件加载：141]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000055s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000480s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000540s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000070s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\addons\\Route',
+    1 => 'execute',
+  ),
+  'var' => 
+  array (
+    'addon' => 'cms',
+    'controller' => 'archives',
+    'action' => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.2.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'catename' => 'contact',
+  'diyname' => 'get-config',
+)
+[ info ] [ RUN ] think\addons\Route->execute[ /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/vendor/karsonzhang/fastadmin-addons/src/addons/Route.php ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/public/../application/common/lang/zh-cn/addon.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @addon_begin [ RunTime:0.000236s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/lang/zh-cn.php
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/loading2.gif
+[运行时间：0.004064s] [吞吐率：246.07req/s] [内存消耗：121.85kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000029s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000492s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000538s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000060s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'loading2.gif',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.1.1976643721.1706286546',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/common_3.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/video.png
+[运行时间：0.004114s] [吞吐率：243.08req/s] [内存消耗：121.55kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000032s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000260s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000301s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000052s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'video.png',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.1.1976643721.1706286546',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/images/video_play_1.png
+[运行时间：0.003617s] [吞吐率：276.47req/s] [内存消耗：121.56kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000025s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000262s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000306s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000054s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'images',
+    1 => 'video_play_1.png',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.1.1976643721.1706286546',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/fonts/iconfont/iconfont.woff
+[运行时间：0.010011s] [吞吐率：99.89req/s] [内存消耗：121.70kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000076s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000399s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000445s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000081s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'fonts',
+    1 => 'iconfont',
+    2 => 'iconfont.woff',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.1.1976643721.1706286546',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/common_3.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:36+08:00 ] 127.0.0.1 GET sincer1234.com/fonts/iconfont/iconfont.ttf
+[运行时间：0.008739s] [吞吐率：114.43req/s] [内存消耗：121.66kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000048s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.001252s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001338s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000113s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'fonts',
+    1 => 'iconfont',
+    2 => 'iconfont.ttf',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga=GA1.1.1976643721.1706286546; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/common_3.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'origin' => 'http://sincer1234.com',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/libs/aliplayer/aliplayer-min.js
+[运行时间：0.007317s] [吞吐率：136.67req/s] [内存消耗：122.07kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000056s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000515s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000590s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000100s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'libs',
+    1 => 'aliplayer',
+    2 => 'aliplayer-min.js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'accept' => 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/playanimation.png
+[运行时间：0.007680s] [吞吐率：130.21req/s] [内存消耗：122.50kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000045s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000555s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000608s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000075s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'playanimation.png',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/smallpause.png
+[运行时间：0.021492s] [吞吐率：46.53req/s] [内存消耗：122.49kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000044s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000455s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000538s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000297s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'smallpause.png',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/fullscreen.png
+[运行时间：0.021550s] [吞吐率：46.40req/s] [内存消耗：122.49kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000067s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000363s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000416s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000065s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'fullscreen.png',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/setting.png
+[运行时间：0.021595s] [吞吐率：46.31req/s] [内存消耗：122.46kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000044s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.003932s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004328s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000238s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'setting.png',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/volume.png
+[运行时间：0.016962s] [吞吐率：58.96req/s] [内存消耗：122.46kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000035s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000595s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000680s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000111s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'volume.png',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:40+08:00 ] 127.0.0.1 GET sincer1234.com/css/file1638860039471.png
+[运行时间：0.011575s] [吞吐率：86.39req/s] [内存消耗：121.79kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000053s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000575s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000660s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000148s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'css',
+    1 => 'file1638860039471.png',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2024-01-31T01:49:41+08:00 ] 127.0.0.1 GET sincer1234.com/template/default2/css/img/dragcursorhover.png
+[运行时间：0.004468s] [吞吐率：223.82req/s] [内存消耗：122.50kb] [文件加载：119]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000088s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\cms\Cms @app_init [ RunTime:0.000327s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000379s ]
+[ info ] [ LANG ] /Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/thinkphp/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000063s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'template',
+    1 => 'default2',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => '_gid=GA1.2.901408799.1706286546; p_h5_u=C237C2EF-F0CB-4CF8-9E19-2079FDA7F7C4; PHPSESSID=h54ljq43isrmtbf7562fs6ogih; think_var=zh-cn; _ga_0XDY5XCZZZ=GS1.1.1706629041.6.1.1706636976.0.0.0; _ga=GA1.2.1976643721.1706286546; _gat_gtag_UA_58399074_96=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sincer1234.com/template/default2/css/aliplayer-min.css',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'sincer1234.com',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'img' => 'dragcursorhover.png',
+)
+[ info ] [ LOG ] INIT File
