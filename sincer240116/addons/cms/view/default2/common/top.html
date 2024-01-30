@@ -621,7 +621,7 @@
        <div class="_head_top" modular-edit="custom"> 
         <div class="head_h1"> 
          <section template-edit="title_languages" module_name="header">
-          <p>We are a professional chemicals manufacturer and supplier, there are more than 16 years of export experience in chemicals</p>
+          <p>We are a professional chemicals manufacturer and supplier, there are more than 18 years of export experience in chemicals</p>
          </section> 
         </div> 
         <div class="icon_bx iconfenxiang_boxs" btn_show="1"></div> 
@@ -671,8 +671,8 @@
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
         {cms:channellist id="nav" type="top" cache="0" condition="1=isnav" row="20" orderby="weigh" orderway="desc"}
-        <li>
-            <a class="{if $nav->is_active}active{/if} {if $nav.has_child} xia {/if}" href="{$nav.url}">{$nav.name}</a>
+        <li class="{if $nav->is_active}active{/if} {if $nav.has_child} xia {/if}">
+            <a href="{$nav.url}">{$nav.name}</a>
             {if $nav.has_child}
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">

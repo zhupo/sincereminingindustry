@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706547972;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706542900;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706370040;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706636828;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706370040;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -622,7 +622,7 @@
        <div class="_head_top" modular-edit="custom"> 
         <div class="head_h1"> 
          <section template-edit="title_languages" module_name="header">
-          <p>We are a professional chemicals manufacturer and supplier, there are more than 16 years of export experience in chemicals</p>
+          <p>We are a professional chemicals manufacturer and supplier, there are more than 18 years of export experience in chemicals</p>
          </section> 
         </div> 
         <div class="icon_bx iconfenxiang_boxs" btn_show="1"></div> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__5Xlv3mNwPg__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__5Xlv3mNwPg__) || $__5Xlv3mNwPg__ instanceof \think\Collection || $__5Xlv3mNwPg__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__5Xlv3mNwPg__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
-        <li>
-            <a class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>" href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
+        <?php $__m351XVzNwo__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__m351XVzNwo__) || $__m351XVzNwo__ instanceof \think\Collection || $__m351XVzNwo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__m351XVzNwo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
+            <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__LzmuoV03cH__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__LzmuoV03cH__) || $__LzmuoV03cH__ instanceof \think\Collection || $__LzmuoV03cH__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__LzmuoV03cH__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__GA71BcC38q__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__GA71BcC38q__) || $__GA71BcC38q__ instanceof \think\Collection || $__GA71BcC38q__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__GA71BcC38q__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__9jkehiUYML__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__9jkehiUYML__) || $__9jkehiUYML__ instanceof \think\Collection || $__9jkehiUYML__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9jkehiUYML__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__g25R48TdQB__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__g25R48TdQB__) || $__g25R48TdQB__ instanceof \think\Collection || $__g25R48TdQB__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__g25R48TdQB__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9jkehiUYML__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__g25R48TdQB__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__LzmuoV03cH__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__GA71BcC38q__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__5Xlv3mNwPg__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__m351XVzNwo__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -748,7 +748,7 @@
     <div class="con swiper-container"> 
      <div class="swiper-pagination" btn_show="1" w_page_type=""></div> 
      <ul class="list_row_ul swiper-wrapper"> 
-      <?php $__HRDYmWfTri__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__HRDYmWfTri__) || $__HRDYmWfTri__ instanceof \think\Collection || $__HRDYmWfTri__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__HRDYmWfTri__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
+      <?php $__9uK7w6kfCo__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__9uK7w6kfCo__) || $__9uK7w6kfCo__ instanceof \think\Collection || $__9uK7w6kfCo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9uK7w6kfCo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
       <li class="swiper-slide" modular-edit="custom"> 
         <div class="list_box"> 
          <div class="list_con"> 
@@ -783,7 +783,7 @@
           </div> 
          </div> 
         </div> </li> 
-    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__HRDYmWfTri__; ?>
+    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9uK7w6kfCo__; ?>
      </ul> 
     </div> 
    </div> 
@@ -807,7 +807,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-        <?php $__6cuUsWNabj__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__6cuUsWNabj__) || $__6cuUsWNabj__ instanceof \think\Collection || $__6cuUsWNabj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__6cuUsWNabj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__xHCNa2ZOVo__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"20","addon"=>"video"]); if(is_array($__xHCNa2ZOVo__) || $__xHCNa2ZOVo__ instanceof \think\Collection || $__xHCNa2ZOVo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__xHCNa2ZOVo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
+        <?php $__uwAkigWqOm__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__uwAkigWqOm__) || $__uwAkigWqOm__ instanceof \think\Collection || $__uwAkigWqOm__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__uwAkigWqOm__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__DbN8r7VlLO__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"20","addon"=>"video"]); if(is_array($__DbN8r7VlLO__) || $__DbN8r7VlLO__ instanceof \think\Collection || $__DbN8r7VlLO__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DbN8r7VlLO__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
           <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $prod['title']; ?>" href="<?php echo $prod['url']; ?>" target="_blank" class="list_box"> 
             <div class="list_con" direction="4"> 
              <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
@@ -822,97 +822,12 @@
               </div> 
              </div> 
             </div> </a> </li> 
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__xHCNa2ZOVo__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__6cuUsWNabj__; ?>
-
-       <!-- <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" href="/products-detail-786133" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/07b8168b0ea59288bb68aab539ae88df.jpg" img_preview_gif="" alt="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/e4722ff462e5dfc8aad1b071cce7bc2c.mp4" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate" href="/products-detail-786139" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/34d8dae978abd359d438fa8aefe3cee0.jpg" img_preview_gif="" alt="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/cea9be4287158a4b38f6de86355a8242.mp4" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate" href="/products-detail-786140" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/8efaa799056b8b760b4888b79a1417ca.jpg" img_preview_gif="" alt="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Sodium Persulfate | XSC" href="/products-detail-227184" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01640762614373.jpg" img_preview_gif="" alt="Sodium Persulfate | XSC"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/D5SM-5753-31ec-d49c-b4dc-9724.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/728REJWH-WH37-OH9X/d755fa-2eeb-fe7d-793640-c1aa-959c6f.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Sodium Persulfate | XSC 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Sodium Metabisulphite | XSC" href="/products-detail-227189" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01640762536001.jpg" img_preview_gif="" alt="Sodium Metabisulphite | XSC"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/OMSP-3738-0aef-ae89-3251-02cb.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/LQYWQO91-2P70-YW94/e2f446-5857-2345-705ad3-c675-dbad72.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Sodium Metabisulphite | XSC 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Lead Nitrate | XSC" href="/products-detail-227175" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01640762676789.jpg" img_preview_gif="" alt="Lead Nitrate | XSC"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/UIH5-6358-29dd-04a5-e95e-4f42.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/W1N1JM78-VUXQ-XXCO/a14da3-ba9a-6b1d-60d4f8-74ba-480fd9.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Lead Nitrate | XSC 
-           </div> 
-          </div> 
-         </div> </a> </li>  -->
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DbN8r7VlLO__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__uwAkigWqOm__; ?>
       </ul> 
      </div> 
     </div> 
    </div> 
-   <div class="tem_picture_1 no_bg_src content-section" id="v61af3c91ea53c" module_id="5004" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
+   <!-- <div class="tem_picture_1 no_bg_src content-section" id="v61af3c91ea53c" module_id="5004" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
     <div class="container"> 
      <div class="picture_con"> 
       <ul class="picture_ul" direction="2" direction-phone="4"> 
@@ -958,20 +873,22 @@
       </ul> 
      </div> 
     </div> 
-   </div> 
-   <div class="tem_title_1 no_bg_src" module_center="center" id="v61af3cc6032fc" module_id="5017" bg_img_url="https://img001.video2b.com/1186/file_01638952794386.jpg" module_type="module"> 
+   </div>  -->
+
+   <?php $__ud9OIAH7vq__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__ud9OIAH7vq__) || $__ud9OIAH7vq__ instanceof \think\Collection || $__ud9OIAH7vq__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__ud9OIAH7vq__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+   <div class="tem_title_1 no_bg_src" module_center="center" id="v61af3cc6032fc" module_id="5017" bg_img_url="<?php echo $block['image']; ?>" module_type="module"> 
     <div class="container"> 
      <div direction="3"> 
       <div class="text top_text"> 
        <div class="sticky_box"> 
         <div class="top_title "> 
          <section template-edit="title_languages" module_name="module">
-          <p><span></span><span style="color:#1aaec2;"><span style="font-size:16px;">Why choose usS</span></span><br data-cke-eol="1">the best choice for you<span></span></p>
+          <p><span></span><span style="color:#1aaec2;"><span style="font-size:16px;">WHY CHOOSE USS</span></span><br data-cke-eol="1"><?php echo $block['title']; ?><span></span></p>
          </section> 
         </div> 
         <div class="top_details "> 
          <section template-edit="describe_languages" module_name="module">
-          <p>Our company has adhered to a strong market orientation, taken quality as a foundation, and followed the quality policy of continuous improvement and raising customer satisfaction.</p>
+             <?php echo $block['content']; ?>
          </section> 
         </div> 
        </div> 
@@ -989,7 +906,8 @@
       </div> 
      </div> 
     </div> 
-   </div> 
+   </div>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__ud9OIAH7vq__; ?>
    <div class="public_lists_tem_2 no_bg_src content-section" module_center="center" id="v61af3cc9efd2d" module_id="5016" bg_img_url="https://img001.video2b.com/1186/file_01638952806508.jpg" module_type="module"> 
     <div class="container"> 
      <div class="con swiper-container"> 
@@ -997,118 +915,32 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color" btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+       <?php $__1cLiTzUxtI__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__1cLiTzUxtI__) || $__1cLiTzUxtI__ instanceof \think\Collection || $__1cLiTzUxtI__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__1cLiTzUxtI__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
        <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
         <div class="list_box"> 
          <div class="list_con" direction="4"> 
           <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01638951630914.png" img_preview_gif="" alt="Flexible Payment"> 
+           <img class="" video-img="<?php echo $image; ?>" img_preview_gif="" alt="<?php echo $block['intro'][$key]['info']; ?>"> 
            <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
            <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
           </div> 
           <div class="text"> 
            <div class="title" title_lengths="">
-             Flexible Payment 
+             <?php echo $block['intro'][$key]['info']; ?>
            </div> 
            <div class="describe" title_lengths="">
-             We offers settlement service such as US dollars, Euro, and RMB, to minimize the risk of the exchange rate for dollars. 
+             <?php echo $block['intro'][$key]['txt']; ?>
            </div> 
           </div> 
          </div> 
         </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01638951640682.png" img_preview_gif="" alt="Customized Packing Available"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Customized Packing Available 
-           </div> 
-           <div class="describe" title_lengths="">
-             We provide packaging service for the different product with various materials and standard to meet our customers' demand. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01638951646478.png" img_preview_gif="" alt="Special Inspection"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Special Inspection 
-           </div> 
-           <div class="describe" title_lengths="">
-             Special inspection is provided according to the request of customers from certain countries. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01638951653632.png" img_preview_gif="" alt="Professional Logistician"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Professional Logistician 
-           </div> 
-           <div class="describe" title_lengths="">
-             We provide an appropriate logistic scheme for the clients and ship the goods on time according to the order. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_11638951653632.png" img_preview_gif="" alt="Rich industy experiences"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Rich industy experiences 
-           </div> 
-           <div class="describe" title_lengths="">
-             We have own Export License with experienced marketing and service them. We are available for OEM business model as well. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="1"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_21638951653632.png" img_preview_gif="" alt="Quality Control"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Quality Control 
-           </div> 
-           <div class="describe" title_lengths="">
-             We have the strict quality control system.Test every batch of product before we hand over to customers and keep shipment samples of each batch for customers recheck. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
+        <?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__1cLiTzUxtI__; ?>
       </ul> 
      </div> 
     </div> 
    </div> 
+    
+   <?php $__is691rDaUu__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__is691rDaUu__) || $__is691rDaUu__ instanceof \think\Collection || $__is691rDaUu__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__is691rDaUu__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
    <div class="tem_picture_1 no_bg_src content-section" id="v61b0744b8f4d3" module_id="5004" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="picture_con"> 
@@ -1116,8 +948,8 @@
        <li class="picture_li"> 
         <div class="sticky_box" modular-edit="custom"> 
          <div class="img_par no_img_src" img_type=""> 
-          <img video-img="https://img001.video2b.com/1186/file_01638955928520.png" alt="Hunan Sincere Chemicals manufacturer"> 
-          <span display_none video-type="" video-src="https://img001.video2b.com/m3u8/file_01639982963580.m3u8" video-m3u8src="" playback_mode=""></span> 
+          <img video-img="<?php echo $block['image']; ?>" alt="<?php echo $block['title']; ?>"> 
+          <span display_none video-type="" video-src="<?php echo $block['url']; ?>" video-m3u8src="" playback_mode=""></span> 
           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
          </div> 
         </div> </li> 
@@ -1126,23 +958,17 @@
          <div class="top_title "> 
           <section template-edit="title_languages" module_name="module">
            <p><span style="color:#1aaec2;"><span style="font-size:16px;">since 2005</span></span></p>
-           <p><span style="color:#13234a;">About us</span></p>
+           <p><span style="color:#13234a;"><?php echo $block['title']; ?></span></p>
           </section> 
          </div> 
          <div class="top_describe  "> 
-          <section template-edit="describe_languages" module_name="module">
-           <p><span style="color:#808080;">The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 9001:2015 international quality management system certification.</span></p>
-           <p><span style="color:#808080;"><br></span></p>
-           <p><span style="color:#808080;">The company is a member of Sincere Chemicals (HK) Co., LTD., Our Corporation has built 4 manufacturing plants including Sulfate Product, Hydrated Zinc Sulfate, Lead Nitrate, Sodium Metabisulfite and Sodium Persulphate , which are located in Hunan Province. Our business office is located in Changsha, the capital of Hunan Province.</span></p>
-           <p><span style="color:#808080;"><br></span></p>
-           <p><span style="color:#808080;">We have Export License. We have a professional team with exporting experience and considerable service. The company also can accept OEM order.&nbsp;Hunan Sincere Chemicals manufacturer provides us dollar, euro, RMB and other settlement services to minimize the risk of US dollar exchange rate. Secondly, according to customer demand and payment ability, we will try our best to provide satisfactory payment and settlement methods.</span></p>
-          </section> 
+           <?php echo $block['content']; ?>
          </div> 
          <div class="top_subtitle  "> 
           <section template-edit="subtitle_languages" module_name="module"></section> 
          </div> 
          <div class="btn_box  " btn_show="1"> 
-          <a href="/pages-27440" target="_self"> 
+          <a href="/about.html" target="_self"> 
            <div class="btn" btn-types="deep"> 
             <section template-edit="btn_languages" module_name="module">
              READ MORE
@@ -1153,7 +979,8 @@
       </ul> 
      </div> 
     </div> 
-   </div> 
+   </div>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__is691rDaUu__; ?>
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61af3d0145059" module_id="5015" bg_img_url="https://img001.video2b.com/1186/file_01638951950845.png" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
@@ -1173,78 +1000,26 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01642558446145.jpg" img_preview_gif="" alt="Manganese Sulphate Monohydrate Cooperation Case | XSC"> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/3T62AA62-YQQR-I7OR/862449-62e8-0fc2-3a6f2f-d3f5-bfce54.m3u8" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Manganese Sulphate Monohydrate Cooperation Case | XSC 
-           </div> 
-           <div class="describe" title_lengths="">
-             Manganese Sulphate Monohydrate Applications It is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01642558459402.jpg" img_preview_gif="" alt="Russian Customer Customization Zinc Sulphate Heptahydrate"> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/AR4B8W8M-WFH4-MAGS/639d7a-d551-14c1-37c6c3-8dd2-74111f.m3u8" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Russian Customer Customization Zinc Sulphate Heptahydrate 
-           </div> 
-           <div class="describe" title_lengths="">
-             Fertilizer,Feed additives,Mineral and Chemical industry. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01642560202452.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/FCI131DD-DCX5-H8WV/3f30b9-b982-2085-2b1c30-45db-e40292.m3u8" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Customer product customization case | XSC 
-           </div> 
-           <div class="describe" title_lengths="">
-             The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01642560402037.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/HM6MTJ8U-I5TH-E7NY/fc10ec-50c1-8edb-f01556-9e47-99cc25.m3u8" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Customer product customization case | XSC 
-           </div> 
-           <div class="describe" title_lengths="">
-             We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers. 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
+        <?php $__NoaTsFBpQR__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__NoaTsFBpQR__) || $__NoaTsFBpQR__ instanceof \think\Collection || $__NoaTsFBpQR__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__NoaTsFBpQR__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
+            <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+              <div class="list_box"> 
+               <div class="list_con" direction="4"> 
+                <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
+                 <img class="" video-img="<?php echo $case['image']; ?>" img_preview_gif="" alt="<?php echo $case['title']; ?>"> 
+                 <span editable="video" video-type="" video-src="<?php echo $case['video']; ?>" video-m3u8src="" playback_mode=""></span> 
+                 <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+                </div> 
+                <div class="text"> 
+                 <div class="title" title_lengths="">
+                    <?php echo $case['title']; ?>
+                 </div> 
+                 <div class="describe" title_lengths="">
+                   <?php echo $case['content']; ?> 
+                 </div> 
+                </div> 
+               </div> 
+              </div> </li> 
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__NoaTsFBpQR__; ?>
       </ul> 
      </div> 
     </div> 
