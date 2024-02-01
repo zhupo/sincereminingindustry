@@ -1,16 +1,26 @@
-<div class="in_ad">
-	<div class="bxSlide-outter" style="overflow:hidden;margin-left:auto;margin-right:auto; width:1920px; max-width:100%; max-height:350px">
-</div>			<div class="ad_con">
-		<div class="con_table">
-			<div class="con_table_cell">
-			<div class="ueeshop_responsive_position clean ">
-<div class="title">{cms:channel name="name"}</div>
-<div class="position">
-	{cms:breadcrumb id="item" key="k"}
-    {if $k>1} &gt; {/if}<a title="{$item.name}" href="{$item.url}">{$item.name}</a>
-  {/cms:breadcrumb}
-</div>
-</div>					</div>
-		</div>
-	</div>
-</div>
+<div modular-edit="custom"> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title">{cms:channel name="name"}</h1> 
+		</div> 
+		<div class="top_describe"> 
+		{cms:breadcrumb id="item" key="k"}
+			{if $k>1} <i>&gt;</i> {/if}<span><a href="{$item.url}" style="display: inline;">{$item.name}</a></span>
+		{/cms:breadcrumb}
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 

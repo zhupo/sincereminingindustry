@@ -12,7 +12,7 @@
        <div class="footer_li_box"> 
         <div class="li_head"> 
          <section template-edit="common_footer_txt0_languages" module_name="footer">
-          <p><img alt="" data-cke-saved-src="https://img001.video2b.com/1186/file_01639010851207.png" src="images/file_01639010851207.png" style="width: 130px; height: 130px;"></p>
+          <p><img alt="" data-cke-saved-src="https://img001.video2b.com/1186/file_01639010851207.png" src="https://img001.video2b.com/1186/file_01639010851207.png" style="width: 130px; height: 130px;"></p>
          </section> 
         </div> 
         <div class="con_ul"> 
@@ -33,13 +33,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-          <p><a data-cke-saved-href="/" href="/" rel=""><span style="color:#D3D3D3;">Home</span></a></p>
-          <p><a data-cke-saved-href="/products" href="/products" rel=""><span style="color:#D3D3D3;">Products</span></a></p>
-          <p><a data-cke-saved-href="/service" href="/service" rel=""><span style="color:#D3D3D3;">OEM Service</span></a></p>
-          <p><a data-cke-saved-href="/pages-27440" href="/pages-27440" rel=""><span style="color:#D3D3D3;">About Us</span></a></p>
-          <p><a data-cke-saved-href="/cases" href="/cases" rel=""><span style="color:#D3D3D3;">Cases</span></a></p>
-          <p><a data-cke-saved-href="/news" href="/news" rel=""><span style="color:#D3D3D3;">News</span></a></p>
-          <p><a data-cke-saved-href="/contact-us" href="/contact-us" rel=""><span style="color:#D3D3D3;">Contact Us</span></a></p>
+         {cms:channellist id="nav" type="top" cache="0" condition="1=isnav" row="20" orderby="weigh" orderway="desc"}
+            <p><a data-cke-saved-href="{$nav.url}" href="{$nav.url}" rel=""><span style="color:#D3D3D3;">{$nav.name}</span></a></p>
+         {/cms:channellist}
          </section> 
         </div> 
        </div> </li> 
@@ -53,15 +49,15 @@
         <div class="con_ul"> 
          <section template-edit="common_footer_txt4_languages" module_name="footer">
           <p><span style="color:#D3D3D3;">E-mail:&nbsp;<br></span><a data-cke-saved-href="mailto:mailto: Shiyang@hncmcl.com" href="mailto:mailto: Shiyang@hncmcl.com" rel=""><span style="color:#1aaec2;">Shiyang@hncmcl.com</span></a><span style="color:#D3D3D3;"> |&nbsp;</span><a data-cke-saved-href="mailto:mailto: marketing1@hncmcl.com" href="mailto:mailto: marketing1@hncmcl.com" rel=""><span style="color:#1aaec2;">marketing1@hncmcl.com</span></a><span style="color:#D3D3D3;"> |&nbsp;</span><a data-cke-saved-href="mailto:mailto: binge@hncmcl.com" href="mailto:mailto: binge@hncmcl.com" rel=""><span style="color:#1aaec2;">binge@hncmcl.com</span></a><span style="color:#D3D3D3;"></span></p>
-          <p><span style="color:#D3D3D3;">Tel: 86-731-82281544(Working time)<br>Fax: 86-731-88519698</span></p>
+          <p><span style="color:#D3D3D3;">Tel: {$site.tell}(Working time)<br>Fax: 86-731-88519698</span></p>
           <p><span style="color:#D3D3D3;">Address: Room 1520, Building A, Yihaozuopin, 399-19 Bayi Road, Changsha Hunan, China</span></p>
          </section> 
         </div> 
         <div> 
-         <div class="lan_a"> 
+         <!-- <div class="lan_a"> 
           <a href="javascript:;" class="icon_bx language_modal_click"> <span class="iconfont icondiqu" style="vertical-align:middle;"></span> <span class="visible_lgss" style="vertical-align:middle;">Language</span> </a> 
           <a href="/sitemap/a1.html" target="_blank"> <span class="sitemap-line" style="vertical-align:middle;"></span> <span class="sitemap" style="vertical-align:middle;">Sitemap</span> </a> 
-         </div> 
+         </div>  -->
          <div class="iconfenxiang_boxs footer" footer-social-media="true"></div> 
         </div> 
        </div> </li> 
@@ -75,7 +71,7 @@
      <div modular-edit="custom"> 
       <div editable="footer_text"> 
        <section template-edit="common_footer_bottom_languages" module_name="footer">
-        <p><span style="color:#D3D3D3;">Copyright © 2021 HUNAN SINCERE CHEMICALS CO.,LTD.&nbsp;All Rights Reserved.</span><br></p>
+        <p><span style="color:#D3D3D3;">{$site.beian}</span><br></p>
        </section> 
       </div> 
      </div> 

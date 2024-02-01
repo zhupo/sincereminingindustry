@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706636828;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706370040;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706713857;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__m351XVzNwo__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__m351XVzNwo__) || $__m351XVzNwo__ instanceof \think\Collection || $__m351XVzNwo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__m351XVzNwo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__iDvLcY2Uzr__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__iDvLcY2Uzr__) || $__iDvLcY2Uzr__ instanceof \think\Collection || $__iDvLcY2Uzr__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__iDvLcY2Uzr__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__GA71BcC38q__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__GA71BcC38q__) || $__GA71BcC38q__ instanceof \think\Collection || $__GA71BcC38q__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__GA71BcC38q__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__163lfTpxdD__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__163lfTpxdD__) || $__163lfTpxdD__ instanceof \think\Collection || $__163lfTpxdD__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__163lfTpxdD__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__g25R48TdQB__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__g25R48TdQB__) || $__g25R48TdQB__ instanceof \think\Collection || $__g25R48TdQB__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__g25R48TdQB__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__ga1bw8IosW__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__ga1bw8IosW__) || $__ga1bw8IosW__ instanceof \think\Collection || $__ga1bw8IosW__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__ga1bw8IosW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__g25R48TdQB__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__ga1bw8IosW__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__GA71BcC38q__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__163lfTpxdD__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__m351XVzNwo__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__iDvLcY2Uzr__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -748,7 +748,7 @@
     <div class="con swiper-container"> 
      <div class="swiper-pagination" btn_show="1" w_page_type=""></div> 
      <ul class="list_row_ul swiper-wrapper"> 
-      <?php $__9uK7w6kfCo__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__9uK7w6kfCo__) || $__9uK7w6kfCo__ instanceof \think\Collection || $__9uK7w6kfCo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9uK7w6kfCo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
+      <?php $__itLTNgbcIj__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__itLTNgbcIj__) || $__itLTNgbcIj__ instanceof \think\Collection || $__itLTNgbcIj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__itLTNgbcIj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
       <li class="swiper-slide" modular-edit="custom"> 
         <div class="list_box"> 
          <div class="list_con"> 
@@ -783,7 +783,7 @@
           </div> 
          </div> 
         </div> </li> 
-    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9uK7w6kfCo__; ?>
+    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__itLTNgbcIj__; ?>
      </ul> 
     </div> 
    </div> 
@@ -807,7 +807,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-        <?php $__uwAkigWqOm__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__uwAkigWqOm__) || $__uwAkigWqOm__ instanceof \think\Collection || $__uwAkigWqOm__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__uwAkigWqOm__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__DbN8r7VlLO__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"20","addon"=>"video"]); if(is_array($__DbN8r7VlLO__) || $__DbN8r7VlLO__ instanceof \think\Collection || $__DbN8r7VlLO__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DbN8r7VlLO__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
+        <?php $__L0N2hDfHnk__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__L0N2hDfHnk__) || $__L0N2hDfHnk__ instanceof \think\Collection || $__L0N2hDfHnk__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__L0N2hDfHnk__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__diYgU8cALQ__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"20","addon"=>"video"]); if(is_array($__diYgU8cALQ__) || $__diYgU8cALQ__ instanceof \think\Collection || $__diYgU8cALQ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__diYgU8cALQ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
           <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $prod['title']; ?>" href="<?php echo $prod['url']; ?>" target="_blank" class="list_box"> 
             <div class="list_con" direction="4"> 
              <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
@@ -822,7 +822,7 @@
               </div> 
              </div> 
             </div> </a> </li> 
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DbN8r7VlLO__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__uwAkigWqOm__; ?>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__diYgU8cALQ__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__L0N2hDfHnk__; ?>
       </ul> 
      </div> 
     </div> 
@@ -875,7 +875,7 @@
     </div> 
    </div>  -->
 
-   <?php $__ud9OIAH7vq__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__ud9OIAH7vq__) || $__ud9OIAH7vq__ instanceof \think\Collection || $__ud9OIAH7vq__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__ud9OIAH7vq__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+   <?php $__34ouRxiPCK__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__34ouRxiPCK__) || $__34ouRxiPCK__ instanceof \think\Collection || $__34ouRxiPCK__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__34ouRxiPCK__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
    <div class="tem_title_1 no_bg_src" module_center="center" id="v61af3cc6032fc" module_id="5017" bg_img_url="<?php echo $block['image']; ?>" module_type="module"> 
     <div class="container"> 
      <div direction="3"> 
@@ -907,7 +907,7 @@
      </div> 
     </div> 
    </div>
-   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__ud9OIAH7vq__; ?>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__34ouRxiPCK__; ?>
    <div class="public_lists_tem_2 no_bg_src content-section" module_center="center" id="v61af3cc9efd2d" module_id="5016" bg_img_url="https://img001.video2b.com/1186/file_01638952806508.jpg" module_type="module"> 
     <div class="container"> 
      <div class="con swiper-container"> 
@@ -915,7 +915,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color" btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <?php $__1cLiTzUxtI__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__1cLiTzUxtI__) || $__1cLiTzUxtI__ instanceof \think\Collection || $__1cLiTzUxtI__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__1cLiTzUxtI__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
+       <?php $__STmj8Jrtlz__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__STmj8Jrtlz__) || $__STmj8Jrtlz__ instanceof \think\Collection || $__STmj8Jrtlz__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__STmj8Jrtlz__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
        <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
         <div class="list_box"> 
          <div class="list_con" direction="4"> 
@@ -934,13 +934,13 @@
           </div> 
          </div> 
         </div> </li> 
-        <?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__1cLiTzUxtI__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__STmj8Jrtlz__; ?>
       </ul> 
      </div> 
     </div> 
    </div> 
     
-   <?php $__is691rDaUu__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__is691rDaUu__) || $__is691rDaUu__ instanceof \think\Collection || $__is691rDaUu__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__is691rDaUu__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+   <?php $__dwFuZAS3Vv__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__dwFuZAS3Vv__) || $__dwFuZAS3Vv__ instanceof \think\Collection || $__dwFuZAS3Vv__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dwFuZAS3Vv__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
    <div class="tem_picture_1 no_bg_src content-section" id="v61b0744b8f4d3" module_id="5004" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="picture_con"> 
@@ -980,7 +980,7 @@
      </div> 
     </div> 
    </div>
-   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__is691rDaUu__; ?>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dwFuZAS3Vv__; ?>
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61af3d0145059" module_id="5015" bg_img_url="https://img001.video2b.com/1186/file_01638951950845.png" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
@@ -991,7 +991,7 @@
       </div> 
       <div class="top_details "> 
        <section template-edit="describe_languages" module_name="module">
-        <p><font color="#ffffff">XSC Chemicals&nbsp;manufacturer&nbsp;and supplier provides our chemical products cases in different scenes</font></p>
+        <p><font color="#ffffff">XSC Chemicals’ products cases in different scenes</font></p>
        </section> 
       </div> 
      </div> 
@@ -1000,7 +1000,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-        <?php $__NoaTsFBpQR__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__NoaTsFBpQR__) || $__NoaTsFBpQR__ instanceof \think\Collection || $__NoaTsFBpQR__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__NoaTsFBpQR__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
+        <?php $__8Wa2POUGQH__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__8Wa2POUGQH__) || $__8Wa2POUGQH__ instanceof \think\Collection || $__8Wa2POUGQH__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__8Wa2POUGQH__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
             <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
               <div class="list_box"> 
                <div class="list_con" direction="4"> 
@@ -1019,7 +1019,7 @@
                 </div> 
                </div> 
               </div> </li> 
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__NoaTsFBpQR__; ?>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__8Wa2POUGQH__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1044,108 +1044,25 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="1"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang" href="/products-detail-4591160" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01705287118727.png" img_preview_gif="" alt="Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01705287171462.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01705287171462.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang 
-           </div> 
-           <div class="describe" title_lengths="">
-             On January 15, 2024, our company successfully completed the loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang. The shipment is bound for a country in Africa, marking another milestone in our commitment to meeting the global demand for high-quality chemical products. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Lead-zinc mine, how to choose?" href="/products-detail-4549232" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01704681967518.jpg" img_preview_gif="" alt="Lead-zinc mine, how to choose?"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Lead-zinc mine, how to choose? 
-           </div> 
-           <div class="describe" title_lengths="">
-             &nbsp;Among many mineral types, lead-zinc ore is a relatively difficult ore to select. Generally speaking, lead-zinc ore has more poor ores than rich ores and the associated components are more complex. Therefore, how to efficiently separate lead and zinc ores is also an important issue in the mineral processing industry. At present, the lead and zinc minerals available for industrial utilization are mainly galena and sphalerite, and also include smithsonite, cerussite, etc. According to the degree of oxidation, lead-zinc minerals can be divided into lead-zinc sulfide ore, lead-zinc oxide ore, Below we will specifically analyze the separation process of lead-zinc ore based on the oxidation degree of lead-zinc ore. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="A brief analysis of the role of copper sulfate in ore beneficiation and flotation" href="/products-detail-4512351" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01704161016652.jpg" img_preview_gif="" alt="A brief analysis of the role of copper sulfate in ore beneficiation and flotation"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             A brief analysis of the role of copper sulfate in ore beneficiation and flotation 
-           </div> 
-           <div class="describe" title_lengths="">
-             Copper sulfate, which appears as blue or blue-green crystals, is a widely used activator in sulfide ore flotation. It is mainly used as an activator, regulator and inhibitor to adjust the pH value of the slurry, control foam generation and improve The surface potential of minerals has an activation effect on sphalerite, stibnite, pyrite and pyrrhotite, especially sphalerite that is inhibited by lime or cyanide. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="After the use of mineral processing activator" href="/products-detail-4463912" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01703471762631.jpg" img_preview_gif="" alt="After the use of mineral processing activator"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             After the use of mineral processing activator 
-           </div> 
-           <div class="describe" title_lengths="">
-             &nbsp;After the use of mineral processing activator: In the flotation process, the effect of increasing the flotability of minerals is called activation. The agent used to change the composition of the mineral surface and promote the interaction between the collector and the mineral surface is called activator. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Flotation reagents in lead-zinc ore flotation process" href="/products-detail-4421824" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01702866367165.png" img_preview_gif="" alt="Flotation reagents in lead-zinc ore flotation process"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Flotation reagents in lead-zinc ore flotation process 
-           </div> 
-           <div class="describe" title_lengths="">
-             The application of lead-zinc ore must be beneficiated before it can be better utilized. The commonly used beneficiation method is flotation. Since it is flotation, flotation chemicals are naturally inseparable.&nbsp; 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="What are the general specifications of zinc sulfate for mineral processing and its working principle?" href="/products-detail-4398778" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01702533124603.png" img_preview_gif="" alt="What are the general specifications of zinc sulfate for mineral processing and its working principle?"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             What are the general specifications of zinc sulfate for mineral processing and its working principle? 
-           </div> 
-           <div class="describe" title_lengths="">
-             The main role of zinc sulfate in mineral processing is to select zinc ores and resist zinc-containing minerals. Usually, it has better resistance in alkaline slurry.&nbsp; 
-           </div> 
-          </div> 
-         </div> </a> </li> 
+         <?php $__cAJNWuGDr9__ = \addons\cms\model\Archives::getArchivesList(["id"=>"new","channel"=>"66","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__cAJNWuGDr9__) || $__cAJNWuGDr9__ instanceof \think\Collection || $__cAJNWuGDr9__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__cAJNWuGDr9__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$new): $mod = ($i % 2 );++$i;?>
+              <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $new['title']; ?>" href="/products-detail-4591160" target="_blank" class="list_box"> 
+                <div class="list_con" direction="4"> 
+                 <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+                  <img class="" video-img="<?php echo $new['image']; ?>" img_preview_gif="" alt="<?php echo $new['title']; ?>"> 
+                  <span class="href_id_a"></span> 
+                  <span editable="video" video-type="" video-src="<?php echo $new['video']; ?>" video-m3u8src="" playback_mode=""></span> 
+                  <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+                 </div> 
+                 <div class="text"> 
+                  <div class="title" title_lengths="">
+                    <?php echo $new['title']; ?> 
+                  </div> 
+                  <div class="describe" title_lengths="">
+                    <?php echo $new['content']; ?> 
+                  </div> 
+                 </div> 
+                </div> </a> </li>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__cAJNWuGDr9__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1167,17 +1084,25 @@
       </div> 
      </div> 
      <div class="con enquiry_box"> 
-      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
-       <input type="hidden" name="enquiry_type" id="enquiry_type_v61aed7e4d2e97" value="0"> 
-       <input type="hidden" name="visitlength" id="visitlength_v61aed7e4d2e97" value="====1705329374===="> 
-       <input type="hidden" name="source" id="source_v61aed7e4d2e97" value="0"> 
-       <input type="hidden" name="id" id="id_v61aed7e4d2e97" value="0"> 
+      <form class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+        <input type="hidden" name="__diyname__" value="customer">
+        <?php echo token(); ?>
        <ul class="row_small"> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61aed7e4d2e97" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61aed7e4d2e97" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61aed7e4d2e97" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61aed7e4d2e97" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61aed7e4d2e97" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> 
+          <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61aed7e4d2e97" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> 
+          <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow">
+          <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61aed7e4d2e97" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> 
+          <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> 
+          <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61aed7e4d2e97" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> 
+          <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> 
+          <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61aed7e4d2e97" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> 
+          <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> 
+          <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61aed7e4d2e97" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> 
+          <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
        </ul> 
        <div class="enquiry_btn_box btn_box "> 
         <button id="submit_v61aed7e4d2e97" type="submit" class="btn" btn-types="deep"> 
@@ -1204,7 +1129,7 @@
        <div class="footer_li_box"> 
         <div class="li_head"> 
          <section template-edit="common_footer_txt0_languages" module_name="footer">
-          <p><img alt="" data-cke-saved-src="https://img001.video2b.com/1186/file_01639010851207.png" src="images/file_01639010851207.png" style="width: 130px; height: 130px;"></p>
+          <p><img alt="" data-cke-saved-src="https://img001.video2b.com/1186/file_01639010851207.png" src="https://img001.video2b.com/1186/file_01639010851207.png" style="width: 130px; height: 130px;"></p>
          </section> 
         </div> 
         <div class="con_ul"> 
@@ -1225,13 +1150,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-          <p><a data-cke-saved-href="/" href="/" rel=""><span style="color:#D3D3D3;">Home</span></a></p>
-          <p><a data-cke-saved-href="/products" href="/products" rel=""><span style="color:#D3D3D3;">Products</span></a></p>
-          <p><a data-cke-saved-href="/service" href="/service" rel=""><span style="color:#D3D3D3;">OEM Service</span></a></p>
-          <p><a data-cke-saved-href="/pages-27440" href="/pages-27440" rel=""><span style="color:#D3D3D3;">About Us</span></a></p>
-          <p><a data-cke-saved-href="/cases" href="/cases" rel=""><span style="color:#D3D3D3;">Cases</span></a></p>
-          <p><a data-cke-saved-href="/news" href="/news" rel=""><span style="color:#D3D3D3;">News</span></a></p>
-          <p><a data-cke-saved-href="/contact-us" href="/contact-us" rel=""><span style="color:#D3D3D3;">Contact Us</span></a></p>
+         <?php $__G1ZNmYj06k__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__G1ZNmYj06k__) || $__G1ZNmYj06k__ instanceof \think\Collection || $__G1ZNmYj06k__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__G1ZNmYj06k__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+            <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__G1ZNmYj06k__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -1245,15 +1166,15 @@
         <div class="con_ul"> 
          <section template-edit="common_footer_txt4_languages" module_name="footer">
           <p><span style="color:#D3D3D3;">E-mail:&nbsp;<br></span><a data-cke-saved-href="mailto:mailto: Shiyang@hncmcl.com" href="mailto:mailto: Shiyang@hncmcl.com" rel=""><span style="color:#1aaec2;">Shiyang@hncmcl.com</span></a><span style="color:#D3D3D3;"> |&nbsp;</span><a data-cke-saved-href="mailto:mailto: marketing1@hncmcl.com" href="mailto:mailto: marketing1@hncmcl.com" rel=""><span style="color:#1aaec2;">marketing1@hncmcl.com</span></a><span style="color:#D3D3D3;"> |&nbsp;</span><a data-cke-saved-href="mailto:mailto: binge@hncmcl.com" href="mailto:mailto: binge@hncmcl.com" rel=""><span style="color:#1aaec2;">binge@hncmcl.com</span></a><span style="color:#D3D3D3;"></span></p>
-          <p><span style="color:#D3D3D3;">Tel: 86-731-82281544(Working time)<br>Fax: 86-731-88519698</span></p>
+          <p><span style="color:#D3D3D3;">Tel: <?php echo $site['tell']; ?>(Working time)<br>Fax: 86-731-88519698</span></p>
           <p><span style="color:#D3D3D3;">Address: Room 1520, Building A, Yihaozuopin, 399-19 Bayi Road, Changsha Hunan, China</span></p>
          </section> 
         </div> 
         <div> 
-         <div class="lan_a"> 
+         <!-- <div class="lan_a"> 
           <a href="javascript:;" class="icon_bx language_modal_click"> <span class="iconfont icondiqu" style="vertical-align:middle;"></span> <span class="visible_lgss" style="vertical-align:middle;">Language</span> </a> 
           <a href="/sitemap/a1.html" target="_blank"> <span class="sitemap-line" style="vertical-align:middle;"></span> <span class="sitemap" style="vertical-align:middle;">Sitemap</span> </a> 
-         </div> 
+         </div>  -->
          <div class="iconfenxiang_boxs footer" footer-social-media="true"></div> 
         </div> 
        </div> </li> 
@@ -1267,7 +1188,7 @@
      <div modular-edit="custom"> 
       <div editable="footer_text"> 
        <section template-edit="common_footer_bottom_languages" module_name="footer">
-        <p><span style="color:#D3D3D3;">Copyright © 2021 HUNAN SINCERE CHEMICALS CO.,LTD.&nbsp;All Rights Reserved.</span><br></p>
+        <p><span style="color:#D3D3D3;"><?php echo $site['beian']; ?></span><br></p>
        </section> 
       </div> 
      </div> 

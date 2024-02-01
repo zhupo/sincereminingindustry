@@ -1,35 +1,405 @@
-<div class="productLeft">
-     <div class="H2ol">
-        <select onchange="window.location=this.value;">
-            {cms:channellist id="nav" type="top" cache="0" condition="1=isnav" row="20"}
-           
-            {if $nav->is_active}
-                
-                {cms:channellist id="channel" type="son"  typeid="$nav.id" row="100"}
-                 <option {$channel.is_active?'selected':''} value="{$channel.url}">{$channel.name}</option>
-                {/cms:channellist}
-             {/if}
-            {/cms:channellist}
-        </select>
-        
-        
-       
-               
-                   <ol id="{$nav.id}">
-                    {cms:channellist id="channel" type="son"  typeid="44" row="100"}
-                    <li>
-                        <a class="{if $channel->is_active}this{/if}" href="{$channel.url}"><span><i class="ico icon-choice2"></i></span>{$channel.name}</a>
-                        {if $channel.has_child}
-                        <ul>
-                            {cms:channellist id="channel" type="son"  typeid="channel['id']" row="100"}
-                            <li><a class="{if $channel->is_active}this{/if}" href="{$channel.url}">{$channel.name}</a></li>
-                            {/cms:channellist}
-                        </ul>
-                        {/if}
-                    </li>
+<div class="list_link_artboard list_top_hide "> 
+    <div class="artboard_box"> 
+     <div class="bg_artboard"> 
+      <div class="r_l_box"> 
+       <div class="btn_l"> 
+        <img src="images/icon_1.png" alt=""> 
+       </div> 
+       <div class="btn_l"> 
+        <img src="images/icon_2.png" alt=""> 
+       </div> 
+       <div class="btn_m"> 
+        <img src="images/list.png" alt=""> 
+       </div> 
+      </div> 
+      <div class="hidden_box"> 
+       <div class="list_box"> 
+        <ul class="list_one"> 
+          {cms:channellist id="channel" type="son"  typeid="44" row="100"}
+            <li> 
+                <div class="text"> 
+                 <a href="{$channel.url}"> 
+                  <div class="txt "> 
+                   <span>{$channel.name}</span> 
+                  </div> </a> 
+                </div>
+                {if $channel.has_child}
+                <ul class="list_one"> 
+                    {cms:channellist id="sonChannel" type="son"  typeid="channel['id']" row="100"}
+                        <li>
+                        <div class="text {if $channel.is_active}active{/if}"> 
+                        <a href="{$sonChannel.url}"> 
+                        <div class="txt "> 
+                        <span>{$sonChannel.name}</span> 
+                        </div> </a> 
+                        </div>
+                        </li>
                     {/cms:channellist}
-                  </ol>
-               
-       
-   </div>
-</div>
+                </ul> 
+                {/if}
+            </li> 
+       {/cms:channellist}
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="list_m_link"> 
+      <div class="list_arrow2"></div> 
+      <ul class="_ul"> 
+        {cms:channellist id="channel" type="son"  typeid="44" row="100"}
+            <li class="_li"> 
+                <div class="text"> 
+                 <a href="{$channel.url}"> 
+                  <div class="txt"> 
+                   <span>{$channel.name}</span> 
+                  </div> </a> 
+                </div>
+                {if $channel.has_child}
+                <ul class="list_one"> 
+                    {cms:channellist id="sonChannel" type="son"  typeid="channel['id']" row="100"}
+                    <li class="_li">
+                        <div class="text {if $channel.is_active}active{/if}"> 
+                        <a href="{$sonChannel.url}"> 
+                        <div class="txt "> 
+                        <span>{$sonChannel.name}</span> 
+                        </div> </a> 
+                        </div>
+                        </li>
+                    {/cms:channellist}
+                </ul> 
+                {/if}
+            </li> 
+       {/cms:channellist}
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <script mos-id="v61b16a6068af1">
+          function filterHTMLTag (msg) {
+              var msg = msg.replace(/<\/?[^>]*>/g, ''); //去除HTML Tag
+              msg = msg.replace(/[|]*\n/, '') //去除行尾空格
+              msg = msg.replace(/&npsp;/ig, ''); //去掉npsp
+              return msg;
+          }
+
+          const data_v61b16a6068af1 = {
+              data_page_type: `1`,
+              data_page_limit: `12`,
+              total: `122`,
+              currentPage: 1,
+              loading: false
+
+          }
+          const loadMorev61b16a6068af1 = () => {
+              
+              imgLazyLoad()
+              const winHeight = window.innerHeight;
+              const dom = $('#v61b16a6068af1.tem_data_list_1 .ai_products_list_ul ul');
+              const scrollTop = document.documentElement.scrollTop;
+              if(!dom.offset()) return
+              const domOffsetTop = dom.offset().top; // 距顶部的高度
+              const domHeight = dom.outerHeight()
+              if (domOffsetTop + domHeight - scrollTop <= winHeight) {
+                  getListv61b16a6068af1()
+              }
+          }
+          const getListv61b16a6068af1 = async() => {
+              if(data_v61b16a6068af1.loading) return
+              if( data_v61b16a6068af1.currentPage * data_v61b16a6068af1.data_page_limit >= data_v61b16a6068af1.total) return
+              const small_load2 = $('<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-image:url(images/small_load4.gif);background-position:center;background-repeat:no-repeat;background-color:rgba(255,255,255,.6)"></div>')
+              $('body').append(small_load2);
+              data_v61b16a6068af1.currentPage += 1
+              const boxs = $('#v61b16a6068af1.tem_data_list_1 .ai_products_list_ul ul');;
+              data_v61b16a6068af1.loading = true
+              let data_html = ''
+              var url = "/products-detail"
+              const res = await $.ajax({
+                  type:'get',
+                  url:"/videolist",
+                  datatype:'json',
+                  data:{
+                      id:'26867',
+                      page: data_v61b16a6068af1.currentPage,
+                      limit: data_v61b16a6068af1.data_page_limit
+                  },
+              })
+              if(res.data && res.data.length){
+                  for(let i=0;i<res.data.length;i++){
+                      let datatime = res.data[i].created_at.split(' ')[0]
+                      datatime = datatime.replace(/-/g,"/")
+                      let html_p = res.data[i].introduce
+                      html_p = filterHTMLTag(html_p)
+                      data_html +=
+                          `<li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols="">
+                              <div class="li_border">
+                                  <a target="_blank" href="${res.data[i]['href']}">
+                                      <div class="img_par no_img_src list_module_1" img_par_proportion="1" style="">
+                                                                                      <img video-img="${res.data[i]['preview_img']}" img_preview_gif="${res.data[i]['preview_gif']||''}" alt="${res.data[i]['title']}"  video_w="600" onerror="onerror=null;src='/images/errorImg.png'"/>
+                                          ${res.data[i]['url'] ||res.data[i]['m3u8'] ? '<span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span>':''}
+                                      </div>
+                                  </a>
+                                  <div class="text">
+                                      <a target="_blank" href="${res.data[i]['href']}">
+                                          <div class="title" title="${res.data[i]['title']}}" title_lengths="">${res.data[i]['title']}</div>
+                                                                                         <div class="describe" title="${html_p}" title_lengths="">${html_p}</div>
+                                                                                  </a>
+                                      <div class="date" btn_show="0">${datatime}</div>
+
+                                  </div>
+
+                              </div>
+                          </li>`
+                  }
+                  boxs.html(boxs.html() + data_html);
+                  imgLazyLoad()
+                  // preview_img();
+              }
+              small_load2.remove();
+              setTimeout(() => {
+                  data_v61b16a6068af1.loading = false
+                  if ($(window).innerHeight() <= $(document).height()) {
+                      loadMorev61b16a6068af1()
+                  }
+              }, 2000)
+          }
+          if(data_v61b16a6068af1.data_page_type == 2) {
+              // 滑动加载
+              window.addEventListener("scroll", loadMorev61b16a6068af1)
+              setTimeout(() => {
+                  loadMorev61b16a6068af1()
+              }, 300);
+          }
+
+          (function(){
+              var generate_id = "v61b16a6068af1",
+                  generate_box = $('#'+generate_id);
+              generate_box.find('.list_link_artboard .bg_artboard').mouseenter(function () {
+                  var that = $(this),
+                      box = that.find('.hidden_box'),
+                      w = box.outerWidth(),
+                      over_w = box.find('.list_box').outerWidth(),
+                      r_l_box = that.find('.r_l_box');
+                  if (over_w > w) {
+                      that.addClass("right_sroll");
+                      r_l_box.show();
+                  } else {
+                      that.removeClass("right_sroll");
+                      r_l_box.hide();
+                  }
+              })
+              generate_box.find('.list_link_artboard .bg_artboard').mouseenter();
+
+              generate_box.find('.list_link_artboard ul.list_one').mouseenter(function () {
+                  var box = $(this).closest(".hidden_box");
+                  box.addClass('hovers');
+              }).mouseleave(function () {
+                  var box = $(this).closest(".hidden_box");
+                  box.removeClass('hovers');
+              })
+
+              generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                  "opacity":'0.5',
+                  "pointer-events": "none"
+              });
+              generate_box.find('.list_link_artboard .bg_artboard .btn_l').click(function () {
+                  var that = $(this),
+                      index = that.index(),
+                      over_box = generate_box.find('.list_link_artboard .bg_artboard .hidden_box'),
+                      box = generate_box.find('.list_link_artboard .bg_artboard .list_box'),
+                      w = over_box.outerWidth(),
+                      max_l = box.outerWidth(),
+                      l = box.position().left;
+
+                  var i = 0;
+                  generate_box.find('.list_link_artboard ul.list_one>li').each(function () {
+                      var li = $(this),
+                          li_l = -(li.position().left - 10);
+                      if (li_l < l) {
+                          i = li.index();
+                          if (index == 0) {
+                              i -= 2;
+                          } else {
+
+                          }
+                          return false;
+                      }
+                  })
+
+                  if (i < 0) {
+                      i = 0;
+                  }
+
+                  l = -(generate_box.find('.list_link_artboard ul.list_one>li').eq(i).position().left - 10);
+
+                  generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                      "opacity":'1',
+                      "pointer-events": "auto"
+                  });
+                  generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(1).css({
+                      "opacity":'1',
+                      "pointer-events": "auto"
+                  });
+
+                  if (l >= 0) {
+                      l = 0;
+                      generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(0).css({
+                          "opacity":'0.5',
+                          "pointer-events": "none"
+                      });
+                  }
+                  if (l <= -(max_l - w)) {
+                      l = -(max_l - w);
+                      generate_box.find('.list_link_artboard .bg_artboard .btn_l').eq(1).css({
+                          "opacity":'0.5',
+                          "pointer-events": "none"
+                      });
+                  }
+                  box.css('left', l);
+              })
+
+              generate_box.find('.list_link_artboard .btn_m').click(function () {
+                  generate_box.find('.list_link_artboard .list_m_link').slideToggle(300);
+              })
+
+              generate_box.find('.list_link_artboard .list_m_link .text .icon_img_box').click(function () {
+                  var that = $(this),
+                      li = that.closest("._li");
+                  li.toggleClass("active");
+              })
+
+
+
+              function times_fun(that,fun){
+                  var list_level_box = that.closest('.list_level_box[data-boxs]');
+                  fun(that);
+                  if (list_level_box.length) {
+                      var id = list_level_box.attr('data-boxs');
+                      if (generate_box.find('[data-btns="'+id+'"]').length) {
+                          times_fun(generate_box.find('[data-btns="'+id+'"]'),fun);
+                      }
+                  }
+              }
+
+              generate_box.find('.list_link_artboard').on('mouseenter','li',function(){
+                  var that = $(this),
+                      // box =  that.find('.list_level_box').clone(),
+                      artboard_box = that.closest('.artboard_box'),
+                      hidden_box = that.closest('.hidden_box'),
+                      hide_l = hidden_box.length ? hidden_box.offset().left - generate_box.find('.list_link_artboard').offset().left : 0,
+                      btn_l = that.offset().left - generate_box.find('.list_link_artboard').offset().left,
+                      ids = that.attr("data-btns") || "ids_" + new Date().getTime();
+
+                  if (!that.find('>.list_level_box').length) {
+                      return
+                  }
+                  that.attr("data-btns", ids);
+                  if (!generate_box.find('[data-boxs="' + ids + '"]').length) {
+                      var boxxx = that.find('>.list_level_box').clone();
+                      boxxx.attr("data-boxs", ids);
+                      artboard_box.append(boxxx);
+                      that[0].times = null;
+                  }
+                  var box = generate_box.find('[data-boxs="' + ids + '"]');
+
+                  if (that[0].times) {
+                      clearInterval(that[0].times);
+                  }
+
+                  box.show();
+                  var box_w = box.outerWidth(),
+                      btn_w = that.outerWidth(),
+                      left = btn_l - (box_w / 2) + (btn_w / 2),
+                      left2 = box_w / 2,
+                      left_0 = 2;
+
+                  if (left < 0) {
+                      left2 = left2 - (left_0 - left);
+                      left = left_0;
+                  }
+                  var top = artboard_box.height();
+                  var leve_ul_box = that.closest('.list_level_box');
+                  if (leve_ul_box.length) {
+                      // left = left + leve_ul_box.width();
+                      left = btn_l + leve_ul_box.width();
+                      top = top + that.position().top - 10;
+                  }
+
+                  if (left>artboard_box.width()-box_w) {
+                      left = leve_ul_box.length? left - leve_ul_box.width() - box_w : left - leve_ul_box.width();
+                  }
+
+                  box.css({
+                      left: left,
+                      top: top
+                  })
+                  box.find('.list_arrow').css({
+                      left: left2
+                  })
+              })
+              .on('mouseleave','li',function(){
+              // .mouseleave(function () {
+                  var that = $(this),
+                      ids = that.attr("data-btns"),
+                      box = generate_box.find('[data-boxs="' + ids + '"]');
+
+                  that[0].times = setTimeout(function () {
+                      box.hide();
+                  }, 200);
+              })
+
+              generate_box.find('.list_link_artboard').on('mouseenter', '.list_level_box[data-boxs]', function () {
+                  var that = $(this),
+                      ids = that.attr("data-boxs"),
+                      btn = generate_box.find('[data-btns="' + ids + '"]');
+                  times_fun(btn,function(times){
+                      if (times[0]&&times[0].times) {
+                          clearInterval(times[0].times);
+                      }
+                  });
+              }).on('mouseleave', '.list_level_box[data-boxs]', function () {
+                  var that = $(this),
+                      ids = that.attr("data-boxs"),
+                      btn = generate_box.find('[data-btns="' + ids + '"]');
+                  times_fun(btn,function(times){
+                      var id = times.attr('data-btns'),
+                          box = generate_box.find('[data-boxs="' + id + '"]');
+                      if (box.length) {
+                          times[0].times = setTimeout(function () {
+                              box.hide();
+                          }, 200);
+                      }
+                  });
+              })
+          })()
+      </script> 
+   <div class="li_container"> 
+    <div class="li_nav_left"> 
+     <div class="news_details_left_block right_navigation_menus left_con_colors"> 
+      <h2 class="title">PRODUCTS</h2> 
+      <ul class="right_nav"> 
+       {cms:channellist id="channel" type="son"  typeid="44" row="100"}
+            <li class=" "> 
+                <div class="text"> 
+                 <a href="{$channel.url}"> 
+                  <div class="txt"> 
+                   <span>{$channel.name}</span> 
+                  </div> </a> 
+                </div>
+                {if $channel.has_child}
+                <ul class="right_nav"> 
+                    {cms:channellist id="sonChannel" type="son"  typeid="channel['id']" row="100"}
+                    <li class=" ">
+                        <div class="text {if $channel.is_active}active{/if}"> 
+                        <a href="{$sonChannel.url}"> 
+                        <div class="txt "> 
+                        <span>{$sonChannel.name}</span> 
+                        </div> </a> 
+                        </div>
+                        </li>
+                    {/cms:channellist}
+                </ul> 
+                {/if}
+            </li> 
+       {/cms:channellist}
+      </ul> 
+     </div> 
