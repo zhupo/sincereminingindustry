@@ -491,33 +491,8 @@
 }
 </style> 
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b175994d182" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020699344.jpg" module_type="module"> 
-    <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">NEWS</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/news" style="display: inline;">NEWS</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b175994d182" module_id="5005" bg_img_url="{cms:channel name="image" /}" module_type="module"> 
+    {include file="common/mbx" /}
    </div> 
    <div class="tem_data_list_1 no_bg_src content-section" id="v61b175994d18c" module_id="5000" bg_img_url="" module_type="module"> 
     <div class="container"> 
@@ -526,46 +501,7 @@
        <div class="news_details_left_block right_navigation_menus left_con_colors"> 
         <h2 class="title">NEWS</h2> 
        </div> 
-       <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
-        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
-         <div class="sticky_inquiry_head title"> 
-          <section template-edit="title_languages" module_name="module">
-           Send your inquiry
-          </section> 
-         </div> 
-         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
-          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b175994d18c" value="0"> 
-          <input type="hidden" name="visitlength" id="visitlength_v61b175994d18c" value="====1705505164===="> 
-          <input type="hidden" name="source" id="source_v61b175994d18c" value="0"> 
-          <input type="hidden" name="id" id="id_v61b175994d18c" value="0"> 
-          <ul class="fl_row_s"> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b175994d18c" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-          </ul> 
-          <div class="btn_box"> 
-           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
-          </div> 
-         </form> 
-        </div> 
-       </div> 
+       {include file="common/message" /}
       </div> 
       <div class="products_ul_box"> 
        <div class="mobile-reverse"> 
@@ -577,7 +513,30 @@
         <div> 
          <div class="ai_products_list_ul"> 
           <ul> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+
+            {cms:pagelist id="item" addon="content"}
+            <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+                <div class="li_border"> 
+                 <a target="_blank" href="{$item.url}"> 
+                  <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+                   <img video-img="{$item.image}" img_preview_gif="" alt="{$item.title}" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+                   <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+                  </div> </a> 
+                 <div class="text"> 
+                  <a target="_blank" href="{$item.url}"> 
+                   <div class="title" title="{$item.title}" title_lengths="">
+                   {$item.title} 
+                   </div> 
+                   <div class="describe" title="{$item.description}" title_lengths="">
+                   {$item.description} 
+                   </div> </a> 
+                  <div class="date" btn_show="0">
+                   {$item.publishtime|date="Y/m/d",###}
+                  </div> 
+                 </div> 
+                </div> </li>
+		    {/cms:pagelist}
+           <!-- <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
             <div class="li_border"> 
              <a target="_blank" href="/news-detail-4591160"> 
               <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
@@ -805,7 +764,7 @@
                2023/11/20
               </div> 
              </div> 
-            </div> </li> 
+            </div> </li>  -->
           </ul> 
           <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
            No more~~
@@ -837,14 +796,15 @@
     }
     </style> 
           <nav> 
-           <ul class="pagination"> 
+            {cms:pageinfo type="full" /}
+           <!-- <ul class="pagination"> 
             <li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true"><span class="iconfont iconchaopimiaotuangou-"></span></span> </li> 
             <li class="page-item active" aria-current="page"><span class="page-link active font-color">1</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-2">2</a></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-3">3</a></li> 
             <li class="page-item" aria-disabled="true"><span class="page-link">...</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-9">9</a></li> 
-            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/news-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li> 
+            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/news-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li>  -->
             <!-- <li class="li_form">
                 <form action="" class="pagination_form" onsubmit="return pagination_v61b175994d18c(this);">
                     <input type="hidden" class="list_limit" value="12">
@@ -858,7 +818,7 @@
                     </div>
                 </form>
             </li> --> 
-           </ul> 
+           <!-- </ul>  -->
           </nav> 
           <script mos-id="v61b175994d18c">
         function pagination_v61b175994d18c(form){

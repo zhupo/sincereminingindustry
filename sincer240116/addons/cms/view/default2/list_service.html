@@ -491,33 +491,8 @@
 }
 </style>
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b17467ee72d" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020484688.jpg" module_type="module"> 
-    <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">CASES</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/cases" style="display: inline;">CASES</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b17467ee72d" module_id="5005" bg_img_url="{cms:channel name="image" /}" module_type="module"> 
+    {include file="common/mbx" /} 
    </div> 
    <div class="tem_data_list_1 no_bg_src content-section" id="v61b17467ee733" module_id="5000" bg_img_url="" module_type="module"> 
     <div class="container"> 
@@ -526,46 +501,7 @@
        <div class="news_details_left_block right_navigation_menus left_con_colors"> 
         <h2 class="title">CASES</h2> 
        </div> 
-       <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
-        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
-         <div class="sticky_inquiry_head title"> 
-          <section template-edit="title_languages" module_name="module">
-           Send your inquiry
-          </section> 
-         </div> 
-         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
-          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b17467ee733" value="0"> 
-          <input type="hidden" name="visitlength" id="visitlength_v61b17467ee733" value="====1705505082===="> 
-          <input type="hidden" name="source" id="source_v61b17467ee733" value="0"> 
-          <input type="hidden" name="id" id="id_v61b17467ee733" value="0"> 
-          <ul class="fl_row_s"> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b17467ee733" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-          </ul> 
-          <div class="btn_box"> 
-           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
-          </div> 
-         </form> 
-        </div> 
-       </div> 
+       {include file="common/message" /}
       </div> 
       <div class="products_ul_box"> 
        <div class="mobile-reverse"> 
@@ -580,126 +516,28 @@
         <div> 
          <div class="ai_products_list_ul"> 
           <ul> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-263617"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/61LZ-5446-97fa-e081-4b7c-2100.jpg" img_preview_gif="" alt="Customer product customization case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-263617"> 
-               <div class="title" title="Customer product customization case | XSC" title_lengths="">
-                Customer product customization case | XSC
-               </div> 
-               <div class="describe" title="The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification." title_lengths="">
-                The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/29
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-2947314"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01684379162150.png" img_preview_gif="" alt="Copper sulfate detection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-2947314"> 
-               <div class="title" title="Copper sulfate detection" title_lengths="">
-                Copper sulfate detection
-               </div> 
-               <div class="describe" title="Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture." title_lengths="">
-                Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2023/05/18
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-277255"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01641882876495.jpg" img_preview_gif="" alt="Zinc Sulphate Monohydrate，in 1-11-2022" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-277255"> 
-               <div class="title" title="Zinc Sulphate Monohydrate，in 1-11-2022" title_lengths="">
-                Zinc Sulphate Monohydrate，in 1-11-2022
-               </div> 
-               <div class="describe" title="Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC" title_lengths="">
-                Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/11
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-277214"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/19T5-4191-a376-419b-e583-a7d7.jpg" img_preview_gif="" alt="Russian Customer Customization Zinc Sulphate Heptahydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-277214"> 
-               <div class="title" title="Russian Customer Customization Zinc Sulphate Heptahydrate" title_lengths="">
-                Russian Customer Customization Zinc Sulphate Heptahydrate
-               </div> 
-               <div class="describe" title="Fertilizer,Feed additives,Mineral and Chemical industry." title_lengths="">
-                Fertilizer,Feed additives,Mineral and Chemical industry.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/11
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-263618"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/QSKV-3519-3079-da9a-534a-8300.jpg" img_preview_gif="" alt="Customer product customization case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-263618"> 
-               <div class="title" title="Customer product customization case | XSC" title_lengths="">
-                Customer product customization case | XSC
-               </div> 
-               <div class="describe" title="We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers." title_lengths="">
-                We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/29
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-282522"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/6S0A-7596-47b2-f381-9f17-5067.jpg" img_preview_gif="" alt="Manganese Sulphate Monohydrate Cooperation Case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-282522"> 
-               <div class="title" title="Manganese Sulphate Monohydrate Cooperation Case | XSC" title_lengths="">
-                Manganese Sulphate Monohydrate Cooperation Case | XSC
-               </div> 
-               <div class="describe" title="Manganese Sulphate Monohydrate ApplicationsIt is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well." title_lengths="">
-                Manganese Sulphate Monohydrate ApplicationsIt is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/14
-              </div> 
-             </div> 
-            </div> </li> 
+            {cms:pagelist id="item" addon="content"}
+            <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+                <div class="li_border"> 
+                 <a target="_blank" href="{$item.url}"> 
+                  <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+                   <img video-img="{$item.image}" img_preview_gif="" alt="{$item.title}" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+                   <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+                  </div> </a> 
+                 <div class="text"> 
+                  <a target="_blank" href="{$item.url}"> 
+                   <div class="title" title="{$item.title}" title_lengths="">
+                   {$item.title} 
+                   </div> 
+                   <div class="describe" title="{$item.description}" title_lengths="">
+                   {$item.description} 
+                   </div> </a> 
+                  <div class="date" btn_show="0">
+                   {$item.publishtime|date="Y/m/d",###}
+                  </div> 
+                 </div> 
+                </div> </li>
+		    {/cms:pagelist}
           </ul> 
           <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
            No more~~

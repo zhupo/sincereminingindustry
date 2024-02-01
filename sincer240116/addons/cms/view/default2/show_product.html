@@ -495,35 +495,8 @@
 }
 </style>
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1ab05d42e6" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020662484.jpg" module_type="module"> 
-    <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <div class="top_title">
-         PRODUCTS
-        </div> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/products" style="display: inline;">PRODUCTS</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1ab05d42e6" module_id="5005" bg_img_url="{cms:channel name="image" /}" module_type="module"> 
+    {include file="common/mbx" /}
    </div> 
    <div class="tem_detail_2 no_bg_src content-section" id="v61b1ab05d42ef" module_id="5022" bg_img_url="" module_type="module"> 
     <div class="recommend_swiper_list_x"> 
@@ -658,8 +631,8 @@
                 </div> 
                </div> 
                <div class="img_par no_img_src mousemove_boxs" v_id="227171" lang="en" img_par_proportion=""> 
-                <img alt="Quality Ferrous Sulphate Heptahydrate Manufacturer | XSC" video-img="https://img001.video2b.com/1186/file_01640241844518.jpg" video-src="" video-type="1" video_w="600"> 
-                <span class="hide" video-src="" video-m3u8src="" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
+                <img alt="Quality Ferrous Sulphate Heptahydrate Manufacturer | XSC" video-img="{$__ARCHIVES__.image}" video-src="" video-type="1" video_w="600"> 
+                <span class="hide" video-src="{$__ARCHIVES__.video}" video-m3u8src="" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
                 <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
                </div> 
               </div> 
@@ -670,6 +643,9 @@
           </div> 
           <div class="min_img"> 
            <ul class="border-color"> 
+            {volist name="$__ARCHIVES__.images|explode=',',###" id="image"}
+            <li><img class="img_par" src="{$image|cdnurl}"></li>
+            {/volist}
            </ul> 
           </div> 
          </div> 
@@ -677,10 +653,10 @@
         <div class="product_text2 w_50"> 
          <div class="sticky_box"> 
           <div class="top_title_box"> 
-           <h1 class="top_title">Quality Ferrous Sulphate Heptahydrate Manufacturer | XSC</h1> 
+           <h1 class="top_title">{cms:archives name="title" /}</h1> 
           </div> 
           <div class="top_subtitle " data-expand-mobile="42">
-           <p><a target="_blank" class="keyword_link font-color" href="https://www.sincereminingindustry.com/products-27877" title="Ferrous Sulphate Heptahydrate">Ferrous Sulphate Heptahydrate</a> &nbsp;compared with similar products on the market, it has incomparable outstanding advantages in terms of performance, quality, appearance, etc., and enjoys a good reputation in the market.XSC summarizes the defects of past products, and continuously improves them. The specifications of Ferrous Sulphate Heptahydrate can be customized according to your needs.</p>
+           <p>{cms:archives name="description" /}</p>
            <p>Product Name:Ferrous Sulphate Heptahydrate<br></p>
            <p>Formula :&nbsp;Fe2SO4·7H2O</p>
            <p>Molecular Weight :278.05</p>
@@ -1098,17 +1074,15 @@
       </div> 
      </div> 
      <div class="con enquiry_box"> 
-      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
-       <input type="hidden" name="enquiry_type" id="enquiry_type_v61b1ab05d42fa" value="1"> 
-       <input type="hidden" name="visitlength" id="visitlength_v61b1ab05d42fa" value="====1705504985===="> 
-       <input type="hidden" name="source" id="source_v61b1ab05d42fa" value="0"> 
-       <input type="hidden" name="id" id="id_v61b1ab05d42fa" value="227171"> 
+      <form no_form_enovation class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+        <input type="hidden" name="__diyname__" value="customer">
+        {:token()}
        <ul class="row_small"> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61b1ab05d42fa" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61b1ab05d42fa" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b1ab05d42fa" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61b1ab05d42fa" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b1ab05d42fa" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b1ab05d42fa" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b1ab05d42fa" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b1ab05d42fa" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b1ab05d42fa" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b1ab05d42fa" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
        </ul> 
        <div class="enquiry_btn_box btn_box "> 
         <button id="submit_v61b1ab05d42fa" type="submit" class="btn" btn-types="deep"> 

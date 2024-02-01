@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706458562;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706458562;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__3D9LtEU6JG__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__3D9LtEU6JG__) || $__3D9LtEU6JG__ instanceof \think\Collection || $__3D9LtEU6JG__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__3D9LtEU6JG__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__we4syEBb8A__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__we4syEBb8A__) || $__we4syEBb8A__ instanceof \think\Collection || $__we4syEBb8A__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__we4syEBb8A__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__rLUaYG41Ji__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__rLUaYG41Ji__) || $__rLUaYG41Ji__ instanceof \think\Collection || $__rLUaYG41Ji__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__rLUaYG41Ji__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__IqMsQymD3v__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__IqMsQymD3v__) || $__IqMsQymD3v__ instanceof \think\Collection || $__IqMsQymD3v__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__IqMsQymD3v__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__IDnFvLmspo__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__IDnFvLmspo__) || $__IDnFvLmspo__ instanceof \think\Collection || $__IDnFvLmspo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__IDnFvLmspo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__MC6drA5I3D__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__MC6drA5I3D__) || $__MC6drA5I3D__ instanceof \think\Collection || $__MC6drA5I3D__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__MC6drA5I3D__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__IDnFvLmspo__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__MC6drA5I3D__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__rLUaYG41Ji__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__IqMsQymD3v__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__3D9LtEU6JG__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__we4syEBb8A__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1915,9 +1915,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__uWyMkanCbs__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__uWyMkanCbs__) || $__uWyMkanCbs__ instanceof \think\Collection || $__uWyMkanCbs__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__uWyMkanCbs__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__T37rgMIsqj__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__T37rgMIsqj__) || $__T37rgMIsqj__ instanceof \think\Collection || $__T37rgMIsqj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__T37rgMIsqj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__uWyMkanCbs__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__T37rgMIsqj__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -2136,6 +2136,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -4410,6 +4554,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,

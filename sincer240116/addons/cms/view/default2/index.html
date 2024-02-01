@@ -106,7 +106,7 @@
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
         {cms:channellist id="channel" type="son" typeid="44" orderby="weigh" orderway="asc"}
-        {cms:arclist id="prod" channel="channel['id']"  orderby="weigh" orderway="desc" row="20" addon="video"}
+        {cms:arclist id="prod" channel="channel['id']"  orderby="weigh" orderway="desc" row="6" addon="video" flag="index"}
           <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="{$prod.title}" href="{$prod.url}" target="_blank" class="list_box"> 
             <div class="list_con" direction="4"> 
              <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
@@ -318,7 +318,7 @@
                     {$case.title}
                  </div> 
                  <div class="describe" title_lengths="">
-                   {$case.content} 
+                   <p>{$case.description}</p> 
                  </div> 
                 </div> 
                </div> 

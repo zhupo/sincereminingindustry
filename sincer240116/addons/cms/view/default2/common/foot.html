@@ -254,6 +254,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"__CDN__/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -2528,6 +2672,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,

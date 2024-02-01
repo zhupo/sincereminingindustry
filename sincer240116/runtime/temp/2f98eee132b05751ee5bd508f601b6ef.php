@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_service.html";i:1706457957;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_service.html";i:1706810174;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:118:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/message.html";i:1706724331;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__KCOJ5xGvMS__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__KCOJ5xGvMS__) || $__KCOJ5xGvMS__ instanceof \think\Collection || $__KCOJ5xGvMS__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__KCOJ5xGvMS__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__Va8o7RUAnH__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__Va8o7RUAnH__) || $__Va8o7RUAnH__ instanceof \think\Collection || $__Va8o7RUAnH__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Va8o7RUAnH__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__DVE1xnB7Nz__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__DVE1xnB7Nz__) || $__DVE1xnB7Nz__ instanceof \think\Collection || $__DVE1xnB7Nz__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DVE1xnB7Nz__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__mocMZz4Vtr__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__mocMZz4Vtr__) || $__mocMZz4Vtr__ instanceof \think\Collection || $__mocMZz4Vtr__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__mocMZz4Vtr__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__BzcV7OejyW__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__BzcV7OejyW__) || $__BzcV7OejyW__ instanceof \think\Collection || $__BzcV7OejyW__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__BzcV7OejyW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__VzyObWD8xj__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__VzyObWD8xj__) || $__VzyObWD8xj__ instanceof \think\Collection || $__VzyObWD8xj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__VzyObWD8xj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__BzcV7OejyW__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__VzyObWD8xj__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DVE1xnB7Nz__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__mocMZz4Vtr__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__KCOJ5xGvMS__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Va8o7RUAnH__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1193,33 +1193,33 @@
 }
 </style>
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b17467ee72d" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020484688.jpg" module_type="module"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b17467ee72d" module_id="5005" bg_img_url="<?php echo $__CHANNEL__['image']; ?>" module_type="module"> 
     <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">CASES</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/cases" style="display: inline;">CASES</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
+		</div> 
+		<div class="top_describe"> 
+		<?php $__7rc9waV2h1__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__7rc9waV2h1__) || $__7rc9waV2h1__ instanceof \think\Collection || $__7rc9waV2h1__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__7rc9waV2h1__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__7rc9waV2h1__; ?>
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 
+ 
    </div> 
    <div class="tem_data_list_1 no_bg_src content-section" id="v61b17467ee733" module_id="5000" bg_img_url="" module_type="module"> 
     <div class="container"> 
@@ -1229,45 +1229,48 @@
         <h2 class="title">CASES</h2> 
        </div> 
        <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
-        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
-         <div class="sticky_inquiry_head title"> 
-          <section template-edit="title_languages" module_name="module">
-           Send your inquiry
-          </section> 
-         </div> 
-         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
-          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b17467ee733" value="0"> 
-          <input type="hidden" name="visitlength" id="visitlength_v61b17467ee733" value="====1705505082===="> 
-          <input type="hidden" name="source" id="source_v61b17467ee733" value="0"> 
-          <input type="hidden" name="id" id="id_v61b17467ee733" value="0"> 
-          <ul class="fl_row_s"> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b17467ee733" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b17467ee733" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-          </ul> 
-          <div class="btn_box"> 
-           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
-          </div> 
-         </form> 
-        </div> 
-       </div> 
+  <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
+   <div class="sticky_inquiry_head title"> 
+    <section template-edit="title_languages" module_name="module">
+     Send your inquiry
+    </section> 
+   </div> 
+  <form class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+      <input type="hidden" name="__diyname__" value="customer">
+      <?php echo token(); ?>
+    <ul class="fl_row_s"> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b16a6068af1" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> 
+         <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+    </ul> 
+    <div class="btn_box"> 
+     <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
+    </div> 
+   </form> 
+  </div> 
+ </div>
       </div> 
       <div class="products_ul_box"> 
        <div class="mobile-reverse"> 
@@ -1282,126 +1285,28 @@
         <div> 
          <div class="ai_products_list_ul"> 
           <ul> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-263617"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/61LZ-5446-97fa-e081-4b7c-2100.jpg" img_preview_gif="" alt="Customer product customization case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-263617"> 
-               <div class="title" title="Customer product customization case | XSC" title_lengths="">
-                Customer product customization case | XSC
-               </div> 
-               <div class="describe" title="The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification." title_lengths="">
-                The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/29
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-2947314"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01684379162150.png" img_preview_gif="" alt="Copper sulfate detection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-2947314"> 
-               <div class="title" title="Copper sulfate detection" title_lengths="">
-                Copper sulfate detection
-               </div> 
-               <div class="describe" title="Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture." title_lengths="">
-                Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2023/05/18
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-277255"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01641882876495.jpg" img_preview_gif="" alt="Zinc Sulphate Monohydrate，in 1-11-2022" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-277255"> 
-               <div class="title" title="Zinc Sulphate Monohydrate，in 1-11-2022" title_lengths="">
-                Zinc Sulphate Monohydrate，in 1-11-2022
-               </div> 
-               <div class="describe" title="Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC" title_lengths="">
-                Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/11
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-277214"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/19T5-4191-a376-419b-e583-a7d7.jpg" img_preview_gif="" alt="Russian Customer Customization Zinc Sulphate Heptahydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-277214"> 
-               <div class="title" title="Russian Customer Customization Zinc Sulphate Heptahydrate" title_lengths="">
-                Russian Customer Customization Zinc Sulphate Heptahydrate
-               </div> 
-               <div class="describe" title="Fertilizer,Feed additives,Mineral and Chemical industry." title_lengths="">
-                Fertilizer,Feed additives,Mineral and Chemical industry.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/11
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-263618"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/QSKV-3519-3079-da9a-534a-8300.jpg" img_preview_gif="" alt="Customer product customization case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-263618"> 
-               <div class="title" title="Customer product customization case | XSC" title_lengths="">
-                Customer product customization case | XSC
-               </div> 
-               <div class="describe" title="We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers." title_lengths="">
-                We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/29
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-282522"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/6S0A-7596-47b2-f381-9f17-5067.jpg" img_preview_gif="" alt="Manganese Sulphate Monohydrate Cooperation Case | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-282522"> 
-               <div class="title" title="Manganese Sulphate Monohydrate Cooperation Case | XSC" title_lengths="">
-                Manganese Sulphate Monohydrate Cooperation Case | XSC
-               </div> 
-               <div class="describe" title="Manganese Sulphate Monohydrate ApplicationsIt is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well." title_lengths="">
-                Manganese Sulphate Monohydrate ApplicationsIt is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/01/14
-              </div> 
-             </div> 
-            </div> </li> 
+            <?php $__nVjk0hGpFQ__ = $__PAGELIST__; if(is_array($__nVjk0hGpFQ__) || $__nVjk0hGpFQ__ instanceof \think\Collection || $__nVjk0hGpFQ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__nVjk0hGpFQ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+            <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+                <div class="li_border"> 
+                 <a target="_blank" href="<?php echo $item['url']; ?>"> 
+                  <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+                   <img video-img="<?php echo $item['image']; ?>" img_preview_gif="" alt="<?php echo $item['title']; ?>" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+                   <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+                  </div> </a> 
+                 <div class="text"> 
+                  <a target="_blank" href="<?php echo $item['url']; ?>"> 
+                   <div class="title" title="<?php echo $item['title']; ?>" title_lengths="">
+                   <?php echo $item['title']; ?> 
+                   </div> 
+                   <div class="describe" title="<?php echo $item['description']; ?>" title_lengths="">
+                   <?php echo $item['description']; ?> 
+                   </div> </a> 
+                  <div class="date" btn_show="0">
+                   <?php echo date("Y/m/d",$item['publishtime']); ?>
+                  </div> 
+                 </div> 
+                </div> </li>
+		    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__nVjk0hGpFQ__; ?>
           </ul> 
           <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
            No more~~
@@ -1449,9 +1354,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__mBGQk4eRxg__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__mBGQk4eRxg__) || $__mBGQk4eRxg__ instanceof \think\Collection || $__mBGQk4eRxg__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__mBGQk4eRxg__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__WJFYpcv123__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__WJFYpcv123__) || $__WJFYpcv123__ instanceof \think\Collection || $__WJFYpcv123__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__WJFYpcv123__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__mBGQk4eRxg__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__WJFYpcv123__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -1670,6 +1575,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -3944,6 +3993,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,

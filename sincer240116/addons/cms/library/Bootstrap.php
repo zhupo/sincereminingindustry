@@ -20,7 +20,7 @@ class Bootstrap extends Paginator
      * @param string $text
      * @return string
      */
-    protected function getPreviousButton($text = "&lt;&lt;")
+    protected function getPreviousButton($text = "« Previous")
     {
         if ($this->currentPage() <= 1) {
             return $this->getDisabledTextWrapper($text);
@@ -30,7 +30,14 @@ class Bootstrap extends Paginator
             $this->currentPage() - 1
         );
 
-        return $this->getPageLinkWrapper($url, $text);
+        // return $this->getPageLinkWrapper($url, $text);
+        return $this->getPreviousWrapper($url, $text);
+    }
+
+    protected function getPreviousWrapper($url, $text)
+    {
+        return '<li class="page-item bg-color" aria-disabled="true" aria-label="« Previous"><a class="page-link" href="' . htmlentities($url) . '"> <span class="page-link rel_ck" aria-hidden="true">
+        <span class="iconfont iconchaopimiaotuangou-">' . $text .' </span></span> </a></li>';
     }
 
     /**
@@ -38,7 +45,7 @@ class Bootstrap extends Paginator
      * @param string $text
      * @return string
      */
-    protected function getNextButton($text = "&gt;&gt;")
+    protected function getNextButton($text = "Next »")
     {
         if (!$this->hasMore) {
             return $this->getDisabledTextWrapper($text);
@@ -46,7 +53,13 @@ class Bootstrap extends Paginator
 
         $url = $this->url($this->currentPage() + 1);
 
-        return $this->getPageLinkWrapper($url, $text);
+        return $this->getNextWrapper($url, $text);
+    }
+
+    protected function getNextWrapper($url, $text)
+    {
+        return '<li class="page-item">
+        <a class="page-link rel_ck bg-color" href="' . htmlentities($url) . '" rel="next" aria-label="Next »"><span class="iconfont iconleft">' . $text .' </span></a> </li>';
     }
     
     /**
@@ -138,12 +151,12 @@ class Bootstrap extends Paginator
         }
 
         if (is_array($block['slider'])) {
-            // $html .= $this->getDots();
+            $html .= $this->getDots();
             $html .= $this->getUrlLinks($block['slider']);
         }
 
         if (is_array($block['last'])) {
-            // $html .= $this->getDots();
+            $html .= $this->getDots();
             $html .= $this->getUrlLinks($block['last']);
         }
         return $html;
@@ -169,7 +182,7 @@ class Bootstrap extends Paginator
                 );
             } else {
                 return sprintf(
-                    '<div class="pages">%s %s %s</div>',
+                    '<ul class="pagination">%s %s %s</ul>',
                     $this->getPreviousButton(),
                     $this->getLinks(),
                    // $this->getGoPage(),
@@ -195,7 +208,8 @@ class Bootstrap extends Paginator
      */
     protected function getAvailablePageWrapper($url, $page)
     {
-        return '<a href="' . htmlentities($url) . '">' . $page . '</a>';
+        // return '<a href="' . htmlentities($url) . '">' . $page . '</a>';
+        return '<li class="page-item"><a class="page-link" href="' . htmlentities($url) . '">' . $page . '</a></li>';
     }
 
     /**
@@ -206,7 +220,12 @@ class Bootstrap extends Paginator
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<a href="javascript:">' . $text . '</a>';
+        if ($text == '...') {
+            return '<li class="page-item" aria-disabled="true"><span class="page-link">...</span></li>';
+        }
+        // return '<a href="javascript:">' . $text . '</a>';
+        return '<li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true">
+        <span class="iconfont iconchaopimiaotuangou-">' . $text .' </span></span> </li>';
     }
 
     /**
@@ -217,7 +236,9 @@ class Bootstrap extends Paginator
      */
     protected function getActivePageWrapper($text)
     {
-        return '<a class="current">' . $text . '</a>';
+        // return '<a class="current">' . $text . '</a>';
+        return '<li class="page-item active" aria-current="page">
+        <span class="page-link active font-color">' . $text . '</span></li>';
     }
 
     /**

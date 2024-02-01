@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706713857;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:109:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/index.html";i:1706810034;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__iDvLcY2Uzr__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__iDvLcY2Uzr__) || $__iDvLcY2Uzr__ instanceof \think\Collection || $__iDvLcY2Uzr__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__iDvLcY2Uzr__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__Pf0oYmI8k4__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__Pf0oYmI8k4__) || $__Pf0oYmI8k4__ instanceof \think\Collection || $__Pf0oYmI8k4__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Pf0oYmI8k4__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__163lfTpxdD__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__163lfTpxdD__) || $__163lfTpxdD__ instanceof \think\Collection || $__163lfTpxdD__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__163lfTpxdD__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__7KAhI6GVqZ__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__7KAhI6GVqZ__) || $__7KAhI6GVqZ__ instanceof \think\Collection || $__7KAhI6GVqZ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__7KAhI6GVqZ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__ga1bw8IosW__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__ga1bw8IosW__) || $__ga1bw8IosW__ instanceof \think\Collection || $__ga1bw8IosW__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__ga1bw8IosW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__Qt5Oeg6BN7__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__Qt5Oeg6BN7__) || $__Qt5Oeg6BN7__ instanceof \think\Collection || $__Qt5Oeg6BN7__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Qt5Oeg6BN7__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__ga1bw8IosW__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Qt5Oeg6BN7__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__163lfTpxdD__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__7KAhI6GVqZ__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__iDvLcY2Uzr__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Pf0oYmI8k4__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -748,7 +748,7 @@
     <div class="con swiper-container"> 
      <div class="swiper-pagination" btn_show="1" w_page_type=""></div> 
      <ul class="list_row_ul swiper-wrapper"> 
-      <?php $__itLTNgbcIj__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__itLTNgbcIj__) || $__itLTNgbcIj__ instanceof \think\Collection || $__itLTNgbcIj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__itLTNgbcIj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
+      <?php $__kle2Ou3wKZ__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"banner","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__kle2Ou3wKZ__) || $__kle2Ou3wKZ__ instanceof \think\Collection || $__kle2Ou3wKZ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__kle2Ou3wKZ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?>   
       <li class="swiper-slide" modular-edit="custom"> 
         <div class="list_box"> 
          <div class="list_con"> 
@@ -783,7 +783,7 @@
           </div> 
          </div> 
         </div> </li> 
-    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__itLTNgbcIj__; ?>
+    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__kle2Ou3wKZ__; ?>
      </ul> 
     </div> 
    </div> 
@@ -807,7 +807,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-        <?php $__L0N2hDfHnk__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__L0N2hDfHnk__) || $__L0N2hDfHnk__ instanceof \think\Collection || $__L0N2hDfHnk__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__L0N2hDfHnk__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__diYgU8cALQ__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"20","addon"=>"video"]); if(is_array($__diYgU8cALQ__) || $__diYgU8cALQ__ instanceof \think\Collection || $__diYgU8cALQ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__diYgU8cALQ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
+        <?php $__GPzed0UJ9T__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__GPzed0UJ9T__) || $__GPzed0UJ9T__ instanceof \think\Collection || $__GPzed0UJ9T__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__GPzed0UJ9T__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__bzPD52eyvW__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"6","addon"=>"video","flag"=>"index"]); if(is_array($__bzPD52eyvW__) || $__bzPD52eyvW__ instanceof \think\Collection || $__bzPD52eyvW__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__bzPD52eyvW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
           <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $prod['title']; ?>" href="<?php echo $prod['url']; ?>" target="_blank" class="list_box"> 
             <div class="list_con" direction="4"> 
              <div class="img_par no_img_src" img_text_align="2" img_type="2"> 
@@ -822,7 +822,7 @@
               </div> 
              </div> 
             </div> </a> </li> 
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__diYgU8cALQ__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__L0N2hDfHnk__; ?>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__bzPD52eyvW__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__GPzed0UJ9T__; ?>
       </ul> 
      </div> 
     </div> 
@@ -875,7 +875,7 @@
     </div> 
    </div>  -->
 
-   <?php $__34ouRxiPCK__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__34ouRxiPCK__) || $__34ouRxiPCK__ instanceof \think\Collection || $__34ouRxiPCK__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__34ouRxiPCK__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+   <?php $__cNxiFCZpte__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__cNxiFCZpte__) || $__cNxiFCZpte__ instanceof \think\Collection || $__cNxiFCZpte__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__cNxiFCZpte__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
    <div class="tem_title_1 no_bg_src" module_center="center" id="v61af3cc6032fc" module_id="5017" bg_img_url="<?php echo $block['image']; ?>" module_type="module"> 
     <div class="container"> 
      <div direction="3"> 
@@ -907,7 +907,7 @@
      </div> 
     </div> 
    </div>
-   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__34ouRxiPCK__; ?>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__cNxiFCZpte__; ?>
    <div class="public_lists_tem_2 no_bg_src content-section" module_center="center" id="v61af3cc9efd2d" module_id="5016" bg_img_url="https://img001.video2b.com/1186/file_01638952806508.jpg" module_type="module"> 
     <div class="container"> 
      <div class="con swiper-container"> 
@@ -915,7 +915,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color" btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <?php $__STmj8Jrtlz__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__STmj8Jrtlz__) || $__STmj8Jrtlz__ instanceof \think\Collection || $__STmj8Jrtlz__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__STmj8Jrtlz__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
+       <?php $__zJTuKilv6t__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"hlight","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__zJTuKilv6t__) || $__zJTuKilv6t__ instanceof \think\Collection || $__zJTuKilv6t__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__zJTuKilv6t__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
        <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
         <div class="list_box"> 
          <div class="list_con" direction="4"> 
@@ -934,13 +934,13 @@
           </div> 
          </div> 
         </div> </li> 
-        <?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__STmj8Jrtlz__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__zJTuKilv6t__; ?>
       </ul> 
      </div> 
     </div> 
    </div> 
     
-   <?php $__dwFuZAS3Vv__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__dwFuZAS3Vv__) || $__dwFuZAS3Vv__ instanceof \think\Collection || $__dwFuZAS3Vv__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dwFuZAS3Vv__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+   <?php $__gcvb7KfWHN__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__gcvb7KfWHN__) || $__gcvb7KfWHN__ instanceof \think\Collection || $__gcvb7KfWHN__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__gcvb7KfWHN__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
    <div class="tem_picture_1 no_bg_src content-section" id="v61b0744b8f4d3" module_id="5004" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="picture_con"> 
@@ -980,7 +980,7 @@
      </div> 
     </div> 
    </div>
-   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dwFuZAS3Vv__; ?>
+   <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__gcvb7KfWHN__; ?>
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61af3d0145059" module_id="5015" bg_img_url="https://img001.video2b.com/1186/file_01638951950845.png" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
@@ -1000,7 +1000,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="0"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-        <?php $__8Wa2POUGQH__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__8Wa2POUGQH__) || $__8Wa2POUGQH__ instanceof \think\Collection || $__8Wa2POUGQH__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__8Wa2POUGQH__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
+        <?php $__YVyH6DPgpJ__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__YVyH6DPgpJ__) || $__YVyH6DPgpJ__ instanceof \think\Collection || $__YVyH6DPgpJ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__YVyH6DPgpJ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
             <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
               <div class="list_box"> 
                <div class="list_con" direction="4"> 
@@ -1014,12 +1014,12 @@
                     <?php echo $case['title']; ?>
                  </div> 
                  <div class="describe" title_lengths="">
-                   <?php echo $case['content']; ?> 
+                   <p><?php echo $case['description']; ?></p> 
                  </div> 
                 </div> 
                </div> 
               </div> </li> 
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__8Wa2POUGQH__; ?>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__YVyH6DPgpJ__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1044,7 +1044,7 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="1"> 
-         <?php $__cAJNWuGDr9__ = \addons\cms\model\Archives::getArchivesList(["id"=>"new","channel"=>"66","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__cAJNWuGDr9__) || $__cAJNWuGDr9__ instanceof \think\Collection || $__cAJNWuGDr9__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__cAJNWuGDr9__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$new): $mod = ($i % 2 );++$i;?>
+         <?php $__k53wj8xPMB__ = \addons\cms\model\Archives::getArchivesList(["id"=>"new","channel"=>"66","orderby"=>"weigh","orderway"=>"desc","row"=>"4","addon"=>"content,video"]); if(is_array($__k53wj8xPMB__) || $__k53wj8xPMB__ instanceof \think\Collection || $__k53wj8xPMB__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__k53wj8xPMB__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$new): $mod = ($i % 2 );++$i;?>
               <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $new['title']; ?>" href="/products-detail-4591160" target="_blank" class="list_box"> 
                 <div class="list_con" direction="4"> 
                  <div class="img_par no_img_src" img_text_align="2" img_type=""> 
@@ -1062,7 +1062,7 @@
                   </div> 
                  </div> 
                 </div> </a> </li>
-          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__cAJNWuGDr9__; ?>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__k53wj8xPMB__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1150,9 +1150,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__G1ZNmYj06k__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__G1ZNmYj06k__) || $__G1ZNmYj06k__ instanceof \think\Collection || $__G1ZNmYj06k__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__G1ZNmYj06k__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__Sa6xAH0NPQ__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__Sa6xAH0NPQ__) || $__Sa6xAH0NPQ__ instanceof \think\Collection || $__Sa6xAH0NPQ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Sa6xAH0NPQ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__G1ZNmYj06k__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Sa6xAH0NPQ__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -1371,6 +1371,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -3645,6 +3789,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,

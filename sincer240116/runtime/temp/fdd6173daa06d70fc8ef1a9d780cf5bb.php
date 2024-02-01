@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_product.html";i:1706724830;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/left.html";i:1706723580;s:118:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/message.html";i:1706724331;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_product.html";i:1706802524;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/left.html";i:1706723580;s:118:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/message.html";i:1706724331;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__UYqa19KAnt__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__UYqa19KAnt__) || $__UYqa19KAnt__ instanceof \think\Collection || $__UYqa19KAnt__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__UYqa19KAnt__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__aP8JA5kWdQ__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__aP8JA5kWdQ__) || $__aP8JA5kWdQ__ instanceof \think\Collection || $__aP8JA5kWdQ__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__aP8JA5kWdQ__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__lMNtj8rmkV__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__lMNtj8rmkV__) || $__lMNtj8rmkV__ instanceof \think\Collection || $__lMNtj8rmkV__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__lMNtj8rmkV__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__Jctg1fHeZR__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__Jctg1fHeZR__) || $__Jctg1fHeZR__ instanceof \think\Collection || $__Jctg1fHeZR__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Jctg1fHeZR__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__95pilhKrDa__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__95pilhKrDa__) || $__95pilhKrDa__ instanceof \think\Collection || $__95pilhKrDa__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__95pilhKrDa__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__8MapRrCOKb__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__8MapRrCOKb__) || $__8MapRrCOKb__ instanceof \think\Collection || $__8MapRrCOKb__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__8MapRrCOKb__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__95pilhKrDa__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__8MapRrCOKb__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__lMNtj8rmkV__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Jctg1fHeZR__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__UYqa19KAnt__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__aP8JA5kWdQ__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1204,8 +1204,8 @@
 		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
 		</div> 
 		<div class="top_describe"> 
-		<?php $__fFa4v6xBV1__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__fFa4v6xBV1__) || $__fFa4v6xBV1__ instanceof \think\Collection || $__fFa4v6xBV1__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__fFa4v6xBV1__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
-		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__fFa4v6xBV1__; ?>
+		<?php $__Es64h8iJG1__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__Es64h8iJG1__) || $__Es64h8iJG1__ instanceof \think\Collection || $__Es64h8iJG1__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__Es64h8iJG1__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Es64h8iJG1__; ?>
 		</div> 
 	 </div> 
 	</div> 
@@ -1240,7 +1240,7 @@
       <div class="hidden_box"> 
        <div class="list_box"> 
         <ul class="list_one"> 
-          <?php $__yQdT8bs7J3__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__yQdT8bs7J3__) || $__yQdT8bs7J3__ instanceof \think\Collection || $__yQdT8bs7J3__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__yQdT8bs7J3__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
+          <?php $__E4Hb6pQNje__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__E4Hb6pQNje__) || $__E4Hb6pQNje__ instanceof \think\Collection || $__E4Hb6pQNje__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__E4Hb6pQNje__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
             <li> 
                 <div class="text"> 
                  <a href="<?php echo $channel['url']; ?>"> 
@@ -1250,7 +1250,7 @@
                 </div>
                 <?php if($channel['has_child']): ?>
                 <ul class="list_one"> 
-                    <?php $__JNeqRKCufD__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__JNeqRKCufD__) || $__JNeqRKCufD__ instanceof \think\Collection || $__JNeqRKCufD__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__JNeqRKCufD__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
+                    <?php $__9Q4vkaHANO__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__9Q4vkaHANO__) || $__9Q4vkaHANO__ instanceof \think\Collection || $__9Q4vkaHANO__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9Q4vkaHANO__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
                         <li>
                         <div class="text <?php if($channel['is_active']): ?>active<?php endif; ?>"> 
                         <a href="<?php echo $sonChannel['url']; ?>"> 
@@ -1259,11 +1259,11 @@
                         </div> </a> 
                         </div>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__JNeqRKCufD__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9Q4vkaHANO__; ?>
                 </ul> 
                 <?php endif; ?>
             </li> 
-       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__yQdT8bs7J3__; ?>
+       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__E4Hb6pQNje__; ?>
         </ul> 
        </div> 
       </div> 
@@ -1271,7 +1271,7 @@
      <div class="list_m_link"> 
       <div class="list_arrow2"></div> 
       <ul class="_ul"> 
-        <?php $__x1Nq82iP5c__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__x1Nq82iP5c__) || $__x1Nq82iP5c__ instanceof \think\Collection || $__x1Nq82iP5c__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__x1Nq82iP5c__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
+        <?php $__DGyuciLs94__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__DGyuciLs94__) || $__DGyuciLs94__ instanceof \think\Collection || $__DGyuciLs94__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DGyuciLs94__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
             <li class="_li"> 
                 <div class="text"> 
                  <a href="<?php echo $channel['url']; ?>"> 
@@ -1281,7 +1281,7 @@
                 </div>
                 <?php if($channel['has_child']): ?>
                 <ul class="list_one"> 
-                    <?php $__vYtA2VB6qm__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__vYtA2VB6qm__) || $__vYtA2VB6qm__ instanceof \think\Collection || $__vYtA2VB6qm__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__vYtA2VB6qm__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
+                    <?php $__pMfJ7OjdS1__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__pMfJ7OjdS1__) || $__pMfJ7OjdS1__ instanceof \think\Collection || $__pMfJ7OjdS1__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__pMfJ7OjdS1__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
                     <li class="_li">
                         <div class="text <?php if($channel['is_active']): ?>active<?php endif; ?>"> 
                         <a href="<?php echo $sonChannel['url']; ?>"> 
@@ -1290,11 +1290,11 @@
                         </div> </a> 
                         </div>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__vYtA2VB6qm__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__pMfJ7OjdS1__; ?>
                 </ul> 
                 <?php endif; ?>
             </li> 
-       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__x1Nq82iP5c__; ?>
+       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DGyuciLs94__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1602,7 +1602,7 @@
      <div class="news_details_left_block right_navigation_menus left_con_colors"> 
       <h2 class="title">PRODUCTS</h2> 
       <ul class="right_nav"> 
-       <?php $__jlDHRPgNmE__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__jlDHRPgNmE__) || $__jlDHRPgNmE__ instanceof \think\Collection || $__jlDHRPgNmE__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__jlDHRPgNmE__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
+       <?php $__Am5zWiOPRM__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","row"=>"100"]); if(is_array($__Am5zWiOPRM__) || $__Am5zWiOPRM__ instanceof \think\Collection || $__Am5zWiOPRM__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Am5zWiOPRM__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?>
             <li class=" "> 
                 <div class="text"> 
                  <a href="<?php echo $channel['url']; ?>"> 
@@ -1612,7 +1612,7 @@
                 </div>
                 <?php if($channel['has_child']): ?>
                 <ul class="right_nav"> 
-                    <?php $__GbOfkJhV9x__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__GbOfkJhV9x__) || $__GbOfkJhV9x__ instanceof \think\Collection || $__GbOfkJhV9x__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__GbOfkJhV9x__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
+                    <?php $__31DYFcrG7n__ = \addons\cms\model\Channel::getChannelList(["id"=>"sonChannel","type"=>"son","typeid"=>$channel['id'],"row"=>"100"]); if(is_array($__31DYFcrG7n__) || $__31DYFcrG7n__ instanceof \think\Collection || $__31DYFcrG7n__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__31DYFcrG7n__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonChannel): $mod = ($i % 2 );++$i;?>
                     <li class=" ">
                         <div class="text <?php if($channel['is_active']): ?>active<?php endif; ?>"> 
                         <a href="<?php echo $sonChannel['url']; ?>"> 
@@ -1621,11 +1621,11 @@
                         </div> </a> 
                         </div>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__GbOfkJhV9x__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__31DYFcrG7n__; ?>
                 </ul> 
                 <?php endif; ?>
             </li> 
-       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__jlDHRPgNmE__; ?>
+       <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Am5zWiOPRM__; ?>
       </ul> 
      </div> 
         <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
@@ -1687,28 +1687,7 @@
         <div> 
          <div class="ai_products_list_ul"> 
           <ul> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-227153"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01640764707261.jpg" img_preview_gif="" alt="Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-227153"> 
-               <div class="title" title="Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC" title_lengths="">
-                Copper Sulphate Pentahydrate-Hunan Sincere Chemicals customization | XSC
-               </div> 
-               <div class="describe" title="Product Name:Copper Sulphate PentahydrateFormula : CuSO4·5H2OMolecular Weight :249.68CAS:7758-99-8Einecs No: 616-477-9HS Code:2833.2500.00Appearance:Blue Crystals" title_lengths="">
-                Product Name:Copper Sulphate PentahydrateFormula : CuSO4·5H2OMolecular Weight :249.68CAS:7758-99-8Einecs No: 616-477-9HS Code:2833.2500.00Appearance:Blue Crystals
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/21
-              </div> 
-             </div> 
-            </div> </li> 
-
-            <?php $__TKQbpewN6F__ = $__PAGELIST__; if(is_array($__TKQbpewN6F__) || $__TKQbpewN6F__ instanceof \think\Collection || $__TKQbpewN6F__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__TKQbpewN6F__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+            <?php $__UsZjcI0Gw4__ = $__PAGELIST__; if(is_array($__UsZjcI0Gw4__) || $__UsZjcI0Gw4__ instanceof \think\Collection || $__UsZjcI0Gw4__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__UsZjcI0Gw4__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
             <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
                 <div class="li_border"> 
                  <a target="_blank" href="<?php echo $item['url']; ?>"> 
@@ -1725,248 +1704,11 @@
                    <?php echo $item['description']; ?> 
                    </div> </a> 
                   <div class="date" btn_show="0">
-                   2021/12/21
+                   <?php echo date("Y/m/d",$item['publishtime']); ?>
                   </div> 
                  </div> 
                 </div> </li>
-                <li class="product_list_item"> 
-                    <figure> 
-                    <span class="item_img"><img src="<?php echo $item['image']; ?>" alt=""><a href="<?php echo $item['url']; ?>" title="<?php echo $item['title']; ?>"></a></span> 
-                    <figcaption> 
-                    <div class="item_information"> 
-                    <h3 class="item_title"><a href="<?php echo $item['url']; ?>" title="<?php echo $item['title']; ?>"><?php echo $item['title']; ?></a></h3> 
-                    <div class="item_info">
-                            <?php echo $item['content']; ?>
-                    </div> 
-                    </div> 
-                    <div class="product_btns"> 
-                    <!-- <a href="javascript:" class="priduct_btn_inquiry add_email12">inquiry</a> -->
-                    <a href="<?php echo $item['url']; ?>" class="priduct_btn_detail">detail</a> 
-                    </div> 
-                    </figcaption> 
-                    </figure> 
-                </li> 
-		    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__TKQbpewN6F__; ?>
-
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-786141"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/051c94367ed7fae2355d094fbcde76fd.jpg" img_preview_gif="" alt="XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-786141"> 
-               <div class="title" title="XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate" title_lengths="">
-                XSC Chemicals - Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder Copper Carbonate
-               </div> 
-               <div class="describe" title="Our technicians have strong abilities to develop and optimize technologies. We have to admit that technologies play an important in the Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder manufacturing process.It is used mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate now.  " title_lengths="">
-                Our technicians have strong abilities to develop and optimize technologies. We have to admit that technologies play an important in the Cheap hot sale top quality conductive carbon coated copper brush carbon foil carbonate hydroxide powder manufacturing process.It is used mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate now. 
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/07/27
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-786133"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/07b8168b0ea59288bb68aab539ae88df.jpg" img_preview_gif="" alt="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-786133"> 
-               <div class="title" title="XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate" title_lengths="">
-                XSC Chemicals - High purity 25kg bag manganese sulfate monohydrate MnSO4 Manganese Sulphate Monohydrate
-               </div> 
-               <div class="describe" title="To achieve the stable performance of the XSC Chemicals,high-quality reliable raw materials are used. High purity 25kg bag manganese sulfate monohydrate MnSO4 has all the superior performance of those raw materials such as durability and stability. In summary, zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate has the excellent characteristics. Once it is applied in the industries, its great role will be fully played out.  " title_lengths="">
-                To achieve the stable performance of the XSC Chemicals,high-quality reliable raw materials are used. High purity 25kg bag manganese sulfate monohydrate MnSO4 has all the superior performance of those raw materials such as durability and stability. In summary, zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate has the excellent characteristics. Once it is applied in the industries, its great role will be fully played out. 
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/07/27
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-786139"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/34d8dae978abd359d438fa8aefe3cee0.jpg" img_preview_gif="" alt="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-786139"> 
-               <div class="title" title="XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate" title_lengths="">
-                XSC Chemicals - Manganese sulphate monohydrate 98% industrial grade powder Manganese Sulphate Monohydrate
-               </div> 
-               <div class="describe" title="Manganese sulphate monohydrate 98% industrial grade powder has functions in a range of daily functions.Whatever the requirement is,you can find it at XSC Chemicals. To purchase the product for sale in different types and with different features.  " title_lengths="">
-                Manganese sulphate monohydrate 98% industrial grade powder has functions in a range of daily functions.Whatever the requirement is,you can find it at XSC Chemicals. To purchase the product for sale in different types and with different features. 
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/07/27
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-786140"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/8efaa799056b8b760b4888b79a1417ca.jpg" img_preview_gif="" alt="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-786140"> 
-               <div class="title" title="XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate" title_lengths="">
-                XSC Chemicals - Hot sale high quality china precipitated barium carbonate powder Barium carbonate
-               </div> 
-               <div class="describe" title="To keep our company competitive in the industry, we have been continuously improving our capabilities in technology innovation. We mainly apply the upgraded technology to the manufacturing process of Hot sale high quality china precipitated barium carbonate powder.It has a broader application ranges now and can be seen mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate.  " title_lengths="">
-                To keep our company competitive in the industry, we have been continuously improving our capabilities in technology innovation. We mainly apply the upgraded technology to the manufacturing process of Hot sale high quality china precipitated barium carbonate powder.It has a broader application ranges now and can be seen mainly in the field(s) of zinc sulphate, zinc sulfate, zinc sulphate monohydrate, zinc sulphate heptahydrate, ferrous sulphate, copper sulphate or copper sulfate, manganese sulphate. 
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/07/27
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-227184"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01640762614373.jpg" img_preview_gif="" alt="Sodium Persulfate | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-227184"> 
-               <div class="title" title="Sodium Persulfate | XSC" title_lengths="">
-                Sodium Persulfate | XSC
-               </div> 
-               <div class="describe" title="Product Name:&nbsp;Sodium Persulfate&nbsp;Formula:&nbsp;Na2S2O8&nbsp;&nbsp;Molecular Weight :238.13CAS:7775-27-1Einecs No:&nbsp;231-892-1HS Code:28334000Appearance:White crystal/powder" title_lengths="">
-                Product Name:&nbsp;Sodium Persulfate&nbsp;Formula:&nbsp;Na2S2O8&nbsp;&nbsp;Molecular Weight :238.13CAS:7775-27-1Einecs No:&nbsp;231-892-1HS Code:28334000Appearance:White crystal/powder
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/21
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-227189"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01640762536001.jpg" img_preview_gif="" alt="Sodium Metabisulphite | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-227189"> 
-               <div class="title" title="Sodium Metabisulphite | XSC" title_lengths="">
-                Sodium Metabisulphite | XSC
-               </div> 
-               <div class="describe" title="Product Name:Sodium MetabisulphiteFormula :&nbsp;Na2S2O5Molecular Weight :190.1065CAS:7681-57-4Einecs No: 231-673-0HS Code:2832.2000.00Appearance:White&nbsp;or Light Brown Powder" title_lengths="">
-                Product Name:Sodium MetabisulphiteFormula :&nbsp;Na2S2O5Molecular Weight :190.1065CAS:7681-57-4Einecs No: 231-673-0HS Code:2832.2000.00Appearance:White&nbsp;or Light Brown Powder
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/21
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-227175"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.video2b.com/1186/file_01640762676789.jpg" img_preview_gif="" alt="Lead Nitrate | XSC" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-227175"> 
-               <div class="title" title="Lead Nitrate | XSC" title_lengths="">
-                Lead Nitrate | XSC
-               </div> 
-               <div class="describe" title="Product Name:Lead NitrateFormula :&nbsp;Pb(NO3)2Molecular Weight :331.21CAS:10099-74-8Einecs No: 233-245-9HS Code:2834.2990.00&nbsp;Appearance:White&nbsp;Crystals" title_lengths="">
-                Product Name:Lead NitrateFormula :&nbsp;Pb(NO3)2Molecular Weight :331.21CAS:10099-74-8Einecs No: 233-245-9HS Code:2834.2990.00&nbsp;Appearance:White&nbsp;Crystals
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2021/12/21
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-786071"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://imgbd.weyesimg.com/prod/moving/img/b280101b332bebbe577093981bd43491/976cbf4edf56192d30ecc2877c2d5384.jpg" img_preview_gif="" alt="XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-786071"> 
-               <div class="title" title="XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate" title_lengths="">
-                XSC Chemicals - Factory manufacture various copper sulphate pentahydrate feed additives granular Copper Sulphate Pentahydrate
-               </div> 
-               <div class="describe" title="The successful research and development of the Factory manufacture various copper sulphate pentahydrate feed additives granular not only deeply analyzes the actual needs of the target customers, but also combines its own superior resources.It can be extensively used for Sulphate.  " title_lengths="">
-                The successful research and development of the Factory manufacture various copper sulphate pentahydrate feed additives granular not only deeply analyzes the actual needs of the target customers, but also combines its own superior resources.It can be extensively used for Sulphate. 
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/07/27
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-386556"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/9NYT-5210-3605-2082-e3bd-d88a.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ production line" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-386556"> 
-               <div class="title" title="Zinc Sulphate Heptahydrate’ production line" title_lengths="">
-                Zinc Sulphate Heptahydrate’ production line
-               </div> 
-               <div class="describe" title="Zinc Sulphate Heptahydrate’ production line. has the characters of , and can be utilized in ." title_lengths="">
-                Zinc Sulphate Heptahydrate’ production line. has the characters of , and can be utilized in .
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/03/03
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-406284"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/PM75-5465-f75a-ef8c-ff51-fb49.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-406284"> 
-               <div class="title" title="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" title_lengths="">
-                Zinc Sulphate Heptahydrate’ Product Sampling Inspection
-               </div> 
-               <div class="describe" title="On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging." title_lengths="">
-                On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/03/11
-              </div> 
-             </div> 
-            </div> </li> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
-            <div class="li_border"> 
-             <a target="_blank" href="/products-detail-406285"> 
-              <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
-               <img video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-3/jpg/Q77P-1338-7ccd-09bf-470b-f0d9.jpg" img_preview_gif="" alt="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
-               <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
-              </div> </a> 
-             <div class="text"> 
-              <a target="_blank" href="/products-detail-406285"> 
-               <div class="title" title="Zinc Sulphate Heptahydrate’ Product Sampling Inspection" title_lengths="">
-                Zinc Sulphate Heptahydrate’ Product Sampling Inspection
-               </div> 
-               <div class="describe" title="On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging." title_lengths="">
-                On March 1, 2022, our company provided product quality inspection samples according to the bidding requirements of a domestic mining procurement. The main purpose of this video is to show the color, transparency and powder caking of the products before sampling and packaging.
-               </div> </a> 
-              <div class="date" btn_show="0">
-               2022/03/11
-              </div> 
-             </div> 
-            </div> </li> 
-          </ul> 
+		    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__UsZjcI0Gw4__; ?>
           <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
            No more~~
           </div> 
@@ -1997,14 +1739,15 @@
     }
     </style> 
           <nav> 
-           <ul class="pagination"> 
+            <?php echo $__PAGELIST__->render(["type"=>"full"]); ?>
+           <!-- <ul class="pagination"> 
             <li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true"><span class="iconfont iconchaopimiaotuangou-"></span></span> </li> 
             <li class="page-item active" aria-current="page"><span class="page-link active font-color">1</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-2">2</a></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-3">3</a></li> 
             <li class="page-item" aria-disabled="true"><span class="page-link">...</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/products-list-11">11</a></li> 
-            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/products-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li> 
+            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/products-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li>  -->
             <!-- <li class="li_form">
                 <form action="" class="pagination_form" onsubmit="return pagination_v61b16a6068af1(this);">
                     <input type="hidden" class="list_limit" value="12">
@@ -2018,9 +1761,9 @@
                     </div>
                 </form>
             </li> --> 
-           </ul> 
+           <!-- </ul>  -->
           </nav> 
-          <script mos-id="v61b16a6068af1">
+          <!-- <script mos-id="v61b16a6068af1">
         function pagination_v61b16a6068af1(form){
             var inp = form.querySelector('.pagination_inp'),
                 val = parseInt(inp.value)||1,
@@ -2051,7 +1794,7 @@
             window.location.href = url;
             return false
         }
-    </script> 
+    </script>  -->
          </div> 
         </div> 
        </div> 
@@ -2095,9 +1838,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__7a3zsli4OB__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__7a3zsli4OB__) || $__7a3zsli4OB__ instanceof \think\Collection || $__7a3zsli4OB__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__7a3zsli4OB__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__vIRb5K8fZ2__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__vIRb5K8fZ2__) || $__vIRb5K8fZ2__ instanceof \think\Collection || $__vIRb5K8fZ2__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__vIRb5K8fZ2__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__7a3zsli4OB__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__vIRb5K8fZ2__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -2316,6 +2059,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -4590,6 +4477,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,

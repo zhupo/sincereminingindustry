@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:113:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_News.html";i:1706720680;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706719471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:113:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/list_News.html";i:1706810768;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:118:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/message.html";i:1706724331;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__DGLzUJufd9__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__DGLzUJufd9__) || $__DGLzUJufd9__ instanceof \think\Collection || $__DGLzUJufd9__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DGLzUJufd9__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__pCOAB1utVw__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__pCOAB1utVw__) || $__pCOAB1utVw__ instanceof \think\Collection || $__pCOAB1utVw__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__pCOAB1utVw__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__zTaj9SOMwR__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__zTaj9SOMwR__) || $__zTaj9SOMwR__ instanceof \think\Collection || $__zTaj9SOMwR__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__zTaj9SOMwR__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__Ac1KN4q073__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__Ac1KN4q073__) || $__Ac1KN4q073__ instanceof \think\Collection || $__Ac1KN4q073__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Ac1KN4q073__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__pRs5c26HC7__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__pRs5c26HC7__) || $__pRs5c26HC7__ instanceof \think\Collection || $__pRs5c26HC7__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__pRs5c26HC7__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__A42wN8dVPs__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__A42wN8dVPs__) || $__A42wN8dVPs__ instanceof \think\Collection || $__A42wN8dVPs__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__A42wN8dVPs__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__pRs5c26HC7__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__A42wN8dVPs__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__zTaj9SOMwR__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Ac1KN4q073__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DGLzUJufd9__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__pCOAB1utVw__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1193,33 +1193,33 @@
 }
 </style> 
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b175994d182" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020699344.jpg" module_type="module"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b175994d182" module_id="5005" bg_img_url="<?php echo $__CHANNEL__['image']; ?>" module_type="module"> 
     <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">NEWS</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/news" style="display: inline;">NEWS</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
+		</div> 
+		<div class="top_describe"> 
+		<?php $__XS1qTIFGEu__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__XS1qTIFGEu__) || $__XS1qTIFGEu__ instanceof \think\Collection || $__XS1qTIFGEu__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__XS1qTIFGEu__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__XS1qTIFGEu__; ?>
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 
+
    </div> 
    <div class="tem_data_list_1 no_bg_src content-section" id="v61b175994d18c" module_id="5000" bg_img_url="" module_type="module"> 
     <div class="container"> 
@@ -1229,45 +1229,48 @@
         <h2 class="title">NEWS</h2> 
        </div> 
        <div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
-        <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
-         <div class="sticky_inquiry_head title"> 
-          <section template-edit="title_languages" module_name="module">
-           Send your inquiry
-          </section> 
-         </div> 
-         <form no_form_enovation action="/add-enquiry" class="fl_box_s" onsubmit="return form_submit(this);"> 
-          <input type="hidden" name="enquiry_type" id="enquiry_type_v61b175994d18c" value="0"> 
-          <input type="hidden" name="visitlength" id="visitlength_v61b175994d18c" value="====1705505164===="> 
-          <input type="hidden" name="source" id="source_v61b175994d18c" value="0"> 
-          <input type="hidden" name="id" id="id_v61b175994d18c" value="0"> 
-          <ul class="fl_row_s"> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="name" id="name_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="email" id="email_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b175994d18c" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="company" id="company_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-           <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b175994d18c" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
-             <div class="required_tips">
-              Format error
-             </div> </label> </li> 
-          </ul> 
-          <div class="btn_box"> 
-           <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
-          </div> 
-         </form> 
-        </div> 
-       </div> 
+  <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
+   <div class="sticky_inquiry_head title"> 
+    <section template-edit="title_languages" module_name="module">
+     Send your inquiry
+    </section> 
+   </div> 
+  <form class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+      <input type="hidden" name="__diyname__" value="customer">
+      <?php echo token(); ?>
+    <ul class="fl_row_s"> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b16a6068af1" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> 
+         <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+    </ul> 
+    <div class="btn_box"> 
+     <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
+    </div> 
+   </form> 
+  </div> 
+ </div>
       </div> 
       <div class="products_ul_box"> 
        <div class="mobile-reverse"> 
@@ -1279,7 +1282,30 @@
         <div> 
          <div class="ai_products_list_ul"> 
           <ul> 
-           <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+
+            <?php $__iBgW68253N__ = $__PAGELIST__; if(is_array($__iBgW68253N__) || $__iBgW68253N__ instanceof \think\Collection || $__iBgW68253N__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__iBgW68253N__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+            <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+                <div class="li_border"> 
+                 <a target="_blank" href="<?php echo $item['url']; ?>"> 
+                  <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
+                   <img video-img="<?php echo $item['image']; ?>" img_preview_gif="" alt="<?php echo $item['title']; ?>" video_w="600" onerror="onerror=null;src='/images/errorImg.png'"> 
+                   <span class="there_video_icons videos_js_icons"><i class="iconfont iconbofang"></i></span> 
+                  </div> </a> 
+                 <div class="text"> 
+                  <a target="_blank" href="<?php echo $item['url']; ?>"> 
+                   <div class="title" title="<?php echo $item['title']; ?>" title_lengths="">
+                   <?php echo $item['title']; ?> 
+                   </div> 
+                   <div class="describe" title="<?php echo $item['description']; ?>" title_lengths="">
+                   <?php echo $item['description']; ?> 
+                   </div> </a> 
+                  <div class="date" btn_show="0">
+                   <?php echo date("Y/m/d",$item['publishtime']); ?>
+                  </div> 
+                 </div> 
+                </div> </li>
+		    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__iBgW68253N__; ?>
+           <!-- <li class="list_row_li" modular-edit="custom" list_cols="3" mobile_list_cols=""> 
             <div class="li_border"> 
              <a target="_blank" href="/news-detail-4591160"> 
               <div class="img_par no_img_src list_module_1" img_par_proportion="1" style=""> 
@@ -1507,7 +1533,7 @@
                2023/11/20
               </div> 
              </div> 
-            </div> </li> 
+            </div> </li>  -->
           </ul> 
           <div class="m_case_content_video_show" style="clear:both;padding:50px 0;text-align:center;display:none">
            No more~~
@@ -1539,14 +1565,15 @@
     }
     </style> 
           <nav> 
-           <ul class="pagination"> 
+            <?php echo $__PAGELIST__->render(["type"=>"full"]); ?>
+           <!-- <ul class="pagination"> 
             <li class="page-item disabled bg-color" aria-disabled="true" aria-label="« Previous"> <span class="page-link rel_ck" aria-hidden="true"><span class="iconfont iconchaopimiaotuangou-"></span></span> </li> 
             <li class="page-item active" aria-current="page"><span class="page-link active font-color">1</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-2">2</a></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-3">3</a></li> 
             <li class="page-item" aria-disabled="true"><span class="page-link">...</span></li> 
             <li class="page-item"><a class="page-link" href="https://www.sincereminingindustry.com/news-list-9">9</a></li> 
-            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/news-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li> 
+            <li class="page-item"> <a class="page-link rel_ck bg-color" href="https://www.sincereminingindustry.com/news-list-2" rel="next" aria-label="Next »"><span class="iconfont iconleft"></span></a> </li>  -->
             <!-- <li class="li_form">
                 <form action="" class="pagination_form" onsubmit="return pagination_v61b175994d18c(this);">
                     <input type="hidden" class="list_limit" value="12">
@@ -1560,7 +1587,7 @@
                     </div>
                 </form>
             </li> --> 
-           </ul> 
+           <!-- </ul>  -->
           </nav> 
           <script mos-id="v61b175994d18c">
         function pagination_v61b175994d18c(form){
@@ -1637,9 +1664,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__J0DCxo5Oin__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__J0DCxo5Oin__) || $__J0DCxo5Oin__ instanceof \think\Collection || $__J0DCxo5Oin__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__J0DCxo5Oin__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__BRQeWgUy75__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__BRQeWgUy75__) || $__BRQeWgUy75__ instanceof \think\Collection || $__BRQeWgUy75__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__BRQeWgUy75__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__J0DCxo5Oin__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__BRQeWgUy75__; ?>
          </section> 
         </div> 
        </div> </li> 
@@ -1858,6 +1885,150 @@
        });
    })();
    </script> 
+
+<script mos-id="v61b1ab05d42f2">
+    fun_scr_arr.push({name:'link',url:"/template/default2/css/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1ab05d42f2",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script>
+
  <script mos-id="v61aed7e4d2e8e">
    fun_scr_arr.push({
        name:5,
@@ -4132,6 +4303,152 @@ $(function(){
    </div> 
   </div> 
  </div> 
+
+ 
+
+<!-- <script mos-id="v61b1aabb8df7e">
+    fun_scr_arr.push({name:'link',url:"/products_detail/ail_detail.css?v=1663233647",rel:"stylesheet",id:"styles_ail_detail"})
+    $(function () {
+        var generate_id = "v61b1aabb8df7e",
+            box = $('#'+generate_id);
+        box.find('.detail_tabbox_item').click(function(){
+            box.find('.detail_tabbox_item').removeClass('border-color');
+            $(this).addClass('border-color');
+            box.find('.cons_box').hide();
+            box.find('[con_ids="'+$(this).attr("data-id")+'"]').show();
+        })
+        box.find('img').not('.icon_play').click(function(){
+            var img = $(this),
+                src = img.attr('data-src');
+            if (!src) {
+                src = img.attr('src');
+            }
+            if (!src) {return;}
+            img.zoomable(function() { return src; });
+        })
+
+        if (box.find('img[data-src]').length) {
+            $(window).on('scroll', imgLazyLoad2);
+            $('.body_color_bgs .content').on('scroll', imgLazyLoad2);
+            imgLazyLoad2();
+        }
+
+        box.find('.package-img-container').on('mouseenter',function(){
+            package_img_fun($(this));
+        })
+        function package_img_fun(that){
+            var id = that.attr("img_id"),
+                src = that.find('.package-img-entry').attr('src'),
+                boxs = null;
+
+            if(id){
+                boxs = $('#'+id);
+            }else{
+                id = 'img_id'+new Date().getTime();
+                that.attr("img_id",id);
+                boxs = $('<div id="'+id+'"><img style="max-width:800px;" src="'+src+'"></div>');
+                $('body').append(boxs);
+                that.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+                boxs.mouseenter(function(){
+                    boxs.stop().fadeIn(200);
+                })
+                boxs.mouseleave(function(){
+                    boxs.stop().fadeOut(200);
+                })
+            }
+
+            boxs.css({
+                position: 'absolute',
+                top: that.offset().top,
+                left: that.offset().left+that.width()+6,
+                'z-index': '999'
+            }).stop().fadeIn(200);
+
+        }
+    })
+    var imgLazyLoad_bol22 = document.createElement('canvas').toDataURL('image/webp', 0.5).indexOf('data:image/webp') === 0;
+    function imgLazyLoad2 () {
+        var $win = $(window),
+            viewportHeight = $win.height(),
+            v_w = $win.width(),
+            scrollTop = $win.scrollTop(),
+            isCompress = $('#compress_onoff').val(),
+            isCapture = $('#compress_capture_onoff').val(),
+            compressQuality = $('#img_compress').val(),
+            isWebP = $('#compress_webp_onoff').val();
+        $('img[data-src]').not('.show_imgss').each(function () {
+            var $img = $(this),
+                x = scrollTop + viewportHeight - $img.offset().top
+
+            if (x <= 0) {
+                return false
+            }
+
+            var src = $img.attr('data-src')
+
+            if (src.indexOf('http') !== -1) {
+                if(src.indexOf('weyesimg')!==-1&&src.indexOf('imgbd')==-1){
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/w/' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format/webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 &&(src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/q/' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/q/' + compressQuality
+                    }
+
+                    var new_p = resize_w  + quality_url + format_webp;
+                    if (new_p) {
+                        new_p = '?imageView2/2' + new_p;
+                    }
+                    src = src + new_p;
+                }else{
+                    var i_w = v_w + 30
+                    var resize_w = '';
+                    if (isCapture == 1) {
+                        resize_w = '/resize,m_lfit,w_' + i_w;
+                    }
+                    var format_webp = '';
+                    if (imgLazyLoad_bol && isWebP == 1) {
+                        format_webp = '/format,webp';
+                    }
+                    var quality_url = '';
+                    if (isCompress == 1 && (src.indexOf('.jpg')>-1||src.indexOf('.png')>-1)) {
+                        quality_url = '/quality,' + compressQuality
+                    } else if (isCompress == 1 && imgLazyLoad_bol && isWebP == 1) {
+                        quality_url = '/quality,' + compressQuality
+                    }
+
+                    var new_p = resize_w + format_webp + quality_url;
+                    if (new_p) {
+                        new_p = '?x-oss-process=image' + new_p;
+                    }
+
+                    if (src.indexOf('?') !== -1) {
+                        if (src.indexOf('?x-oss-process=video') == -1 && src.indexOf('?x-oss-process=image') !== -1) {
+                            src = src.slice(0, src.indexOf('?'));
+                            src = src + new_p;
+                        }
+                    } else {
+                        src = src + new_p;
+                    }
+                }
+            }
+            $img.addClass('show_imgss');
+            $img.attr('src', src);
+        })
+    }
+</script> -->
+
  <script>
    const CustomizedCaptcha = {
      dom: null,
