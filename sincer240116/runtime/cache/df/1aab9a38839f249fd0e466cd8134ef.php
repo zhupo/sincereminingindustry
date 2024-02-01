@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:30:{s:2:"id";i:66;s:4:"type";s:4:"list";s:8:"model_id";i:13;s:9:"parent_id";i:0;s:4:"name";s:4:"News";s:5:"image";s:54:"/uploads/20230707/ae27c37d8bc5b3429e1b36b8690df8ce.jpg";s:4:"flag";N;s:8:"seotitle";s:0:"";s:8:"keywords";s:0:"";s:11:"description";s:0:"";s:7:"diyname";s:4:"News";s:7:"outlink";s:0:"";s:5:"items";i:4;s:5:"weigh";i:7;s:10:"channeltpl";s:14:"list_News.html";s:7:"listtpl";s:14:"list_News.html";s:7:"showtpl";s:14:"show_News.html";s:8:"pagesize";i:2;s:12:"iscontribute";i:0;s:5:"isnav";i:1;s:10:"createtime";i:1669552781;s:10:"updatetime";i:1706543788;s:6:"status";s:6:"normal";s:5:"lmimg";s:0:"";s:7:"cpindex";s:1:"0";s:6:"target";s:1:"0";s:4:"href";s:1:"0";s:7:"lanmujj";s:0:"";s:6:"nofoot";s:1:"0";s:4:"lmbj";s:54:"/uploads/20221120/5eaf631e001bef111c1195636f94bfc5.jpg";}

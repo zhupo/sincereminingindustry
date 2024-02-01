@@ -1,0 +1,43 @@
+<div class="sticky_box inquiry_right_sticky_box" btn_show="1"> 
+  <div class="sticky_inquiry product_enquiry_box news_details_left_block left_con_colors"> 
+   <div class="sticky_inquiry_head title"> 
+    <section template-edit="title_languages" module_name="module">
+     Send your inquiry
+    </section> 
+   </div> 
+  <form class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+      <input type="hidden" name="__diyname__" value="customer">
+      {:token()}
+    <ul class="fl_row_s"> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your name" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your e-mail" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>E-mail</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your phone" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b16a6068af1" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span"><span class="font-color">*</span>Phone/WhatsApp/Skype</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label"> 
+         <input type="text" class="enquiry_inp enquiry_inp_placeholder" title placeholder="Enter your company name" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span"><span class="font-color">*</span>Company Name</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+     <li class="fl12_s"> <label class="enquiry_label textarea_boxs"> 
+         <textarea class="enquiry_inp enquiry_inp_placeholder" rows="3" title placeholder="Enter the content of your inquiry" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b16a6068af1" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span"><span class="font-color">*</span>Content</span> 
+       <div class="required_tips">
+        Format error
+       </div> </label> </li> 
+    </ul> 
+    <div class="btn_box"> 
+     <button class="btn" id="submit_data_list_1" btn-types="deep" btn_screen="1">Submit</button> 
+    </div> 
+   </form> 
+  </div> 
+ </div>
