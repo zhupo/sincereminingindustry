@@ -497,33 +497,8 @@
 }
 </style> 
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1792ed0448" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020792958.jpg" module_type="module"> 
-    <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">ABOUT US</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/pages-27440" style="display: inline;">ABOUT US</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1792ed0448" module_id="5005" bg_img_url="{cms:channel name="image" /}" module_type="module"> 
+    {include file="common/mbx" /}
    </div> 
    <div class="tem_picture_2 no_bg_src content-section" id="v61b1799cf1c89" module_id="5018" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
     <div class="container"> 
@@ -569,7 +544,7 @@
      </div> 
     </div> 
    </div> 
-   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17b3d8ba08" module_id="5015" bg_img_url="" module_type="module"> 
+   <!-- <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17b3d8ba08" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
       <div class="top_title "> 
@@ -639,7 +614,9 @@
       </ul> 
      </div> 
     </div> 
-   </div> 
+   </div>  -->
+
+
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17dd309530" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
@@ -1155,17 +1132,15 @@
       </div> 
      </div> 
      <div class="con enquiry_box"> 
-      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
-       <input type="hidden" name="enquiry_type" id="enquiry_type_v61b19d8e662a2" value="0"> 
-       <input type="hidden" name="visitlength" id="visitlength_v61b19d8e662a2" value="====1705505241===="> 
-       <input type="hidden" name="source" id="source_v61b19d8e662a2" value="0"> 
-       <input type="hidden" name="id" id="id_v61b19d8e662a2" value="0"> 
+      <form no_form_enovation class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+        <input type="hidden" name="__diyname__" value="customer">
+        {:token()}
        <ul class="row_small"> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61b19d8e662a2" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61b19d8e662a2" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b19d8e662a2" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61b19d8e662a2" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="deep"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b19d8e662a2" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b19d8e662a2" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b19d8e662a2" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b19d8e662a2" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b19d8e662a2" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="deep"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b19d8e662a2" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
        </ul> 
        <div class="enquiry_btn_box btn_box "> 
         <button id="submit_v61b19d8e662a2" type="submit" class="btn" btn-types="deep"> 

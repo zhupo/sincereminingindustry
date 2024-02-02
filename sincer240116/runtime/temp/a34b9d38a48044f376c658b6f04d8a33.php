@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/show_service.html";i:1706462784;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:116:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/show_service.html";i:1706890252;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__FIufieV1At__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__FIufieV1At__) || $__FIufieV1At__ instanceof \think\Collection || $__FIufieV1At__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__FIufieV1At__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__H17S63FsuU__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__H17S63FsuU__) || $__H17S63FsuU__ instanceof \think\Collection || $__H17S63FsuU__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__H17S63FsuU__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__Y8WMkSJNoG__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__Y8WMkSJNoG__) || $__Y8WMkSJNoG__ instanceof \think\Collection || $__Y8WMkSJNoG__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Y8WMkSJNoG__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__PbFWsHVRDm__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__PbFWsHVRDm__) || $__PbFWsHVRDm__ instanceof \think\Collection || $__PbFWsHVRDm__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__PbFWsHVRDm__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__J71Al48Xos__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__J71Al48Xos__) || $__J71Al48Xos__ instanceof \think\Collection || $__J71Al48Xos__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__J71Al48Xos__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__B7Onm0IJwD__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__B7Onm0IJwD__) || $__B7Onm0IJwD__ instanceof \think\Collection || $__B7Onm0IJwD__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__B7Onm0IJwD__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__J71Al48Xos__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__B7Onm0IJwD__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Y8WMkSJNoG__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__PbFWsHVRDm__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__FIufieV1At__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__H17S63FsuU__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1197,35 +1197,33 @@
 }
 </style>
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1aabb8df70" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020484688.jpg" module_type="module"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1aabb8df70" module_id="5005" bg_img_url="<?php echo $__CHANNEL__['image']; ?>" module_type="module"> 
     <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <div class="top_title">
-         CASES
-        </div> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/cases" style="display: inline;">CASES</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
+		</div> 
+		<div class="top_describe"> 
+		<?php $__1RVbKHaWIz__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__1RVbKHaWIz__) || $__1RVbKHaWIz__ instanceof \think\Collection || $__1RVbKHaWIz__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__1RVbKHaWIz__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__1RVbKHaWIz__; ?>
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 
+
    </div> 
    <div class="tem_detail_1 no_bg_src content-section" id="v61b1aabb8df7b" module_id="5021" bg_img_url="" module_type="module"> 
     <div class="recommend_swiper_list_x"> 
@@ -1346,22 +1344,22 @@
           </div> 
          </div> 
          <div class="img_par no_img_src" v_id="2947314" lang="en" img_par_proportion=""> 
-          <img class="preview_img" alt="Copper sulfate detection" video-img="https://img001.video2b.com/1186/file_01684379162150.png"> 
-          <span class="hide" video-src="https://img001.video2b.com/hls/1186/file_01684379170331.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01684379170331.m3u8" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
+          <img class="preview_img" alt="<?php echo $__ARCHIVES__['title']; ?>" video-img="<?php echo $__ARCHIVES__['image']; ?>"> 
+          <span class="hide" video-src="<?php echo $__ARCHIVES__['video']; ?>" video-m3u8src="https://img001.video2b.com/m3u8/file_01684379170331.m3u8" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
          </div> 
         </div> </li> 
        <li class="picture_li"> 
-        <video style="display:none!important;" poster="https://img001.video2b.com/1186/file_01684379162150.png" muted src="https://img001.video2b.com/hls/1186/file_01684379170331.mp4"></video> 
-        <div itemprop="thumbnailUrl" content="https://img001.video2b.com/1186/file_01684379162150.png"></div> 
+        <video style="display:none!important;" poster="<?php echo $__ARCHIVES__['image']; ?>" muted src="<?php echo $__ARCHIVES__['video']; ?>"></video> 
+        <div itemprop="thumbnailUrl" content="<?php echo $__ARCHIVES__['image']; ?>"></div> 
         <div itemprop="duration" content="PT2M53S"></div> 
-        <div itemprop="contentUrl" content="https://img001.video2b.com/hls/1186/file_01684379170331.mp4"></div> 
+        <div itemprop="contentUrl" content="<?php echo $__ARCHIVES__['video']; ?>"></div> 
         <div itemprop="embedUrl" content="https://www.sincereminingindustry.com/products-detail-2947314"></div> 
         <div itemprop="uploadDate" content="2023-05-18T11:07:41+08:00"></div> 
         <div class="sticky_box"> 
-         <h1 class="top_title" itemprop="name">Copper sulfate detection</h1> 
+         <h1 class="top_title" itemprop="name"><?php echo $__ARCHIVES__['title']; ?></h1> 
          <div class="top_describe" itemprop="description">
-          <p>Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture.</p>
+          <p><?php echo $__ARCHIVES__['description']; ?></p>
          </div> 
          <div class="btn_box" btn_show="1"> 
           <a href="#v61b1aabb8df84" target="_self"> 
@@ -1380,7 +1378,7 @@
     <div class="content_detail_edit"> 
      <div class="container"> 
       <div class="cons_box ls-product" con_ids="product_details_cont"> 
-       <p>Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture. It is also used in the manufacture of copper compounds, as well as in electroplating and metal finishing processes. One of the key challenges in working with copper sulfate is ensuring that it is of the correct concentration and purity. This is where on-site testing comes in. On-site testing allows for quick and accurate determination of the concentration and purity of copper sulfate, ensuring that it is suitable for its intended use. One of the most commonly used methods for on-site testing of copper sulfate is the gravimetric method. This involves the use of a balance to determine the mass of a sample of copper sulfate, which can then be used to calculate its concentration. Another method for on-site testing of copper sulfate is the titration method. This involves the use of a titrant, typically a solution of <a target="_blank" class="keyword_link font-color" href="https://www.sincereminingindustry.com/products-27884" title="sodium hydroxide">sodium hydroxide</a>, to neutralize the copper sulfate solution. The volume of titrant required to neutralize the copper sulfate solution can then be used to calculate its concentration. Once the concentration and purity of copper sulfate have been determined, it can be used in a variety of applications. In agriculture, copper sulfate is often used as a fungicide to control fungal diseases on crops such as grapes, apples, and potatoes. It can also be used as an herbicide to control weeds and unwanted vegetation. In the manufacturing of copper compounds, copper sulfate is a key ingredient in the production of copper oxide, <a target="_blank" class="keyword_link font-color" href="https://www.sincereminingindustry.com/products-27881" title="copper carbonate">copper carbonate</a>, and copper hydroxide. It is also used in electroplating and metal finishing processes to provide a durable and corrosion-resistant coating. In conclusion, on-site testing is an essential part of ensuring the quality of copper sulfate for its various applications. With accurate testing methods and proper use, copper sulfate can be a valuable tool in agriculture, manufacturing, and other industries.</p> 
+       <?php echo $__ARCHIVES__['content']; ?> 
       </div> 
       <div class="cons_box ls-product" con_ids="company_profile_cont"> 
        <div class="details_cont_title">
@@ -1556,17 +1554,15 @@
       </div> 
      </div> 
      <div class="con enquiry_box"> 
-      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
-       <input type="hidden" name="enquiry_type" id="enquiry_type_v61b1aabb8df85" value="1"> 
-       <input type="hidden" name="visitlength" id="visitlength_v61b1aabb8df85" value="====1705505132===="> 
-       <input type="hidden" name="source" id="source_v61b1aabb8df85" value="0"> 
-       <input type="hidden" name="id" id="id_v61b1aabb8df85" value="2947314"> 
+      <form no_form_enovation class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html">
+        <input type="hidden" name="__diyname__" value="customer">
+        <?php echo token(); ?>
        <ul class="row_small"> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61b1aabb8df85" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61b1aabb8df85" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b1aabb8df85" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61b1aabb8df85" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b1aabb8df85" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b1aabb8df85" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b1aabb8df85" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b1aabb8df85" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="shallow"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b1aabb8df85" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="shallow"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b1aabb8df85" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
        </ul> 
        <div class="enquiry_btn_box btn_box "> 
         <button id="submit_v61b1aabb8df85" type="submit" class="btn" btn-types="deep"> 
@@ -1598,86 +1594,24 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color"></div> 
       <div class="swiper-pagination"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-         <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/61LZ-5446-97fa-e081-4b7c-2100.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
-         <a class="href_id_a" title="Customer product customization case | XSC" href="/products-detail-263617" target="_blank"></a> 
-         <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/7O3B-7096-f9ad-7fa2-bc26-5a2e.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/FCI131DD-DCX5-H8WV/3f30b9-b982-2085-2b1c30-45db-e40292.m3u8" playback_mode=""></span> 
-         <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-        </div> 
-        <div class="text"> 
-         <a target="_blank" href="/products-detail-263617"> 
-          <div class="title" title_lengths="">
-            Customer product customization case | XSC 
-          </div> 
-          <div class="describe" title_lengths="">
-            The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification. 
-          </div> </a> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-         <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/QSKV-3519-3079-da9a-534a-8300.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
-         <a class="href_id_a" title="Customer product customization case | XSC" href="/products-detail-263618" target="_blank"></a> 
-         <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/T81Q-4175-4572-9794-bea1-5e6a.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/HM6MTJ8U-I5TH-E7NY/fc10ec-50c1-8edb-f01556-9e47-99cc25.m3u8" playback_mode=""></span> 
-         <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-        </div> 
-        <div class="text"> 
-         <a target="_blank" href="/products-detail-263618"> 
-          <div class="title" title_lengths="">
-            Customer product customization case | XSC 
-          </div> 
-          <div class="describe" title_lengths="">
-            We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers. 
-          </div> </a> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-         <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/19T5-4191-a376-419b-e583-a7d7.jpg" img_preview_gif="" alt="Russian Customer Customization Zinc Sulphate Heptahydrate"> 
-         <a class="href_id_a" title="Russian Customer Customization Zinc Sulphate Heptahydrate" href="/products-detail-277214" target="_blank"></a> 
-         <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/QCAB-6666-7f33-2abc-c8b4-3be2.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/AR4B8W8M-WFH4-MAGS/639d7a-d551-14c1-37c6c3-8dd2-74111f.m3u8" playback_mode=""></span> 
-         <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-        </div> 
-        <div class="text"> 
-         <a target="_blank" href="/products-detail-277214"> 
-          <div class="title" title_lengths="">
-            Russian Customer Customization Zinc Sulphate Heptahydrate 
-          </div> 
-          <div class="describe" title_lengths="">
-            Fertilizer,Feed additives,Mineral and Chemical industry. 
-          </div> </a> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-         <img class="" video-img="https://img001.video2b.com/1186/file_01641882876495.jpg" img_preview_gif="" alt="Zinc Sulphate Monohydrate，in 1-11-2022"> 
-         <a class="href_id_a" title="Zinc Sulphate Monohydrate，in 1-11-2022" href="/products-detail-277255" target="_blank"></a> 
-         <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01641882570358.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01641882570358.m3u8" playback_mode=""></span> 
-         <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-        </div> 
-        <div class="text"> 
-         <a target="_blank" href="/products-detail-277255"> 
-          <div class="title" title_lengths="">
-            Zinc Sulphate Monohydrate，in 1-11-2022 
-          </div> 
-          <div class="describe" title_lengths="">
-            Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC 
-          </div> </a> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-         <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2022-1/jpg/6S0A-7596-47b2-f381-9f17-5067.jpg" img_preview_gif="" alt="Manganese Sulphate Monohydrate Cooperation Case | XSC"> 
-         <a class="href_id_a" title="Manganese Sulphate Monohydrate Cooperation Case | XSC" href="/products-detail-282522" target="_blank"></a> 
-         <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/0Y2I-1415-e609-4e9a-5292-7dea.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/3T62AA62-YQQR-I7OR/862449-62e8-0fc2-3a6f2f-d3f5-bfce54.m3u8" playback_mode=""></span> 
-         <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-        </div> 
-        <div class="text"> 
-         <a target="_blank" href="/products-detail-282522"> 
-          <div class="title" title_lengths="">
-            Manganese Sulphate Monohydrate Cooperation Case | XSC 
-          </div> 
-          <div class="describe" title_lengths="">
-            Manganese Sulphate Monohydrate ApplicationsIt is used as base fertilizer, seed soaking, dress seeds, topdressing and foliar spray. In animal husbandry and feed industry, it is used as a feed additive to make livestock and poultry develop well. 
-          </div> </a> 
-        </div> </li> 
+        <?php $__9P2sfWRqMO__ = \addons\cms\model\Channel::getChannelList(["id"=>"channel","type"=>"son","typeid"=>"44","orderby"=>"weigh","orderway"=>"asc"]); if(is_array($__9P2sfWRqMO__) || $__9P2sfWRqMO__ instanceof \think\Collection || $__9P2sfWRqMO__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9P2sfWRqMO__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;$__IUZj2XgYJT__ = \addons\cms\model\Archives::getArchivesList(["id"=>"prod","channel"=>$channel['id'],"orderby"=>"weigh","orderway"=>"desc","row"=>"2","addon"=>"content,video"]); if(is_array($__IUZj2XgYJT__) || $__IUZj2XgYJT__ instanceof \think\Collection || $__IUZj2XgYJT__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__IUZj2XgYJT__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$prod): $mod = ($i % 2 );++$i;?>
+                <li class="list_row_li swiper-slide" modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+                    <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+                     <img style="height: 250px;" class="" video-img="<?php echo $prod['image']; ?>" img_preview_gif="" alt="<?php echo $prod['title']; ?>"> 
+                     <a class="href_id_a" title="<?php echo $prod['title']; ?>" href="<?php echo $prod['url']; ?>" target="_blank"></a> 
+                     <span editable="video" video-type="" video-src="<?php echo $prod['video']; ?>" playback_mode=""></span> 
+                     <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+                    </div> 
+                    <div class="text"> 
+                     <a target="_blank" href="<?php echo $prod['url']; ?>"> 
+                      <div class="title" title_lengths="">
+                        <?php echo $prod['title']; ?> 
+                      </div> 
+                      <div class="describe" title_lengths="">
+                        <?php echo $prod['description']; ?> 
+                      </div> </a> 
+                    </div> </li>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__IUZj2XgYJT__; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9P2sfWRqMO__; ?>
       </ul> 
      </div> 
     </div> 
@@ -1718,9 +1652,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__UyelpZk0Gr__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__UyelpZk0Gr__) || $__UyelpZk0Gr__ instanceof \think\Collection || $__UyelpZk0Gr__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__UyelpZk0Gr__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__4YkzxFAuOG__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__4YkzxFAuOG__) || $__4YkzxFAuOG__ instanceof \think\Collection || $__4YkzxFAuOG__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__4YkzxFAuOG__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__UyelpZk0Gr__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__4YkzxFAuOG__; ?>
          </section> 
         </div> 
        </div> </li> 

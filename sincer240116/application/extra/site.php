@@ -48,7 +48,7 @@ return array (
   'indexfdc' => '0',
   'indexxm' => '0',
   'footimg' => '',
-  'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60995564.45003508!2d95.36850704754482!3d-21.077701802043496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2z5r6z5aSn5Yip5Lqa!5e0!3m2!1szh-CN!2shk!4v1676797610952!5m2!1szh-CN!2shk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+  'map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.3158564431424!2d112.99112131544393!3d28.197714710376935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34274a709be3e1cd%3A0x977e1469346d7d97!2s399%20Bayi%20Rd%2C%20Furong%20Qu%2C%20Chang%20Sha%20Shi%2C%20Hu%20Nan%20Sheng%2C%20China!5e0!3m2!1sen!2shk!4v1638411342784!5m2!1sen!2shk" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>',
   'tell' => '86-731-82281544',
   'emaill' => 'Shiyang@hncmcl.com | marketing1@hncmcl.com | binge@hncmcl.com',
   'abn' => '',

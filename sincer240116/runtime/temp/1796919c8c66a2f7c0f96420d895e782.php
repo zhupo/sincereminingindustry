@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:113:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/show_News.html";i:1706463246;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:113:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/show_News.html";i:1706893519;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__FmYcyrw0Ao__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__FmYcyrw0Ao__) || $__FmYcyrw0Ao__ instanceof \think\Collection || $__FmYcyrw0Ao__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__FmYcyrw0Ao__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__qKr875FviW__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__qKr875FviW__) || $__qKr875FviW__ instanceof \think\Collection || $__qKr875FviW__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__qKr875FviW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__W3tyqXVBpl__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__W3tyqXVBpl__) || $__W3tyqXVBpl__ instanceof \think\Collection || $__W3tyqXVBpl__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__W3tyqXVBpl__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__DjqINxHMFs__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__DjqINxHMFs__) || $__DjqINxHMFs__ instanceof \think\Collection || $__DjqINxHMFs__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__DjqINxHMFs__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__dM9bmfIJrq__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__dM9bmfIJrq__) || $__dM9bmfIJrq__ instanceof \think\Collection || $__dM9bmfIJrq__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dM9bmfIJrq__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__khG3vPNgHl__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__khG3vPNgHl__) || $__khG3vPNgHl__ instanceof \think\Collection || $__khG3vPNgHl__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__khG3vPNgHl__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dM9bmfIJrq__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__khG3vPNgHl__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__W3tyqXVBpl__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__DjqINxHMFs__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__FmYcyrw0Ao__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__qKr875FviW__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1193,55 +1193,53 @@
 }
 </style> 
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1ab2e34f76" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020699344.jpg" module_type="module"> 
-    <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <div class="top_title">
-         NEWS
-        </div> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/news" style="display: inline;">NEWS</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1ab2e34f76" module_id="5005" bg_img_url="<?php echo $__CHANNEL__['image']; ?>" module_type="module"> 
+		<div modular-edit="custom"> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
+		</div> 
+		<div class="top_describe"> 
+		<?php $__z9AjQyGeRO__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__z9AjQyGeRO__) || $__z9AjQyGeRO__ instanceof \think\Collection || $__z9AjQyGeRO__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__z9AjQyGeRO__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__z9AjQyGeRO__; ?>
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 
+
    </div> 
    <div class="tem_detail_3 no_bg_src" module_center="left" id="v61b1ab2e34f7d" module_id="5023" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom" itemscope itemtype="http://schema.org/VideoObject"> 
-      <video style="display:none!important;" poster="https://img001.video2b.com/1186/file_01705287118727.png" muted src="https://img001.video2b.com/hls/1186/file_01705287171462.mp4"></video> 
-      <div itemprop="thumbnailUrl" content="https://img001.video2b.com/1186/file_01705287118727.png"></div> 
+      <video style="display:none!important;" poster="<?php echo $__ARCHIVES__['image']; ?>" muted src="<?php echo $__ARCHIVES__['video']; ?>"></video> 
+      <div itemprop="thumbnailUrl" content="<?php echo $__ARCHIVES__['image']; ?>"></div> 
       <div itemprop="duration" content="PT34S"></div> 
-      <div itemprop="contentUrl" content="https://img001.video2b.com/hls/1186/file_01705287171462.mp4"></div> 
+      <div itemprop="contentUrl" content="<?php echo $__ARCHIVES__['video']; ?>"></div> 
       <div itemprop="embedUrl" content="https://www.sincereminingindustry.com/news-detail-4591160"></div> 
       <div itemprop="uploadDate" content="2024-01-15T10:53:11+08:00"></div> 
-      <h1 class="top_title" itemprop="name">Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang</h1> 
+      <h1 class="top_title" itemprop="name"><?php echo $__ARCHIVES__['title']; ?></h1> 
       <div class="top_details" itemprop="description">
-       <p>On January 15, 2024, our company successfully completed the loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang. The shipment is bound for a country in Africa, marking another milestone in our commitment to meeting the global demand for high-quality chemical products.</p>
+       <p><?php echo $__ARCHIVES__['description']; ?></p>
       </div> 
       <div class="data_time">
-       2024/01/15
+				<?php echo date("Y/m/d",$__ARCHIVES__['publishtime']); ?>
       </div> 
       <div class="img_par no_img_src" v_id="4591160" lang="en" img_par_proportion=""> 
-       <img class="preview_img" alt="Loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang" video-img="https://img001.video2b.com/1186/file_01705287118727.png"> 
-       <span class="hide" video-src="https://img001.video2b.com/hls/1186/file_01705287171462.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01705287171462.m3u8" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
+       <img class="preview_img" alt="<?php echo $__ARCHIVES__['title']; ?>" video-img="<?php echo $__ARCHIVES__['image']; ?>"> 
+       <span class="hide" video-src="<?php echo $__ARCHIVES__['video']; ?>" video-m3u8src="https://img001.video2b.com/m3u8/file_01705287171462.m3u8" editable="video" video-type="1" video_mid="2" playback_mode=""></span> 
        <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
       </div> 
      </div> 
@@ -1251,14 +1249,7 @@
     <div class="content_detail_edit"> 
      <div class="container"> 
       <div class="cons_box ls-product" con_ids="product_details_cont"> 
-       <p>On January 15, 2024, our company successfully completed the loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang. The shipment is bound for a country in Africa, marking another milestone in our commitment to meeting the global demand for high-quality chemical products.</p>
-       <p>The loading process was executed with precision and efficiency, in line with our stringent quality standards and safety protocols. Our team worked tirelessly to ensure that the entire operation ran smoothly, from the initial stages of planning and preparation to the final stages of securing the cargo for its journey across the seas.</p>
-       <p>Sodium metabisulfite is a key ingredient in various industries, including food processing, water treatment, and pharmaceuticals. Its versatile properties make it an essential component in a wide range of manufacturing processes, and our company takes great pride in being able to supply this vital product to markets around the world.</p>
-       <p>As we continue to expand our global reach, we remain committed to upholding the highest levels of quality, integrity, and reliability in all of our operations. Our ability to deliver on our promises is a testament to the dedication and expertise of our team, as well as the strong relationships we have built with our partners and customers.</p>
-       <p>With this latest shipment, we are not only fulfilling a contractual obligation but also contributing to the economic development and growth of the destination country in Africa. By providing essential raw materials and resources, we are playing a role in supporting industries and improving the overall quality of life for communities in this region.</p>
-       <p>Looking ahead, we are excited about the opportunities that lie ahead for our company in the global marketplace. We are constantly exploring new partnerships, expanding our product offerings, and investing in technologies that will further enhance our capabilities and efficiency.</p>
-       <p>At the same time, we remain mindful of our responsibility to operate in a sustainable and environmentally conscious manner. We are committed to minimizing our impact on the environment and supporting initiatives that promote conservation and eco-friendly practices.</p>
-       <p>In conclusion, the successful loading of 2,000 tons of sodium metabisulfite at Chenglingji Terminal in Yueyang represents a significant achievement for our company. It is a testament to our unwavering dedication to excellence and our ability to deliver on our promises, no matter the challenges we may face.</p>
+				<?php echo $__ARCHIVES__['content']; ?>
        <p><br></p> 
       </div> 
       <div class="cons_box ls-product" con_ids="company_profile_cont"> 
@@ -1376,9 +1367,19 @@
     <div class="container"> 
      <div class="articles_lr_box"> 
       <div class="articles_con"> 
-       <div class="articles_l"> 
-        <a href="/news-detail-4549232" target="_self" title="Lead-zinc mine, how to choose?"> <span class="iconfont iconchaopimiaotuangou- right_10"></span> <span class="right_20 x_btns title">PREV</span> <span class="articles_lr_text">Lead-zinc mine, how to choose?</span> </a> 
-       </div> 
+			 <?php $prev = \addons\cms\model\Archives::getPrevNext(["id"=>"prev","type"=>"prev","archives"=>$__ARCHIVES__['id'],"channel"=>$__CHANNEL__['id']]);if($prev): ?>
+						<div class="articles_l"> 
+							<a href="<?php echo $prev['url']; ?>" target="_self" title="<?php echo $prev['title']; ?>"> 
+								<span class="iconfont iconchaopimiaotuangou- right_10"></span> <span class="right_20 x_btns title">
+									PREV</span><span class="articles_lr_text"><?php echo $prev['title']; ?></span> </a> 
+						 </div> 
+            <?php else:endif;$next = \addons\cms\model\Archives::getPrevNext(["id"=>"next","type"=>"next","archives"=>$__ARCHIVES__['id'],"channel"=>$__CHANNEL__['id']]);if($next): ?>
+						<div class="articles_r"> 
+							<a href="<?php echo $next['url']; ?>" target="_self" title="<?php echo $next['title']; ?>"> 
+								<span class="iconfont iconchaopimiaotuangou- right_10"></span> <span class="right_20 x_btns title">
+									NEXT</span><span class="articles_lr_text"><?php echo $next['title']; ?></span> </a> 
+						 </div>
+            <?php else:endif;?>
       </div> 
      </div> 
     </div> 
@@ -1419,9 +1420,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__wsIqlrHKYo__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__wsIqlrHKYo__) || $__wsIqlrHKYo__ instanceof \think\Collection || $__wsIqlrHKYo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__wsIqlrHKYo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__BksKzNJxhP__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__BksKzNJxhP__) || $__BksKzNJxhP__ instanceof \think\Collection || $__BksKzNJxhP__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__BksKzNJxhP__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__wsIqlrHKYo__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__BksKzNJxhP__; ?>
          </section> 
         </div> 
        </div> </li> 

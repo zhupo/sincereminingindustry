@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706458562;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706895489;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__we4syEBb8A__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__we4syEBb8A__) || $__we4syEBb8A__ instanceof \think\Collection || $__we4syEBb8A__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__we4syEBb8A__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__gP702SBAb9__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__gP702SBAb9__) || $__gP702SBAb9__ instanceof \think\Collection || $__gP702SBAb9__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__gP702SBAb9__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__IqMsQymD3v__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__IqMsQymD3v__) || $__IqMsQymD3v__ instanceof \think\Collection || $__IqMsQymD3v__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__IqMsQymD3v__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__dHsNu5jSlL__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__dHsNu5jSlL__) || $__dHsNu5jSlL__ instanceof \think\Collection || $__dHsNu5jSlL__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dHsNu5jSlL__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__MC6drA5I3D__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__MC6drA5I3D__) || $__MC6drA5I3D__ instanceof \think\Collection || $__MC6drA5I3D__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__MC6drA5I3D__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__RT4rcMQm9l__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__RT4rcMQm9l__) || $__RT4rcMQm9l__ instanceof \think\Collection || $__RT4rcMQm9l__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__RT4rcMQm9l__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__MC6drA5I3D__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__RT4rcMQm9l__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__IqMsQymD3v__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dHsNu5jSlL__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__we4syEBb8A__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__gP702SBAb9__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1199,33 +1199,33 @@
 }
 </style> 
   <div class="content_box"> 
-   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1792ed0448" module_id="5005" bg_img_url="https://img001.video2b.com/1186/file_01639020792958.jpg" module_type="module"> 
+   <div class="tem_breadcrumb_1 no_bg_src" id="v61b1792ed0448" module_id="5005" bg_img_url="<?php echo $__CHANNEL__['image']; ?>" module_type="module"> 
     <div modular-edit="custom"> 
-     <div class="absolute_box"> 
-      <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-     </div> 
-     <div class="text"> 
-      <div class="container"> 
-       <div class="text"> 
-        <h1 class="top_title">ABOUT US</h1> 
-       </div> 
-       <div class="top_describe"> 
-        <span><a href="/" style="display: inline;">HOME</a></span> 
-        <i>&gt;</i> 
-        <span><a href="/pages-27440" style="display: inline;">ABOUT US</a></span> 
-       </div> 
-      </div> 
-     </div> 
-     <a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
-      <div>
-       <span class="iconfont iconVR"></span>
-      </div> 
-      <div class="vr_txt"> 
-       <section template-edit="btn_languages" module_name="module">
-        VR
-       </section> 
-      </div> </a> 
-    </div> 
+	<div class="absolute_box"> 
+	 <span video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+	</div> 
+	<div class="text"> 
+	 <div class="container"> 
+		<div class="text"> 
+		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
+		</div> 
+		<div class="top_describe"> 
+		<?php $__rVN843LFYW__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__rVN843LFYW__) || $__rVN843LFYW__ instanceof \think\Collection || $__rVN843LFYW__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__rVN843LFYW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__rVN843LFYW__; ?>
+		</div> 
+	 </div> 
+	</div> 
+	<a target="_self" href="" class="home_banner_vr_btn" btn_show="0"> 
+	 <div>
+		<span class="iconfont iconVR"></span>
+	 </div> 
+	 <div class="vr_txt"> 
+		<section template-edit="btn_languages" module_name="module">
+		 VR
+		</section> 
+	 </div> </a> 
+ </div> 
+
    </div> 
    <div class="tem_picture_2 no_bg_src content-section" id="v61b1799cf1c89" module_id="5018" bg_img_url="https://img001.video2b.com/1186/file_01638934631850.png" module_type="module"> 
     <div class="container"> 
@@ -1271,7 +1271,7 @@
      </div> 
     </div> 
    </div> 
-   <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17b3d8ba08" module_id="5015" bg_img_url="" module_type="module"> 
+   <!-- <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17b3d8ba08" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
       <div class="top_title "> 
@@ -1341,7 +1341,9 @@
       </ul> 
      </div> 
     </div> 
-   </div> 
+   </div>  -->
+
+
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17dd309530" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
      <div class="text top_text" modular-edit="custom"> 
@@ -1857,17 +1859,15 @@
       </div> 
      </div> 
      <div class="con enquiry_box"> 
-      <form no_form_enovation action="/add-enquiry" class="row_small_box" onsubmit="return form_submit(this);"> 
-       <input type="hidden" name="enquiry_type" id="enquiry_type_v61b19d8e662a2" value="0"> 
-       <input type="hidden" name="visitlength" id="visitlength_v61b19d8e662a2" value="====1705505241===="> 
-       <input type="hidden" name="source" id="source_v61b19d8e662a2" value="0"> 
-       <input type="hidden" name="id" id="id_v61b19d8e662a2" value="0"> 
+      <form no_form_enovation class="row_small_box" onsubmit="return $('.formPoint').show();" method="POST" action="/d/customer/post.html"> 
+        <input type="hidden" name="__diyname__" value="customer">
+        <?php echo token(); ?>
        <ul class="row_small"> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="name" id="name_v61b19d8e662a2" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="email" id="email_v61b19d8e662a2" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="phone" id="phone_v61b19d8e662a2" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="company" id="company_v61b19d8e662a2" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
-        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="deep"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="msg" id="msg_v61b19d8e662a2" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[name]" id="name_v61b19d8e662a2" title placeholder="Enter your name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" required name="row[email]" id="email_v61b19d8e662a2" title placeholder="Enter your e-mail" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">E-mail</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[telephone]" id="phone_v61b19d8e662a2" oninput="this.value=this.value.replace(/[^\d]/,'');setCustomValidity('')" title placeholder="Enter your phone" oninvalid="setCustomValidity('Please fill in this field')"> <span class="required_span">Phone/WhatsApp/Skype</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class=""> <label class="enquiry_label form_inp " inp-types="deep"> <input type="text" class="enquiry_inp enquiry_inp_placeholder" autocorrect="off" autocomplete="off" name="row[company]" id="company_v61b19d8e662a2" title placeholder="Enter your company name" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"> <span class="required_span">Company Name</span> <p class="required_tips">Format error</p> </label> </li> 
+        <li class="li-fill" style="width:100%;"> <label class="enquiry_label form_inp " inp-types="deep"> <textarea class="enquiry_inp enquiry_inp_placeholder" rows="4" autocorrect="off" autocomplete="off" required name="row[content]" id="msg_v61b19d8e662a2" title placeholder="Enter the content of your inquiry" oninvalid="setCustomValidity('Please fill in this field')" oninput="setCustomValidity('')"></textarea> <span class="required_span">Content</span> <p class="required_tips">Format error</p> </label> </li> 
        </ul> 
        <div class="enquiry_btn_box btn_box "> 
         <button id="submit_v61b19d8e662a2" type="submit" class="btn" btn-types="deep"> 
@@ -1915,9 +1915,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__T37rgMIsqj__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__T37rgMIsqj__) || $__T37rgMIsqj__ instanceof \think\Collection || $__T37rgMIsqj__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__T37rgMIsqj__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__B4vehLcwHS__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__B4vehLcwHS__) || $__B4vehLcwHS__ instanceof \think\Collection || $__B4vehLcwHS__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__B4vehLcwHS__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__T37rgMIsqj__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__B4vehLcwHS__; ?>
          </section> 
         </div> 
        </div> </li> 
