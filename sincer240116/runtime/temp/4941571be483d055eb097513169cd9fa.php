@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706895489;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:117:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/channel_about.html";i:1706944035;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/top.html";i:1706629610;s:114:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/mbx.html";i:1706721057;s:115:"/Users/panliu/Documents/privateProject/sincereminingindustry/sincer240116/addons/cms/view/default2/common/foot.html";i:1706806799;}*/ ?>
 <!doctype html>
 <html lang="en">
  <head> 
@@ -671,27 +671,27 @@
           <li class=" "> <a href="/about">ABOUT US</a> </li> 
           <li class=" "> <a href="/contact-us">CONTACT US</a> </li>  -->
 
-        <?php $__gP702SBAb9__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__gP702SBAb9__) || $__gP702SBAb9__ instanceof \think\Collection || $__gP702SBAb9__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__gP702SBAb9__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+        <?php $__et2lQzqkDo__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__et2lQzqkDo__) || $__et2lQzqkDo__ instanceof \think\Collection || $__et2lQzqkDo__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__et2lQzqkDo__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
         <li class="<?php if($nav->is_active): ?>active<?php endif; if($nav['has_child']): ?> xia <?php endif; ?>">
             <a href="<?php echo $nav['url']; ?>"><?php echo $nav['name']; ?></a>
             <?php if($nav['has_child']): ?>
             <i class="i_con iconfont iconxiala1"></i> 
                 <ul class="nav_ul">
-                    <?php $__dHsNu5jSlL__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__dHsNu5jSlL__) || $__dHsNu5jSlL__ instanceof \think\Collection || $__dHsNu5jSlL__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dHsNu5jSlL__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+                    <?php $__Zml5k6jD9x__ = \addons\cms\model\Channel::getChannelList(["id"=>"son","type"=>"son","condition"=>"1=isnav","typeid"=>$nav['id'],"cache"=>"0","row"=>"20"]); if(is_array($__Zml5k6jD9x__) || $__Zml5k6jD9x__ instanceof \think\Collection || $__Zml5k6jD9x__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__Zml5k6jD9x__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
                         <li><a href="<?php echo $son['url']; ?>"><?php echo $son['name']; ?></a>
                         <?php if($son['has_child']): ?>
                             <ul class="nav_ul">
-                            <?php $__RT4rcMQm9l__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__RT4rcMQm9l__) || $__RT4rcMQm9l__ instanceof \think\Collection || $__RT4rcMQm9l__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__RT4rcMQm9l__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
+                            <?php $__dv7G1Ztjpn__ = \addons\cms\model\Channel::getChannelList(["id"=>"sons","condition"=>"1=isnav","type"=>"son","typeid"=>$son['id'],"cache"=>"0"]); if(is_array($__dv7G1Ztjpn__) || $__dv7G1Ztjpn__ instanceof \think\Collection || $__dv7G1Ztjpn__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__dv7G1Ztjpn__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sons): $mod = ($i % 2 );++$i;?>
                                 <li><a href="<?php echo $sons['url']; ?>"><?php echo $sons['name']; ?></a></li>
-                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__RT4rcMQm9l__; ?>
+                            <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dv7G1Ztjpn__; ?>
                             </ul> 
                         <?php endif; ?>
                         </li>
-                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__dHsNu5jSlL__; ?>
+                    <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Zml5k6jD9x__; ?>
                 </ul>
             <?php endif; ?>
         </li>
-        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__gP702SBAb9__; ?>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__et2lQzqkDo__; ?>
          </ul> 
         </div> 
         <div class="m_iconfenxiang_boxs iconfenxiang_boxs" btn_show="1"></div> 
@@ -1210,8 +1210,8 @@
 		 <h1 class="top_title"><?php echo $__CHANNEL__['name']; ?></h1> 
 		</div> 
 		<div class="top_describe"> 
-		<?php $__rVN843LFYW__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__rVN843LFYW__) || $__rVN843LFYW__ instanceof \think\Collection || $__rVN843LFYW__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__rVN843LFYW__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
-		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__rVN843LFYW__; ?>
+		<?php $__Ste1iDGgKm__ = \addons\cms\model\Channel::getBreadcrumb($__CHANNEL__??[], $__ARCHIVES__??[], $__TAGS__??[], $__PAGE__??[], $__DIYFORM__??[]); if(is_array($__Ste1iDGgKm__) || $__Ste1iDGgKm__ instanceof \think\Collection || $__Ste1iDGgKm__ instanceof \think\Paginator): $k = 0; $__LIST__ = $__Ste1iDGgKm__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($k % 2 );++$k;if($k>1): ?> <i>&gt;</i> <?php endif; ?><span><a href="<?php echo $item['url']; ?>" style="display: inline;"><?php echo $item['name']; ?></a></span>
+		<?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__Ste1iDGgKm__; ?>
 		</div> 
 	 </div> 
 	</div> 
@@ -1232,41 +1232,43 @@
      <div class="picture_con"> 
       <ul class="picture_ul" direction="3"> 
        <li class="picture_li"> 
+        <?php $__VTU2tPOGHr__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about-about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__VTU2tPOGHr__) || $__VTU2tPOGHr__ instanceof \think\Collection || $__VTU2tPOGHr__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__VTU2tPOGHr__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
         <div class="sticky_box" modular-edit="custom"> 
-         <div class="img_par no_img_src tem_picture_2__cover" img_type=""> 
-          <img video-img="https://img001.video2b.com/1186/file_01639021192494.jpg" alt=""> 
-          <span video-type="" video-src="https://img001.video2b.com/m3u8/file_01639981134144.m3u8" video-m3u8src="" playback_mode=""></span> 
-          <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-         </div> 
-        </div> </li> 
+          <div class="img_par no_img_src tem_picture_2__cover" img_type=""> 
+           <img video-img="<?php echo $block['image']; ?>" alt=""> 
+           <span video-type="" video-src="<?php echo $block['url']; ?>" video-m3u8src="" playback_mode=""></span> 
+           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+          </div> 
+         </div>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__VTU2tPOGHr__; ?>
+      
+      </li> 
        <li class="picture_li"> 
+        <?php $__f5nWVKsB0h__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about-about","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__f5nWVKsB0h__) || $__f5nWVKsB0h__ instanceof \think\Collection || $__f5nWVKsB0h__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__f5nWVKsB0h__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
         <div class="sticky_box"> 
-         <div class="top_title"> 
-          <section template-edit="title_languages" module_name="module">
-           <p><span style="color:#13234a;"></span><span style="font-size:16px;"><span style="color:#1aaec2;">since 2005</span></span></p>
-           <p><span style="color:#13234a;">Hunan Sincere Chemicals Co., LTD</span></p>
-          </section> 
-         </div> 
-         <div class="top_describe"> 
-          <section template-edit="describe_languages" module_name="module">
-           <p><span style="color:#666;">The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 9001:2015 international quality management system certification.</span></p>
-           <p><br><span style="color:#666;">The company is a member of Sincere Chemicals (HK) Co., LTD., Our Corporation has built 4 manufacturing plants including Sulfate Product, Lead Nitrate, Sodium Metabisulfite and Sodium Persulphate , which are located in Hunan Province. Our business office is located in Changsha, the capital of Hunan Province.</span></p>
-           <p><br><span style="color:#666;">We have &nbsp;Export License. We have a professional team with exporting experience and considerable service. The company also can accept OEM order.<br>Hunan Sincere Cheimcals Co.,LTD provides us dollar, euro, RMB and other settlement services to minimize the risk of US dollar exchange rate. Secondly, according to customer demand and payment ability, we will try our best to provide satisfactory payment and settlement methods.</span></p>
-           <p><br><span style="color:#666;">We provide special inspection according to the requirements of customers in some countries. For example, SGS inspection certificate will be required for products exported to Indonesia, Australia and South Africa; CIQ certificate will be required for goods transported to Bangladesh; bv certificate will be required for goods exported to Iraq.<br>We will provide information and photos of the whole process from production to logistics, so that customers can grasp the cargo information and transportation status in real time. At the same time, according to the difference of goods ordered by customers.</span></p>
-          </section> 
-         </div> 
-         <div class="img_list"> 
-          <ul class="img_ul"> 
-          </ul> 
-         </div> 
-         <div class="btn_box" btn_show="0"> 
-          <div> 
-           <div class="btn" btn-types="deep"> 
-            <section template-edit="btn_languages" module_name="module"></section> 
+          <div class="top_title"> 
+           <section template-edit="title_languages" module_name="module">
+            <p><span style="color:#13234a;"></span><span style="font-size:16px;"><span style="color:#1aaec2;">since 2005</span></span></p>
+            <p><span style="color:#13234a;"><?php echo $block['title']; ?></span></p>
+           </section> 
+          </div> 
+          <div class="top_describe"> 
+            <?php echo $block['content']; ?>
+          </div> 
+          <div class="img_list"> 
+           <ul class="img_ul"> 
+           </ul> 
+          </div> 
+          <div class="btn_box" btn_show="0"> 
+           <div> 
+            <div class="btn" btn-types="deep"> 
+             <section template-edit="btn_languages" module_name="module"></section> 
+            </div> 
            </div> 
           </div> 
-         </div> 
-        </div> </li> 
+         </div>
+        <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__f5nWVKsB0h__; ?>
+      </li> 
       </ul> 
      </div> 
     </div> 
@@ -1346,204 +1348,142 @@
 
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b17dd309530" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
-     <div class="text top_text" modular-edit="custom"> 
-      <div class="top_title "> 
-       <section template-edit="title_languages" module_name="module">
-        <p><span style="color:#13234a;">production process </span></p>
-       </section> 
-      </div> 
-      <div class="top_details "> 
-       <section template-edit="describe_languages" module_name="module">
-        <p><span style="color:#666;">They are all manufactured according to the strictest international standards. Our products have received favor from both domestic and foreign markets.<br>They are now widely exporting to 200 countries.</span></p>
-       </section> 
-      </div> 
-     </div> 
+     <?php $__QI7rGgwPod__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"abount-production-process","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__QI7rGgwPod__) || $__QI7rGgwPod__ instanceof \think\Collection || $__QI7rGgwPod__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__QI7rGgwPod__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+         <div class="text top_text" modular-edit="custom"> 
+          <div class="top_title "> 
+           <section template-edit="title_languages" module_name="module">
+            <p><span style="color:#13234a;"><?php echo $block['title']; ?></span></p>
+           </section> 
+          </div> 
+          <div class="top_details "> 
+           <section template-edit="describe_languages" module_name="module">
+           <?php echo $block['content']; ?> 
+           </section> 
+          </div> 
+         </div>
+      <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__QI7rGgwPod__; ?>
+
      <div class="con swiper-container"> 
       <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
-      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01639019252939.jpg" img_preview_gif="" alt="production line"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             production line 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01639019259735.jpg" img_preview_gif="" alt="Production and transportation"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Production and transportation 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01639019266299.jpg" img_preview_gif="" alt="Production process"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Production process 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01639019273559.jpg" img_preview_gif="" alt="Making utensils"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Making utensils 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-      </ul> 
+      <?php $__xh2rPNs7na__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"abount-production-process","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__xh2rPNs7na__) || $__xh2rPNs7na__ instanceof \think\Collection || $__xh2rPNs7na__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__xh2rPNs7na__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): ?>
+        <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+         <?php if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
+          <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+            <div class="list_box"> 
+             <div class="list_con" direction="4"> 
+              <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+               <img class="" video-img="<?php echo cdnurl($image); ?>" img_preview_gif="" alt="production line"> 
+               <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+               <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+              </div> 
+              <div class="text"> 
+               <div class="title" title_lengths="">
+                <?php echo $block['intro'][$key]['info']; ?> 
+               </div> 
+               <div display_none class="describe" title_lengths=""> 
+               </div> 
+              </div> 
+             </div> 
+            </div> </li>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      </ul>
+      <?php endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__xh2rPNs7na__; ?> 
      </div> 
     </div> 
    </div> 
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b19832307ee" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
-     <div class="text top_text" modular-edit="custom"> 
-      <div class="top_title "> 
-       <section template-edit="title_languages" module_name="module">
-        <p><span style="color:#13234a;">Packaging and logistics</span></p>
-       </section> 
-      </div> 
-      <div class="top_details "> 
-       <section template-edit="describe_languages" module_name="module">
-        <p><span style="color:#666;">The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. </span></p>
-       </section> 
-      </div> 
-     </div> 
+     <?php $__jDNb3nHeML__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about-packaging-logistics","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__jDNb3nHeML__) || $__jDNb3nHeML__ instanceof \think\Collection || $__jDNb3nHeML__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__jDNb3nHeML__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+         <div class="text top_text" modular-edit="custom"> 
+          <div class="top_title "> 
+           <section template-edit="title_languages" module_name="module">
+            <p><span style="color:#13234a;"><?php echo $block['title']; ?></span></p>
+           </section> 
+          </div> 
+          <div class="top_details "> 
+           <section template-edit="describe_languages" module_name="module">
+           <?php echo $block['content']; ?> 
+           </section> 
+          </div> 
+         </div>
+      <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__jDNb3nHeML__; ?>
+
      <div class="con swiper-container"> 
       <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
-      <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01641284624844.jpg" img_preview_gif="" alt="Product Loading"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Product Loading 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01641284627430.jpg" img_preview_gif="" alt="Product Packaging"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Product Packaging 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01641284633167.jpg" img_preview_gif="" alt="Packaging Process"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Packaging Process 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
-        <div class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01641284636110.jpg" img_preview_gif="" alt="Loading And Shipping"> 
-           <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Loading And Shipping 
-           </div> 
-           <div display_none class="describe" title_lengths=""> 
-           </div> 
-          </div> 
-         </div> 
-        </div> </li> 
-      </ul> 
+      <?php $__b2grc7U5s1__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"about-packaging-logistics","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__b2grc7U5s1__) || $__b2grc7U5s1__ instanceof \think\Collection || $__b2grc7U5s1__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__b2grc7U5s1__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): ?>
+        <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
+         <?php if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
+          <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="4" mobile_list_cols=""> 
+            <div class="list_box"> 
+             <div class="list_con" direction="4"> 
+              <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+               <img class="" video-img="<?php echo cdnurl($image); ?>" img_preview_gif="" alt="production line"> 
+               <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+               <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+              </div> 
+              <div class="text"> 
+               <div class="title" title_lengths="">
+                <?php echo $block['intro'][$key]['info']; ?> 
+               </div> 
+               <div display_none class="describe" title_lengths=""> 
+               </div> 
+              </div> 
+             </div> 
+            </div> </li>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      </ul>
+      <?php endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__b2grc7U5s1__; ?>  
      </div> 
     </div> 
    </div> 
    <div class="public_lists_tem_1 no_bg_src content-section" module_center="center" id="v61b19a59b326e" module_id="5015" bg_img_url="" module_type="module"> 
     <div class="container"> 
-     <div class="text top_text" modular-edit="custom"> 
-      <div class="top_title "> 
-       <section template-edit="title_languages" module_name="module">
-        <p><span style="color:#13234a;">Exhibition information</span></p>
-       </section> 
-      </div> 
-      <div class="top_details "> 
-       <section template-edit="describe_languages" module_name="module">
-        <p><span style="color:#666;">They are all manufactured according to the strictest international standards. Our products have received favor from both domestic and foreign markets.<br>They are now widely exporting to 200 countries.</span></p>
-       </section> 
-      </div> 
-     </div> 
+     <?php $__qe0j8AMPJk__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"abount-exhibition","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__qe0j8AMPJk__) || $__qe0j8AMPJk__ instanceof \think\Collection || $__qe0j8AMPJk__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__qe0j8AMPJk__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;?> 
+         <div class="text top_text" modular-edit="custom"> 
+          <div class="top_title "> 
+           <section template-edit="title_languages" module_name="module">
+            <p><span style="color:#13234a;"><?php echo $block['title']; ?></span></p>
+           </section> 
+          </div> 
+          <div class="top_details "> 
+           <section template-edit="describe_languages" module_name="module">
+           <?php echo $block['content']; ?> 
+           </section> 
+          </div> 
+         </div>
+      <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__qe0j8AMPJk__; ?>
      <div class="con swiper-container"> 
       <div class="iconfont iconios-arrow-back left_icon bg-color " btn_show="1"></div> 
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
+      <?php $__mAbpgIDU02__ = \addons\cms\model\Block::getBlockList(["id"=>"block","name"=>"abount-exhibition","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__mAbpgIDU02__) || $__mAbpgIDU02__ instanceof \think\Collection || $__mAbpgIDU02__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__mAbpgIDU02__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$block): $mod = ($i % 2 );++$i;if(!(empty($block['images']) || (($block['images'] instanceof \think\Collection || $block['images'] instanceof \think\Paginator ) && $block['images']->isEmpty()))): ?>
+        <ul class="list_row_ul swiper-wrapper" swiper_switch="1"> 
+         <?php if(is_array(explode(',',$block['images'])) || explode(',',$block['images']) instanceof \think\Collection || explode(',',$block['images']) instanceof \think\Paginator): $i = 0; $__LIST__ = explode(',',$block['images']);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$image): $mod = ($i % 2 );++$i;?>
+          <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
+            <div class="list_box"> 
+             <div class="list_con" direction="4"> 
+              <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+               <img class="" video-img="<?php echo cdnurl($image); ?>" img_preview_gif="" alt="production line"> 
+               <span editable="video" video-type="" video-src="" video-m3u8src="" playback_mode=""></span> 
+               <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+              </div> 
+              <div class="text"> 
+               <div class="title" title_lengths="">
+                <?php echo $block['intro'][$key]['info']; ?> 
+               </div> 
+               <div display_none class="describe" title_lengths=""> 
+               </div> 
+              </div> 
+             </div> 
+            </div> </li>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      </ul>
+      <?php endif; endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__mAbpgIDU02__; ?> 
+<!-- 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="1"> 
        <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> 
         <div class="list_box"> 
@@ -1766,7 +1706,7 @@
           </div> 
          </div> 
         </div> </li> 
-      </ul> 
+      </ul>  -->
      </div> 
     </div> 
    </div> 
@@ -1789,57 +1729,26 @@
       <div class="iconfont iconios-arrow-forward right_icon bg-color " btn_show="1"></div> 
       <div class="swiper-pagination" btn_show="1"></div> 
       <ul class="list_row_ul swiper-wrapper" swiper_switch="0"> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Customer product customization case | XSC" href="/products-detail-263617" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/image/2021-12/jpg/61LZ-5446-97fa-e081-4b7c-2100.jpg" img_preview_gif="" alt="Customer product customization case | XSC"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.aivideo8.com/tvHr5q-i9Yw/daa96d96-2496/video/2022-1/mp4/7O3B-7096-f9ad-7fa2-bc26-5a2e.mp4" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/FCI131DD-DCX5-H8WV/3f30b9-b982-2085-2b1c30-45db-e40292.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Customer product customization case | XSC 
-           </div> 
-           <div class="describe" title_lengths="">
-             The Hunan Sincere Chemicals Co., LTD was recombined in 2014. Since 2005, we have established stable business relationships with clients from more than 60 different countries and regions. We had passed ISO 90012015 international quality management system certification. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Copper sulfate detection" href="/products-detail-2947314" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01684379162150.png" img_preview_gif="" alt="Copper sulfate detection"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01684379170331.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01684379170331.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Copper sulfate detection 
-           </div> 
-           <div class="describe" title_lengths="">
-             Copper sulfate, also known as blue vitriol, is a common industrial chemical used in a variety of applications. Among its many uses, copper sulfate is often used as a fungicide, herbicide, and pesticide in agriculture. 
-           </div> 
-          </div> 
-         </div> </a> </li> 
-       <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="Zinc Sulphate Monohydrate，in 1-11-2022" href="/products-detail-277255" target="_blank" class="list_box"> 
-         <div class="list_con" direction="4"> 
-          <div class="img_par no_img_src" img_text_align="2" img_type=""> 
-           <img class="" video-img="https://img001.video2b.com/1186/file_01641882876495.jpg" img_preview_gif="" alt="Zinc Sulphate Monohydrate，in 1-11-2022"> 
-           <span class="href_id_a"></span> 
-           <span editable="video" video-type="" video-src="https://img001.video2b.com/hls/1186/file_01641882570358.mp4" video-m3u8src="https://img001.video2b.com/m3u8/file_01641882570358.m3u8" playback_mode=""></span> 
-           <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
-          </div> 
-          <div class="text"> 
-           <div class="title" title_lengths="">
-             Zinc Sulphate Monohydrate，in 1-11-2022 
-           </div> 
-           <div class="describe" title_lengths="">
-             Zinc Sulphate Monohydrate custom case, factory video |&nbsp;XSC 
-           </div> 
-          </div> 
-         </div> </a> </li> 
+        <?php $__9jtmhQ10vY__ = \addons\cms\model\Archives::getArchivesList(["id"=>"case","channel"=>"70","orderby"=>"weigh","orderway"=>"desc","row"=>"3","addon"=>"content,video"]); if(is_array($__9jtmhQ10vY__) || $__9jtmhQ10vY__ instanceof \think\Collection || $__9jtmhQ10vY__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__9jtmhQ10vY__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$case): $mod = ($i % 2 );++$i;?>
+              <li class="list_row_li swiper-slide " modular-edit="custom" list_cols="3" mobile_list_cols=""> <a title="<?php echo $case['title']; ?>" href="<?php echo $case['url']; ?>" target="_blank" class="list_box"> 
+                <div class="list_con" direction="4"> 
+                 <div class="img_par no_img_src" img_text_align="2" img_type=""> 
+                  <img class="" style="height: 350px;" video-img="<?php echo $case['image']; ?>" img_preview_gif="" alt="<?php echo $case['title']; ?>"> 
+                  <span class="href_id_a"></span> 
+                  <span editable="video" video-type="" video-src="<?php echo $case['video']; ?>" video-m3u8src="https://img001.aivideo8.com/tvHr5q-i9Yw/cfcd2084-1024/hls/2022-1/FCI131DD-DCX5-H8WV/3f30b9-b982-2085-2b1c30-45db-e40292.m3u8" playback_mode=""></span> 
+                  <span class="there_video_icons videos_js_icons" style="display:none;"><i class="iconfont iconbofang"></i></span> 
+                 </div> 
+                 <div class="text"> 
+                  <div class="title" title_lengths="">
+                    <?php echo $case['title']; ?> 
+                  </div> 
+                  <div class="describe" title_lengths="">
+                    <?php echo $case['description']; ?> 
+                  </div> 
+                 </div> 
+                </div> </a> </li>
+          <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__9jtmhQ10vY__; ?>
+        
       </ul> 
      </div> 
     </div> 
@@ -1915,9 +1824,9 @@
         </div> 
         <div class="con_ul"> 
          <section template-edit="common_footer_txt2_languages" module_name="footer">
-         <?php $__B4vehLcwHS__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__B4vehLcwHS__) || $__B4vehLcwHS__ instanceof \think\Collection || $__B4vehLcwHS__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__B4vehLcwHS__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
+         <?php $__FCbYpq73Et__ = \addons\cms\model\Channel::getChannelList(["id"=>"nav","type"=>"top","cache"=>"0","condition"=>"1=isnav","row"=>"20","orderby"=>"weigh","orderway"=>"desc"]); if(is_array($__FCbYpq73Et__) || $__FCbYpq73Et__ instanceof \think\Collection || $__FCbYpq73Et__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__FCbYpq73Et__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?>
             <p><a data-cke-saved-href="<?php echo $nav['url']; ?>" href="<?php echo $nav['url']; ?>" rel=""><span style="color:#D3D3D3;"><?php echo $nav['name']; ?></span></a></p>
-         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__B4vehLcwHS__; ?>
+         <?php endforeach; endif; else: echo "" ;endif; $__LASTLIST__=$__FCbYpq73Et__; ?>
          </section> 
         </div> 
        </div> </li> 
